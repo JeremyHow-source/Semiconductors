@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FA of Integrated Circuits — Reading Notes</title>
+    <style>
+        :root {
+            --bg-primary: #0f1419;
+            --bg-secondary: #1a2332;
+            --bg-card: #1e2d3d;
+            --text-primary: #e8eaed;
+            --text-secondary: #9aa0a6;
+            --accent: #4fc3f7;
+            --accent-hover: #81d4fa;
+            --border: #2d3f50;
+            --tag-bg: #263545;
+            --tag-text: #80cbc4;
+            --btn-active: #4fc3f7;
+            --btn-inactive: #2d3f50;
+            --success: #66bb6a;
+            --table-header: #263545;
+            --table-row-alt: #1a2832;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 0;
+        }
+        .header {
+            background: linear-gradient(135deg, #1a2332 0%, #0d1b2a 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 2rem 2rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header h1 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.3rem;
+        }
+        .header p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .nav-btn {
+            padding: 0.45rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--btn-inactive);
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.82rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .nav-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .nav-btn.active {
+            background: var(--accent);
+            color: #0f1419;
+            border-color: var(--accent);
+            font-weight: 600;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .section {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        .section.visible { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .note-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.2rem 1.4rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.2s;
+        }
+        .note-card:hover { border-color: var(--accent); }
+        .note-card .chapter {
+            display: inline-block;
+            background: var(--tag-bg);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+        .note-card .date {
+            float: right;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+        }
+        .note-card .content {
+            color: var(--text-primary);
+            font-size: 0.92rem;
+            line-height: 1.75;
+        }
+        .note-card .tags {
+            margin-top: 0.7rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+        .tag {
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            font-size: 0.72rem;
+            padding: 0.15rem 0.55rem;
+            border-radius: 3px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.8rem 0;
+            font-size: 0.85rem;
+        }
+        th {
+            background: var(--table-header);
+            color: var(--accent);
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid var(--border);
+        }
+        td {
+            padding: 0.5rem 0.8rem;
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+        }
+        tr:nth-child(even) td { background: var(--table-row-alt); }
+        .stats-bar {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .stat {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        .stat strong { color: var(--accent); }
+        /* Add Note Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-overlay.show { display: flex; }
+        .modal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 600px;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+        .modal h2 {
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+            font-size: 1.2rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 0.3rem;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.6rem 0.8rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-family: inherit;
+        }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .modal-actions {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+            justify-content: flex-end;
+        }
+        .btn {
+            padding: 0.55rem 1.3rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: #0f1419;
+        }
+        .btn-primary:hover { background: var(--accent-hover); }
+        .btn-secondary {
+            background: var(--btn-inactive);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover { color: var(--text-primary); }
+        .add-note-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #0f1419;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(79, 195, 247, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            z-index: 50;
+        }
+        .add-note-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(79, 195, 247, 0.5);
+        }
+        .toast {
+            position: fixed;
+            bottom: 5rem;
+            right: 2rem;
+            background: var(--success);
+            color: #0f1419;
+            padding: 0.7rem 1.3rem;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 300;
+        }
+        .toast.show { opacity: 1; }
+        .empty-state {
+            text-align: center;
+            color: var(--text-secondary);
+            padding: 3rem 1rem;
+            font-style: italic;
+        }
+        @media (max-width: 768px) {
+            .header { padding: 1.2rem 1rem; }
+            .container { padding: 1rem; }
+            .nav-buttons { gap: 0.35rem; }
+            .nav-btn { font-size: 0.75rem; padding: 0.35rem 0.7rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>Failure Analysis of Integrated Circuits</h1>
+    <p>Reading Notes &mdash; Categorized Reference</p>
+    <div class="stats-bar">
+        <span class="stat">Chapters: <strong>Ch.3, 7, 8, 9, 10, 11, 13, 14, 15</strong></span>
+        <span class="stat" id="noteCount">Notes: <strong>0</strong></span>
+    </div>
+    <div class="nav-buttons">
+        <button class="nav-btn active" data-section="all">All</button>
+        <button class="nav-btn" data-section="electrical-fault">Electrical Fault Isolation</button>
+        <button class="nav-btn" data-section="physical-structural">Physical / Structural Analysis</button>
+        <button class="nav-btn" data-section="package-level">Package-Level Analysis</button>
+        <button class="nav-btn" data-section="failure-mechanisms">Failure Mechanisms</button>
+        <button class="nav-btn" data-section="sample-prep">Sample Preparation &amp; Techniques</button>
+        <button class="nav-btn" data-section="chemical-analysis">Chemical Analysis</button>
+        <button class="nav-btn" data-section="aes">Auger Electron Spectroscopy</button>
+        <button class="nav-btn" data-section="sims">SIMS</button>
+        <button class="nav-btn" data-section="future">Future Directions</button>
+        <button class="nav-btn" data-section="general">General / Miscellaneous</button>
+        <button class="nav-btn" data-section="case-studies">Case Studies</button>
+    </div>
+</div>
+<div class="container" id="notesContainer"></div>
+
+<button class="add-note-btn" onclick="openModal()" title="Add New Note">+</button>
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+        <h2>Add New Note</h2>
+        <div class="form-group">
+            <label>Section</label>
+            <select id="noteSection">
+                <option value="electrical-fault">Electrical Fault Isolation</option>
+                <option value="physical-structural">Physical / Structural Analysis</option>
+                <option value="package-level">Package-Level Analysis</option>
+                <option value="failure-mechanisms">Failure Mechanisms</option>
+                <option value="sample-prep">Sample Preparation &amp; Techniques</option>
+                <option value="chemical-analysis">Chemical Analysis</option>
+                <option value="aes">Auger Electron Spectroscopy</option>
+                <option value="sims">SIMS</option>
+                <option value="future">Future Directions</option>
+                <option value="general">General / Miscellaneous</option>
+                <option value="case-studies">Case Studies</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Chapter</label>
+            <input type="text" id="noteChapter" placeholder="e.g. Ch.10">
+        </div>
+        <div class="form-group">
+            <label>Note Content</label>
+            <textarea id="noteContent" placeholder="Enter your note here..."></textarea>
+        </div>
+        <div class="form-group">
+            <label>Tags (comma-separated)</label>
+            <input type="text" id="noteTags" placeholder="e.g. SEM, resolution, BSE">
+        </div>
+        <div class="modal-actions">
+            <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+            <button class="btn btn-primary" onclick="addNote()">Add Note</button>
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="toast">Note added successfully</div>
+<script>
+const notesData = [
+// === Electrical Fault Isolation (Ch.7) ===
+{section:"electrical-fault",ch:"Ch.7",date:"2026-06-23",tags:[],content:"Two backside approaches can provide the timing information essential for speed path measurements in design debug or failure analysis of speed-sensitive problems: backside drilling followed by mechanical or e-beam probing, and IR (infrared) modulation-based optical beam probing."},
+{section:"electrical-fault",ch:"Ch.7",date:"2026-06-23",tags:[],content:"Backside FIB milling can drill precisely positioned holes with an inverted pyramid profile (effective aspect ratio of ~1:1) to expose metal-1 or polysilicon conductors for probing. Precise positioning is achieved by overlaying a backside IR optical image onto the FIB image. Subsequent e-beam or mechanical probing is slow and tedious, but remains the only way to get quantitative DC or AC voltage amplitude measurements from flip-chip packaged ICs."},
+{section:"electrical-fault",ch:"Ch.7",date:"2026-06-23",tags:[],content:"During IR modulation-based probing, as the IR beam passes through the diffusion region of a transistor, three types of modulation can occur: (1) amplitude modulation, (2) phase shift or propagation delay, and (3) polarization change."},
+{section:"electrical-fault",ch:"Ch.7",date:"2026-06-23",tags:[],content:"The measurement bandwidth during IR modulation probing is limited by the laser pulse width and stimulus source jitter stability. Typical laser pulse widths and jitter yield a ~50 ps measurement bandwidth."},
+{section:"electrical-fault",ch:"Ch.7",date:"2026-06-23",tags:[],content:"Polarization-based IR modulation only works on optically active materials such as GaAs. Phase shift-based modulation detects changes in the active region's refractive index from charge carrier density changes, most prevalent in bipolar or CML devices. Limitation: modulation is very weak in conventional CMOS devices."},
+{section:"electrical-fault",ch:"Ch.7",date:"2026-06-23",tags:[],content:"Amplitude-based IR modulation exploits changes in the electric field across a PN junction (Franz-Keldysh effect). When the IR probe wavelength (~1.06 \u00b5m) is close to the material's band gap energy, it can be used for waveform measurement. Modulation depth on the order of 1 part in ~100,000, making it applicable to conventional CMOS circuits."},
+{section:"electrical-fault",ch:"Ch.7",date:"2026-06-23",tags:[],content:"IR transmission through the silicon substrate decreases exponentially with thickness, so thinning is very beneficial. Anti-reflection coatings on a polished substrate can increase reflected IR power by up to 50%, due to optical impedance mismatch between air (n=1) and bulk silicon IR refractive index (n\u22483.5)."},
+{section:"electrical-fault",ch:"Ch.7",date:"2026-06-23",tags:[],content:"The majority of heat generated by the IC escapes through the substrate. Thermal mass for dissipating power is significantly reduced by thinning the silicon and removing the heat sink."},
+// === Package-Level Analysis ===
+{section:"package-level",ch:"Ch.3",date:"2026-06-13",tags:[],content:"RTX is sensitive to more strongly attenuating materials such as metal leads, eutectic die attach material, and Au bond wires."},
+{section:"package-level",ch:"Ch.3",date:"2026-06-13",tags:[],content:"Depth resolution in the time domain is determined by pulse duration as well as frequency. Typical pulse duration for a broadband transducer is 2 periods at pulse center frequency."},
+{section:"package-level",ch:"Ch.3",date:"2026-06-13",tags:[],content:"RTX and SAM as complementary techniques: SAM detects 'non-wets' where plan-view RTX did not. Caveat: if the die is not underfilled, the air gap between substrate and die prevents SAM from detecting solder bridging on the substrate."},
+{section:"package-level",ch:"Ch.7",date:"2026-06-23",tags:[],content:"The industry migration to flip-chip packaging is driven by signal bandwidth limitation: bond-wire inductance (a few nH/mm) limits usable I/O bandwidth to approximately 300 MHz, whereas solder bumps offer significantly lower inductance."},
+// === Sample Preparation & Techniques (Ch.7, 8, 9) ===
+{section:"sample-prep",ch:"Ch.7",date:"2026-06-23",tags:[],content:"A circuit repair/edit is performed by a series of cuts and conductive straps. Dielectric deposition facilitates strap creation by passivating exposed metal. Dark areas around conductive straps indicate deposition overspray cleaned up with halogen-assisted milling."},
+{section:"sample-prep",ch:"Ch.7",date:"2026-06-23",tags:[],content:"Cuts with isolation resistance up to 1 T\u03a9 can be achieved using gas-assisted etching (GAE) with halogen gases."},
+{section:"sample-prep",ch:"Ch.7",date:"2026-06-23",tags:[],content:"Gate oxide damage from primary ion beam charging during FIB is mitigated because gallium implantation induces sufficient surface leakage current. For highly sensitive devices, a thin conductive carbon coating or low-energy electron flood gun is used."},
+{section:"sample-prep",ch:"Ch.7",date:"2026-06-23",tags:[],content:"To avoid creating floating gates, FIB operations should follow: via contacts first, then deposition, and finally isolation cuts."},
+{section:"sample-prep",ch:"Ch.8",date:"2026-06-24",tags:[],content:"Wet etching is the oldest method for IC deprocessing. Its primary issues are selectivity and isotropic nature causing undercutting. Etch-through has been greatly reduced with via plug technology."},
+{section:"sample-prep",ch:"Ch.8",date:"2026-06-24",tags:[],content:"Major drawback of a barrel etcher is lack of temperature control. Since it is primarily isotropic, undercutting effects are not alleviated."},
+{section:"sample-prep",ch:"Ch.8",date:"2026-06-24",tags:[],content:"The parallel plate etcher improves upon the barrel etcher with temperature control. A 450 kHz RF signal provides directional ion bombardment, giving anisotropic etching. However, sputtered metal from the top electrode can deposit on samples."},
+{section:"sample-prep",ch:"Ch.8",date:"2026-06-24",tags:[],content:"RIE differs from parallel plate: (1) much lower pressures via turbomolecular pump, (2) 13.56 MHz RF source, (3) grounded anode ~2\u00d7 larger than cathode with swapped positions. This creates more ion bombardment on the sample and less anode sputtering."},
+{section:"sample-prep",ch:"Ch.8",date:"2026-06-24",tags:[],content:"Chlorine-based RIE provides greater control for removing aluminium. With tungsten plug technology, toxic chlorine RIE is no longer necessary \u2014 wet etching is more convenient."},
+{section:"sample-prep",ch:"Ch.8",date:"2026-06-24",tags:[],content:"'RIE grass' is caused by redeposition of sputtered materials acting as micromasks. Can be aluminium grass, polymer grass, or from IC package material like gold."},
+{section:"sample-prep",ch:"Ch.8",date:"2026-06-24",tags:[],content:"Mechanical polishing (lapping) has become more competitive as feature sizes decrease and deprocessing artifacts accumulate. Major drawback is difficulty maintaining planarity over larger regions."},
+{section:"sample-prep",ch:"Ch.8",date:"2026-06-24",tags:[],content:"Advantage of polishing over etching: ability to stop mid-layer and view features in the same plane. Useful for inspecting stringers, filaments, and particles."},
+{section:"sample-prep",ch:"Ch.9",date:"2026-06-25",tags:[],content:"Cross-sectioning provides information about defects inaccessible by deprocessing: (1) failures at the bottom of vias/contacts, (2) etch contour or thin film thickness issues, (3) assembly-related defects internal to the package."},
+{section:"sample-prep",ch:"Ch.9",date:"2026-06-25",tags:[],content:"Polishing suspensions are available as liquids and sprays, prepared from powders. Abrasive materials are typically aluminium oxide and diamond."},
+{section:"sample-prep",ch:"Ch.9",date:"2026-06-25",tags:[],content:"Glass wheels are hard lime glass with surface irregularities much less than 1 \u00b5m. They last many months and require only periodic light detergent scrubbings."},
+{section:"sample-prep",ch:"Ch.9",date:"2026-06-25",tags:[],content:"Semiconductor wafers use single-crystal silicon with \u27e8100\u27e9 or \u27e8111\u27e9 lattice plane surface. CMOS most commonly uses \u27e8100\u27e9, giving cleave planes along x and y axes."},
+{section:"sample-prep",ch:"Ch.9",date:"2026-06-25",tags:[],content:"A diamond scribe mark ~5 mm long with 1\u20132 firm strokes is sufficient. Breaking the cleave: place a straightened paper clip under the scribe line, apply slight downward pressure at edges. Accuracy of a few millimetres."},
+{section:"sample-prep",ch:"Ch.9",date:"2026-06-25",tags:[],content:"Polishing can be ineffective for surface defects \u2014 features often break off. A protective oxide or nitride layer is deposited for mechanical stability (spin-on glass, plasma deposition, or FIB for point defects)."},
+{section:"sample-prep",ch:"Ch.9",date:"2026-06-25",tags:[],content:"Staining provides contrast when imaging device features in cross-section. Cross-sections exhibit natural contrast: colour in optical microscopy, atomic number and charging contrasts in SEM."},
+{section:"sample-prep",ch:"Ch.9",date:"2026-06-25",tags:[],content:"Common Oxide Etch (COE): 6% HF (49 wt%), 35% NH\u2084F (40 wt%), 59% water. Standard Oxide Etch (SOE): 50% glacial acetic acid, 5% NH\u2084F (40 wt%), 45% water. Etch times: ~20s light delineation, up to 1 min heavier."},
+{section:"sample-prep",ch:"Ch.9",date:"2026-06-25",tags:[],content:"FIB dual-column systems allow milling while simultaneously observing with FESEM. CAD navigation and wafer mapping enable rapid defect localisation. Gas injection increases flexibility and efficiency."},
+{section:"sample-prep",ch:"Ch.9",date:"2026-06-25",tags:[],content:"Primary FIB limitation: milling time scales linearly with section length; for \u226550 \u00b5m, other techniques are more practical. Second issue: beam damage from redeposition and gallium implantation; charging can cause EOS damage."},
+{section:"sample-prep",ch:"Ch.9",date:"2026-06-25",tags:[],content:"FIB can cut cleanly through soft materials (aluminium, photoresist) that would smear during polishing. Both ion and electron beams in dual-column provide unique contrast for final imaging."},
+{section:"sample-prep",ch:"Ch.9",date:"2026-06-25",tags:[],content:"FIB + cleaving/polishing: sample is cleaved or polished to within a few microns of interest, then FIB mills the remainder. Also aids TEM sample preparation."},
+{section:"sample-prep",ch:"Ch.9",date:"2026-06-25",tags:[],content:"TEM is the technique of choice for very high resolution cross-section imaging. Identifies defects not observable with FESEM: thin contamination layers in vias, gate oxide non-uniformity, stacking faults, dislocations, and chemical phases."},
+{section:"sample-prep",ch:"Ch.9",date:"2026-06-25",tags:[],content:"TEM drawback: sample must fit on a 3 mm grid and be thinned to <100 nm (ideally ~50 nm) for electron transparency. Majority of effort is in sample preparation."},
+{section:"sample-prep",ch:"Ch.9",date:"2026-06-25",tags:[],content:"'Multiple stacking' technique: samples cut to 3 mm \u00d7 1.5 mm, glued into a stack (total thickness \u22642 mm) using low-viscosity phenolic epoxy. Minimum 4 pieces; fronts oriented in non-symmetric pattern for unambiguous TEM identification."},
+{section:"sample-prep",ch:"Ch.9",date:"2026-06-25",tags:[],content:"More than 4 pieces possible if total thickness fits within TEM grid viewable area (typically limited to 6). Backside grinding allows many more samples per stack."},
+// === Physical / Structural Analysis (Ch.10) ===
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:[],content:"In a standard optical microscope, the objective lens creates a focal plane image. The image can be recreated with an ocular lens focused on the retina."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:[],content:"Depth of field is influenced by the same factors as resolution. As resolution improves, depth of field becomes smaller. Confocal microscopy overcomes this by integrating images of differing focal planes."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:[],content:"Working distance is significant for FA. High NA lenses have short working distances. Long working distance lenses (slightly lower NA) are used for packaged devices. Ultra-long WD lenses for probing yield poorest resolution but best depth of field."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["IR","flip-chip","backside-inspection","resolution"],content:"IR microscopy resolution is not as good as visible light (longer wavelength, diffraction-limited). Despite this, migration to flip-chip packaging and more interconnect layers make backside viewing through silicon highly desirable."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["IR","bandgap","active-probe","passive-probe"],content:"IR light slightly above silicon bandgap acts as active probe (generates electron\u2013hole pairs). At longer wavelengths (less energy), IR provides an electrically passive probe."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["SEM","BSE","atomic-number-contrast"],content:"Backscattered electrons (BSE) are incident electrons bounced off nuclei. Primary contrast mechanism is atomic number. BSE energy distribution centre is 50\u201395% of incident electron energy."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["SEM","BSE"],content:"BSE detected with standard SEM detector (secondary electrons rejected by negatively biased grid). Line of sight between detector and sample is required."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["SEM","BSE","solid-state-detector","solder"],content:"BSE imaging uses segmented solid-state detectors at top of SEM chamber. BSE are directional and not deflected by local fields. Useful for detecting lead-rich areas of solder."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["SEM","accelerating-voltage","resolution"],content:"Key SEM variable: accelerating potential. Electrons exhibit particle\u2013wave behaviour with wavelength inversely proportional to energy. This results in diffraction-limited resolution."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["SEM","accelerating-voltage","charging"],content:"Higher accelerating potential advantages are offset by more secondary electron emission outside the spot (degrading resolution) and greater sample charging."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["SEM","accelerating-voltage","charging"],content:"Beam energies: 1\u201325 keV range. 5\u201325 keV when charging is not an issue; 1\u20135 keV for samples that charge."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["SEM","beam-current","resolution","SNR"],content:"Reducing beam current allows smaller spot (higher resolution) but degrades signal-to-noise ratio, impacting contrast and image quality."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["SEM","Auger","beam-current","SNR"],content:"Lower cross-section events (e.g. Auger) require higher beam currents. Poor SNR produces grainy images requiring averaging. Beam current is set to minimum acceptable SNR."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["SEM","working-distance","resolution"],content:"SEM working distance has significant impact on resolution. Ideally imaging at very short working distance; electron optics focus the beam to a spot."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["SEM","working-distance","in-the-lens","resolution"],content:"Highest resolution SEMs place the sample inside the final lens ('in-the-lens'). Limited by small sample size. Short WD can cut off path to secondary electron detector; in-the-lens maximises signal collection."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["SEM","tilt","SNR"],content:"Increased tilt angle increases secondary electron intensity (better SNR) and provides 3D perspective. Larger samples result in very long working distances when tilted."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["SEM","sample-prep","charging","grounding"],content:"SEM sample prep centres on reducing charging. Grounding via mechanical clips preferred over conductive paints (silver/carbon) which degrade chamber vacuum."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["SEM","charging","deprocessing","low-kV"],content:"Dielectrics in IC prevent discharge path from surface. Preferred alternative: low beam energies (~1 keV) especially for deprocessed devices where bond wires are severed."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["SEM","FESEM","charging","coating","EDS"],content:"If low beam energy insufficient: sputter thin conductive coating. Chromium preferred for FESEM. Gold deposits in islands (resolved by FESEM). Carbon coatings used when EDS analysis needed."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["FIB","SIMS","resolution"],content:"FIB is standard for probe point creation and design rewiring. Provides high sensitivity chemical analysis in SIMS mode but spot sizes larger than SEM, giving poorer spatial resolution."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["optical","UV","NVD","SCM","future"],content:"Future: optical microscopy is the only technique for buried defects in planarised devices. UV microscopes will use confocal, laser, immersion lenses. NVD (No Visual Defect) category may require scanning capacitance microscope (SCM)."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["analytical-framework"],content:"Most analytical techniques have 4 critical elements: (1) incident radiation, (2) physical interaction with sample, (3) radiation flux from sample, (4) detector."},
+{section:"physical-structural",ch:"Ch.10",date:"2026-06-25",tags:["analytical-framework","spatial-resolution"],content:"Incident radiation is the dominant factor in spatial resolution. Spatial resolution: smallest area analysable with minimal interference from surrounding material."},
+// === Chemical Analysis (Ch.11) ===
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["EDS","SEM","chemical-analysis"],content:"EDS is the primary chemical analysis tool for FA. Used with SEM, excellent spatial resolution, quick and easy. Enables dot mapping and line scanning."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["EDS","penetration-depth","sensitivity"],content:"EDS penetration: several microns. Surface is small part of sampled volume \u2014 limited value for thin surface films. Sensitivity ~0.1% for most elements, less for light elements."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["EDS","limitations"],content:"EDS disadvantages: moderate sensitivity (especially light elements), limited surface analysis applicability, only atomic information (no molecular)."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["WDS","EDS","sensitivity"],content:"WDS detects same interaction as EDS with improved X-ray peak resolution and better SNR/sensitivity. Drawback: analysis time is long."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["EDS","Auger","SIMS","FTIR","surface-analysis"],content:"EDS limited for surface interactions (Auger fills gap). For high sensitivity: SIMS. For molecular/organic identification: microspot FTIR."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["FTIR","organic-contamination"],content:"Organic contaminants are difficult to differentiate by atomic composition (mostly C, H, O, N). H not detectable by EDS or Auger."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["FTIR","IR-spectroscopy","molecular-identification"],content:"IR spectroscopy identifies organic building blocks through bending, stretching, and vibration transitions within chemical bonds. Each bond type produces a characteristic absorption spectrum."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["FTIR","C=O","functional-groups"],content:"C=O absorbs in narrow range. Exact energy depends on attached groups: aldehydes, ketones, and acids each differ slightly."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["FTIR","spectral-interpretation","fingerprinting"],content:"Complex spectra require comparison to known IR spectra catalogues (fingerprinting). Each bond provides distinct absorption peaks."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["FTIR","polymer","outgassing"],content:"Polymer components (resins, dyes, plasticisers) can be separated by heating and collecting outgassed components at various temperatures for IR analysis."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["FTIR","interferometer","FFT"],content:"FTIR uses an interferometer; signal is Fourier transform of IR spectrum, converted back via FFT. Significantly faster since all wavelengths analysed simultaneously."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["FTIR","microspot","assembly","spatial-resolution"],content:"Microspot FTIR: analysis area as small as several microns. Limited spatial resolution focuses applications in assembly areas where organic contaminants are widespread."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["XPS","ESCA","surface-analysis","oxidation-states"],content:"XPS/ESCA: electrons ejected by monochromatic X-rays. Binding energy is characteristic of elements. Molecular info from oxidation state shifts (more pronounced than Auger). Surface technique."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["ion-chromatography","ionic-contamination"],content:"Ion chromatography: ions extracted (boiling water), concentrated, analysed on columns. Both anions and cations on different column types."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["RGA","cavity-package","moisture","hermeticity"],content:"RGA: package ruptured in vacuum, gases analysed with quadrupole mass spectrometer. Detects moisture or confirms leaks (air instead of nitrogen)."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["AAS","bonding-wire","purity"],content:"AAS: assesses purity of metals in bonding wire analysis. Excellent sensitivity for low concentrations of metallic impurities."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["EDS","spot-size","electron-beam"],content:"EDS spot size less critical than for SEM \u2014 sampled volume is most of the electron interaction volume, large relative to spot size."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["EDS","accelerating-voltage","X-ray-generation"],content:"Higher accelerating potential: more efficient X-ray generation, excites higher energy X-rays. But increases penetration depth, enlarges sampled volume, degrades spatial resolution."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["EDS","beam-current","dead-time"],content:"Higher beam current needed for efficient X-ray acquisition. Limited by detector dead time, sample heating, and charging."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["EDS","dead-time","detector"],content:"Dead time: percentage of time detector is not measuring. Factors: preamplifier processing time, multiple X-ray event rejection. ~60% dead time desired."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["EDS","SiLi-detector","electron-hole-pairs"],content:"Si(Li)/Ge detector: X-rays detected by electron\u2013hole generation. ~3.8\u20133.9 eV per electron\u2013hole pair. Current proportional to X-ray energy."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["EDS","detector","dead-zone"],content:"Dead zone at detector surface: lithium cannot neutralise surface defects, creating traps that reduce current \u2014 produces low-energy tail on peak distribution."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["EDS","escape-peaks","SiLi-detector"],content:"Escape peaks: Si K\u03b1 X-ray escapes detector, reducing energy by 1.74 keV. A few percent of real peak; corrected by subtraction."},
+{section:"chemical-analysis",ch:"Ch.11",date:"2026-06-25",tags:["EDS","detector","Be-window","cryogenic"],content:"Detector maintained at liquid nitrogen temperature (reduce shot noise). Beryllium window transmits high-energy X-rays but absorbs low-energy, limiting detection to Z \u2265 11 (Na)."},
+// === Auger Electron Spectroscopy (Ch.13) ===
+{section:"aes",ch:"Ch.13",date:"2026-06-25",tags:["AES","surface-analysis","spatial-resolution"],content:"AES: elemental ID in highly localised near-surface regions. Spatial resolution as low as 200 \u00c5. Surface analysis of uppermost 20\u201350 \u00c5. Detection limits 0.1\u20131.0%. Depth profiling via sputtering."},
+{section:"aes",ch:"Ch.13",date:"2026-06-25",tags:["AES","Auger-process"],content:"Primary electrons bombard surface, removing inner orbital electrons. Energy imbalance satisfied by electron rearrangement: higher-level electron decays into vacancy, producing either an X-ray or an Auger electron."},
+{section:"aes",ch:"Ch.13",date:"2026-06-25",tags:["AES","spot-analysis","depth-profiling"],content:"Spot analysis: most direct mode, provides composition vs depth profile. Rastering reduces charging and surface damage."},
+{section:"aes",ch:"Ch.13",date:"2026-06-25",tags:["AES","spectral-modes","differential"],content:"Spectra displayed as N(E) vs E, dN(E)/dE vs E (differential), d[E\u00d7N(E)]/dE, or E\u00d7N(E). Differential mode best resolves peaks against background."},
+{section:"aes",ch:"Ch.13",date:"2026-06-25",tags:["AES","quantitative-analysis","SNR"],content:"Least-processed data (N(E) or E\u00d7N(E)) gives best SNR, energy resolution, and quantitative information since signal is proportional to atom count."},
+{section:"aes",ch:"Ch.13",date:"2026-06-25",tags:["AES","energy-calculation","silicon"],content:"Example: vacancy filling energy = 1844\u2212104 eV = 1740 eV. Electron removal energy = 104+17 eV = 121 eV. Auger electron = 1619 eV \u2192 identifies silicon."},
+{section:"aes",ch:"Ch.13",date:"2026-06-25",tags:["AES","charging","current-density","dielectrics"],content:"2 nA beam on 0.1 \u00b5m spot = ~20 A/cm\u00b2. Insulators cannot dissipate this, causing charging that alters peak positions. Surface heating can desorb or melt materials."},
+{section:"aes",ch:"Ch.13",date:"2026-06-25",tags:["AES","preferential-sputtering","depth-profiling","artifacts"],content:"Different elements sputter at different rates under ion bombardment \u2014 surface becomes depleted of faster-sputtering elements (false composition). Crater roughening can exceed Auger escape depth."},
+{section:"aes",ch:"Ch.13",date:"2026-06-25",tags:["AES","vacuum","outgassing","surface-oxidation"],content:"Adsorbed gases and surface oxidation alter AES spectra. High vacuum prevents reoccurrence. Samples must be stable in high vacuum; high vapour pressure samples can contaminate the system."},
+{section:"aes",ch:"Ch.13",date:"2026-06-25",tags:["AES","bond-pad","contamination","passivation"],content:"Thin contamination films prevent reliable bonding. AES identifies surface films and thickness. Incompletely removed passivation shows Si peak at 76 eV (SiO\u2082) and P at 120 eV."},
+{section:"aes",ch:"Ch.13",date:"2026-06-25",tags:["AES","bond-pad","oxyfluoride","surface-texture"],content:"Aluminium oxyfluoride formed during HF etch of bond pads. Discoloured pads (from surface roughening) can be shown by AES to be clean aluminium with normal native oxide."},
+{section:"aes",ch:"Ch.13",date:"2026-06-25",tags:["AES","bond-lift","failure-analysis"],content:"Bond lift failures analysed by AES on both separated surfaces (bond pad and lifted bond)."},
+{section:"aes",ch:"Ch.13",date:"2026-06-25",tags:["AES","nickel-contamination","gold-plating","bondability"],content:"Nickel contamination on gold surfaces prevents bonding. Ni can be co-plated as impurity or diffuse through gold grain boundaries, oxidising to make surface non-bondable."},
+{section:"aes",ch:"Ch.13",date:"2026-06-25",tags:["AES","die-attach","solder","adhesion"],content:"AES analyses solder dewets and poor die attaches. Detects SiO\u2082 on backside gold and composition of die attach areas."},
+// === SIMS (Ch.14) ===
+{section:"sims",ch:"Ch.14",date:"2026-06-25",tags:["SIMS","capabilities"],content:"SIMS: detects all elements, excellent sensitivity, inherent depth profiling. Applications: dopant profiling, mobile ion monitoring, process contamination, thin film characterisation, interface and surface analysis."},
+{section:"sims",ch:"Ch.14",date:"2026-06-25",tags:["SIMS","preventive","process-monitoring"],content:"Preventive mode: evaluating cleaning effectiveness, monitoring new tool contamination impact, implant matching for technology transfer between sites."},
+{section:"sims",ch:"Ch.14",date:"2026-06-25",tags:["SIMS","ion-beam","mass-spectrometer"],content:"Focused primary ion beam (1\u201320 keV) erodes atoms from sample surface. Charge exchange converts eroded atoms to ions, extracted and analysed by mass spectrometer."},
+{section:"sims",ch:"Ch.14",date:"2026-06-25",tags:["SIMS","sensitivity","quantification"],content:"Detection limits: ppm\u2013ppb (atomic concentration). Quantification by comparison to ion-implanted reference samples. Reproducibility approaching 1% under ideal conditions."},
+{section:"sims",ch:"Ch.14",date:"2026-06-25",tags:["SIMS","milling-rate","depth-profiling"],content:"Primary ion beam current density varied over orders of magnitude: milling rates from a few \u00c5/hr to several thousand \u00c5/min. Powerful for surface, bulk, thin film, and depth profiling."},
+// === Future Directions (Ch.15) ===
+{section:"future",ch:"Ch.15",date:"2026-06-25",tags:["fail-site-isolation","memory","CIVA"],content:"Memory (SRAM, DRAM, cache): global fail site isolation via bit fail map from test data. Limited interconnect density allows frontside techniques: liquid crystal, photon emission, CIVA."},
+{section:"future",ch:"Ch.15",date:"2026-06-25",tags:["fail-site-isolation","logic","backside"],content:"Logic products (ASICs, microprocessors): increasing complexity forces development of backside techniques."},
+{section:"future",ch:"Ch.15",date:"2026-06-25",tags:["backside","IR","thinning","flip-chip"],content:"Silicon transmits IR for backside analysis of flip-chip mounted die. Requires substrate thinning (polishing, grinding, micro-milling, RIE). Concerns: optical quality, overheating, fragility."},
+{section:"future",ch:"Ch.15",date:"2026-06-25",tags:["FIB","thinning","limitations"],content:"Laser-assisted chemical etching and FIB milling provide local thinning but are inefficient for full-chip or large-area applications."},
+{section:"future",ch:"Ch.15",date:"2026-06-25",tags:["thermal-analysis","FMI","backside"],content:"Thermal analysis (liquid crystal, FMI) limited from backside by silicon's rapid heat diffusion. IR thermography offers relief but is diffraction-limited to several microns."},
+{section:"future",ch:"Ch.15",date:"2026-06-25",tags:["thermal-isolation","backside"],content:"Precise thermal isolation lacks backside solution. Promising method: local changes in silicon's optical properties with temperature. Critical for defects generating only excess heat."},
+{section:"future",ch:"Ch.15",date:"2026-06-25",tags:["emission","hot-spot","SNR","scaling"],content:"Roadblock 1: as transistors shrink, sub-threshold leakage rises (higher background) while smaller defects have higher resistance (lower signal). Result: degraded SNR for emission detectors."},
+{section:"future",ch:"Ch.15",date:"2026-06-25",tags:["spatial-resolution","diffraction-limit","backside"],content:"Roadblock 2: backside imaging limited to ~1000 nm wavelength (shortest Si transmits). Products with 100 nm features need 10\u00d7 this fundamental resolution."},
+// === General / Miscellaneous ===
+{section:"general",ch:"Ch.",date:"2026-06-24",tags:[],content:"IC manufacturing refresher \u2014 well formation: p-type substrate lightly doped for good n-channel characteristics. Low voltage threshold allows parasitic NMOS and punch-through. Mitigated by boron implants or twin-well processes. Well pattern defined in ~1000 \u00c5 thermal oxide."},
+];
+
+// Load user-added notes from localStorage
+const userNotes = JSON.parse(localStorage.getItem('fa_ic_user_notes') || '[]');
+const allNotes = [...notesData, ...userNotes];
+
+let currentSection = 'all';
+
+function renderNotes() {
+    const container = document.getElementById('notesContainer');
+    const filtered = currentSection === 'all' ? allNotes : allNotes.filter(n => n.section === currentSection);
+    
+    if (filtered.length === 0) {
+        container.innerHTML = '<div class="empty-state">No notes in this section yet. Click + to add one.</div>';
+    } else {
+        container.innerHTML = filtered.map(note => `
+            <div class="note-card">
+                <span class="chapter">${note.ch}</span>
+                <span class="date">${note.date}</span>
+                <div class="content">${note.content}</div>
+                ${note.tags && note.tags.length ? `<div class="tags">${note.tags.map(t => `<span class="tag">#${t}</span>`).join('')}</div>` : ''}
+            </div>
+        `).join('');
+    }
+    
+    document.getElementById('noteCount').innerHTML = `Notes: <strong>${allNotes.length}</strong>`;
+}
+// Navigation
+document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentSection = btn.dataset.section;
+        renderNotes();
+    });
+});
+
+// Modal
+function openModal() {
+    document.getElementById('modalOverlay').classList.add('show');
+}
+function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('show');
+    document.getElementById('noteSection').value = 'electrical-fault';
+    document.getElementById('noteChapter').value = '';
+    document.getElementById('noteContent').value = '';
+    document.getElementById('noteTags').value = '';
+}
+
+function addNote() {
+    const section = document.getElementById('noteSection').value;
+    const ch = document.getElementById('noteChapter').value || 'Ch.';
+    const content = document.getElementById('noteContent').value.trim();
+    const tagsRaw = document.getElementById('noteTags').value.trim();
+    const tags = tagsRaw ? tagsRaw.split(',').map(t => t.trim()).filter(Boolean) : [];
+    
+    if (!content) return;
+    
+    const today = new Date().toISOString().split('T')[0];
+    const newNote = { section, ch, date: today, tags, content };
+    
+    userNotes.push(newNote);
+    allNotes.push(newNote);
+    localStorage.setItem('fa_ic_user_notes', JSON.stringify(userNotes));
+    
+    closeModal();
+    renderNotes();
+    showToast();
+}
+
+function showToast() {
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+// Close modal on overlay click
+document.getElementById('modalOverlay').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeModal();
+});
+
+// Initial render
+renderNotes();
+</script>
+</body>
+</html>
