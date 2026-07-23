@@ -10,10 +10,10 @@
 body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.7;min-height:100vh;transition:background 0.4s,color 0.4s;}
 
 /* ===== LANDING PAGE ===== */
-.landing{display:flex;flex-direction:column;min-height:100vh;background:linear-gradient(135deg,#0a0e1a 0%,#111827 50%,#0d1117 100%);}
+.landing{display:flex;flex-direction:column;min-height:100vh;background:linear-gradient(135deg,#061325 0%,#092342 50%,#0e3860 100%);}
 .landing-header{text-align:center;padding:4rem 2rem 2rem;}
-.landing-header h1{font-size:2.4rem;font-weight:700;background:linear-gradient(90deg,#60a5fa,#a78bfa,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.6rem;}
-.landing-header p{color:#6b7280;font-size:1rem;max-width:600px;margin:0 auto;}
+.landing-header h1{font-size:2.4rem;font-weight:700;background:linear-gradient(90deg,#38bdf8,#818cf8,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.6rem;}
+.landing-header p{color:#93c5fd;font-size:1rem;max-width:600px;margin:0 auto;}
 .book-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;padding:2rem 3rem 4rem;max-width:1200px;margin:0 auto;width:100%;}
 
 /* ===== BOOK CARDS ===== */
@@ -30,6 +30,11 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
 
 /* CARD 1 — FA IC Notes (Deep Blue) */
 .card-fa-ic{background:linear-gradient(135deg,#0f2744 0%,#1a3a5c 100%);border:1px solid #2d5a8a;color:#e0f2fe;box-shadow:0 8px 32px rgba(14,165,233,0.2);}
+/* CARD 4 — 3D Microelectronic Packaging (Amber/Orange) */
+.card-3d{background:linear-gradient(135deg,#2d1500 0%,#451f00 100%);border:1px solid #92400e;color:#fff7ed;box-shadow:0 8px 32px rgba(245,158,11,0.2);}
+.card-3d h2{color:#fcd34d;}
+.card-3d .badge{background:rgba(245,158,11,0.2);color:#fcd34d;border:1px solid #92400e;}
+.card-3d .open-btn{background:#f59e0b;color:#1c1008;}
 .card-fa-ic h2{color:#7dd3fc;}
 .card-fa-ic .badge{background:rgba(14,165,233,0.2);color:#7dd3fc;border:1px solid #2d5a8a;}
 .card-fa-ic .open-btn{background:#0ea5e9;color:#fff;}
@@ -56,6 +61,10 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
 .viewer-bazu{--bg:#12062a;--bg2:#1a0d38;--card:#220f4a;--accent:#a78bfa;--accent2:#c4b5fd;--border:#3b1d6e;--tag-bg:#1c0d3d;--tag:#ddd6fe;--text:#ede9fe;--text2:#7c6fa0;--th:#1c0d3d;--tr-alt:#160939;--btn-act:#8b5cf6;--btn-txt:#fff;background:var(--bg);color:var(--text);}
 /* ===== VIEWER 3 — Packaging: Forest Dark ===== */
 .viewer-packaging{--bg:#021208;--bg2:#041f0f;--card:#052b14;--accent:#4ade80;--accent2:#86efac;--border:#14532d;--tag-bg:#052e16;--tag:#bbf7d0;--text:#dcfce7;--text2:#4b6556;--th:#052e16;--tr-alt:#031a0b;--btn-act:#22c55e;--btn-txt:#021208;background:var(--bg);color:var(--text);}
+/* ===== VIEWER 4 — 3D Packaging: Amber/Copper ===== */
+.viewer-3d{--bg:#160900;--bg2:#221100;--card:#2d1600;--accent:#fbbf24;--accent2:#fcd34d;--border:#78350f;--tag-bg:#291200;--tag:#fde68a;--text:#fff7ed;--text2:#78634a;--th:#291200;--tr-alt:#1c0d00;--btn-act:#f59e0b;--btn-txt:#160900;background:var(--bg);color:var(--text);}
+/* ===== VIEWER 5 — Dracula: Vampire Dark ===== */
+.viewer-dracula{--bg:#282a36;--bg2:#21222c;--card:#343746;--accent:#ff79c6;--accent2:#bd93f9;--border:#44475a;--tag-bg:#44475a;--tag:#8be9fd;--text:#f8f8f2;--text2:#6272a4;--th:#21222c;--tr-alt:#21222c;--btn-act:#ff79c6;--btn-txt:#282a36;background:var(--bg);color:var(--text);}
 
 /* ===== VIEWER HEADER ===== */
 .viewer-header{padding:1.4rem 2rem;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:var(--bg2);}
@@ -159,6 +168,18 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
       <button class="open-btn">Open Notes →</button>
     </div>
 
+    <div class="book-card card-3d" onclick="openViewer('3d')">
+      <div class="book-icon">🏗️</div>
+      <h2>3D Microelectronic Packaging</h2>
+      <p>Advanced 3D packaging concepts covering TSV stresses, micro-Raman spectroscopy, metal pumping, Cu microstructure, and thermo-mechanical reliability of 3D stacked structures.</p>
+      <div class="meta">
+        <span class="badge">Ch. 4+</span>
+        <span class="badge">Amber / Copper</span>
+        <span class="badge">TSV·CTE·Raman·KOZ</span>
+      </div>
+      <button class="open-btn">Open Notes →</button>
+    </div>
+
   </div>
 </div>
 
@@ -220,6 +241,26 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
   </div>
   <div class="notes-container" id="pkg-container"></div>
   <button class="add-btn" onclick="openModal('packaging')" title="Add Note">+</button>
+</div>
+
+<!-- ===== VIEWER: 3D PACKAGING (Amber) ===== -->
+<div class="viewer viewer-3d" id="viewer-3d">
+  <div class="viewer-header">
+    <div class="vh-top">
+      <button class="back-btn" onclick="goLanding()">← Back</button>
+      <div>
+        <h2>3D Microelectronic Packaging</h2>
+        <div class="subtitle">Reading Notes</div>
+      </div>
+    </div>
+    <div class="stats-bar">
+      <span class="stat" id="pkg3d-count">Notes: <strong>0</strong></span>
+      <span class="stat">Chapters: <strong>4+</strong></span>
+    </div>
+    <div class="nav-buttons" id="pkg3d-nav"></div>
+  </div>
+  <div class="notes-container" id="pkg3d-container"></div>
+  <button class="add-btn" onclick="openModal('3d')" title="Add Note">+</button>
 </div>
 
 <!-- ===== SHARED MODAL ===== -->
@@ -409,12 +450,43 @@ const pkgNotes = [
 ];
 
 // ============================================================
+// DATA: 3D MICROELECTRONIC PACKAGING NOTES
+// ============================================================
+const pkg3dSections = [
+  {id:'all',label:'All'},
+  {id:'raman',label:'Micro Raman Spectroscopy'},
+  {id:'tsv-stress',label:'TSV Stresses'},
+  {id:'microstructure',label:'Microstructure & Stresses'},
+  {id:'metal-pumping',label:'Metal Pumping'},
+  {id:'tsv-design',label:'TSV Design & Fabrication'},
+  {id:'bonding',label:'Bonding & Interconnect'},
+  {id:'thermal',label:'Thermal Management'},
+  {id:'reliability',label:'Reliability & FMs'},
+  {id:'general',label:'General / Misc'}
+];
+
+const pkg3dNotes = [
+  {s:'raman',ch:'Ch.4',d:'2026-06-25',t:['Raman','stress'],c:'Micro Raman spectroscopy in backscatter mode resolves the longitudinal vibrational mode (mode 3) to determine the sum of the two in-plane principal stresses. High NA (>0.4) enables resolution of all 3 modes of vibration and hence the tensorial nature of stresses.'},
+  {s:'raman',ch:'Ch.4',d:'2026-06-25',t:['Raman','Si'],c:'Compressive and tensile stresses in Si lead to forward and backward Raman signal shifts. Shift of 1 cm⁻¹ corresponds to ~434 MPa. Penetration depth is very small — method is limited to near-surface stress information.'},
+  {s:'raman',ch:'Ch.4',d:'2026-06-25',t:['Raman','FEA'],c:'Stress state in Si wafer is generally tri-axial. Measuring all stress components via Raman spectroscopy alone is challenging — must be combined with FEA to yield good estimates of 3D stress states in the wafer.'},
+  {s:'tsv-stress',ch:'Ch.4',d:'2026-06-25',t:['TSV','stress','CTE'],c:'Two sources of TSV stress: (1) Growth stresses — from electroplating via filling (radially inward Cu growth creates seam/void along TSV axis, aggravated by self-annealing grain growth and vacancy diffusion); (2) Thermo-mechanical stresses — from CTE mismatch between Cu and Si during thermal cycling.'},
+  {s:'tsv-stress',ch:'Ch.4',d:'2026-06-25',t:['TSV','plasticity','creep'],c:'Electroplated Cu on Si is under residual tension at ambient temperature. Heating first elastically relieves tension, then builds compressive stress. At high temperatures, yield strength and creep resistance of Cu decrease → stress relief by plastic yielding and creep → little stress remaining at peak temperature.'},
+  {s:'tsv-stress',ch:'Ch.4',d:'2026-06-25',t:['TSV','KOZ','piezoresistivity'],c:'Piezoresistivity induced by Cu-TSV stresses degrades carrier mobility in nearby devices. A keep-out zone (KOZ) — typically a few µm wide — is required around each TSV where no active devices can be placed. KOZ scales with the square of TSV diameter; larger for high aspect ratio TSVs.'},
+  {s:'tsv-stress',ch:'Ch.4',d:'2026-06-25',t:['TSV','radial-stress'],c:'Radial stress at the Cu filler/Si interface generally increases with TSV length for a given diameter. Dependence of hydrostatic stress on TSV diameter is not monotonic. High impurity levels in TSVs lead to high residual stresses — prone to failure.'},
+  {s:'microstructure',ch:'Ch.4',d:'2026-06-25',t:['TSV','X-ray','hydrostatic-stress'],c:'X-ray micro-diffraction measurements: ~234 MPa tensile (room temperature) → −196 MPa compressive (200°C anneal) → ~167 MPa tensile (cooled to ambient). Large initial tensile stress from self-annealing grain boundary elimination is undesirable — causes large stresses in Si.'},
+  {s:'microstructure',ch:'Ch.4',d:'2026-06-25',t:['TSV','FEA','microstructure'],c:'FEA with Cu grain microstructure demonstrates that stress distribution inside the TSV filler is highly heterogeneous. Microvoids/cracks form during annealing (reducing stress) — possibly from vacancy diffusion to pre-existing defects under hydrostatic stress gradients. Cu-TSV has random texture before and after annealing.'},
+  {s:'microstructure',ch:'Ch.4',d:'2026-06-25',t:['TSV','von-Mises'],c:'Fig. 4.11 — Von Mises stress distribution in Cu-TSV (linear elastic model with Cu grain microstructure): Peak stress ~350 MPa at TSV corners and Cu-Si interface extremities. Interior Cu grains show heterogeneous stress (50–125 MPa) due to grain microstructure. Si regions flanking TSV show low stress (~0–25 MPa). Stress concentration at grain boundaries within Cu filler is clearly visible.'},
+  {s:'metal-pumping',ch:'Ch.4',d:'2026-06-25',t:['TSV','extrusion','creep'],c:'Metal pumping: during thermal cycling, CTE mismatch between Cu and Si generates residual stress and significant shear stress near via extremities. If stress is high enough, plastic deformation occurs — differential straining accommodated by interfacial sliding resulting in extrusion (or intrusion) of Cu relative to Si. Extrusion typically occurs near via-ends (top/mouth of via) and is enhanced by creep and grain boundary sliding.'}
+];
+
+// ============================================================
 // BOOK-LEVEL STATE
 // ============================================================
 const books = {
   'fa-ic': {sections:faicSections,notes:faicNotes,storageKey:'faic_user_notes',navId:'faic-nav',containerId:'faic-container',countId:'faic-count',modalSections:faicSections.filter(s=>s.id!=='all')},
   'bazu':  {sections:bazuSections,notes:bazuNotes,storageKey:'bazu_user_notes',navId:'bazu-nav',containerId:'bazu-container',countId:'bazu-count',modalSections:bazuSections.filter(s=>s.id!=='all')},
-  'packaging': {sections:pkgSections,notes:pkgNotes,storageKey:'pkg_user_notes',navId:'pkg-nav',containerId:'pkg-container',countId:'pkg-count',modalSections:pkgSections.filter(s=>s.id!=='all')}
+  'packaging': {sections:pkgSections,notes:pkgNotes,storageKey:'pkg_user_notes',navId:'pkg-nav',containerId:'pkg-container',countId:'pkg-count',modalSections:pkgSections.filter(s=>s.id!=='all')},
+  '3d': {sections:pkg3dSections,notes:pkg3dNotes,storageKey:'pkg3d_user_notes',navId:'pkg3d-nav',containerId:'pkg3d-container',countId:'pkg3d-count',modalSections:pkg3dSections.filter(s=>s.id!=='all')}
 };
 
 let activeBook = null;
