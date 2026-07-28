@@ -1,117 +1,187 @@
-# Reliability Technology for Integrated Circuit Packaging — Comprehensive Handbook & Reading Notes
-
-## Core Functions of IC Packaging
-
-Integrated Circuit (IC) packaging serves as the critical physical bridge between microscopic semiconductor devices and macroscopic electronic systems. Modern IC packaging fulfills five fundamental, interdependent engineering functions:
+# Reliability Technology for Integrated Circuit Packaging — Reading Notes
 
 ```mermaid
 graph TD
-    subgraph Core_Functions["5 Core Functions of IC Packaging"]
-        F1["<b>1. Power Distribution</b><br/>Stable VDD/GND delivery, low IR drop"]
-        F2["<b>2. Signal Distribution</b><br/>Controlled impedance, low crosstalk, EMI shielding"]
-        F3["<b>3. Thermal Dissipation</b><br/>Low junction-to-case thermal resistance (R_th)"]
-        F4["<b>4. Mechanical Support</b><br/>Structural protection for brittle Si/GaAs dies"]
-        F5["<b>5. Environmental Protection</b><br/>Hermetic barrier against H2O, O2, & corrosive gases"]
+    subgraph Packaging_Role["Core Functions & Impact of IC Packaging"]
+        F1["Power Distribution"]
+        F2["Signal Distribution & EMI Shielding"]
+        F3["Thermal Dissipation"]
+        F4["Mechanical Support"]
+        F5["Environmental Protection"]
     end
 ```
 
-1. **Power Distribution**: Packaging must guarantee efficient, low-impedance power delivery from external voltage regulators to internal chip blocks, meeting stringent $I\cdot R$ drop and transient switching noise requirements across diverse functional domains.
-2. **Signal Distribution**: Packaging interconnections must minimize high-frequency signal attenuation, propagation delay, and impedance discontinuities, while preventing external electromagnetic interference (EMI) and internal signal crosstalk. As operating frequencies enter the multi-gigahertz regime, the IC package becomes a primary source of electromagnetic radiation. Package structural design—such as embedded ground planes and conductive enclosures—provides effective EMI shielding.
-3. **Thermal Dissipation**: Active semiconductor junctions generate concentrated thermal energy. Packaging establishes a low thermal resistance path to evacuate heat into the ambient environment. In high-power chips, excessive junction temperatures induce electrical parameter drift and accelerate failure mechanisms (e.g., electromigration, dielectric breakdown).
-4. **Mechanical Support**: Monocrystalline silicon ($\text{Si}$) and gallium arsenide ($\text{GaAs}$) are thin, brittle semiconductor materials with low fracture toughness. The packaging substrate and encapsulant provide mechanical rigidity to withstand handling stresses, board-level assembly, and operational shock/vibration.
-5. **Environmental Protection**: Unpassivated aluminum bond pads and moisture-sensitive dielectric films are vulnerable to atmospheric corrosion and ionic contamination. Packaging provides a protective barrier against moisture, oxygen, and corrosive industrial gases.
+---
+
+## Basic Functions of IC Packaging
+
+- **[Ch.]** Power Distribution: Packaging must ensure effective communication between the internal chip and external circuits, and meet the power distribution requirements within different sections of the package. *(2026-06-25)*
+
+- **[Ch.]** Signal Distribution: Packaging interconnections must minimise signal loss and delay, and prevent external signal interference and internal signal crosstalk. With improvements in packaging integration, Electromagnetic Compatibility (EMC) of ICs becomes increasingly important — the package often serves as a source of radiation in electronic systems. Effective Electromagnetic Interference (EMI) shielding can be achieved through the design of the package structure. *(2026-06-25)*
+
+- **[Ch.]** Thermal Dissipation: Packaging provides a low thermal resistance path for heat dissipation from the chip, efficiently expelling heat generated during operation. Power consumption causes temperature rise, which is more pronounced in high-power chips. To prevent beyond-tolerance electrical parameter drift due to high temperature, heat generated in the active region must be dissipated as quickly as possible through packaging, ensuring stable functional performance and long-term reliability. *(2026-06-25)*
+
+- **[Ch.]** Mechanical Support: The external packaging structure provides mechanical support for the internal chip. IC semiconductor materials such as silicon (Si) and gallium arsenide (GaAs) are very thin and brittle, requiring substrates with greater mechanical strength and protective encapsulating materials to meet assembly process requirements and ensure long-term use. *(2026-06-25)*
+
+- **[Ch.]** Environmental Protection: Packaging acts as a barrier against moisture and other harmful gases, minimising the impact of external environmental factors on chip performance. For example, aluminium metallisation wiring bonding windows on the chip surface without passivation layer protection are prone to contamination and corrosion, leading to open circuits. Appropriate packaging structures and materials are necessary to prevent moisture intrusion. *(2026-06-25)*
 
 ---
 
-## Industry Impact & Reliability Metrics
+## Key Industry Statistics
 
-Packaging accounts for a dominant fraction of the total volume, electrical parasitics, thermal resistance, and overall manufacturing cost of modern electronic components.
+> **Why Packaging Matters — By the Numbers**
 
-- **Table 1.1 — Impact of Packaging on System and Component Metrics**:
+| Metric | Packaging's Contribution |
+|--------|--------------------------|
+| Volume of electronic component | **70–90%** determined by packaging |
+| Signal delays | **>50%** related to packaging |
+| Increased resistance | **>55%** related to packaging |
+| Thermal performance anomalies | **>60%** related to packaging |
+| Component failures | **>50%** related to packaging |
+| Total component cost | **30–80%** accounted for by packaging |
 
-  | Performance / Physical Metric | Contribution Attributable to IC Packaging |
-  | :--- | :--- |
-  | **Electronic Component Volume** | **70–90%** of final component footprint and volume |
-  | **System Signal Delays** | **>50%** of total delay governed by package interconnect length |
-  | **Interconnect Resistance** | **>55%** of total parasitics introduced by packaging leads |
-  | **Thermal Performance Anomalies** | **>60%** of thermal failures rooted in package interfaces |
-  | **Overall Component Failures** | **>50%** of field failures caused by packaging defects |
-  | **Total Component Cost** | **30–80%** of total manufacturing cost consumed by packaging |
+*(Source: IC manufacturing statistics [3])* *(2026-06-25)*
 
 ---
 
-## Package Architectural Classification
+## Package Types & Structures
+
+- **[Ch.]** Ceramic packaging exhibits excellent overall thermal, electrical, mechanical, and dimensional properties. Common materials include Al₂O₃, AlN, and BeO, with parameters spanning a range of dielectric constants, thermal conductivities, and coefficients of thermal expansion (CTE). Greatest advantage: hermetic sealing and material stability. Drawbacks: high packaging process costs, brittleness, and limited resistance to mechanical shock. *(2026-06-25)*
+
+- **[Ch.]** Plastic packaging advantages: low cost, small weight, and small size — mass is approximately half that of ceramic packages, and the smaller size greatly reduces signal delay. Shortcomings: internal stress from thermal mismatch, susceptibility to deformation at high temperatures, low thermal conductivity (1/50 of ceramic), and poor moisture resistance. *(2026-06-25)*
+
+- **[Ch.]** Packaging material developments:
+
+  | Sector | Emerging Materials |
+  |--------|--------------------|
+  | Civilian | New epoxy packaging materials, composite packaging materials, environmentally friendly packaging materials |
+  | High reliability | AlN, SiC–Al alloys, Si–Al alloys (high density/heat dissipation); nano-silver and nano-copper (high power) |
+
+  *(2026-06-25)*
+
+---
+
+## Failure Mechanisms & Reliability
+
+- **[Ch.]** Main reasons for the diminishing trend of technological advancement as integration and performance increase: *(2026-06-25)*
+  1. **Physical limits:** Feature sizes of transistors are approaching atomic dimensions and process limits, leading to increasingly severe quantum effects and short-channel effects.
+  2. **Reliability:** Increasing power density makes device cooling difficult. Thermal stress and strain from process steps such as annealing and thermal cycling lead to more reliability issues.
+  3. **Interconnect dominance:** Starting from the 180 nm process node, chip performance is more determined by interconnect length than device scaling — performance gains from scaling are offset by delays caused by longer interconnects.
+
+- **[Ch.]** TSV applications are divided into two categories: *(2026-06-25)*
+  1. **3D IC integration** — Using TSV and flip-chip microbump technology to stack chips.
+  2. **3D Si integration** — Using TSV to stack wafers/chips without a bump process.
+
+---
+
+## Thermal Management
 
 ```mermaid
-graph TD
-    subgraph Package_Types["Package Materials & Construction"]
-        Ceramics["<b>Ceramic Packaging</b><br/>(Al2O3, AlN, BeO)<br/>• Hermetic sealing<br/>• High thermal conductivity<br/>• Expensive & brittle"]
-        Plastics["<b>Plastic Packaging</b><br/>(Epoxy Moulding Compound)<br/>• Low cost & low weight<br/>• High CTE mismatch<br/>• Moisture permeable"]
-    end
-    subgraph Packaging_Hierarchy["Thermal Dissipation & Interconnect Hierarchy"]
-        Terminals["Heat Dissipation: Array I/O (BGA/LGA) > Peripheral I/O (QFP) > Dual-Inline (DIP)"]
-        Substrate["Thermal Conductivity: Metal > Ceramic > Plastic"]
-        Bonding["Internal Efficiency: Flip-Chip Bonding > Wire Bonding > Stacked Die"]
+graph LR
+    subgraph Dissipation_Efficiency["Thermal & Package Hierarchy"]
+        I1["I/O Efficiency: Array I/O > Peripheral I/O > Dual-Inline"]
+        M1["Material Thermal Conductivity: Metal > Ceramic > Plastic"]
+        B1["Bonding Efficiency: Flip-Chip > Wire Bonding > Stacked Die"]
     end
 ```
 
-### Ceramic vs. Plastic Packaging
+- **[Ch.]** Heat dissipation efficiency by I/O terminal type: **Array I/O > Peripheral I/O > Dual-inline I/O.** *(2026-06-25)*
 
-- **Ceramic Packaging**: Utilizes inorganic substrates ($\text{Al}_2\text{O}_3$, $\text{AlN}$, $\text{BeO}$) that offer exceptional mechanical rigidity, chemical inertness, high thermal conductivity, and hermetic sealing. However, ceramic processing incurs high material costs, high processing temperatures, and mechanical brittleness.
-- **Plastic Packaging**: Dominates consumer electronics due to low cost, light weight, and small form factor (mass is approximately half that of ceramic packages). However, plastic compounds exhibit higher moisture permeability, lower thermal conductivity ($1/50\text{th}$ of ceramic), and significant thermo-mechanical stress from Coefficient of Thermal Expansion (CTE) mismatch.
+- **[Ch.]** Thermal conductivity ranking of packaging materials: **Metal > Ceramic > Plastic.** *(2026-06-25)*
 
----
+- **[Ch.]** Heat dissipation efficiency by internal chip packaging method: **Flip-chip bonding > Wire bonding > Stacked die.** *(2026-06-25)*
 
-## Packaging Materials & Thermo-Electrical Properties
+- **[Ch.]** Packaging materials and EMI: EMI of IC packaging manifests in two aspects: (1) mutual EMI caused by multi-chip assembly structures (transistor switching noise); (2) impact of internal coating materials on electromagnetic shielding effectiveness. *(2026-06-25)*
 
-### Substrate and Enclosure Materials
+- **[Ch.]** Internal moisture content must typically be kept below 5000 ppm; exceeding this threshold is considered a failure. *(2026-06-25)*
 
-- **Table 2.1 — Electrical and Thermal Properties of Key Packaging Substrates & Metals**:
-
-  | Material Class | Specific Material | Electrical Insulation / Conductivity | Thermal Conductivity [$W/(m\cdot K)$] | CTE [$ppm/^\circ\text{C}$] | Key Application Notes |
-  | :--- | :--- | :--- | :--- | :--- | :--- |
-  | **Semiconductor** | Silicon ($\text{Si}$) | Substrate | ~150 | 2.6 | Reference die material |
-  | **Semiconductor** | Gallium Arsenide ($\text{GaAs}$) | Substrate | ~44 | 5.7 | High-frequency compound semi |
-  | **Ceramic** | Alumina ($\text{Al}_2\text{O}_3$) | Insulator ($k \approx 9.8$) | ~20–30 | 6.5 | Standard ceramic substrate |
-  | **Ceramic** | Aluminum Nitride ($\text{AlN}$) | Insulator ($k \approx 8.8$) | ~170–200 | 4.5 | High-power, low-CTE ceramic |
-  | **Ceramic** | Silicon Carbide ($\text{SiC}$) | Insulator ($k \approx 10.0$) | ~270 | 3.7 | High dielectric constant limits speed |
-  | **Metal** | Copper ($\text{Cu}$) | Conductor ($>10^7\text{ S/m}$) | ~400 | 17.0 | High thermal/electrical leadframes |
-  | **Metal** | Aluminum ($\text{Al}$) | Conductor | ~230 | 23.0 | Lightweight metal enclosure |
-  | **Metal** | Molybdenum ($\text{Mo}$) | Conductor | ~138 | 5.0 | Low CTE metal matching Si |
-  | **Metal** | Tungsten ($\text{W}$) | Conductor | ~174 | 4.5 | Low CTE metal matching Si |
-  | **Metal Alloy** | Copper-Tungsten ($\text{Cu-W}$) | Conductor | ~180–200 | 6.5–8.0 | Tailored CTE for high-power lids |
-  | **Metal Alloy** | Copper-Moly ($\text{Cu-Mo}$) | Conductor | ~160–200 | 6.0–9.0 | Tailored CTE heat spreaders |
-  | **Organic** | FR4 Epoxy Glass | Breakdown ~30–40 kV/mm | ~0.3 | 14–17 | Standard PCB substrate |
-  | **Encapsulant** | Epoxy Moulding Compound | Breakdown ~20 kV/mm | 0.1–2.0 | 15–25 | Plastic body encapsulation |
+- **[Ch.]** Zirconium silicate filling materials in low melting point glass can emit alpha-particle radiation at rates of 150–200 cph/cm². Underfill materials at the bottom of flip-chip packages can also emit alpha particles — these can interact with the ¹⁰B element within chips and cause soft errors in the IC. *(2026-06-25)*
 
 ---
 
-## Thermal Resistance Modeling
+## Materials & Processes
 
-Heat generated within the active transistor region flows through internal package layers into the ambient heat sink.
+### Electrical Properties of Package Materials
 
-```mermaid
-graph TD
-    subgraph OneD_Flow["1D Downward Thermal Path"]
-        J["Junction (T_j)"] -->|"R_th,junction-die"| D["Die Bulk"]
-        D -->|"R_th,die-attach"| DA["Die Attach Layer"]
-        DA -->|"R_th,substrate"| S["Substrate / Leadframe"]
-        S -->|"R_th,case"| C["Case (T_c)"]
-        C -->|"R_th,case-sink"| HS["Heat Sink / Ambient (T_a)"]
-    end
-```
+- **[Ch.2]** Organic adhesive materials: typical organic adhesives include conductive adhesives (conductivity >10⁶ S/m, high-performance up to 10⁷ S/m) and non-conductive adhesives (insulating bonding materials for adhesion purposes only). Both provide mechanical bonding while enabling electrical conduction and thermal transfer as applicable. *(2026-06-25)*
 
-Thermal resistance ($R_{\text{th}}$) is modeled analogous to Ohm's Law:
+- **[Ch.2]** Substrate materials — organic: conventional insulating substrates include fiberglass (FR4) and phenolic resin (FR3). Breakdown voltage of epoxy resin in fiberglass is ~30 kV/mm; substrates containing inorganic fillers and glass cloth can approach 40 kV/mm. *(2026-06-25)*
 
-$$\Delta T = T_j - T_a = P_d \times \sum R_{\text{th}}$$
+- **[Ch.2]** Substrate materials — ceramic: includes AlN, Al₂O₃, and SiC. *(2026-06-25)*
 
-- **Standard Single Path Model**: Assumes primary heat flow dissipates downward through the die attach and substrate into the PCB.
-- **Dual Thermal Resistance Model**: Required for hermetic metal/ceramic packages where top-side heat spreaders create parallel upward thermal conduction paths.
-- **Multi-Heat Source Model**: Accounts for thermal coupling between multiple active dies in multi-chip modules (MCMs) and 3D System-in-Package (SiP) assemblies.
+  | Material | Electrical Insulation | Thermal Conductivity | Notes |
+  |----------|----------------------|----------------------|-------|
+  | Al₂O₃ (Alumina) | Good | Relatively low | Widely used |
+  | AlN (Aluminium Nitride) | Good | High | Well-suited for high power, multi-lead, large packages. Drawbacks: high sintering temperature, complex fabrication, elevated cost |
+  | SiC (Silicon Carbide) | Good (εᵣ = 10) | High | High dielectric constant limits use to low-frequency packages only |
+
+- **[Ch.2]** Metal enclosure materials: conventional conductors include Al, Cu, Mo, W, Cu-W alloys, and Cu-Mo alloys with electrical conductivity >10⁷ S/m. Metal enclosures serve as large-area ground planes to reduce capacitance and inductance between signal lines, minimising crosstalk and electrical noise. Advantages: excellent thermal conductivity, low propagation delay, and superior EMI/RFI shielding. *(2026-06-25)*
+
+- **[Ch.2]** Moulding and potting materials: epoxy is the most common moulding material with a breakdown voltage of ~20 kV/mm. Potting materials include organic silicone compounds with widely varying insulation performance, waterproofing, temperature resistance, optical properties, adhesion, and hardness. *(2026-06-25)*
+
+### Impact of Interconnect Structure on Electrical Conductivity
+
+- **[Ch.2]** Main interconnect structures in packaging: gold wire bonding, aluminium wire bonding, copper wire bonding, bump bonding, TSV, and RDL. *(2026-06-25)*
+
+- **[Ch.2]** Gold wire bonding: widely used but prone to forming harmful intermetallic compounds at high temperatures. *(2026-06-25)*
+
+- **[Ch.2]** Aluminium wire bonding: low cost technique. Aluminium wire is easily oxidised during wedge bonding, forming a hard oxide film that degrades both electrical performance and mechanical integrity of the bond. *(2026-06-25)*
+
+- **[Ch.2]** Copper wire bonding: good mechanical properties with excellent electrical and thermal conductivity. Suitable as a replacement for expensive gold wire and mechanically weaker aluminium wire — allows reduced pad pitch. Drawback: tendency to oxidise may reduce bondability and conductivity. *(2026-06-25)*
 
 ---
 
-## Environmental & Radiation Reliability Controls
+### Thermal Properties of Package Materials
 
-1. **Internal Moisture Limit**: Moisture sealed inside a package cavity accelerates aluminum corrosion and causes parameter instability. Internal moisture content must be maintained below $5000\text{ ppm}$ ($\text{v/v}$); exceeding $5000\text{ ppm}$ constitutes a hermeticity failure.
-2. **Alpha-Particle Soft Errors**: Low-melting-point glass sealing fillers containing zirconium silicate and underfill materials can emit trace alpha particles ($150\text{--}200\text{ cph/cm}^2$). Alpha radiation interacts with boron ($^{10}\text{B}$) within silicon, generating electron-hole pairs that flip memory cell logic states (Soft Error Rate, SER). Low-alpha fillers ($< 0.001\text{ cph/cm}^2$) are mandatory for high-density memory packages.
+- **[Ch.2]** Organic adhesive materials: typically use 2 or more polymers as base matrix. Non-conductive adhesives use fillers such as silica and PTFE; conductive adhesives use epoxy resin, unsaturated polyester, or silicone rubber with fillers such as carbon, metals, and metal oxides. Adding high thermal conductivity fillers can decrease mechanical properties — commercial silicone adhesives achieve only 0.4–0.8 W/(m·K), insufficient for high power density packaging. *(2026-06-25)*
+
+- **[Ch.2]** Substrate materials: thermal conductivity of the substrate directly affects the package thermal resistance and internal device temperature. Ceramics offer higher thermal conductivity than typical organic materials, providing better heat dissipation than plastics. *(2026-06-25)*
+
+- **[Ch.2]** Metal enclosure materials — Table 2.2: *(2026-06-25)*
+
+  | Material | Thermal Conductivity W/(m·K) | CTE (ppm/°C) | Notes |
+  |----------|------------------------------|--------------|-------|
+  | Copper (Cu) | ~400 | ~17 | Excellent thermal/electrical conductor |
+  | Aluminium (Al) | ~230 | ~23 | Lightweight |
+  | Molybdenum (Mo) | ~138 | ~5 | Low CTE |
+  | Tungsten (W) | ~174 | ~4.5 | Very low CTE |
+  | Cu-W alloy | ~180–200 | ~6–8 | Tunable CTE/conductivity |
+  | Cu-Mo alloy | ~160–200 | ~6–9 | Tunable CTE/conductivity |
+
+- **[Ch.2]** Plastic and potting materials: thermal conductivity is relatively low, typically 0.1–2 W/(m·K). Performance can be improved by adding fillers such as AlN coated with silica. Glass transition temperature (Tg) of plastic materials is usually below 200°C. *(2026-06-25)*
+
+---
+
+### Thermal Resistance Models
+
+- **[Ch.2]** Junction-to-case thermal resistance: for most devices, heat from the junction dissipates primarily downward through the substrate. *(2026-06-25)*
+
+- **[Ch.2]** Dual thermal resistance model: for some metal and ceramic hermetic packages, when the chip contacts the top of the enclosure via a thermal conductive pad, upward heat flow cannot be ignored. *(2026-06-25)*
+
+- **[Ch.2]** Multi heat source thermal resistance model: where heat dissipates primarily downward, the coupling effects between multiple heat sources must be considered. *(2026-06-25)*
+
+---
+
+### Thermal Expansion and Interface Thermal Mismatch
+
+- **[Ch.2]** Table 2.3 — Coefficient of Thermal Expansion (CTE) for typical package materials: *(2026-06-25)*
+
+  | Material | CTE (ppm/°C) |
+  |----------|-------------|
+  | Silicon (Si) | ~2.6 |
+  | GaAs | ~5.7 |
+  | Al₂O₃ (Alumina) | ~6–7 |
+  | AlN | ~4.5 |
+  | SiC | ~3.7 |
+  | BeO | ~7 |
+  | Kovar (Fe-Ni-Co) | ~5.9 |
+  | Copper (Cu) | ~17 |
+  | Aluminium (Al) | ~23 |
+  | Molybdenum (Mo) | ~5 |
+  | Tungsten (W) | ~4.5 |
+  | Cu-W (10/90) | ~6.5 |
+  | Cu-Mo | ~7 |
+  | FR4 (epoxy/glass) | ~14–17 (in-plane) |
+  | Polyimide | ~12–16 |
+  | Solder (SnPb) | ~24 |
+  | Gold (Au) | ~14 |
