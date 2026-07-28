@@ -63,8 +63,14 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
 .viewer-packaging{--bg:#021208;--bg2:#041f0f;--card:#052b14;--accent:#4ade80;--accent2:#86efac;--border:#14532d;--tag-bg:#052e16;--tag:#bbf7d0;--text:#dcfce7;--text2:#4b6556;--th:#052e16;--tr-alt:#031a0b;--btn-act:#22c55e;--btn-txt:#021208;background:var(--bg);color:var(--text);}
 /* ===== VIEWER 4 — 3D Packaging: Amber/Copper ===== */
 .viewer-3d{--bg:#160900;--bg2:#221100;--card:#2d1600;--accent:#fbbf24;--accent2:#fcd34d;--border:#78350f;--tag-bg:#291200;--tag:#fde68a;--text:#fff7ed;--text2:#78634a;--th:#291200;--tr-alt:#1c0d00;--btn-act:#f59e0b;--btn-txt:#160900;background:var(--bg);color:var(--text);}
-/* ===== VIEWER 5 — Dracula: Vampire Dark ===== */
+/* ===== VIEWER 5 — Dracula: Vampire Dark (DEFAULT) ===== */
 .viewer-dracula{--bg:#282a36;--bg2:#21222c;--card:#343746;--accent:#ff79c6;--accent2:#bd93f9;--border:#44475a;--tag-bg:#44475a;--tag:#8be9fd;--text:#f8f8f2;--text2:#6272a4;--th:#21222c;--tr-alt:#21222c;--btn-act:#ff79c6;--btn-txt:#282a36;background:var(--bg);color:var(--text);}
+
+/* ===== THEME SELECTOR STYLES ===== */
+.theme-selector-container{display:flex;align-items:center;gap:0.5rem;margin-left:auto;}
+.theme-label{font-size:0.78rem;color:var(--text2);font-weight:600;}
+.theme-select{padding:0.35rem 0.75rem;border-radius:6px;background:var(--bg);color:var(--accent);border:1px solid var(--border);font-size:0.78rem;font-weight:600;cursor:pointer;outline:none;transition:border-color 0.2s,background 0.2s;}
+.theme-select:hover,.theme-select:focus{border-color:var(--accent);}
 
 /* ===== VIEWER HEADER ===== */
 .viewer-header{padding:1.4rem 2rem;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:var(--bg2);}
@@ -183,14 +189,24 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
   </div>
 </div>
 
-<!-- ===== VIEWER: FA IC (Blue) ===== -->
-<div class="viewer viewer-fa-ic" id="viewer-fa-ic">
+<!-- ===== VIEWER: FA IC ===== -->
+<div class="viewer viewer-dracula" id="viewer-fa-ic">
   <div class="viewer-header">
     <div class="vh-top">
       <button class="back-btn" onclick="goLanding()">← Back</button>
-      <div>
+      <div style="flex-grow:1">
         <h2>Failure Analysis of Integrated Circuits</h2>
         <div class="subtitle">Tools and Techniques — Reading Notes</div>
+      </div>
+      <div class="theme-selector-container">
+        <label class="theme-label" for="theme-faic">🎨 Theme:</label>
+        <select id="theme-faic" class="theme-select" onchange="changeTheme(this.value)">
+          <option value="dracula" selected>Dracula (Default)</option>
+          <option value="fa-ic">Deep Blue Steel</option>
+          <option value="bazu">Dark Amethyst</option>
+          <option value="packaging">Forest Dark</option>
+          <option value="3d">Amber / Copper</option>
+        </select>
       </div>
     </div>
     <div class="stats-bar">
@@ -203,14 +219,24 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
   <button class="add-btn" onclick="openModal('fa-ic')" title="Add Note">+</button>
 </div>
 
-<!-- ===== VIEWER: BAZU (Purple) ===== -->
-<div class="viewer viewer-bazu" id="viewer-bazu">
+<!-- ===== VIEWER: BAZU ===== -->
+<div class="viewer viewer-dracula" id="viewer-bazu">
   <div class="viewer-header">
     <div class="vh-top">
       <button class="back-btn" onclick="goLanding()">← Back</button>
-      <div>
+      <div style="flex-grow:1">
         <h2>Failure Analysis — Bâzu (2011)</h2>
         <div class="subtitle">Reading Notes</div>
+      </div>
+      <div class="theme-selector-container">
+        <label class="theme-label" for="theme-bazu">🎨 Theme:</label>
+        <select id="theme-bazu" class="theme-select" onchange="changeTheme(this.value)">
+          <option value="dracula" selected>Dracula (Default)</option>
+          <option value="fa-ic">Deep Blue Steel</option>
+          <option value="bazu">Dark Amethyst</option>
+          <option value="packaging">Forest Dark</option>
+          <option value="3d">Amber / Copper</option>
+        </select>
       </div>
     </div>
     <div class="stats-bar">
@@ -223,14 +249,24 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
   <button class="add-btn" onclick="openModal('bazu')" title="Add Note">+</button>
 </div>
 
-<!-- ===== VIEWER: PACKAGING (Green) ===== -->
-<div class="viewer viewer-packaging" id="viewer-packaging">
+<!-- ===== VIEWER: PACKAGING ===== -->
+<div class="viewer viewer-dracula" id="viewer-packaging">
   <div class="viewer-header">
     <div class="vh-top">
       <button class="back-btn" onclick="goLanding()">← Back</button>
-      <div>
+      <div style="flex-grow:1">
         <h2>Reliability Technology for IC Packaging</h2>
         <div class="subtitle">Reading Notes</div>
+      </div>
+      <div class="theme-selector-container">
+        <label class="theme-label" for="theme-pkg">🎨 Theme:</label>
+        <select id="theme-pkg" class="theme-select" onchange="changeTheme(this.value)">
+          <option value="dracula" selected>Dracula (Default)</option>
+          <option value="fa-ic">Deep Blue Steel</option>
+          <option value="bazu">Dark Amethyst</option>
+          <option value="packaging">Forest Dark</option>
+          <option value="3d">Amber / Copper</option>
+        </select>
       </div>
     </div>
     <div class="stats-bar">
@@ -243,14 +279,24 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
   <button class="add-btn" onclick="openModal('packaging')" title="Add Note">+</button>
 </div>
 
-<!-- ===== VIEWER: 3D PACKAGING (Amber) ===== -->
-<div class="viewer viewer-3d" id="viewer-3d">
+<!-- ===== VIEWER: 3D PACKAGING ===== -->
+<div class="viewer viewer-dracula" id="viewer-3d">
   <div class="viewer-header">
     <div class="vh-top">
       <button class="back-btn" onclick="goLanding()">← Back</button>
-      <div>
+      <div style="flex-grow:1">
         <h2>3D Microelectronic Packaging</h2>
         <div class="subtitle">Reading Notes</div>
+      </div>
+      <div class="theme-selector-container">
+        <label class="theme-label" for="theme-pkg3d">🎨 Theme:</label>
+        <select id="theme-pkg3d" class="theme-select" onchange="changeTheme(this.value)">
+          <option value="dracula" selected>Dracula (Default)</option>
+          <option value="fa-ic">Deep Blue Steel</option>
+          <option value="bazu">Dark Amethyst</option>
+          <option value="packaging">Forest Dark</option>
+          <option value="3d">Amber / Copper</option>
+        </select>
       </div>
     </div>
     <div class="stats-bar">
@@ -494,6 +540,41 @@ let activeSection = {};
 Object.keys(books).forEach(k => { activeSection[k] = 'all'; });
 
 // ============================================================
+// THEME MANAGEMENT (Dracula Default for New Window Sessions)
+// ============================================================
+const VALID_THEMES = ['dracula', 'fa-ic', 'bazu', 'packaging', '3d'];
+
+function getActiveTheme() {
+  const saved = localStorage.getItem('reading_notes_theme');
+  return (saved && VALID_THEMES.includes(saved)) ? saved : 'dracula';
+}
+
+function applyTheme(themeName) {
+  const theme = VALID_THEMES.includes(themeName) ? themeName : 'dracula';
+  
+  document.querySelectorAll('.viewer').forEach(v => {
+    VALID_THEMES.forEach(t => v.classList.remove('viewer-' + t));
+    v.classList.add('viewer-' + theme);
+  });
+  
+  document.querySelectorAll('.theme-select').forEach(sel => {
+    sel.value = theme;
+  });
+  
+  localStorage.setItem('reading_notes_theme', theme);
+}
+
+function changeTheme(themeName) {
+  applyTheme(themeName);
+}
+
+// Initial theme application (Dracula default for newly opened window sessions)
+applyTheme(getActiveTheme());
+document.addEventListener('DOMContentLoaded', () => {
+  applyTheme(getActiveTheme());
+});
+
+// ============================================================
 // NAVIGATION
 // ============================================================
 function openViewer(bookId) {
@@ -501,6 +582,7 @@ function openViewer(bookId) {
   document.querySelectorAll('.viewer').forEach(v => v.classList.remove('active'));
   document.getElementById('viewer-' + bookId).classList.add('active');
   activeBook = bookId;
+  applyTheme(getActiveTheme());
   buildNav(bookId);
   renderNotes(bookId);
 }
