@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Semiconductor Reading Notes</title>
+
+<!-- Marked.js for GFM Markdown Rendering -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<!-- Mermaid.js for Interactive Vector Diagram Rendering -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
 <style>
 /* ===== GLOBAL RESET ===== */
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -30,11 +36,6 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
 
 /* CARD 1 — FA IC Notes (Deep Blue) */
 .card-fa-ic{background:linear-gradient(135deg,#0f2744 0%,#1a3a5c 100%);border:1px solid #2d5a8a;color:#e0f2fe;box-shadow:0 8px 32px rgba(14,165,233,0.2);}
-/* CARD 4 — 3D Microelectronic Packaging (Amber/Orange) */
-.card-3d{background:linear-gradient(135deg,#2d1500 0%,#451f00 100%);border:1px solid #92400e;color:#fff7ed;box-shadow:0 8px 32px rgba(245,158,11,0.2);}
-.card-3d h2{color:#fcd34d;}
-.card-3d .badge{background:rgba(245,158,11,0.2);color:#fcd34d;border:1px solid #92400e;}
-.card-3d .open-btn{background:#f59e0b;color:#1c1008;}
 .card-fa-ic h2{color:#7dd3fc;}
 .card-fa-ic .badge{background:rgba(14,165,233,0.2);color:#7dd3fc;border:1px solid #2d5a8a;}
 .card-fa-ic .open-btn{background:#0ea5e9;color:#fff;}
@@ -51,19 +52,21 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
 .card-packaging .badge{background:rgba(34,197,94,0.2);color:#86efac;border:1px solid #166534;}
 .card-packaging .open-btn{background:#16a34a;color:#fff;}
 
+/* CARD 4 — 3D Microelectronic Packaging (Amber/Orange) */
+.card-3d{background:linear-gradient(135deg,#2d1500 0%,#451f00 100%);border:1px solid #92400e;color:#fff7ed;box-shadow:0 8px 32px rgba(245,158,11,0.2);}
+.card-3d h2{color:#fcd34d;}
+.card-3d .badge{background:rgba(245,158,11,0.2);color:#fcd34d;border:1px solid #92400e;}
+.card-3d .open-btn{background:#f59e0b;color:#1c1008;}
+
 /* ===== NOTE VIEWER ===== */
 .viewer{display:none;flex-direction:column;min-height:100vh;}
 .viewer.active{display:flex;}
 
-/* ===== VIEWER 1 — FA IC: Deep Blue Steel ===== */
+/* ===== THEME STYLES ===== */
 .viewer-fa-ic{--bg:#0b1624;--bg2:#111f33;--card:#162840;--accent:#38bdf8;--accent2:#7dd3fc;--border:#1e3a52;--tag-bg:#0e2a3d;--tag:#67e8f9;--text:#dbeafe;--text2:#64748b;--th:#0e2a3d;--tr-alt:#0d1e30;--btn-act:#38bdf8;--btn-txt:#0b1624;background:var(--bg);color:var(--text);}
-/* ===== VIEWER 2 — Bazu: Dark Amethyst ===== */
 .viewer-bazu{--bg:#12062a;--bg2:#1a0d38;--card:#220f4a;--accent:#a78bfa;--accent2:#c4b5fd;--border:#3b1d6e;--tag-bg:#1c0d3d;--tag:#ddd6fe;--text:#ede9fe;--text2:#7c6fa0;--th:#1c0d3d;--tr-alt:#160939;--btn-act:#8b5cf6;--btn-txt:#fff;background:var(--bg);color:var(--text);}
-/* ===== VIEWER 3 — Packaging: Forest Dark ===== */
 .viewer-packaging{--bg:#021208;--bg2:#041f0f;--card:#052b14;--accent:#4ade80;--accent2:#86efac;--border:#14532d;--tag-bg:#052e16;--tag:#bbf7d0;--text:#dcfce7;--text2:#4b6556;--th:#052e16;--tr-alt:#031a0b;--btn-act:#22c55e;--btn-txt:#021208;background:var(--bg);color:var(--text);}
-/* ===== VIEWER 4 — 3D Packaging: Amber/Copper ===== */
 .viewer-3d{--bg:#160900;--bg2:#221100;--card:#2d1600;--accent:#fbbf24;--accent2:#fcd34d;--border:#78350f;--tag-bg:#291200;--tag:#fde68a;--text:#fff7ed;--text2:#78634a;--th:#291200;--tr-alt:#1c0d00;--btn-act:#f59e0b;--btn-txt:#160900;background:var(--bg);color:var(--text);}
-/* ===== VIEWER 5 — Dracula: Vampire Dark (DEFAULT) ===== */
 .viewer-dracula{--bg:#282a36;--bg2:#21222c;--card:#343746;--accent:#ff79c6;--accent2:#bd93f9;--border:#44475a;--tag-bg:#44475a;--tag:#8be9fd;--text:#f8f8f2;--text2:#6272a4;--th:#21222c;--tr-alt:#21222c;--btn-act:#ff79c6;--btn-txt:#282a36;background:var(--bg);color:var(--text);}
 
 /* ===== THEME SELECTOR STYLES ===== */
@@ -71,6 +74,12 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
 .theme-label{font-size:0.78rem;color:var(--text2);font-weight:600;}
 .theme-select{padding:0.35rem 0.75rem;border-radius:6px;background:var(--bg);color:var(--accent);border:1px solid var(--border);font-size:0.78rem;font-weight:600;cursor:pointer;outline:none;transition:border-color 0.2s,background 0.2s;}
 .theme-select:hover,.theme-select:focus{border-color:var(--accent);}
+
+/* ===== VIEW MODE TOGGLE ===== */
+.view-mode-toggle{display:flex;gap:0.5rem;margin-top:0.8rem;}
+.mode-btn{padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text2);cursor:pointer;font-size:0.8rem;font-weight:600;transition:all 0.2s;}
+.mode-btn:hover{border-color:var(--accent);color:var(--accent);}
+.mode-btn.active{background:var(--btn-act);color:var(--btn-txt);border-color:var(--btn-act);}
 
 /* ===== VIEWER HEADER ===== */
 .viewer-header{padding:1.4rem 2rem;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:var(--bg2);}
@@ -95,13 +104,34 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
 .note-content strong{color:var(--accent2);}
 .note-tags{margin-top:0.6rem;display:flex;flex-wrap:wrap;gap:0.35rem;}
 .tag{background:var(--tag-bg);color:var(--tag);font-size:0.7rem;padding:0.15rem 0.5rem;border-radius:3px;}
-/* Tables inside notes */
 .note-content table{width:100%;border-collapse:collapse;margin:0.8rem 0;font-size:0.83rem;}
 .note-content th{background:var(--th);color:var(--accent);padding:0.55rem 0.7rem;text-align:left;font-weight:600;border:1px solid var(--border);}
 .note-content td{padding:0.45rem 0.7rem;border:1px solid var(--border);color:var(--text);}
 .note-content tr:nth-child(even) td{background:var(--tr-alt);}
-/* Section titles */
-.section-label{font-size:1rem;font-weight:700;color:var(--accent2);margin:1.6rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+
+/* ===== MARKDOWN WATERFALL CONTAINER ===== */
+.markdown-container{max-width:1080px;margin:0 auto;padding:1.8rem 2rem;display:none;}
+.markdown-container.active{display:block;}
+
+.markdown-body{line-height:1.85;color:var(--text);}
+.markdown-body h1{font-size:1.8rem;color:var(--accent);border-bottom:2px solid var(--border);padding-bottom:0.5rem;margin:1.6rem 0 1rem;}
+.markdown-body h2{font-size:1.4rem;color:var(--accent2);border-bottom:1px solid var(--border);padding-bottom:0.4rem;margin:1.5rem 0 0.8rem;}
+.markdown-body h3{font-size:1.15rem;color:var(--accent);margin:1.3rem 0 0.6rem;}
+.markdown-body h4{font-size:1rem;color:var(--accent2);margin:1.1rem 0 0.5rem;}
+.markdown-body p{margin-bottom:1rem;}
+.markdown-body ul,.markdown-body ol{padding-left:1.8rem;margin-bottom:1rem;}
+.markdown-body li{margin-bottom:0.4rem;}
+.markdown-body table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:0.88rem;overflow-x:auto;display:block;}
+.markdown-body th{background:var(--th);color:var(--accent);padding:0.6rem 0.8rem;text-align:left;font-weight:600;border:1px solid var(--border);}
+.markdown-body td{padding:0.5rem 0.8rem;border:1px solid var(--border);color:var(--text);}
+.markdown-body tr:nth-child(even) td{background:var(--tr-alt);}
+.markdown-body blockquote{border-left:4px solid var(--accent);padding:0.6rem 1rem;background:var(--tag-bg);margin:1.2rem 0;border-radius:0 8px 8px 0;}
+.markdown-body pre{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem;overflow-x:auto;font-family:'Consolas','Courier New',monospace;font-size:0.85rem;margin:1.2rem 0;color:var(--text);}
+.markdown-body code{font-family:'Consolas','Courier New',monospace;background:var(--tag-bg);padding:0.15rem 0.4rem;border-radius:4px;color:var(--accent2);font-size:0.88em;}
+.markdown-body pre code{background:transparent;padding:0;color:inherit;}
+.markdown-body hr{border:none;border-top:1px solid var(--border);margin:2rem 0;}
+.mermaid{display:flex;justify-content:center;margin:1.5rem 0;background:var(--bg2);padding:1rem;border-radius:8px;border:1px solid var(--border);}
+
 /* Stats bar */
 .stats-bar{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:0.3rem;}
 .stat{font-size:0.78rem;color:var(--text2);}
@@ -125,7 +155,7 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
 .toast{position:fixed;bottom:5rem;right:2rem;background:#22c55e;color:#fff;padding:0.6rem 1.2rem;border-radius:8px;font-size:0.85rem;opacity:0;transition:opacity 0.3s;z-index:300;font-weight:600;}
 .toast.show{opacity:1;}
 .empty-state{text-align:center;color:var(--text2);padding:3rem 1rem;font-style:italic;}
-@media(max-width:768px){.book-grid{padding:1rem;grid-template-columns:1fr;}.notes-container{padding:1rem;}.viewer-header{padding:1rem;}}
+@media(max-width:768px){.book-grid{padding:1rem;grid-template-columns:1fr;}.notes-container,.markdown-container{padding:1rem;}.viewer-header{padding:1rem;}}
 </style>
 </head>
 <body>
@@ -134,7 +164,7 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
 <div class="landing" id="landing">
   <div class="landing-header">
     <h1>Semiconductor Reading Notes</h1>
-    <p>Select a literature below to explore reading notes, excerpts and key concepts.</p>
+    <p>Select a literature below to explore reading notes, excerpts, figures, and key concepts.</p>
   </div>
   <div class="book-grid">
 
@@ -177,11 +207,11 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
     <div class="book-card card-3d" onclick="openViewer('3d')">
       <div class="book-icon">🏗️</div>
       <h2>3D Microelectronic Packaging</h2>
-      <p>Advanced 3D packaging concepts covering TSV stresses, micro-Raman spectroscopy, metal pumping, Cu microstructure, and thermo-mechanical reliability of 3D stacked structures.</p>
+      <p>Advanced 3D packaging concepts covering TSV stresses, micro-Raman spectroscopy, metal pumping, Cu microstructure, temperature regimes, SAB, and hybrid bonding.</p>
       <div class="meta">
-        <span class="badge">Ch. 4+</span>
+        <span class="badge">Ch. 4, 6, 8</span>
         <span class="badge">Amber / Copper</span>
-        <span class="badge">TSV·CTE·Raman·KOZ</span>
+        <span class="badge">TSV·Raman·TCB·SAB</span>
       </div>
       <button class="open-btn">Open Notes →</button>
     </div>
@@ -213,9 +243,14 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
       <span class="stat" id="faic-count">Notes: <strong>0</strong></span>
       <span class="stat">Chapters: <strong>3, 7, 8, 9, 10, 11, 13, 14, 15</strong></span>
     </div>
+    <div class="view-mode-toggle">
+      <button class="mode-btn active" id="mode-card-faic" onclick="switchViewMode('fa-ic', 'card')">📱 Snippet Cards</button>
+      <button class="mode-btn" id="mode-doc-faic" onclick="switchViewMode('fa-ic', 'doc')">📄 Full Waterfall Markdown</button>
+    </div>
     <div class="nav-buttons" id="faic-nav"></div>
   </div>
   <div class="notes-container" id="faic-container"></div>
+  <div class="markdown-container" id="faic-doc-container"></div>
   <button class="add-btn" onclick="openModal('fa-ic')" title="Add Note">+</button>
 </div>
 
@@ -243,9 +278,14 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
       <span class="stat" id="bazu-count">Notes: <strong>0</strong></span>
       <span class="stat">Chapters: <strong>2, 3, 4, 5</strong></span>
     </div>
+    <div class="view-mode-toggle">
+      <button class="mode-btn active" id="mode-card-bazu" onclick="switchViewMode('bazu', 'card')">📱 Snippet Cards</button>
+      <button class="mode-btn" id="mode-doc-bazu" onclick="switchViewMode('bazu', 'doc')">📄 Full Waterfall Markdown</button>
+    </div>
     <div class="nav-buttons" id="bazu-nav"></div>
   </div>
   <div class="notes-container" id="bazu-container"></div>
+  <div class="markdown-container" id="bazu-doc-container"></div>
   <button class="add-btn" onclick="openModal('bazu')" title="Add Note">+</button>
 </div>
 
@@ -273,9 +313,14 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
       <span class="stat" id="pkg-count">Notes: <strong>0</strong></span>
       <span class="stat">Chapters: <strong>1, 2</strong></span>
     </div>
+    <div class="view-mode-toggle">
+      <button class="mode-btn active" id="mode-card-packaging" onclick="switchViewMode('packaging', 'card')">📱 Snippet Cards</button>
+      <button class="mode-btn" id="mode-doc-packaging" onclick="switchViewMode('packaging', 'doc')">📄 Full Waterfall Markdown</button>
+    </div>
     <div class="nav-buttons" id="pkg-nav"></div>
   </div>
   <div class="notes-container" id="pkg-container"></div>
+  <div class="markdown-container" id="pkg-doc-container"></div>
   <button class="add-btn" onclick="openModal('packaging')" title="Add Note">+</button>
 </div>
 
@@ -301,11 +346,16 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
     </div>
     <div class="stats-bar">
       <span class="stat" id="pkg3d-count">Notes: <strong>0</strong></span>
-      <span class="stat">Chapters: <strong>4+</strong></span>
+      <span class="stat">Chapters: <strong>4, 6, 8</strong></span>
+    </div>
+    <div class="view-mode-toggle">
+      <button class="mode-btn active" id="mode-card-3d" onclick="switchViewMode('3d', 'card')">📱 Snippet Cards</button>
+      <button class="mode-btn" id="mode-doc-3d" onclick="switchViewMode('3d', 'doc')">📄 Full Waterfall Markdown</button>
     </div>
     <div class="nav-buttons" id="pkg3d-nav"></div>
   </div>
   <div class="notes-container" id="pkg3d-container"></div>
+  <div class="markdown-container" id="pkg3d-doc-container"></div>
   <button class="add-btn" onclick="openModal('3d')" title="Add Note">+</button>
 </div>
 
@@ -504,10 +554,11 @@ const pkg3dSections = [
   {id:'tsv-stress',label:'TSV Stresses'},
   {id:'microstructure',label:'Microstructure & Stresses'},
   {id:'metal-pumping',label:'Metal Pumping'},
-  {id:'tsv-design',label:'TSV Design & Fabrication'},
-  {id:'bonding',label:'Bonding & Interconnect'},
-  {id:'thermal',label:'Thermal Management'},
-  {id:'reliability',label:'Reliability & FMs'},
+  {id:'temperature-regimes',label:'Temperature Regimes (Ch.6)'},
+  {id:'geometry-roughness',label:'Geometry & Roughness (Ch.6)'},
+  {id:'bonding',label:'Bonding & Interconnect (Ch.8)'},
+  {id:'tcb',label:'TCB & Diffusivity (Ch.8)'},
+  {id:'sab-hybrid',label:'SAB & Hybrid Bonding (Ch.8)'},
   {id:'general',label:'General / Misc'}
 ];
 
@@ -522,7 +573,14 @@ const pkg3dNotes = [
   {s:'microstructure',ch:'Ch.4',d:'2026-06-25',t:['TSV','X-ray','hydrostatic-stress'],c:'X-ray micro-diffraction measurements: ~234 MPa tensile (room temperature) → −196 MPa compressive (200°C anneal) → ~167 MPa tensile (cooled to ambient). Large initial tensile stress from self-annealing grain boundary elimination is undesirable — causes large stresses in Si.'},
   {s:'microstructure',ch:'Ch.4',d:'2026-06-25',t:['TSV','FEA','microstructure'],c:'FEA with Cu grain microstructure demonstrates that stress distribution inside the TSV filler is highly heterogeneous. Microvoids/cracks form during annealing (reducing stress) — possibly from vacancy diffusion to pre-existing defects under hydrostatic stress gradients. Cu-TSV has random texture before and after annealing.'},
   {s:'microstructure',ch:'Ch.4',d:'2026-06-25',t:['TSV','von-Mises'],c:'Fig. 4.11 — Von Mises stress distribution in Cu-TSV (linear elastic model with Cu grain microstructure): Peak stress ~350 MPa at TSV corners and Cu-Si interface extremities. Interior Cu grains show heterogeneous stress (50–125 MPa) due to grain microstructure. Si regions flanking TSV show low stress (~0–25 MPa). Stress concentration at grain boundaries within Cu filler is clearly visible.'},
-  {s:'metal-pumping',ch:'Ch.4',d:'2026-06-25',t:['TSV','extrusion','creep'],c:'Metal pumping: during thermal cycling, CTE mismatch between Cu and Si generates residual stress and significant shear stress near via extremities. If stress is high enough, plastic deformation occurs — differential straining accommodated by interfacial sliding resulting in extrusion (or intrusion) of Cu relative to Si. Extrusion typically occurs near via-ends (top/mouth of via) and is enhanced by creep and grain boundary sliding.'}
+  {s:'metal-pumping',ch:'Ch.4',d:'2026-06-25',t:['TSV','extrusion','creep'],c:'Metal pumping: during thermal cycling, CTE mismatch between Cu and Si generates residual stress and significant shear stress near via extremities. If stress is high enough, plastic deformation occurs — differential straining accommodated by interfacial sliding resulting in extrusion (or intrusion) of Cu relative to Si. Extrusion typically occurs near via-ends (top/mouth of via) and is enhanced by creep and grain boundary sliding.'},
+  {s:'temperature-regimes',ch:'Ch.6',d:'2026-07-28',t:['TSV','temperature','Coble-creep'],c:'Effect of Temperature on TSV Protrusion (Fig. 6.16): Protrusion height increases with temperature with two distinct rates: lower rate for T < 260 °C (dislocation motion inside Cu grains) and higher rate for T > 320 °C (diffusional creep, including GB diffusion / Coble creep and lattice diffusion / Nabarro-Herring creep).'},
+  {s:'geometry-roughness',ch:'Ch.6',d:'2026-07-28',t:['TSV','geometry','defect-diffusion'],c:'TSV Cross-Sectional Geometry (Fig. 6.17): Mobile defect atoms (DAs) decay fastest in Rectangle TSVs (lowest perimeter/area ratio P/A = 0.008 → fewer boundary sink sites → highest mobile DAs ~60-90 → highest protrusion), followed by Trapezoid (P/A = 0.011) and Hourglass (highest P/A = 0.014 → dense boundary sink sites → defects cluster & become immobile → lowest protrusion).'},
+  {s:'geometry-roughness',ch:'Ch.6',d:'2026-07-28',t:['TSV','roughness','scalloping'],c:'Sidewall Scalloping Roughness (Table 6.2): Scalloping roughness from DRIE generates localized tensile stress up to 340 MPa at groove roots. Larger roughness amplitude Ra physically blocks upward Cu atom migration, reducing mean protrusion height.'},
+  {s:'bonding',ch:'Ch.8',d:'2026-07-28',t:['bonding','Cu-Cu','solderless'],c:'Solder vs Solderless Bonding (Fig. 8.1): Solder microbumps (SnAg) provide process robustness but suffer from IMC brittleness, high processing time, pitch scaling limits, and temperature constraints (221-232 °C). Direct Cu-Cu bonding eliminates solder and IMCs, offering high electrical conductivity, reduced RC delay, superior EM resistance, and operating capability at >250 °C.'},
+  {s:'tcb',ch:'Ch.8',d:'2026-07-28',t:['TCB','diffusivity','(111)-plane'],c:'Thermo-Compression Bonding (TCB) & Crystal Plane Diffusivity (Table 8.2): Surface diffusivity D_(111) is 4-6 orders of magnitude higher than (100) and (110) across 150-300 °C (e.g. 1.22×10⁻⁹ m²/s vs 4.74×10⁻¹³ m²/s at 250 °C). Highly oriented (111) nanotwinned Cu is key to low-temperature bonding.'},
+  {s:'sab-hybrid',ch:'Ch.8',d:'2026-07-28',t:['SAB','TEM','UHV'],c:'Surface Activated Bonding (SAB) (Fig. 8.9): Ar atom beam sputtering in UHV cleans native oxides for room-temperature Cu-Cu bonding. HR-TEM shows pristine planar metal interface with zero interfacial oxide and no interdiffusion voids. Modified SAB co-deposits Fe/Si nanolayers to overcome surface polarization on ionic materials (glass/SiO₂).'},
+  {s:'sab-hybrid',ch:'Ch.8',d:'2026-07-28',t:['hybrid-bonding','DBI','dishing'],c:'Cu/SiO₂ Hybrid Bonding & DBI: CMP dishing leaves recessed Cu surface, so initial room-temp contact occurs exclusively via SiO₂-SiO₂ bonding (Si-OH/Si-NH₂ groups form Si-O-Si bonds). Post-bonding anneal (125-400 °C) drives differential Cu thermal expansion to close dishing gaps and form direct Cu-Cu metallic bonds.'}
 ];
 
 // ============================================================
@@ -535,9 +593,32 @@ const books = {
   '3d': {sections:pkg3dSections,notes:pkg3dNotes,storageKey:'pkg3d_user_notes',navId:'pkg3d-nav',containerId:'pkg3d-container',countId:'pkg3d-count',modalSections:pkg3dSections.filter(s=>s.id!=='all')}
 };
 
+const mdFilePaths = {
+  'fa-ic': 'Failure/FA_IC_Notes.md',
+  'bazu': 'Failure/Bazu_FA_Notes.md',
+  'packaging': 'Failure/IC_Packaging_Reliability_Notes.md',
+  '3d': 'Packaging/3D_Microelectronic_Packaging_Notes.md'
+};
+
+const viewModeState = {
+  'fa-ic': 'card',
+  'bazu': 'card',
+  'packaging': 'card',
+  '3d': 'card'
+};
+
 let activeBook = null;
 let activeSection = {};
 Object.keys(books).forEach(k => { activeSection[k] = 'all'; });
+
+// Initialize Mermaid.js
+if (typeof mermaid !== 'undefined') {
+  mermaid.initialize({
+    startOnLoad: false,
+    theme: 'dark',
+    securityLevel: 'loose'
+  });
+}
 
 // ============================================================
 // THEME MANAGEMENT (Dracula Default for New Window Sessions)
@@ -568,14 +649,14 @@ function changeTheme(themeName) {
   applyTheme(themeName);
 }
 
-// Initial theme application (Dracula default for newly opened window sessions)
+// Initial theme application
 applyTheme(getActiveTheme());
 document.addEventListener('DOMContentLoaded', () => {
   applyTheme(getActiveTheme());
 });
 
 // ============================================================
-// NAVIGATION
+// NAVIGATION & VIEW SWITCHING
 // ============================================================
 function openViewer(bookId) {
   document.getElementById('landing').style.display = 'none';
@@ -584,7 +665,9 @@ function openViewer(bookId) {
   activeBook = bookId;
   applyTheme(getActiveTheme());
   buildNav(bookId);
-  renderNotes(bookId);
+  
+  // Apply current view mode
+  switchViewMode(bookId, viewModeState[bookId]);
 }
 
 function goLanding() {
@@ -593,9 +676,89 @@ function goLanding() {
   activeBook = null;
 }
 
+function switchViewMode(bookId, mode) {
+  viewModeState[bookId] = mode;
+  const cardsContainer = document.getElementById(books[bookId].containerId);
+  const docContainer = document.getElementById(bookId.replace('-', '') + '-doc-container') || document.getElementById(bookId + '-doc-container');
+  const cardBtn = document.getElementById('mode-card-' + bookId.replace('-', ''));
+  const docBtn = document.getElementById('mode-doc-' + bookId.replace('-', ''));
+  
+  if (mode === 'doc') {
+    if (cardsContainer) cardsContainer.style.display = 'none';
+    if (docContainer) docContainer.classList.add('active');
+    if (cardBtn) cardBtn.classList.remove('active');
+    if (docBtn) docBtn.classList.add('active');
+    loadAndRenderMarkdown(bookId);
+  } else {
+    if (cardsContainer) cardsContainer.style.display = 'block';
+    if (docContainer) docContainer.classList.remove('active');
+    if (cardBtn) cardBtn.classList.add('active');
+    if (docBtn) docBtn.classList.remove('active');
+    renderNotes(bookId);
+  }
+}
+
+async function loadAndRenderMarkdown(bookId) {
+  const containerId = (bookId.replace('-', '') + '-doc-container');
+  const container = document.getElementById(containerId) || document.getElementById(bookId + '-doc-container');
+  if (!container || container.dataset.loaded === 'true') return;
+  
+  container.innerHTML = '<div class="empty-state">Loading document waterfall...</div>';
+  const filePath = mdFilePaths[bookId];
+  
+  try {
+    const response = await fetch(filePath);
+    if (!response.ok) throw new Error('HTTP error ' + response.status);
+    const mdText = await response.text();
+    renderMarkdownContent(container, mdText);
+    container.dataset.loaded = 'true';
+  } catch (err) {
+    console.warn('Fetch failed for ' + filePath + ', rendering notes fallback...', err);
+    container.innerHTML = '<div class="empty-state">Markdown file is loaded via git repository. View <a href="' + filePath + '" style="color:var(--accent);">file:///' + filePath + '</a> directly or view Snippet Cards above.</div>';
+  }
+}
+
+function renderMarkdownContent(container, mdText) {
+  if (typeof marked !== 'undefined') {
+    marked.setOptions({
+      gfm: true,
+      breaks: true
+    });
+    
+    let html = marked.parse(mdText);
+    container.innerHTML = `<div class="markdown-body">${html}</div>`;
+    
+    // Replace mermaid pre/code blocks with mermaid divs
+    const codeBlocks = container.querySelectorAll('pre code.language-mermaid');
+    codeBlocks.forEach((block, idx) => {
+      const pre = block.parentElement;
+      const div = document.createElement('div');
+      div.className = 'mermaid';
+      div.id = 'mermaid-' + Date.now() + '-' + idx;
+      div.textContent = block.textContent;
+      pre.replaceWith(div);
+    });
+    
+    if (typeof mermaid !== 'undefined') {
+      try {
+        mermaid.run({ nodes: container.querySelectorAll('.mermaid') });
+      } catch (mErr) {
+        console.error('Mermaid render error:', mErr);
+      }
+    }
+  } else {
+    container.innerHTML = `<pre class="markdown-body">${escapeHtml(mdText)}</pre>`;
+  }
+}
+
+function escapeHtml(text) {
+  return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
 function buildNav(bookId) {
   const book = books[bookId];
   const nav = document.getElementById(book.navId);
+  if (!nav) return;
   nav.innerHTML = '';
   book.sections.forEach(sec => {
     const btn = document.createElement('button');
@@ -613,7 +776,7 @@ function buildNav(bookId) {
 }
 
 // ============================================================
-// RENDER
+// RENDER SNIPPET CARDS
 // ============================================================
 function renderNotes(bookId) {
   const book = books[bookId];
@@ -622,6 +785,7 @@ function renderNotes(bookId) {
   const sec = activeSection[bookId];
   const filtered = sec === 'all' ? allNotes : allNotes.filter(n => n.s === sec);
   const container = document.getElementById(book.containerId);
+  if (!container) return;
 
   document.getElementById(book.countId).innerHTML = `Notes: <strong>${allNotes.length}</strong>`;
 
