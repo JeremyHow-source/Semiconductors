@@ -111,7 +111,7 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
 
 /* ===== MARKDOWN WATERFALL CONTAINER ===== */
 .markdown-container{max-width:1080px;margin:0 auto;padding:1.8rem 2rem;display:none;}
-.markdown-container.active{display:block;}
+.markdown-container.active{display:block !important;}
 
 .markdown-body{line-height:1.85;color:var(--text);}
 .markdown-body h1{font-size:1.8rem;color:var(--accent);border-bottom:2px solid var(--border);padding-bottom:0.5rem;margin:1.6rem 0 1rem;}
@@ -587,10 +587,10 @@ const pkg3dNotes = [
 // BOOK-LEVEL STATE
 // ============================================================
 const books = {
-  'fa-ic': {sections:faicSections,notes:faicNotes,storageKey:'faic_user_notes',navId:'faic-nav',containerId:'faic-container',countId:'faic-count',modalSections:faicSections.filter(s=>s.id!=='all')},
-  'bazu':  {sections:bazuSections,notes:bazuNotes,storageKey:'bazu_user_notes',navId:'bazu-nav',containerId:'bazu-container',countId:'bazu-count',modalSections:bazuSections.filter(s=>s.id!=='all')},
-  'packaging': {sections:pkgSections,notes:pkgNotes,storageKey:'pkg_user_notes',navId:'pkg-nav',containerId:'pkg-container',countId:'pkg-count',modalSections:pkgSections.filter(s=>s.id!=='all')},
-  '3d': {sections:pkg3dSections,notes:pkg3dNotes,storageKey:'pkg3d_user_notes',navId:'pkg3d-nav',containerId:'pkg3d-container',countId:'pkg3d-count',modalSections:pkg3dSections.filter(s=>s.id!=='all')}
+  'fa-ic': {docContainerId:'faic-doc-container',containerId:'faic-container',cardBtnId:'mode-card-faic',docBtnId:'mode-doc-faic',sections:faicSections,notes:faicNotes,storageKey:'faic_user_notes',navId:'faic-nav',countId:'faic-count',modalSections:faicSections.filter(s=>s.id!=='all')},
+  'bazu':  {docContainerId:'bazu-doc-container',containerId:'bazu-container',cardBtnId:'mode-card-bazu',docBtnId:'mode-doc-bazu',sections:bazuSections,notes:bazuNotes,storageKey:'bazu_user_notes',navId:'bazu-nav',countId:'bazu-count',modalSections:bazuSections.filter(s=>s.id!=='all')},
+  'packaging': {docContainerId:'pkg-doc-container',containerId:'pkg-container',cardBtnId:'mode-card-packaging',docBtnId:'mode-doc-packaging',sections:pkgSections,notes:pkgNotes,storageKey:'pkg_user_notes',navId:'pkg-nav',countId:'pkg-count',modalSections:pkgSections.filter(s=>s.id!=='all')},
+  '3d': {docContainerId:'pkg3d-doc-container',containerId:'pkg3d-container',cardBtnId:'mode-card-3d',docBtnId:'mode-doc-3d',sections:pkg3dSections,notes:pkg3dNotes,storageKey:'pkg3d_user_notes',navId:'pkg3d-nav',countId:'pkg3d-count',modalSections:pkg3dSections.filter(s=>s.id!=='all')}
 };
 
 const mdFilePaths = {
@@ -680,19 +680,23 @@ function goLanding() {
 
 function switchViewMode(bookId, mode) {
   viewModeState[bookId] = mode;
-  const cardsContainer = document.getElementById(books[bookId].containerId);
-  const docContainer = document.getElementById(bookId.replace('-', '') + '-doc-container') || document.getElementById(bookId + '-doc-container');
-  const cardBtn = document.getElementById('mode-card-' + bookId.replace('-', ''));
-  const docBtn = document.getElementById('mode-doc-' + bookId.replace('-', ''));
+  const book = books[bookId];
+  const cardsContainer = document.getElementById(book.containerId);
+  const docContainer = document.getElementById(book.docContainerId);
+  const cardBtn = document.getElementById(book.cardBtnId);
+  const docBtn = document.getElementById(book.docBtnId);
+  const navContainer = document.getElementById(book.navId);
   
   if (mode === 'doc') {
     if (cardsContainer) cardsContainer.style.display = 'none';
+    if (navContainer) navContainer.style.display = 'none';
     if (docContainer) docContainer.classList.add('active');
     if (cardBtn) cardBtn.classList.remove('active');
     if (docBtn) docBtn.classList.add('active');
     loadAndRenderMarkdown(bookId);
   } else {
     if (cardsContainer) cardsContainer.style.display = 'block';
+    if (navContainer) navContainer.style.display = 'flex';
     if (docContainer) docContainer.classList.remove('active');
     if (cardBtn) cardBtn.classList.add('active');
     if (docBtn) docBtn.classList.remove('active');
@@ -701,8 +705,8 @@ function switchViewMode(bookId, mode) {
 }
 
 async function loadAndRenderMarkdown(bookId) {
-  const containerId = (bookId.replace('-', '') + '-doc-container');
-  const container = document.getElementById(containerId) || document.getElementById(bookId + '-doc-container');
+  const book = books[bookId];
+  const container = document.getElementById(book.docContainerId);
   if (!container || container.dataset.loaded === 'true') return;
   
   const mdText = EMBEDDED_MD_DATA[bookId];
@@ -710,7 +714,6 @@ async function loadAndRenderMarkdown(bookId) {
     renderMarkdownContent(container, mdText);
     container.dataset.loaded = 'true';
   } else {
-    // Fallback to fetch if embedded data missing
     const filePath = mdFilePaths[bookId];
     try {
       const response = await fetch(filePath);
