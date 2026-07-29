@@ -791,3 +791,56 @@ graph TD
     NC --> |"Mass Reflow<br/>+ CUF"| CUF
     EF --> |"TCB Process<br/>(Single Step)"| Done["Completed Assembly<br/>(No deflux needed)"]
 ```
+
+---
+
+### Underfill Filler Concentration & Material Property Trade-Offs
+
+#### Filler Concentration Effects
+
+An increase in filler concentration typically **improves solder joint reliability**; however, excessive filler concentration increases the possibility of **filler entrapment between bumps and pads**, consequently resulting in an **electrical open failure** under temperature cycling conditions.
+
+> **Key trade-off**: Higher filler content strengthens joints but risks filler-induced opens at fine pitch.
+
+#### Low-k Dielectric Protection
+
+The filler concentration may also need to **protect fragile low-k dielectric layers**. The demand on low-k protection is determined by package configuration including:
+
+| Configuration | Gap/Clearance |
+|--------------|---------------|
+| **Die-to-die** | Silicon-to-silicon space |
+| **Die-to-substrate** | Die-to-substrate gap |
+| **Module-to-substrate** | Module-to-substrate clearance |
+
+> **Fundamental conflict**: Solder joint reliability requires **stiff, rigid underfills** (high modulus) while more **compliant underfill properties** (low modulus) are better at protecting low-k layers.
+
+#### Interdependent Material Properties
+
+A successful candidate material must simultaneously address multiple interdependent properties:
+
+```mermaid
+graph TD
+    subgraph MaterialProps["Underfill Material Properties — Interdependency"]
+        CTE["CTE<br/>(Coefficient of Thermal Expansion)"] <--> MOD["Modulus<br/>(Stiffness)"]
+        MOD <--> TG["Tg<br/>(Glass Transition Temperature)"]
+        TG <--> TOUGH["Toughness<br/>(Fracture Resistance)"]
+        TOUGH <--> PR["Poisson's Ratio"]
+        PR <--> CTE
+        CTE <--> TG
+        MOD <--> TOUGH
+    end
+    subgraph Tuning["Tuning Levers"]
+        F["Fillers"] --> CTE
+        F --> MOD
+        A["Additives"] --> CTE
+        A --> MOD
+    end
+    subgraph Constraint["Design Constraint"]
+        C1["Below Tg:<br/>CTE & Modulus are<br/>loosely correlated"]
+        C2["Both can be modified<br/>with fillers & additives"]
+    end
+```
+
+- **CTE** and **modulus** are loosely correlated at temperatures less than $T_g$
+- Both properties can be modified with **fillers and additives**
+- All five properties — CTE, modulus, Poisson's ratio, toughness, and $T_g$ — are **interdependent upon one another**, making formulation optimization a multi-variable challenge
