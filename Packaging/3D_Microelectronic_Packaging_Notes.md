@@ -520,3 +520,274 @@ graph TD
 Formic Acid ($\text{HCOOH}$) vapor treatment cleans Cu oxides without sputtering Cu contaminants onto the adhesive (unlike Ar plasma), enabling strong $\text{Cu}\text{--}\text{Cu}$ bonds ($> 10\text{ MPa}$ shear strength) at $200\ ^\circ\text{C}$ in $5\text{ min}$.
 
 **Alternative Cu–Cu Insertion Bonding**: Low-temperature TSV bonding scheme applying high shear stress via **sloped sidewall landing pads** to drive large local plastic deformation as TSV nails are forced into the sloped pads.
+
+---
+
+## Chapter 9 — Copper Micro and Nano Particles Mixture for 3D Interconnection
+
+### Motivation for Metallic Particle Bonding
+
+Metallic particles are a promising solution for 3D interconnects since they offer a **low sintering temperature** — as the surface-to-volume ratio increases with smaller particle size, the particle can absorb more energy. Nano-materials have relatively larger surface area, giving them higher surface activation due to nano-scaling effects. This makes them easy to fuse together, which also ensures compactness in 3D IC applications. As a result, nano-particle approaches are expected to **reduce both bonding temperature and pressure** compared to bulk metal joining.
+
+Due to the nano-scale effect, **nano-silver particles** (diameter $\sim 20\text{ nm}$) are able to be sintered at temperatures as low as $150\ ^\circ\text{C}$.
+
+### Motivation for Mixed Cu Particle Bonding
+
+A key limitation of **copper nano-particles** is that they are **readily oxidized in ambient** and unstable because of their large surface area. These surface oxides can degrade bonding characteristics. To ensure improvements over bulk copper paste, treatments such as **fluxing resin**, **thermal oxidation**, and **reduction techniques** are being studied.
+
+These methods help increase the shear strength from **below 5 MPa to above 20 MPa** on average, under sintering conditions of $300\ ^\circ\text{C}$ for $60\text{ min}$. Usage of Cu micro-scale particle sintering with oxide removal methods demonstrates higher bond strength due to Cu surface modification in **formic acid bonding conditions**.
+
+A notable problem associated with copper paste made from nano-particles is the **large amount of porosity and cracks**:
+- **Uncontrolled agglomeration** of nano-particles results in inhomogeneity
+- **Different evaporation rates** of dispersion solvents lead to particle shrinkage
+- Residual stress from differential shrinkage makes the paste **prone to cracking**
+
+### Cu Paste Formulation and Characterization
+
+For metallic bonding, two important factors are:
+1. **Lower sintering temperature**
+2. **Higher electrical conductivity**
+
+Solvents and additives used in copper particles should have a **low boiling point**. Pastes using common solvents such as $\alpha$-terpineol, ethanol, and hydrazine monohydrate & citric acid monohydrate have sintering temperatures at about $\sim 300\ ^\circ\text{C}$, which is considered **high for back-end interconnections** in 3D IC.
+
+The **sintering profile** is critical to paste physical properties — temperature and time affect both bond strength and shear strength, which can vary from $0.5$ to $40\text{ MPa}$ and is influenced by the environment. When pastes are sintered in $\text{H}_2$, the oxide on the film surface can be removed. The sintering temperature is then decided by the solvents used during the synthesis process.
+
+#### Experimental Details
+
+| Component | Specification | Source |
+|-----------|--------------|--------|
+| Commercial micro-particles | $1\text{–}2\ \mu\text{m}$ diameter, 99% purity | American Elements |
+| Cu nano-particles | $40\text{–}80\text{ nm}$ diameter, passivated with thin amine layer | Lockheed Martin Advanced Technology Center (Cuantumfuse solder materials) |
+| **Optimal weight ratio (micro:nano)** | **6:1** | Calculated for best performance |
+
+### In-Situ Resistance Characterization of 6:1 Mixed Paste
+
+During temperature ramping of the 6:1 mixed paste:
+
+1. **At $\sim 170\ ^\circ\text{C}$** — resistance has an obvious drop, suggesting most solvents evaporate at this temperature (resistance measured as high as $100\ \Omega$)
+2. **At $230\ ^\circ\text{C}$** — resistance shows another obvious drop after $6\text{ min}$ of sintering
+3. **Final stable resistance**: $2.79\ \Omega$
+
+> **Fig. 9.10** — The resistance change in the 6:1 mixed paste during sintering. The dual-axis plot shows resistance (kΩ) dropping from $\sim 850\text{ k}\Omega$ to $2.79\ \Omega$ as temperature ramps to $230\ ^\circ\text{C}$ and holds steady, with the sharpest resistance decrease occurring between 2–6 minutes.
+
+![Fig. 9.10 — Resistance change in the 6:1 mixed Cu paste during sintering (dual Y-axis: Resistance vs Temperature over Time)](figures/fig_9_10_mixed_paste_resistance.png)
+
+### Comparison: Micro-Particle vs Nano-Particle Paste Behaviour
+
+The **paste transition temperature** is defined as the temperature when resistance decreases to $10\ \Omega$ (since there is no pronounced resistance change beyond that point):
+
+| Paste Type | Transition Temperature | Final Resistance | Behaviour |
+|-----------|----------------------|-----------------|-----------|
+| Micro-particles | $150\ ^\circ\text{C}$ | $2.3\ \Omega$ | Stable — resistance decreases monotonically |
+| Nano-particles | $\sim 220\ ^\circ\text{C}$ | Unstable — spikes to $50\text{ k}\Omega$ | Resistance first drops to $1.8\ \Omega$ then sudden irreversible increase |
+| **6:1 Mixed paste** | **$\sim 170\ ^\circ\text{C}$** | **$2.79\ \Omega$** | **Stable — combines benefits of both** |
+
+> **Fig. 9.11** — *In situ* resistance change of (a) micro-particle paste and (b) nano-particle paste. The micro-particle paste shows stable monotonic resistance reduction to $2.3\ \Omega$. The nano-particle paste exhibits an anomalous sudden resistance spike from $1.8\ \Omega$ to $\sim 50\text{ k}\Omega$ at $\sim 5\text{ min}$ (highlighted in red), attributed to crack formation during sintering.
+
+![Fig. 9.11 — In situ resistance change of (a) micro-particles paste showing stable 2.3 Ω final resistance, and (b) nano-particles paste showing anomalous resistance spike](figures/fig_9_11_micro_nano_paste_resistance.png)
+
+### Analysis of Particle-Specific Behaviour
+
+**Lower transition temperature of micro-particles paste** compared to nano-particles paste:
+- Micro-particles were **washed to remove oxide** prior to paste formulation
+- Pre-cleaning eliminates the oxide barrier that would otherwise delay sintering onset
+
+**Advantages of the 6:1 mixed paste**:
+- Micro and nano particles **mix well** in the mixture, reducing porosity
+- The mixture is able to **fuse at lower temperature** due to **heat localization**
+- Nano-particles **fill the interstitials** formed by micro-particles, creating better inter-particle connections — likely the reason for low final resistance after sintering
+
+**Cause of nano-particle paste cracking**:
+- The sudden irreversible resistance increase is observed at the **5th minute** during sintering
+- Likely caused by **solvent evaporation** during sintering, which leads to **residual stress** in the paste due to different evaporation rates of the solvents
+- Since the resistance change is **irreversible**, it confirms structural cracking rather than a reversible thermal effect
+
+```mermaid
+graph TD
+    subgraph MixedAdvantage["6:1 Mixed Cu Paste — Key Advantages"]
+        M1["Nano-particles fill interstitials<br/>between micro-particles"] --> M2["Reduced porosity &<br/>better particle connectivity"]
+        M2 --> M3["Heat localization enables<br/>lower fusion temperature (~170 °C)"]
+        M3 --> M4["Stable final resistance<br/>2.79 Ω (no cracking)"]
+    end
+    subgraph NanoProblem["Nano-Particle Paste — Failure Mode"]
+        N1["Uncontrolled agglomeration<br/>→ inhomogeneity"] --> N2["Differential solvent<br/>evaporation rates"]
+        N2 --> N3["Residual stress buildup<br/>at ~5 min sintering"]
+        N3 --> N4["Irreversible cracking<br/>R: 1.8 Ω → 50 kΩ"]
+    end
+```
+
+---
+
+## Chapter 10 — Fundamentals of Bonding Technology and Process Materials for 2.5/3D Packages
+
+### Technical Challenges: Mass Reflow vs Thermo-Compression Bonding (TCB)
+
+#### Traditional Flip Chip Assembly Process
+
+The traditional flip chip assembly process starts with dipping the die into a flux reservoir or dispensing flux on a substrate, depending on the product. The die is then placed on the substrate, followed by reflowing both die and substrate to form the interconnections. Flux residues are removed from the bonded packages and underfill is applied in the gap between the die and substrate. The underfill curing process completes the traditional flip chip assembly process.
+
+> There is a preference to use **flux dipping**, but logic manufacturers use **dispensing** because of the associated assembly cost with equipment price and throughput.
+
+> **Fig. 10.5** — Traditional flip chip assembly process: (a) schematic of assembly process flow showing flux application → chip attach → mass reflow → deflux → underfill → underfill cure; (b) reflow profile plot showing ramp zone, soak zone, peak temperature, and time above liquidus.
+
+![Fig. 10.5 — Traditional flip chip assembly process: (a) assembly process flow schematic and (b) reflow profile plot](figures/fig_10_5_flip_chip_assembly.png)
+
+**Mass reflow** can take several minutes. Temperature ranges and time duration at each zone can be optimized through a number of iterations, which must be compatible with solder alloy composition and process materials to achieve high, stable product yield.
+
+#### TCB Process Advantages
+
+In contrast, **TCB can complete bonding in 2–3 steps** of the assembly process. The typical failure signature of yield loss due to warpage would be **non-contact opens** that occur when the amount of dynamic warpage is greater than the solder collapse during solder reflow.
+
+TCB prevents this via metallurgical interconnections by controlled forces and temperatures applied to both die and substrate under vacuum-constrained head and stage respectively — the vacuum forces **minimize warpage** of silicon die and substrate.
+
+> **Fig. 10.6** — Schematics of TCB using epoxy flux: (1) Epoxy flux dispense onto substrate, (2) TCB process with controlled heat and force from TCB head, (3) Underfill cure completing the assembly in a single thermal step.
+
+![Fig. 10.6 — Schematics of TCB using epoxy flux process: epoxy flux dispense → TCB process → underfill cure](figures/fig_10_6_tcb_epoxy_flux.png)
+
+#### Placement Accuracy Comparison
+
+| Parameter | Mass Reflow (Flip Chip) | TCB (3D Packages) |
+|-----------|------------------------|-------------------|
+| Self-alignment | Solder can recover misalignment if bumps placed on half of pad opening | No solder self-alignment — placement accuracy is critical |
+| Typical pad size | $60\ \mu\text{m}$ | $\sim 20\ \mu\text{m}$ (current TSV products) |
+| Max misalignment allowable | $\pm 15\ \mu\text{m}$ (half of 30 µm half-pad) | $\pm 5\ \mu\text{m}$ |
+| HVM placement accuracy target | $\pm 15\ \mu\text{m}$ | $< \pm 2\ \mu\text{m}$ ($3\sigma$, per equipment suppliers) |
+
+> **Note**: $\text{O}_2$ levels during the process are recommended to be maintained **below 100 ppm** in order to support solder wetting and produce less stringy flux residue.
+
+```mermaid
+graph LR
+    subgraph MassReflow["Mass Reflow Process (Traditional)"]
+        MR1["Flux Application<br/>(Dip or Dispense)"] --> MR2["Chip Attach"]
+        MR2 --> MR3["Mass Reflow<br/>(Several minutes)"]
+        MR3 --> MR4["Deflux"]
+        MR4 --> MR5["Underfill Dispense"]
+        MR5 --> MR6["Underfill Cure"]
+    end
+    subgraph TCBProcess["TCB Process (Advanced)"]
+        TCB1["Epoxy Flux<br/>Dispense"] --> TCB2["TCB Bonding<br/>(Force + Heat + Vacuum)"]
+        TCB2 --> TCB3["Underfill Cure<br/>(Single Step)"]
+    end
+```
+
+---
+
+### Process Materials — Thermal Analysis Techniques
+
+#### Thermogravimetric Analysis (TGA)
+
+**TGA** measures the amount and rate of change in the weight of a material as a function of increasing temperature (constant heating rate) or as a function of time (constant temperature). Primarily used to determine the **composition of materials** and predict their **thermal stability** — characterizes materials that exhibit weight loss or gain due to decomposition, oxidation, hydration, or dehydration. Provides information about the underlying physical and chemical phenomena by measuring the rate of change in weight.
+
+#### Differential Scanning Calorimetry (DSC)
+
+**DSC** measures the difference in heat flow required to increase the sample temperature versus a reference sample as a function of temperature or time. The basic principle allows identifying whether the process is **exothermic or endothermic** when the sample undergoes a physical transformation such as phase transitions.
+
+#### Thermomechanical Analysis (TMA)
+
+**TMA** measures the change in sample size as a function of temperature, time, and load using testing geometries similar to standard mechanical testing:
+
+| Geometry | Application |
+|----------|------------|
+| **(a) Expansion** | Compression and CTE studies |
+| **(b) Flexure** | 3-point bending |
+| **(c) Extension** | Tensile testing |
+| **(d) Penetration** | Hardness/softening point |
+| **(e) Dilatometry** | Bulk dimensional change |
+
+Used to identify the **glass transition temperature ($T_g$)** where an amorphous material shows a phase change from rigid to flexible/fluid. The $T_g$ is taken as the **intersection of the tangents** from the graphs above and below the transition.
+
+#### Dynamic Mechanical Analysis (DMA)
+
+**DMA** is widely used to characterize material properties as functions of temperature, time, frequency, stress, atmosphere, or combinations of these parameters. Typically used to determine the $T_g$ of **polymer-based materials** commonly found in the electronic packaging industry.
+
+#### Table 10.2 — Thermal Analyzer Used for Standard Methods *(Source: PerkinElmer)*
+
+| Problem | Properties | Analysis | Standard Method |
+|---------|-----------|----------|----------------|
+| **Delamination** | CTE | TMA | IPC TM-650 2.4.24.1 |
+| | Decomposition temperature | TGA | ASTM D3850 |
+| | Glass transition temperature | DSC / TMA / DMA | IPC TM-650 2.4.25C / IPC TM-650 2.4.24C / IPC TM-650 2.4.24.2 |
+| **Through hole reliability** | CTE (Z-axis) | TMA | IPC TM-650 2.4.24.1 |
+| **Bad thermal stability** | Glass transition temperature | DSC / DMA | IPC TM-650 2.4.25C |
+| | Moisture content | TGA | IPC TM-650 2.4.24C |
+| | Decomposition temperature | TGA | IPC TM-650 2.4.24.2 |
+| | Modulus | DMA | IPC TM-650 2.4.24.4 |
+| **Size stability** | CTE (XY-Axis) | TMA | IPC TM-650 2.4.24C |
+
+---
+
+### Principles of Materials Formulation
+
+**Flux performance** is the most important factor within all assembly building blocks and process materials designed for TCB targeting the 3D stacking process. It requires the **right chemistry coupled with a proper heat cycle** to reduce surface oxides. The synergistic combination between chemistry and processing can promote a clean and solder-wettable metal surface — a prerequisite to achieve good metallurgical bonding.
+
+#### Oxide Reduction Chemistry
+
+> **Fig. 10.25** — Chemical equations for oxide reduction: (a) Sn/Pb oxide reduction by organic acids (RCOOH), (b) Cu oxide reduction by organic acids. The carboxylic acid reacts with metal oxides to form metal carboxylate salts and water.
+
+![Fig. 10.25 — (a) Sn/Pb oxide and (b) Cu oxide reduction process chemical equations](figures/fig_10_25_oxide_reduction.png)
+
+**Sn/Pb Oxide Reduction (a):**
+
+$$\text{SnO} + 2\text{RCOOH} \rightarrow \text{Sn(RCOO)}_2 + \text{H}_2\text{O}$$
+
+$$\text{PbO} + 2\text{RCOOH} \rightarrow \text{Pb(RCOO)}_2 + \text{H}_2\text{O}$$
+
+**Cu Oxide Reduction (b):**
+
+$$\text{CuO} + 2\text{RCOOH} \rightarrow \text{Cu(RCOO)}_2 + \text{H}_2\text{O}$$
+
+$$\text{Cu}_2\text{O} + 2\text{RCOOH} \rightarrow \text{Cu(RCOO)}_2 + \text{Cu} + \text{H}_2\text{O}$$
+
+---
+
+### Assembly Process Materials — Flux Types
+
+#### Water-Soluble Flux
+
+Based on **organic acids** to provide oxide reduction performance. These fluxes produce **corrosive residues** after solder reflow, necessitating a **pressurized water wash process** to eliminate flux residue.
+
+Water-soluble flux can also be applied to TCB technology with no major changes in formulation. The flux comprises:
+
+| Component | Function |
+|-----------|----------|
+| **Vehicle** | High-temperature tolerant chemicals (liquid or solid). Dissolves by-products from activator-oxide reactions and carries them away during wetting/spreading. Serves as **heat transfer media**. Solid-form vehicles are adopted from natural/modified rosins or natural/synthetic resins. |
+| **Activators** | React with and reduce metal oxides |
+| **Surfactants** | Help liquid flux spread and reduce surface tension of molten solder |
+| **Thickening agents** | Control rheology |
+| **Solvents** | Control viscosity for proper dispensing properties |
+
+#### No-Clean Flux
+
+"No-clean" does **not imply no flux residues remain** after solder reflow. These fluxes generally have the same aggressiveness as **Rosin Mildly Activated (RMA)** fluxes, but leave **fewer and less corrosive residues** compared to water-soluble flux.
+
+Achieved by:
+1. **Reducing the solid content** of the flux — typical no-clean flux has **< 15% solids**, compared with **30–50% in cleanable fluxes**
+2. **Polymerizing residues** to minimize their corrosivity in the presence of moisture
+
+---
+
+### Capillary Underfill (CUF)
+
+CUF is an important process material for building blocks with mass reflow processes using water-soluble or no-clean fluxes in 2.5/3D processes.
+
+CUF flows within the **extremely thin $\sim 3\ \mu\text{m}$ gap**, which requires optimizing viscosity and filler size properties. Theoretically, CUF has no barrier in filling a gap as long as the gap is greater than the filler particle size.
+
+> **Practical limitation**: CUF is limited to **$\geq 120\ \mu\text{m}$ pitch** flip chip applications due to the need to remove flux residues. Below $120\ \mu\text{m}$ pitch, the defluxing process cannot guarantee removal of all residues in HVM. Flux residues can impede CUF flow, resulting in **underfill voids and/or delamination**, which negatively affect interconnection reliability performance.
+
+### Epoxy Flux (No-Flow Underfill / Non-Conductive Paste)
+
+Epoxy flux materials allow TCB technology to complete **microbumped solder reflow and encapsulation in a single step**. The material performs the function of both the flux and epoxy-based underfill in the TCB process — hence the term "epoxy flux" — and can **skip the flux cleaning process**.
+
+```mermaid
+graph TD
+    subgraph ProcessMaterials["Assembly Process Materials for 2.5/3D"]
+        direction TB
+        WS["Water-Soluble Flux<br/>• Organic acid based<br/>• Corrosive residues → water wash required"]
+        NC["No-Clean Flux<br/>• RMA-level aggressiveness<br/>• <15% solids, less corrosive residues"]
+        CUF["Capillary Underfill (CUF)<br/>• For mass reflow with WS/NC fluxes<br/>• Limited to ≥120 µm pitch"]
+        EF["Epoxy Flux<br/>• Flux + underfill in single material<br/>• Enables single-step TCB bonding"]
+    end
+    WS --> |"Mass Reflow<br/>+ CUF"| CUF
+    NC --> |"Mass Reflow<br/>+ CUF"| CUF
+    EF --> |"TCB Process<br/>(Single Step)"| Done["Completed Assembly<br/>(No deflux needed)"]
+```

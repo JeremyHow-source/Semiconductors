@@ -207,9 +207,9 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
     <div class="book-card card-3d" onclick="openViewer('3d')">
       <div class="book-icon">🏗️</div>
       <h2>3D Microelectronic Packaging</h2>
-      <p>Advanced 3D packaging concepts covering TSV stresses, micro-Raman spectroscopy, metal pumping, Cu microstructure, temperature regimes, SAB, and hybrid bonding.</p>
+      <p>Advanced 3D packaging concepts covering TSV stresses, micro-Raman spectroscopy, metal pumping, Cu microstructure, temperature regimes, SAB, hybrid bonding, Cu particle sintering, and bonding process materials.</p>
       <div class="meta">
-        <span class="badge">Ch. 4, 6, 8</span>
+        <span class="badge">Ch. 4, 6, 8, 9, 10</span>
         <span class="badge">Amber / Copper</span>
         <span class="badge">TSV·Raman·TCB·SAB</span>
       </div>
@@ -346,7 +346,7 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
     </div>
     <div class="stats-bar">
       <span class="stat" id="pkg3d-count">Notes: <strong>0</strong></span>
-      <span class="stat">Chapters: <strong>4, 6, 8</strong></span>
+      <span class="stat">Chapters: <strong>4, 6, 8, 9, 10</strong></span>
     </div>
     <div class="view-mode-toggle">
       <button class="mode-btn" id="mode-card-3d" onclick="switchViewMode('3d', 'card')">📱 Snippet Cards</button>
@@ -559,6 +559,9 @@ const pkg3dSections = [
   {id:'bonding',label:'Bonding & Interconnect (Ch.8)'},
   {id:'tcb',label:'TCB & Diffusivity (Ch.8)'},
   {id:'sab-hybrid',label:'SAB & Hybrid Bonding (Ch.8)'},
+  {id:'cu-particles',label:'Cu Micro/Nano Particles (Ch.9)'},
+  {id:'bonding-tech',label:'Bonding Technology (Ch.10)'},
+  {id:'process-materials',label:'Process Materials (Ch.10)'},
   {id:'general',label:'General / Misc'}
 ];
 
@@ -580,7 +583,20 @@ const pkg3dNotes = [
   {s:'bonding',ch:'Ch.8',d:'2026-07-28',t:['bonding','Cu-Cu','solderless'],c:'Solder vs Solderless Bonding (Fig. 8.1): Solder microbumps (SnAg) provide process robustness but suffer from IMC brittleness, high processing time, pitch scaling limits, and temperature constraints (221-232 °C). Direct Cu-Cu bonding eliminates solder and IMCs, offering high electrical conductivity, reduced RC delay, superior EM resistance, and operating capability at >250 °C.'},
   {s:'tcb',ch:'Ch.8',d:'2026-07-28',t:['TCB','diffusivity','(111)-plane'],c:'Thermo-Compression Bonding (TCB) & Crystal Plane Diffusivity (Table 8.2): Surface diffusivity D_(111) is 4-6 orders of magnitude higher than (100) and (110) across 150-300 °C (e.g. 1.22×10⁻⁹ m²/s vs 4.74×10⁻¹³ m²/s at 250 °C). Highly oriented (111) nanotwinned Cu is key to low-temperature bonding.'},
   {s:'sab-hybrid',ch:'Ch.8',d:'2026-07-28',t:['SAB','TEM','UHV'],c:'Surface Activated Bonding (SAB) (Fig. 8.9): Ar atom beam sputtering in UHV cleans native oxides for room-temperature Cu-Cu bonding. HR-TEM shows pristine planar metal interface with zero interfacial oxide and no interdiffusion voids. Modified SAB co-deposits Fe/Si nanolayers to overcome surface polarization on ionic materials (glass/SiO₂).'},
-  {s:'sab-hybrid',ch:'Ch.8',d:'2026-07-28',t:['hybrid-bonding','DBI','dishing'],c:'Cu/SiO₂ Hybrid Bonding & DBI: CMP dishing leaves recessed Cu surface, so initial room-temp contact occurs exclusively via SiO₂-SiO₂ bonding (Si-OH/Si-NH₂ groups form Si-O-Si bonds). Post-bonding anneal (125-400 °C) drives differential Cu thermal expansion to close dishing gaps and form direct Cu-Cu metallic bonds.'}
+  {s:'sab-hybrid',ch:'Ch.8',d:'2026-07-28',t:['hybrid-bonding','DBI','dishing'],c:'Cu/SiO₂ Hybrid Bonding & DBI: CMP dishing leaves recessed Cu surface, so initial room-temp contact occurs exclusively via SiO₂-SiO₂ bonding (Si-OH/Si-NH₂ groups form Si-O-Si bonds). Post-bonding anneal (125-400 °C) drives differential Cu thermal expansion to close dishing gaps and form direct Cu-Cu metallic bonds.'},
+  {s:'cu-particles',ch:'Ch.9',d:'2026-07-28',t:['nano-sintering','Cu-paste','surface-area'],c:'Metallic particles offer low sintering temperature as surface-to-volume ratio increases with smaller particle size. Nano-silver particles (~20 nm diameter) sinter at temperatures as low as 150 °C due to nano-scale surface activation effects.'},
+  {s:'cu-particles',ch:'Ch.9',d:'2026-07-28',t:['Cu-nano','oxidation','shear-strength'],c:'Cu nano-particles are readily oxidized in ambient due to large surface area. Treatments (fluxing resin, thermal oxidation, reduction) increase shear strength from <5 MPa to >20 MPa at 300 °C / 60 min. Formic acid bonding conditions enable Cu surface modification for higher bond strength.'},
+  {s:'cu-particles',ch:'Ch.9',d:'2026-07-28',t:['porosity','cracking','agglomeration'],c:'Nano-particle Cu paste suffers from large porosity and cracks due to: (1) uncontrolled agglomeration causing inhomogeneity, (2) different evaporation rates of dispersion solvents leading to particle shrinkage and residual stress-induced cracking.'},
+  {s:'cu-particles',ch:'Ch.9',d:'2026-07-28',t:['paste-formulation','sintering','H2'],c:'Cu paste sintering: solvents (α-terpineol, ethanol, hydrazine monohydrate) give sintering temp ~300 °C — high for 3D IC back-end. Shear strength varies 0.5–40 MPa depending on environment. Sintering in H₂ removes film surface oxide.'},
+  {s:'cu-particles',ch:'Ch.9',d:'2026-07-28',t:['6:1-ratio','mixed-paste','resistance'],c:'Optimal micro:nano weight ratio is 6:1. During sintering: resistance drops at ~170 °C (solvent evaporation), another drop after 6 min at 230 °C, stabilizing at 2.79 Ω. Transition temp: micro = 150 °C, nano = ~220 °C, mixed = ~170 °C.'},
+  {s:'cu-particles',ch:'Ch.9',d:'2026-07-28',t:['micro-paste','nano-paste','cracking'],c:'Micro-particle paste: final R = 2.3 Ω (stable). Nano-particle paste: R first drops to 1.8 Ω then spikes irreversibly to 50 kΩ at ~5 min — caused by cracking from differential solvent evaporation. Mixed 6:1 paste avoids cracking via nano-particles filling micro-particle interstitials and heat localization.'},
+  {s:'bonding-tech',ch:'Ch.10',d:'2026-07-29',t:['mass-reflow','flip-chip','flux'],c:'Traditional flip chip assembly: flux dip/dispense → chip attach → mass reflow (several minutes) → deflux → underfill → cure. Logic manufacturers prefer flux dispensing over dipping due to equipment cost and throughput considerations.'},
+  {s:'bonding-tech',ch:'Ch.10',d:'2026-07-29',t:['TCB','warpage','vacuum'],c:'TCB completes bonding in 2–3 steps. Prevents non-contact opens (warpage > solder collapse) by applying controlled forces and temps under vacuum-constrained head and stage. Typical yield loss signature from warpage is non-contact opens.'},
+  {s:'bonding-tech',ch:'Ch.10',d:'2026-07-29',t:['placement-accuracy','HVM','TSV'],c:'Placement accuracy: mass reflow with 60 µm pads needs ±15 µm; TCB with ~20 µm TSV pads requires ±5 µm. Equipment suppliers claim <±2 µm (3σ) in HVM. O₂ levels recommended <100 ppm for solder wetting.'},
+  {s:'process-materials',ch:'Ch.10',d:'2026-07-29',t:['TGA','DSC','TMA','DMA'],c:'Thermal analysis techniques: TGA (weight change vs temp — decomposition/oxidation), DSC (heat flow difference — exo/endothermic transitions), TMA (dimensional change — CTE, Tg via tangent intersection), DMA (material properties vs temp/freq — Tg of polymers).'},
+  {s:'process-materials',ch:'Ch.10',d:'2026-07-29',t:['flux','oxide-reduction','RCOOH'],c:'Flux performance is most critical for TCB/3D stacking. Oxide reduction: SnO/PbO/CuO + 2RCOOH → metal carboxylate + H₂O. Cu₂O reduction also produces free Cu. Synergy between chemistry and heat cycle enables clean, solder-wettable surfaces.'},
+  {s:'process-materials',ch:'Ch.10',d:'2026-07-29',t:['water-soluble','no-clean','RMA'],c:'Water-soluble flux: organic acid based, corrosive residues need pressurized water wash. No-clean flux: same RMA aggressiveness but <15% solids (vs 30–50% cleanable), residues polymerized to minimize corrosivity.'},
+  {s:'process-materials',ch:'Ch.10',d:'2026-07-29',t:['CUF','underfill','epoxy-flux'],c:'CUF limited to ≥120 µm pitch (defluxing cannot guarantee residue removal below that in HVM). Epoxy flux combines flux + underfill in single material for TCB — enables single-step solder reflow + encapsulation, skipping flux cleaning.'}
 ];
 
 // ============================================================
@@ -709,19 +725,21 @@ async function loadAndRenderMarkdown(bookId) {
   const container = document.getElementById(book.docContainerId);
   if (!container || container.dataset.loaded === 'true') return;
   
-  const mdText = EMBEDDED_MD_DATA[bookId];
-  if (mdText) {
-    renderMarkdownContent(container, mdText);
+  // Always try fetching the live .md file first (most up-to-date)
+  const filePath = mdFilePaths[bookId];
+  try {
+    const response = await fetch(filePath);
+    if (!response.ok) throw new Error('HTTP error ' + response.status);
+    const fetchedText = await response.text();
+    renderMarkdownContent(container, fetchedText);
     container.dataset.loaded = 'true';
-  } else {
-    const filePath = mdFilePaths[bookId];
-    try {
-      const response = await fetch(filePath);
-      if (!response.ok) throw new Error('HTTP error ' + response.status);
-      const fetchedText = await response.text();
-      renderMarkdownContent(container, fetchedText);
+  } catch (err) {
+    // Fallback to embedded data if fetch fails
+    const mdText = EMBEDDED_MD_DATA[bookId];
+    if (mdText) {
+      renderMarkdownContent(container, mdText);
       container.dataset.loaded = 'true';
-    } catch (err) {
+    } else {
       container.innerHTML = '<div class="empty-state">Unable to load document waterfall.</div>';
     }
   }
@@ -736,6 +754,30 @@ function renderMarkdownContent(container, mdText) {
     
     let html = marked.parse(mdText);
     container.innerHTML = `<div class="markdown-body">${html}</div>`;
+    
+    // Fix relative image paths: when fetching md files from subdirectories,
+    // images like "figures/fig_..." need to become "Packaging/figures/fig_..."
+    const images = container.querySelectorAll('img');
+    images.forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && !src.startsWith('http') && !src.startsWith('/') && !src.startsWith('Packaging/') && !src.startsWith('Failure/')) {
+        // Determine the directory of the source md file
+        const bookId = Object.keys(mdFilePaths).find(id => {
+          const docContainer = books[id] && document.getElementById(books[id].docContainerId);
+          return docContainer && docContainer.contains(img);
+        });
+        if (bookId && mdFilePaths[bookId]) {
+          const mdDir = mdFilePaths[bookId].substring(0, mdFilePaths[bookId].lastIndexOf('/') + 1);
+          img.setAttribute('src', mdDir + src);
+        }
+      }
+      // Add responsive styling to images
+      img.style.maxWidth = '100%';
+      img.style.height = 'auto';
+      img.style.borderRadius = '8px';
+      img.style.margin = '1rem 0';
+      img.style.border = '1px solid var(--border)';
+    });
     
     // Replace mermaid pre/code blocks with mermaid divs
     const codeBlocks = container.querySelectorAll('pre code.language-mermaid');
