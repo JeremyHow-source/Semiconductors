@@ -844,3 +844,88 @@ graph TD
 - **CTE** and **modulus** are loosely correlated at temperatures less than $T_g$
 - Both properties can be modified with **fillers and additives**
 - All five properties — CTE, modulus, Poisson's ratio, toughness, and $T_g$ — are **interdependent upon one another**, making formulation optimization a multi-variable challenge
+
+---
+
+### Effects of Intermetallic Compound (IMC) Morphology on Electromigration (EM) Degradation
+
+#### Substrate Interface Morphologies: Mass Reflow vs TCB
+
+When comparing the morphologies of Intermetallic Compounds (IMCs) on the substrate side, the **reflow joint** shows uniformly structured IMCs that **entirely cover the ENIG surface**, whereas the **TCB joint** exhibits a significantly different interface where only certain regions are discerned with **rod-like $\text{Cu}_6\text{Sn}_5$ IMCs**.
+
+> The difference in thickness of the IMC and its morphology affects the kinetics of Cu and Ni atom diffusion through the SAC 305 solder matrix.
+
+There is a **faster out-diffusion of Cu and Ni** from the bond pad and ENIG surface finishes if the IMCs do not fully cover those areas, or if the IMC scallops have high-aspect-ratio structures.
+
+> **Fig. 10.62** — Visual aid showing IMC morphology comparison between mass reflow and TCB joints, out-diffusion of Cu/Ni, and the resulting electromigration degradation mechanism under current stress.
+
+![Fig. 10.62 — Effects of IMC morphology on electromigration (EM) degradation in SAC305 solder joints](figures/fig_10_62_imc_em_degradation.png)
+
+#### EM Degradation & Premature Failure Mechanism in TCB Joints
+
+In terms of EM effect on these samples:
+1. **TCB joints** suffer from **premature failure** due to much faster Cu and Ni out-diffusion.
+2. The depletion of Cu/Ni atoms leads to **void formation and propagation**, eventually **delaminating the interface** and shorting the interconnect.
+
+```mermaid
+graph TD
+    subgraph EM_Feedback_Loop["Electromigration (EM) Failure Feedback Loop"]
+        J0["Initial Current Density"] --> V1["Void Nucleation & Cross-sectional Loss"]
+        V1 --> J1["Increased Local Current Density"]
+        J1 --> JH1["Local Joule Heating & Temperature Rise"]
+        JH1 --> D1["Accelerated Cu & Ni Atom Diffusion"]
+        D1 --> V1
+        D1 --> FAIL["Interface Delamination & Short Circuit Failure"]
+    end
+```
+
+#### Thermal History & Cooling Rate Impact
+
+IMC morphology differences between solder joints reflowed by the two processes are primarily attributed to **cooling rates**:
+- **Reflow-processed joints** endure a much **slower cooling rate** — molten solder has more time to wet and form/grow continuous IMCs before reaching its solidification temperature, depositing a protective continuous IMC layer at the substrate interface.
+- **TCB joints** undergo **rapid thermal cycling and fast cooling**, leaving isolated, high-aspect-ratio rod-like IMCs with bare patches.
+
+#### Thermomigration (TM) & Self-Heating
+
+Self-heating was observed in TCB flip-chip test coupons under EM aging tests:
+- The degree of self-heating in TCB flip-chip packages was **up to twice as high** compared to reflow-processed packages.
+- Higher power generates local heating on TCB solder joints (**Joule heating effect**).
+- **Thermomigration (Mass Transport)**: Atoms in hotter regions have a higher probability of dislocation due to temperature-related thermal activation, driving net diffusion of atoms **from hot to cold areas** (along the negative temperature gradient).
+- Solder joints processed by TCB lack continuous IMCs at their interfaces and **cannot dissipate local Joule heating efficiently** compared to IMC-rich reflow solder joints.
+
+> **EM Test Benchmark**: Reflow joints showed **no EM-induced failure** during the aging test period where TCB joints failed. In reflow joints, Cu/Ni diffusion was strongly impeded by the thick, continuous IMC scallop layer. Furthermore, $\text{Sn-Cu}$ compounds inherently possess **superior EM resistance** compared to eutectic SAC solders.
+
+---
+
+### The Deeper Controversy & Bulk $\beta$-Sn Anisotropy
+
+Is IMC morphology the sole direct cause of EM failure? **Unlikely as a standalone cause.**
+
+> A large volume of **$\beta$-Sn** occupies the middle of the solder joint, while $\text{Cu}_6\text{Sn}_5$ IMCs are located mainly at the interfaces. Therefore, the **crystallographic orientation of anisotropic $\beta$-Sn** must be taken into account for a holistic diagnosis of premature solder joint failures in TCB processes.
+
+#### Anisotropic Diffusion Kinetics in $\beta$-Sn
+
+| Atom Species | Diffusion Speed Along c-axis $[001]$ vs Orthogonal Axes | Test Temp |
+|--------------|--------------------------------------------------------|-----------|
+| **Copper (Cu)** | **$500\times$ faster** along c-axis | $25\ ^\circ\text{C}$ |
+| **Nickel (Ni)** | **$\sim 7 \times 10^4\times$ faster** along c-axis | $120\ ^\circ\text{C}$ |
+
+---
+
+### Effects of Crystallographic Orientation of $\beta$-Sn on EM Degradation
+
+#### Inverse Pole Figure (IPF) Orientation Mapping
+
+Inverse Pole Figure (IPF) maps illustrate the crystallographic orientations of $\beta$-Sn grains across reflow and TCB joints.
+
+> **Fig. 10.55** — Crystallographic orientation of $\beta$-Sn, anisotropic diffusion along the c-axis $[001]$, and Inverse Pole Figure (IPF) orientation maps relative to vertical electron flow direction.
+
+![Fig. 10.55 — Crystallographic orientation of Beta-Sn and Inverse Pole Figure (IPF) maps in SAC305 solder joints](figures/fig_10_55_beta_sn_ipf_maps.png)
+
+#### Misorientation & Electron Flow Alignment
+
+- Each pixel in an IPF map represents the crystal orientation corresponding to the **vertical direction** (the direction of electron flow).
+- **$[001]$ Configuration**: A pixel corresponding to $[001]$ has its c-axis pointing **directly vertically** ($0^\circ$ misorientation between vertical electron flow and the c-axis).
+- **Misorientation Impact**: When the misorientation angle is small ($0^\circ$, c-axis parallel to electron flow), Cu and Ni atoms diffuse at maximum rates ($500\times$ for Cu, $70,000\times$ for Ni). When the misorientation angle is near $90^\circ$ (c-axis perpendicular to electron flow), atomic diffusion is heavily suppressed.
+- Comparing reflow vs TCB joints requires analyzing these misorientation value distributions alongside IMC coverage to predict overall EM reliability.
+

@@ -590,6 +590,8 @@ const pkg3dSections = [
   {id:'cu-particles',label:'Cu Micro/Nano Particles (Ch.9)'},
   {id:'bonding-tech',label:'Bonding Technology (Ch.10)'},
   {id:'process-materials',label:'Process Materials (Ch.10)'},
+  {id:'em-degradation',label:'IMC & EM Degradation (Ch.10)'},
+  {id:'sn-orientation',label:'Beta-Sn Orientation (Ch.10)'},
   {id:'general',label:'General / Misc'}
 ];
 
@@ -626,7 +628,11 @@ const pkg3dNotes = [
   {s:'process-materials',ch:'Ch.10',d:'2026-07-29',t:['water-soluble','no-clean','RMA'],c:'Water-soluble flux: organic acid based, corrosive residues need pressurized water wash. No-clean flux: same RMA aggressiveness but <15% solids (vs 30–50% cleanable), residues polymerized to minimize corrosivity.'},
   {s:'process-materials',ch:'Ch.10',d:'2026-07-29',t:['CUF','underfill','epoxy-flux'],c:'CUF limited to ≥120 µm pitch (defluxing cannot guarantee residue removal below that in HVM). Epoxy flux combines flux + underfill in single material for TCB — enables single-step solder reflow + encapsulation, skipping flux cleaning.'},
   {s:'process-materials',ch:'Ch.10',d:'2026-07-29',t:['filler','entrapment','low-k'],c:'Higher filler concentration improves solder joint reliability but excessive filler risks entrapment between bumps/pads → electrical open failure under temp cycling. Filler also protects fragile low-k dielectric layers — but stiff underfills (good for joints) conflict with compliant underfills (good for low-k).'},
-  {s:'process-materials',ch:'Ch.10',d:'2026-07-29',t:['CTE','modulus','Tg','toughness'],c:'Successful underfill must balance CTE, modulus, Poisson\'s ratio, toughness, and Tg — all interdependent. CTE and modulus are loosely correlated below Tg; both can be tuned with fillers and additives. Multi-variable optimization challenge.'}
+  {s:'process-materials',ch:'Ch.10',d:'2026-07-29',t:['CTE','modulus','Tg','toughness'],c:'Successful underfill must balance CTE, modulus, Poisson\'s ratio, toughness, and Tg — all interdependent. CTE and modulus are loosely correlated below Tg; both can be tuned with fillers and additives. Multi-variable optimization challenge.'},
+  {s:'em-degradation',ch:'Ch.10',d:'2026-07-30',t:['IMC-morphology','ENIG','out-diffusion'],c:'Reflow joints show uniform continuous Cu6Sn5 IMC coverage on ENIG, impeding Cu/Ni out-diffusion. TCB joints show isolated rod-like IMCs with bare patches, causing rapid out-diffusion of Cu and Ni into SAC305 matrix and premature EM failure via voiding, delamination, and shorts.'},
+  {s:'em-degradation',ch:'Ch.10',d:'2026-07-30',t:['Joule-heating','thermomigration','self-heating'],c:'EM failure loop: initial current density → void growth → reduced cross-section → higher local current density → local Joule heating → accelerated Cu/Ni diffusion → further voiding. TCB flip-chips experience up to 2x higher self-heating than reflow due to lack of continuous IMC heat dissipation path.'},
+  {s:'sn-orientation',ch:'Ch.10',d:'2026-07-30',t:['Beta-Sn','anisotropy','c-axis'],c:'Bulk Beta-Sn anisotropy: Cu diffusion is 500x faster along c-axis [001] than orthogonal axes at 25°C; Ni diffusion is ~70,000x faster along c-axis at 120°C! IMC morphology alone cannot explain EM failure — Beta-Sn crystallographic orientation must be evaluated.'},
+  {s:'sn-orientation',ch:'Ch.10',d:'2026-07-30',t:['IPF-map','misorientation','electron-flow'],c:'EBSD Inverse Pole Figure (IPF) maps measure pixel orientation relative to vertical electron flow. Small misorientation (c-axis parallel to electron flow, 0°) leads to fast Cu/Ni transport and high EM susceptibility; 90° misorientation (c-axis perpendicular to flow) strongly impedes diffusion.'}
 ];
 
 // ============================================================
