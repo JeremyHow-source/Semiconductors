@@ -929,3 +929,251 @@ Inverse Pole Figure (IPF) maps illustrate the crystallographic orientations of $
 - **Misorientation Impact**: When the misorientation angle is small ($0^\circ$, c-axis parallel to electron flow), Cu and Ni atoms diffuse at maximum rates ($500\times$ for Cu, $70,000\times$ for Ni). When the misorientation angle is near $90^\circ$ (c-axis perpendicular to electron flow), atomic diffusion is heavily suppressed.
 - Comparing reflow vs TCB joints requires analyzing these misorientation value distributions alongside IMC coverage to predict overall EM reliability.
 
+---
+
+## Chapter 11 — Fundamentals of Solder Alloys in 3D Packaging
+
+### Solder Alloys in Microbumps
+
+Microbumps in 3D packaging employ a wide variety of Cu/Sn-based solder alloy structures, formed by both **Reflow** and **Thermal Compression Bonding (TCB)** processes.
+
+#### Table 11.1 — Solder Alloys and Structures for Microbumps
+
+| Microbump Structure | Bonding Technology | References |
+|---|---|---|
+| 5.4 µm Cu / 3.6 µm Sn / 9.5 µm Cu | TCB 240, 260 °C | [3] |
+| Cu/Sn/Cu | TCB | [4] |
+| 20 µm Cu / SnAg / 3 µm Ni | Reflow | [5] |
+| Cu/Ni/Sn2.5Ag/Ni/Cu | TCB | [6] |
+| Cu/Ni/SnAg/Ni/Cu | Reflow | [7] |
+| 300Å Cr / 500Å Cu / 35 µm Cu / 35 µm SAC405 | (not available) | [8] |
+| Ti/Cu(seed)/Cu(wire)/3.0 µm Cu / 3.5 µm SnAg | TCB at 280 °C | [9] |
+| Cu/Ni/Sn | TCB at <250 °C | [10] |
+| Cu/Ni/SnAg | TCB | [11] |
+| 30 µm Cu / 3 µm Ni / 25 µm SnAg | Reflow | [12] |
+| 33 µm Cu / 25 µm SnAg | Reflow | [12] |
+| 50 µm Cu / 20 µm SAC305 | TCB | [13] |
+| 42 µm Cu / 3 µm Ni / 35 µm Solder | TCB | [14] |
+| 28 µm Cu / 2 µm Ni / 15 µm SnAg | TCB | [15] |
+| Cu/Ni/Sn 2.5Ag | TCB | [16] |
+| 5 µm Cu / 2 µm Ni / 8 µm Sn57Bi | Reflow at 180 °C | [17] |
+| 5 µm Cu / 2 µm Ni / 8 µm SAC305 | Reflow | [17] |
+| Cu/Ni/Sn | (not available) | [18] |
+| 100 nm Ti / 200 nm Cu / 12 or 8 µm Cu / 10 or 25 µm SAC305 | Reflow | [19] |
+| 100 nm Ti / 200 nm Cu / 12 µm Cu / 2 µm Ni / 10 µm SAC305 | Reflow | [19] |
+| NiFe/Pb-free solder (undefined) | Reflow | [20] |
+| NiFe/Cu/Pb-free solder (undefined) | Reflow | [20] |
+| 8 µm Cu/SnAg | Reflow | [21] |
+| 8 µm Cu/Ni/SnAg | Reflow | [21] |
+| 5 µm Cu / 3 µm Ni / 5 µm Sn 2.5Ag | TCB | [22] |
+| 2 µm Cu / 5 µm Sn (on substrate) | TCB | [23] |
+| Cu/Sn/Ni/Cu (TSV) | TCB | [24] |
+| Cu/Ni/Sn/Ni/Cu (TSV) | TCB | [24] |
+| Cu/Sn/Cu (TSV) | TCB | [25] |
+| Cu/Sn/Au/Ni/Cu (TSV) | TCB | [25] |
+| Cu/Ni/Sn/Au/Ni/Cu (TSV) | TCB | [25] |
+| 50 nm Ti / 120 nm Cu / 3 µm Cu / 3 µm Sn | TCB 260 °C | [26] |
+| 10 µm Cu / 10 µm SnAg | TCB 250 °C | [27] |
+| Cu/Sn/Cu (TSV) | Reflow | [28] |
+| Cu/Sn/Ni/Cu (TSV) | Reflow | [28] |
+| Cu/Ni/Sn/Ni/Cu (TSV) | Reflow | [28] |
+
+**Table 11.1 (continued)**
+
+| Microbump Structure | Bonding Technology | References |
+|---|---|---|
+| 10 µm Cu / 10 µm SnAg | Reflow | [29] |
+| 5 µm Cu / 3 µm Ni / 5 µm Sn2.5Ag | TCB 300 °C | [30] |
+| 16 µm Cu / 10 µm SnAg/Cu | Reflow 240 °C | [31] |
+| 2 µm Ni / 1 µm Cu / 4 µm Sn | Reflow 245 °C | [32] |
+| 2 µm Cu / 5 µm Sn | TCB 300 °C, 350 °C | [33] |
+| 25 µm Cu / 15 µm Sn58Bi | TCB 170 °C | [34] |
+| 20 µm Cu / 12 µm Sn | TCB | [35] |
+
+> **TCB**: Thermal Compression Bonding; **TSV**: Through Silicon Via; **SAC**: SnAgCu
+
+---
+
+### Formation of IMC in the As-Produced Microbump
+
+#### Volume Effects — Why Microbumps Are Fundamentally Different
+
+The interactions in the microbump system generally follow the same reactions as observed for BGA and C4 bumps, but **the solder volume in the microbump is dramatically reduced**.
+
+> **Volume comparison**: An 80 µm C4 bump has ~**55× the volume** of a 25 µm diameter, 10 µm height microbump. Under identical reaction conditions (time and temperature), the **volume ratio of IMC in the microbump is proportionally far greater** than in C4 or BGA solder joints — making the IMC microstructure dominant in microbump reliability.
+
+#### As-Produced Sn-Cap Microbump IMC Structure
+
+A 95 µm Cu / 3.6 µm Sn microbump bonded on a Cu substrate will form a characteristic layered structure:
+
+```
+Cu Pillar
+   │
+   ├── Thin Cu₃Sn  (at Cu surface)
+   ├── Large volume Cu₆Sn₅  (between Cu₃Sn and Sn)
+   ├── Residual β-Sn  (at center)
+   ├── Large volume Cu₆Sn₅
+   ├── Thin Cu₃Sn  (at bottom Cu surface)
+   │
+Cu Trace / Substrate
+```
+
+> **Fig. 11.5** — Cross-section showing IMC regions in a Cu/Sn/Cu microbump at different reaction times and temperatures: (a) as-reflowed with residual Sn and early IMC formation, (b) after extended thermal aging showing porous $\text{Cu}_6\text{Sn}_5$ with Kirkendall voids as the $\text{Cu}_6\text{Sn}_5 \rightarrow \text{Cu}_3\text{Sn}$ transformation progresses.
+
+![Fig. 11.5 — IMC formation and void development in Cu/Sn/Cu microbumps during thermal aging](figures/fig_11_5_imc_formation_microbump.png)
+
+#### Cu/Sn/Cu Joint Evolution During Thermal Aging
+
+The IMC structure evolves progressively with time and temperature:
+
+1. **Initial reflow**: $\text{Cu}_6\text{Sn}_5$ forms within the bulk Sn solder; $\text{Cu}_3\text{Sn}$ forms at the solder/Cu boundaries.
+2. **Extended bonding / thermal aging**: $\text{Cu}_6\text{Sn}_5$ converts to $\text{Cu}_3\text{Sn}$ — this transformation **leaves behind pores** within the former $\text{Cu}_6\text{Sn}_5$ regions.
+3. **High temperature storage**: Joints containing both IMC phases (formed at shorter reaction time or lower reaction temperature) undergo further $\text{Cu}_6\text{Sn}_5 \rightarrow \text{Cu}_3\text{Sn}$ transformation during storage.
+
+> **Kirkendall Void Origin**: The pore volume formed corresponds to the **theoretical 40.9% volume shrinkage** accompanying the $\text{Cu}_6\text{Sn}_5 \rightarrow \text{Cu}_3\text{Sn}$ transformation.
+
+#### Ni Diffusion Barrier Layer
+
+Ni is the most common diffusion barrier layer used to reduce Cu–solder interaction during reflow and subsequent operation:
+
+- Ni is typically deposited on **both Cu ends** of a SnAg microbump.
+- After TCB, Ni forms **$\text{Ni}_3\text{Sn}_4$ IMC** at the Ni/solder interface.
+- The growth of $\text{Ni}_3\text{Sn}_4$ through the TCB process has an **activation energy of 127.8 kJ/mol**, and its thickness grows **exponentially** with bonding time in the temperature range **250–300 °C**.
+- Mechanical property note: $\text{Ni}_3\text{Sn}_4$ exhibits **elastic anisotropy**, with **much less elastic anisotropy in the a–c plane** than along other crystallographic directions.
+
+#### Mixed (Cu,Ni) IMC Formation
+
+Ni exhibits an **FCC structure** with similar atomic dimensions and **continuous solid solubility** with Cu. Solder joints with Ni or Cu metallization commonly form:
+
+| Combination | Resulting IMC |
+|---|---|
+| Cu-dominant side | $(\text{Cu,Ni})_6\text{Sn}_5$ |
+| Ni-dominant side | $(\text{Ni,Cu})_3\text{Sn}_4$ |
+
+> **Fig. 11.6** — IMC formation at the microbump/Cu trace interface: **(a)** without Ni barrier on Cu pillar — $\text{Cu}_6\text{Sn}_5$ and $\text{Cu}_3\text{Sn}$ form on both interfaces; **(b)** with Ni barrier on Cu pillar — $(\text{Cu,Ni})_x\text{Sn}_y$ forms at the Ni-capped pillar side, while $\text{Cu}_6\text{Sn}_5$ forms on the bare Cu trace side. The Ni barrier retards Cu pillar consumption.
+
+![Fig. 11.6 — IMC formation in microbump joints with and without Ni barrier on the Cu pillar](figures/fig_11_6_ni_barrier_imc.png)
+
+#### Phase Transformation & Microstructure Evolution During Thermal Aging
+
+The phase transformation induced by **thermal aging** is particularly influential on final microbump microstructure due to the **small solder volume**:
+
+- **Cu/Sn/Cu microbump after reflow** forms the structure:
+  $$\text{Cu} / \text{Cu}_3\text{Sn} / \text{Cu}_6\text{Sn}_5 / \text{Sn} / \text{Cu}_6\text{Sn}_5 / \text{Cu}_3\text{Sn} / \text{Cu}$$
+- Residual Sn is of **limiting volume** and may not exist in some joints.
+- **Thermal aging at 240 °C** gradually converts $\text{Cu}_6\text{Sn}_5$ into $\text{Cu}_3\text{Sn}$.
+- **Extended storage (3 h at 240 °C)** can produce a **$\text{Cu}_3\text{Sn}$-only joint**.
+
+For Cu pillar bumps with Sn4Ag0.5Cu solder caps:
+- As-fabricated: **scallop-shaped $\text{Cu}_6\text{Sn}_5$ IMC**
+- After aging at **180 °C**: $\text{Cu}_6\text{Sn}_5$ transforms from **scallop to planar structure**; discontinuous $\text{Cu}_3\text{Sn}$ forms between $\text{Cu}_6\text{Sn}_5$ and Cu pillar
+- **Voids form between $\text{Cu}_3\text{Sn}$ and Cu pillar** — fracture occurs here during shear testing
+
+---
+
+### Mechanical Properties & Thermal Fatigue Life
+
+The high volume fraction of IMC in microbumps makes IMC properties **determinant for joint performance**.
+
+#### IMC Type & Thermal Fatigue Life Ranking
+
+Thermal fatigue life is **disproportional to the Young's Modulus of the IMC**, but the combined effect of **modulus and CTE** determines fatigue life. For high-IMC-volume microbumps:
+
+$$\text{Fatigue Life: } \text{Ni}_3\text{Sn}_4 > \text{Cu}_6\text{Sn}_5 > \text{Cu}_3\text{Sn}$$
+
+| IMC Phase | Young's Modulus (GPa) | CTE (ppm/°C) | Relative Fatigue Life |
+|---|---|---|---|
+| $\text{Ni}_3\text{Sn}_4$ | 136 | 13.7 | **Best** |
+| $\text{Cu}_6\text{Sn}_5$ | 124 | 19.0 | Intermediate |
+| $\text{Cu}_3\text{Sn}$ | 143 | 18.2 | **Worst** |
+
+> **Note on sequencing**: $\text{Ni}_3\text{Sn}_4$ achieves the best fatigue life due to its **lower CTE** (13.7 ppm) minimising thermal mismatch strain, despite its moderate modulus. $\text{Cu}_3\text{Sn}$ performs worst due to its combination of the **highest modulus** (143 GPa) AND high CTE (18.2 ppm).
+
+#### IMC Volume Fraction & Fatigue Life
+
+- Increasing IMC thickness or volume fraction generally **increases thermal fatigue life** of the micro joint.
+- However, the thermal fatigue life reaches a **minimum value at 42.8% volume fraction** of $\text{Ni}_3\text{Sn}_4$ IMC.
+
+---
+
+### Intrinsic Diffusion Coefficients — Governing IMC Kinetics
+
+#### Table 11.2 — Intrinsic Diffusion Coefficients of Elements in Different Phases (at 170 °C)
+
+| Phase | Element | D (m²/sec) at 170 °C | References |
+|---|---|---|---|
+| Cu | Cu | $1.07 \times 10^{-29}$, $3.46 \times 10^{-29}$ | [38] |
+| Cu | Sn | $3.98 \times 10^{-26}$ | [39] |
+| Sn | Cu | $1.06 \times 10^{-9}$ (//c), $3.04 \times 10^{-11}$ (⊥c) | [40] |
+| Sn | Sn | $1.81 \times 10^{-16}$ (//c), $4.43 \times 10^{-16}$ (⊥c) | [38] |
+| Ni | Ni | $8.95 \times 10^{-38}$, $1.61 \times 10^{-37}$ | [38] |
+| Sn | Ni | $1.47 \times 10^{-8}$ (//c), $7.73 \times 10^{-11}$ (⊥c) | [41] |
+| $\text{Cu}_3\text{Sn}$ | Cu | $5.12 \times 10^{-16}$ | [24] |
+| $\text{Cu}_3\text{Sn}$ | Sn | $1.46 \times 10^{-16}$ | [24] |
+| $\text{Cu}_6\text{Sn}_5$ | Cu | $9.42 \times 10^{-16}$ | [24] |
+| $\text{Cu}_6\text{Sn}_5$ | Sn | $9.44 \times 10^{-16}$ | [24] |
+| $\text{Ni}_3\text{Sn}_4$ | Ni | $1.36 \times 10^{-17}$ | [24] |
+| $\text{Ni}_3\text{Sn}_4$ | Sn | $6.81 \times 10^{-18}$ | [24] |
+
+> (//c: parallel to c-axis; ⊥c: perpendicular to c-axis)
+
+#### Key Diffusion Insights
+
+- **$\text{Cu}_3\text{Sn}$**: Cu diffusion ($5.12 \times 10^{-16}$) is slightly faster than Sn diffusion ($1.46 \times 10^{-16}$) → Cu is the dominant diffusing species.
+- **$\text{Cu}_6\text{Sn}_5$**: Cu ($9.42 \times 10^{-16}$) and Sn ($9.44 \times 10^{-16}$) diffuse at **similar speeds**.
+- **$\text{Ni}_3\text{Sn}_4$**: Ni ($1.36 \times 10^{-17}$) diffuses faster than Sn ($6.81 \times 10^{-18}$) → Ni is the dominant diffusing species.
+
+**Consequence during high-temperature annealing of a Cu/Sn/Ni/Cu microbump**:
+1. $\text{Cu}_6\text{Sn}_5$ forms first after reflow.
+2. $\text{Cu}_6\text{Sn}_5$ converts to $\text{Cu}_3\text{Sn}$ at the **expense of Cu**.
+3. Diminishing of $\text{Cu}_6\text{Sn}_5$ and growth of $\text{Cu}_3\text{Sn}$ follow **diffusion-controlled kinetics**.
+4. **Kirkendall voids** nucleate within the $\text{Cu}_3\text{Sn}$ layer, attributed to the **asymmetry in Cu vs. Sn diffusion rates**.
+
+---
+
+### Microstructure and Failure Mechanisms of Microbumps
+
+#### Geometry Constraints — IMC-Dominated Joints
+
+The extremely small solder volume of microbumps fundamentally changes the reliability physics:
+- Solder volume is **at least one order of magnitude smaller** than that of a C4 bump.
+- After reflow treatments (thermal aging, electrical current stressing), **almost the entire solder volume converts to IMC** — even with a Ni barrier layer.
+- Cu/solder joints are **completely transformed to IMC after reflow** when the solder thickness is **< 20 µm**.
+
+```mermaid
+graph LR
+    A["Reflow / Aging / Current Stressing"] --> B["Cu6Sn5 → Cu3Sn Transformation"]
+    B --> C["Kirkendall Void Formation<br/>(40.9% volume shrinkage)"]
+    C --> D["Void Coalescence → Crack"]
+    D --> E["Brittle Fracture & Joint Failure"]
+```
+
+#### Mechanical Brittleness Threshold
+
+Micro tensile test results:
+- **As-reflowed** joints exhibit **brittle behaviour** when the joint thickness is **≤ 70 µm**.
+- A 15 µm-thickness joint is mechanically dominated by IMC and shows inherent brittle fracture behaviour under current stressing.
+
+#### Current Stressing Failure Pathway (Without Ni Barrier)
+
+Under current stressing:
+1. $\text{Cu}_3\text{Sn}$ layer grows at the expense of both $\text{Cu}_6\text{Sn}_5$ and Cu sources on both pillar ends.
+2. Extensive Kirkendall void formation and coalescence → crack initiation and propagation → failure.
+
+#### Current Stressing Failure Pathway (With Ni Barrier)
+
+When a Ni barrier is introduced between Cu pillar and solder:
+- The Ni barrier **retards Cu pillar consumption** (slower reaction rate of Ni).
+- Solder is completely converted to a **mixed layer of $\text{Cu}_6\text{Sn}_5$ and $(\text{Cu,Ni})_6\text{Sn}_5$**.
+- However, the **$\text{Cu}_3\text{Sn}$ layer grows rapidly** at the Cu trace side, causing massive consumption of the Cu trace and **inducing Kirkendall voids at the Cu trace interface**.
+
+#### Kirkendall Void Mitigation — Nanotwinned Cu Pillars
+
+> **Kirkendall void**: a typical defect formed at the interface when diffusivities of counter-diffusing elements are unequal. In the Cu/Sn system, the faster diffusion of Cu relative to Sn in $\text{Cu}_3\text{Sn}$ drives vacancy flux toward the Cu side, nucleating voids.
+
+**Potential mitigation strategy**: Removing voids from within the $\text{Cu}_3\text{Sn}$ diffusion medium.
+
+- **Nanotwinned Cu pillars** produced by electroplating are capable of **sinking the Kirkendall voids** generated during IMC transformation reactions in Cu pillar/Sn/Cu pillar structures.
+- The high density of coherent twin boundaries in nanotwinned Cu acts as effective **vacancy sinks**, suppressing void nucleation and coalescence.
+
+

@@ -592,8 +592,10 @@ const pkg3dSections = [
   {id:'process-materials',label:'Process Materials (Ch.10)'},
   {id:'em-degradation',label:'IMC & EM Degradation (Ch.10)'},
   {id:'sn-orientation',label:'Beta-Sn Orientation (Ch.10)'},
+  {id:'solder-alloys',label:'Solder Alloys & IMC (Ch.11)'},
   {id:'general',label:'General / Misc'}
 ];
+
 
 const pkg3dNotes = [
   {s:'raman',ch:'Ch.4',d:'2026-06-25',t:['Raman','stress'],c:'Micro Raman spectroscopy in backscatter mode resolves the longitudinal vibrational mode (mode 3) to determine the sum of the two in-plane principal stresses. High NA (>0.4) enables resolution of all 3 modes of vibration and hence the tensorial nature of stresses.'},
@@ -632,8 +634,16 @@ const pkg3dNotes = [
   {s:'em-degradation',ch:'Ch.10',d:'2026-07-30',t:['IMC-morphology','ENIG','out-diffusion'],c:'Reflow joints show uniform continuous Cu6Sn5 IMC coverage on ENIG, impeding Cu/Ni out-diffusion. TCB joints show isolated rod-like IMCs with bare patches, causing rapid out-diffusion of Cu and Ni into SAC305 matrix and premature EM failure via voiding, delamination, and shorts.'},
   {s:'em-degradation',ch:'Ch.10',d:'2026-07-30',t:['Joule-heating','thermomigration','self-heating'],c:'EM failure loop: initial current density → void growth → reduced cross-section → higher local current density → local Joule heating → accelerated Cu/Ni diffusion → further voiding. TCB flip-chips experience up to 2x higher self-heating than reflow due to lack of continuous IMC heat dissipation path.'},
   {s:'sn-orientation',ch:'Ch.10',d:'2026-07-30',t:['Beta-Sn','anisotropy','c-axis'],c:'Bulk Beta-Sn anisotropy: Cu diffusion is 500x faster along c-axis [001] than orthogonal axes at 25°C; Ni diffusion is ~70,000x faster along c-axis at 120°C! IMC morphology alone cannot explain EM failure — Beta-Sn crystallographic orientation must be evaluated.'},
-  {s:'sn-orientation',ch:'Ch.10',d:'2026-07-30',t:['IPF-map','misorientation','electron-flow'],c:'EBSD Inverse Pole Figure (IPF) maps measure pixel orientation relative to vertical electron flow. Small misorientation (c-axis parallel to electron flow, 0°) leads to fast Cu/Ni transport and high EM susceptibility; 90° misorientation (c-axis perpendicular to flow) strongly impedes diffusion.'}
+  {s:'sn-orientation',ch:'Ch.10',d:'2026-07-30',t:['IPF-map','misorientation','electron-flow'],c:'EBSD Inverse Pole Figure (IPF) maps measure pixel orientation relative to vertical electron flow. Small misorientation (c-axis parallel to electron flow, 0°) leads to fast Cu/Ni transport and high EM susceptibility; 90° misorientation (c-axis perpendicular to flow) strongly impedes diffusion.'},
+  {s:'solder-alloys',ch:'Ch.11',d:'2026-07-30',t:['microbump','solder','volume'],c:'Microbump solder volume is ~55x smaller than an 80 µm C4 bump (25 µm Ø × 10 µm height microbump). Under identical reflow conditions, the IMC/solder volume ratio in microbumps is proportionally far greater — making IMC microstructure dominant in microbump reliability, unlike BGA or C4 joints.'},
+  {s:'solder-alloys',ch:'Ch.11',d:'2026-07-30',t:['microbump','IMC-stack','Cu3Sn','Cu6Sn5'],c:'As-produced Cu/Sn/Cu microbump structure: Cu pillar → Cu₃Sn (thin, at Cu surface) → Cu₆Sn₅ (large volume) → residual β-Sn (center) → Cu₆Sn₅ → Cu₃Sn (thin) → Cu trace. Residual Sn is volume-limited and may be absent in some joints after reflow.'},
+  {s:'solder-alloys',ch:'Ch.11',d:'2026-07-30',t:['IMC-evolution','thermal-aging','Cu6Sn5-to-Cu3Sn'],c:'Thermal aging of Cu/Sn/Cu microbumps: Cu₆Sn₅ progressively converts to Cu₃Sn. Extended storage at 240°C for 3 h can produce a Cu₃Sn-only joint. Cu pillar bumps with SnAgCu cap: scallop Cu₆Sn₅ → planar Cu₆Sn₅ after aging at 180°C, with discontinuous Cu₃Sn forming between Cu₆Sn₅ and the Cu pillar.'},
+  {s:'solder-alloys',ch:'Ch.11',d:'2026-07-30',t:['Kirkendall-void','volume-shrinkage','pore'],c:'Kirkendall voids form as Cu₆Sn₅ → Cu₃Sn transformation proceeds, corresponding to a theoretical 40.9% volume shrinkage. Cu diffuses faster than Sn in Cu₃Sn (5.12×10⁻¹⁶ vs 1.46×10⁻¹⁶ m²/s at 170°C), driving vacancy flux toward Cu side and nucleating voids. Nanotwinned Cu pillars can suppress voids by acting as vacancy sinks.'},
+  {s:'solder-alloys',ch:'Ch.11',d:'2026-07-30',t:['Ni-barrier','Cu-pillar','Ni3Sn4'],c:'Ni barrier on Cu pillar forms Ni₃Sn₄ IMC (activation energy 127.8 kJ/mol; grows exponentially with bonding time 250–300°C). Without Ni: Cu₆Sn₅ + Cu₃Sn form on both interfaces. With Ni: (Cu,Ni)₆Sn₅ forms at Ni side; Cu₆Sn₅ at substrate; Cu₃Sn grows rapidly at Cu trace side causing Kirkendall voids there instead.'},
+  {s:'solder-alloys',ch:'Ch.11',d:'2026-07-30',t:['fatigue-life','IMC-modulus','CTE'],c:'Thermal fatigue life ranking for IMC-dominated microbumps: Ni₃Sn₄ > Cu₆Sn₅ > Cu₃Sn. Ni₃Sn₄ wins due to lowest CTE (13.7 ppm/°C). Cu₃Sn is worst — highest modulus (143 GPa) AND high CTE (18.2 ppm/°C). Minimum fatigue life occurs at 42.8% Ni₃Sn₄ volume fraction.'},
+  {s:'solder-alloys',ch:'Ch.11',d:'2026-07-30',t:['diffusion-coefficient','Cu3Sn','Ni3Sn4'],c:'Intrinsic diffusion at 170°C in IMCs: Cu₃Sn — Cu: 5.12×10⁻¹⁶, Sn: 1.46×10⁻¹⁶ m²/s; Cu₆Sn₅ — Cu≈Sn both ~9.4×10⁻¹⁶; Ni₃Sn₄ — Ni: 1.36×10⁻¹⁷, Sn: 6.81×10⁻¹⁸. Cu diffusion in Sn matrix: 1.06×10⁻⁹ m²/s (//c-axis) — 35× faster than Ni in Sn (1.47×10⁻⁸ //c-axis at same temperature).'}
 ];
+
 
 // ============================================================
 // BOOK-LEVEL STATE
