@@ -22,6 +22,21 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
 .landing-header p{color:#93c5fd;font-size:1rem;max-width:600px;margin:0 auto;}
 .book-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;padding:2rem 3rem 4rem;max-width:1200px;margin:0 auto;width:100%;}
 
+/* ===== KO-FI FLOATING BUTTON ===== */
+.kofi-float{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:0.5rem;padding:0.7rem 1.3rem;border-radius:50px;background:linear-gradient(135deg,#ff5e5b 0%,#ff2400 50%,#e8362a 100%);color:#fff;text-decoration:none;font-weight:700;font-size:0.92rem;box-shadow:0 6px 24px rgba(255,36,0,0.45),0 2px 8px rgba(0,0,0,0.3);transition:transform 0.25s,box-shadow 0.25s;animation:kofi-pulse 2.5s ease-in-out infinite;}
+.kofi-float:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 10px 36px rgba(255,36,0,0.55),0 4px 12px rgba(0,0,0,0.35);}
+.kofi-float .kofi-icon{font-size:1.3rem;line-height:1;}
+.kofi-float .kofi-text{white-space:nowrap;}
+@keyframes kofi-pulse{0%,100%{box-shadow:0 6px 24px rgba(255,36,0,0.45),0 2px 8px rgba(0,0,0,0.3);}50%{box-shadow:0 6px 32px rgba(255,36,0,0.65),0 2px 12px rgba(0,0,0,0.35);}}
+
+/* ===== KO-FI LANDING BANNER ===== */
+.kofi-banner{display:flex;align-items:center;justify-content:center;gap:1rem;padding:0.9rem 2rem;margin:1.5rem auto 0;max-width:520px;border-radius:14px;background:linear-gradient(135deg,rgba(255,94,91,0.12) 0%,rgba(255,36,0,0.08) 100%);border:1px solid rgba(255,94,91,0.25);backdrop-filter:blur(8px);}
+.kofi-banner .kofi-emoji{font-size:1.6rem;}
+.kofi-banner .kofi-msg{color:#fca5a5;font-size:0.88rem;line-height:1.5;}
+.kofi-banner .kofi-msg strong{color:#ff8a80;}
+.kofi-banner .kofi-btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 1.1rem;border-radius:8px;background:linear-gradient(135deg,#ff5e5b,#e8362a);color:#fff;text-decoration:none;font-weight:700;font-size:0.82rem;white-space:nowrap;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 3px 12px rgba(255,36,0,0.3);}
+.kofi-banner .kofi-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(255,36,0,0.45);}
+
 /* ===== BOOK CARDS ===== */
 .book-card{border-radius:16px;padding:2rem;cursor:pointer;transition:transform 0.3s,box-shadow 0.3s;position:relative;overflow:hidden;}
 .book-card::before{content:'';position:absolute;inset:0;opacity:0.07;background:repeating-linear-gradient(45deg,#fff,#fff 1px,transparent 1px,transparent 8px);}
@@ -166,6 +181,13 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
     <h1>Semiconductor Reading Notes</h1>
     <p>Select a literature below to explore reading notes, excerpts, figures, and key concepts.</p>
   </div>
+
+  <div class="kofi-banner">
+    <span class="kofi-emoji">☕</span>
+    <span class="kofi-msg">Enjoying these notes? <strong>Support my work</strong> to keep this resource growing!</span>
+    <a class="kofi-btn" href="https://ko-fi.com/jeremyhow" target="_blank" rel="noopener noreferrer">☕ Buy me a Coffee</a>
+  </div>
+
   <div class="book-grid">
 
     <div class="book-card card-fa-ic" onclick="openViewer('fa-ic')">
@@ -218,6 +240,12 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
 
   </div>
 </div>
+
+<!-- ===== FLOATING KO-FI BUTTON (Always Visible) ===== -->
+<a class="kofi-float" href="https://ko-fi.com/jeremyhow" target="_blank" rel="noopener noreferrer">
+  <span class="kofi-icon">☕</span>
+  <span class="kofi-text">Support on Ko-fi</span>
+</a>
 
 <!-- ===== VIEWER: FA IC ===== -->
 <div class="viewer viewer-dracula" id="viewer-fa-ic">
