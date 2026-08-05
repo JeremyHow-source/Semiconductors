@@ -1176,4 +1176,700 @@ When a Ni barrier is introduced between Cu pillar and solder:
 - **Nanotwinned Cu pillars** produced by electroplating are capable of **sinking the Kirkendall voids** generated during IMC transformation reactions in Cu pillar/Sn/Cu pillar structures.
 - The high density of coherent twin boundaries in nanotwinned Cu acts as effective **vacancy sinks**, suppressing void nucleation and coalescence.
 
+---
+
+## Chapter 12 — Fundamentals of Electromigration in Interconnects of 3D Packaging (Continued)
+
+---
+
+### 12.A — Solder Alloy Effects on EM Stability
+
+#### 12.A.1 Alloy Composition and Metallization Dissolution Control
+
+Solder alloying significantly impacts the stability of solder systems during electromigration. Comparing **Sn-1.8Ag** and **Sn-0.5Cu** with different joining paths to control Ni and Cu dissolution:
+
+- **Sn-1.8Ag** exhibits a **much more stable grain structure** and stable **Ag₃Sn particles**, which act to slow down Cu dissolution into the solder bulk.
+- The presence of Ag₃Sn precipitates physically impedes grain boundary migration and reduces the effective diffusion channels for Cu atoms.
+
+This demonstrates that the composition of the solder alloy itself — independent of process conditions — can be engineered to resist metallization dissolution.
+
+#### 12.A.2 Zn Doping Effects on SnAg Microstructure and EM Stability
+
+Zn doping provides a dual mechanism for improving EM resistance in SnAg solder systems:
+
+- **Zn reacts strongly with alloying elements** such as Cu, Ag, and Ni.
+- **Zn-doped solders improve interface stability** as well as the **bulk microstructure**.
+- A stable microstructure in a Zn-doped solder can effectively **suppress EM failure induced by Sn atom flux divergence**.
+
+The stabilisation occurs because Zn forms stable secondary phases at grain boundaries and interfaces, acting as diffusion barriers that reduce both Sn self-diffusion and the dissolution rate of underlying metallization layers.
+
+---
+
+### 12.B — Blech Effect in Solder Joints
+
+#### 12.B.1 Physical Mechanism
+
+There exists a **threshold current density** below which no EM damage occurs. This threshold is inversely proportional to the length of the stressed conductor — a phenomenon termed the **Blech Effect**.
+
+The Blech Effect arises from a **back stress gradient**:
+
+```
+Electron Wind Force →←← Back Stress (Mechanical)
+       ↓                        ↑
+  Atom flux toward anode    Atom accumulation
+  Vacancy accumulation        at anode
+     at cathode               (compressive)
+```
+
+As atoms pile up at the anode under the electron wind force, a compressive stress builds there while tensile stress develops at the cathode. This mechanical back stress gradient generates a counter-flux that **opposes and eventually balances** the electron wind force at sufficiently short conductor lengths.
+
+#### 12.B.2 Critical Blech Product
+
+The Blech Effect implies a **critical Blech product** $(j \times L)$ — the product of current density $j$ and conductor length $L$ — below which a conductor will **never fail by EM**:
+
+$$
+(j \times L)_{\text{critical}} \rightarrow \text{no EM failure}
+$$
+
+| Condition | Implication |
+|---|---|
+| $(j \times L) < (j \times L)_\text{crit}$ | Back stress balances electron wind; no EM damage |
+| $(j \times L) > (j \times L)_\text{crit}$ | Electron wind dominates; EM damage occurs |
+
+- At a **given current density**, EM damage can be eliminated when the conductor length is **sufficiently short**.
+- The critical Blech product **decreases dramatically with increasing temperature**, meaning the protective effect of the Blech back stress is diminished at elevated operating temperatures.
+
+---
+
+### 12.C — EM Failure Caused by Metallization Dissolution
+
+EM can simultaneously accelerate **cathode metallization dissolution** and promote **thicker IMC growth on the anode side**:
+
+#### 12.C.1 Thick Cathode Metallization Scenario
+
+When cathode metallization is **thick enough**:
+- The joint undergoes progressive transformation into a **full IMC joint** or a joint with very little remaining Sn solder.
+- A fully-IMC joint can actually have **high EM resistance** due to the different (and typically slower) diffusion kinetics in the IMC phases compared to bulk Sn.
+
+#### 12.C.2 Thin Cathode Metallization Scenario — Open Circuit Failure
+
+When cathode metallization is **thin**:
+- EM can dissolve the **entire metallization layer**, inducing a **solder joint open circuit** — a distinctly different and more catastrophic failure mode compared to the Sn diffusion–induced IMC/solder separation.
+
+#### 12.C.3 Sensitivity to Sn Grain Orientation (c-axis Effect)
+
+A critical and **highly anisotropic phenomenon** governs metallization dissolution rate: the **Sn c-axis orientation relative to the electron flow direction**.
+
+| Sn c-axis Orientation | Time to Dissolve 2 µm Ni UBM |
+|---|---|
+| **Parallel** to electron flow direction | **~100 hours** (fast dissolution) |
+| **Perpendicular** to electron flow direction | **~1800 hours** (slow dissolution) |
+
+*(At same temperature and current density)*
+
+This **18× difference in time-to-failure** arises from the highly anisotropic diffusivity of atoms in the body-centred tetragonal (BCT) β-Sn crystal structure. Diffusion along the c-axis ($D_\parallel$) is orders of magnitude faster than perpendicular to it ($D_\perp$), as reflected in the intrinsic diffusion coefficient data.
+
+> **Fig. 12.2** — SEM cross-sections and EBSD IPF maps showing the strong correlation between Sn c-axis orientation and cathode Ni-P EM damage:
+
+![Fig. 12.2 — SEM and EBSD correlation between Sn c-axis and Ni dissolution EM damage](c:\Users\SINGAPORE\Desktop\Reading section\Semiconductors\Packaging\figures\fig_12_2_sn_caxis_ni_dissolution.png)
+
+- **(a) Fast Ni dissolution** — The SEM cross-section shows significant cathode-side Ni-P dissolution and asymmetric solder joint consumption. The EBSD IPF map shows a dominant single-grain orientation (large coloured region indicating strong texture), and the c-axis cube schematic confirms the c-axis points **vertically — parallel to the electron flow (↑e)** direction. This alignment maximises Ni atomic flux through the fast-diffusion c-axis channel.
+
+- **(b) Slow Ni dissolution** — The SEM cross-section shows minimal cathode damage after equivalent stressing. The EBSD IPF map shows a fragmented multi-grain mosaic (mixed colours, no dominant orientation), and the c-axis schematic confirms the c-axis lies **horizontally — perpendicular to the electron flow (↑e)**. Diffusion proceeds along the slow $D_\perp$ path, suppressing Ni dissolution rate dramatically.
+
+---
+
+### 12.D — Impact of Assembly Cooling Rate on EM Performance
+
+#### 12.D.1 Experimental Observations
+
+Solder joints formed with cooling rates in the range of **1–50 °C/sec** reveal stark differences in EM performance:
+
+- Joints formed with **faster cooling rates** have MTTF approximately **3× shorter** than those with slower cooling rates.
+- Cross-sectional analysis of EM-damaged joints confirms that **Ni dissolution is the dominant failure mode** in faster-cooled joints.
+
+#### 12.D.2 EBSD Analysis and c-axis Distribution
+
+EBSD analysis reveals the root cause: solder joints formed with faster cooling rate show a **higher probability of forming c-axis oriented Sn grains aligned along the substrate normal** (i.e., parallel to the electron flow direction) — directly correlating to the worst EM performance.
+
+The **critical angle** between the Sn c-axis and the substrate normal for fast Ni dissolution is approximately **40°**:
+
+| Angular Range (c-axis vs. substrate normal) | Effect |
+|---|---|
+| **0° – 40°** | Fast metal dissolution → EM failure regime |
+| **> 40°** | Slow dissolution → EM resistant regime |
+
+Measured probability of EM failure caused by fast Ni dissolution:
+
+| Cooling Rate | Probability of EM Fail |
+|---|---|
+| Fast cooling | ~**25%** |
+| Slow cooling | ~**15%** |
+
+#### 12.D.3 Reason: Preferred Grain Growth Direction During Solidification
+
+The cooling rate–dependent orientation distribution is not random — it is governed by **preferred crystallographic growth directions** during solidification:
+
+- **Inverse pole figure (IPF) results** indicate that the **[110] direction** of β-Sn is the preferred direction aligned with the substrate normal.
+- This is because the **thermal gradient during solidification is normal to the substrate or Si die**, and [110] is the **preferred grain growth direction** following the thermal flow during solidification.
+- Since the **c-axis of tetragonal Sn is always perpendicular to its [110] direction**, when [110] is aligned with the substrate normal, **the c-axis lies perpendicular to the substrate normal** — this is the low-risk orientation for EM.
+
+#### 12.D.4 Effect of Cooling Rate on Texture
+
+| Cooling Rate | Solidification Behaviour | c-axis Distribution |
+|---|---|---|
+| **Slow** | Sufficient time for grains to grow along preferred [110] direction | Most grains have c-axis ⊥ substrate normal (low-risk) |
+| **Fast** | Insufficient time; grain orientations become more **random** | More grains with small angles between c-axis and substrate normal (high-risk) |
+
+Fast cooling produces a broader, more random orientation spread — increasing the statistical probability that some grains will fall within the 0–40° dangerous regime.
+
+---
+
+### 12.E — Impact of Solder Alloying on Cyclic Twin Formation and EM Behaviour
+
+#### 12.E.1 Cyclic Twin Formation and Ag Content
+
+The **Ag content in SAC alloys** dramatically influences cyclic twin formation:
+
+- **2.2 wt% Ag** in SAC alloy can **dramatically increase the chance of forming cyclic twins** during solidification.
+- Cyclic twinning occurs commonly during solidification of SnAg, SnCu, and SAC alloys.
+- This is a **very unique twinning mode**, very rarely observed in other metal systems.
+
+Formation of cyclic twins in Pb-free solder can impact the **distribution of c-axis orientations** relative to the substrate normal direction.
+
+#### 12.E.2 Crystallographic Constraint of Cyclic Twins
+
+The critical constraint governing cyclic twins in β-Sn:
+
+- Cyclic twins **share the [100] or [010] common axis** — but **not [001]** (the c-axis direction).
+- Therefore, if **1 out of the 3 cyclic twins** has its c-axis aligned with the electron flow direction, the **other 2 twins cannot** align their c-axis with the electron flow, because their common axis is not the [001] direction.
+
+```
+Cyclic Twin Bundle (3 grains share [100]/[010]):
+    Grain 1: c-axis → (could align with e⁻ flow)
+    Grain 2: c-axis ⊥ (cannot align — constrained by shared non-[001] axis)
+    Grain 3: c-axis ⊥ (cannot align — constrained by shared non-[001] axis)
+ ∴ Max 1 in 3 grains can have c-axis aligned with electron flow
+```
+
+#### 12.E.3 EM Benefit of Ag Addition
+
+For cyclic twinning structures, the **3 orientations are bundled together** and cannot all have their c-axis aligned with the electron flow direction simultaneously. This scenario **statistically reduces the probability of c-axis alignment with the substrate normal**, thereby:
+
+> **Adding Ag to the SnCu system improves EM performance** against metallization dissolution by suppressing the probability of the most dangerous (c-axis ∥ electron flow) grain configuration.
+
+---
+
+### 12.F — Impact of Solder Joint Height on Metallization Dissolution EM
+
+#### 12.F.1 Blech-Like Plateau in SnAg Joints (Sn Diffusion Mode)
+
+For SnAg solder joints experiencing **Sn diffusion–controlled EM failure**:
+
+- The **resistance change vs. stress time plot reaches a plateau**, interpreted as evidence of the **Blech back-stress effect** in SnAg joints.
+- Solder joint **height (i.e., joint length) directly impacts Sn diffusion–controlled EM** through this Blech mechanism.
+- In contrast, **no such plateau** is observed for SnCu solder joints — indicating the joint height effect is tied specifically to the Sn diffusion failure mode.
+
+#### 12.F.2 Cu Dissolution Rate vs. Solder Joint Height (Fig. 12.4)
+
+For metallization dissolution–controlled failure, joint height plays a critical and counterintuitive role:
+
+> **Fig. 12.4** — Cu dissolution rate (cathode copper pad consumption in µm) increases with increasing solder joint height, for Cu/SAC305/Cu joints of same volume but different heights:
+
+![Fig. 12.4 — Cu dissolution rate at cathode versus stressing time for three joint heights (H1=300µm, H2=420µm, H3=520µm). Higher solder joint height results in greater copper consumption per unit time, confirming back-diffusion model.](c:\Users\SINGAPORE\Desktop\Reading section\Semiconductors\Packaging\figures\fig_12_4_cu_dissolution_vs_height.png)
+
+| Joint Height | Cu Consumption at 30 min |
+|---|---|
+| H1 = 300 µm | ~10.5 µm |
+| H2 = 420 µm | ~13 µm |
+| H3 = 520 µm | ~17 µm |
+
+The same height-dependent effect is observed for **Ni dissolution** in Cu/Sn-0.7Cu/Ni solder joints:
+- MTTF of **shorter joint height** is approximately **3× longer** than that with higher joint height.
+- The main failure mode is confirmed to be **Ni dissolution**.
+
+#### 12.F.3 Physical Mechanism — Back Diffusion Model (Fig. 12.5)
+
+The physical explanation lies in the competition between **forward dissolution flux** and **back diffusion flux** of metallization atoms (e.g., Ni):
+
+> **Fig. 12.5** — Schematic of a solder joint showing Ni diffusion fluxes during EM:
+
+![Fig. 12.5 — Schematic cross-section of a solder joint during EM. Electrons flow from cathode (bottom Ni/Cu pad) to anode (top Cu pad). Three competing fluxes are shown: J_dissolution at cathode Ni interface (upward), J_Ni through Sn bulk (upward), and J_back diffusion (downward). IMC layers shown at both interfaces: CuNi₆Sn₅ at cathode, Cu₃Sn/Cu₆Sn₅ at anode.](c:\Users\SINGAPORE\Desktop\Reading section\Semiconductors\Packaging\figures\fig_12_5_ni_diffusion_fluxes.png)
+
+Three competing fluxes govern the system:
+
+| Flux | Symbol | Direction | Description |
+|---|---|---|---|
+| Dissolution flux | $J_\text{dissolution}$ | ↑ (from cathode) | Ni dissolving from cathode Ni UBM into solder under electron wind |
+| Ni transport flux | $J_\text{Ni}$ | ↑ (through Sn bulk) | Ni atoms carried by electron wind away from cathode interface |
+| Back diffusion flux | $J_\text{back diffusion}$ | ↓ (downward) | Ni atoms diffusing back toward cathode from upper solder region |
+
+**For fast Ni dissolution ($J_\text{dissolution}$) to occur**, the system requires an **effective $J_\text{Ni}$** — Ni must be efficiently removed from the cathode interface to sustain the concentration gradient that drives continued dissolution.
+
+**Short joint height** → better EM resistance:
+- Ni atoms carried upward quickly reach the **anode side** and are **subjected to back diffusion** ($J_\text{back}$).
+- The anode side acts as a **barrier** — Ni cannot travel far enough away.
+- $J_\text{back}$ replenishes Ni at the cathode interface, **preventing the establishment of Ni deficiency** needed for fast dissolution.
+
+**Long joint height** → poor EM resistance:
+- Ni atoms must travel a longer distance before reaching the anode.
+- $J_\text{back}$ **cannot effectively return** to increase cathode-side Ni concentration.
+- **Ni deficiency at the cathode interface is easily established** — sustaining a large concentration gradient and fast dissolution rate.
+
+```
+SHORT JOINT — back-diffusion suppresses dissolution:
+ ┌─────────────────────────────┐ Anode (Cu)
+ │   Ni accumulates; J_back ↓  │
+ │   [Sn solder — short path]  │
+ │   J_Ni ↑ (short distance)   │
+ └─────────────────────────────┘ Cathode Ni
+   Ni replenished → slow J_dissolution → long MTTF
+
+LONG JOINT — back-diffusion insufficient:
+ ┌─────────────────────────────┐ Anode (Cu)
+ │   Ni dispersed; J_back weak ↓│
+ │   [Sn solder — long path]   │
+ │   J_Ni ↑ (long distance)    │
+ └─────────────────────────────┘ Cathode Ni
+   Ni deficiency → fast J_dissolution → short MTTF
+```
+
+This back-diffusion mechanism is the **solder-joint analogue of the Blech back-stress effect** — operating through **atomic concentration gradients** rather than mechanical stress gradients. The shorter the solder joint, the more effectively the anode side "recycles" dissolved metallization atoms back to the cathode, suppressing the net dissolution rate.
+
+---
+
+### 12.G — Summary: Factors Governing Metallization Dissolution EM in Solder Joints
+
+| Factor | Mechanism | Effect on EM Resistance |
+|---|---|---|
+| **Solder alloy (Ag addition)** | Ag₃Sn stabilises grain structure; slows Cu dissolution | ↑ Improved |
+| **Zn doping** | Zn reacts with Cu/Ag/Ni; stabilises interface and bulk | ↑ Improved |
+| **Sn c-axis ∥ e⁻ flow** | Fast diffusion path along c-axis drives rapid metallization dissolution | ↓ Degraded |
+| **Sn c-axis ⊥ e⁻ flow** | Slow diffusion path; minimal metallization dissolution | ↑ Improved |
+| **Fast assembly cooling** | More random orientations → more c-axis ∥ e⁻ flow grains | ↓ Degraded |
+| **Slow assembly cooling** | Preferred [110] growth → c-axis ⊥ substrate normal | ↑ Improved |
+| **High Ag content (cyclic twins)** | Bundled twin orientations; reduces probability of c-axis ∥ e⁻ flow | ↑ Improved |
+| **Short solder joint height** | Back diffusion effectively replenishes cathode; suppresses dissolution | ↑ Improved |
+| **Long solder joint height** | Back diffusion ineffective; Ni deficiency easily established | ↓ Degraded |
+| **Blech product (j × L) < critical** | Back stress balances electron wind; no EM damage | ↑ Protected |
+
+---
+
+### 12.H — Full IMC Joint Transformation Under EM in Microbumps
+
+#### 12.H.1 Unique Behaviour of Microbumps vs. Larger Solder Joints
+
+Microbumps exhibit a fundamentally different EM response compared to conventional larger solder joints, arising from their **smaller solder-to-metallization volume ratio**:
+
+- In conventional bumps, metallization dissolution leads to open-circuit failure before the solder can fully convert to IMC.
+- In microbumps, the small solder volume means a **full IMC bump can form before the metallization is fully consumed** — this is a key reason why **metallization dissolution is not a widely reported failure mode in microbumps**.
+
+#### 12.H.2 Threshold Volume Ratio — Cu/Sn Reaction Example
+
+A threshold metallization-to-solder volume ratio determines which failure mode dominates. This can be calculated directly from the IMC reaction stoichiometry:
+
+**Cu/Sn system example** — $\text{Cu}_6\text{Sn}_5$ forms first under EM with Cu dissolution:
+
+$$
+\frac{V_\text{Cu}}{V_\text{Sn}} > 0.52 \Rightarrow \text{Full Cu}_6\text{Sn}_5 \text{ IMC bump forms before metallization open}
+$$
+
+| Condition | Outcome |
+|---|---|
+| Cu/Sn volume ratio **> 0.52** | Full Cu₆Sn₅ IMC joint formed; no open-circuit failure |
+| Cu/Sn volume ratio **< 0.52** | Cu metallization fully dissolved; open-circuit failure |
+
+**Practical implication**: As long as the **Cu height exceeds half the solder height**, a full IMC joint will form before Cu dissolution failure occurs.
+
+#### 12.H.3 Critical Current Density Threshold in Microbumps
+
+Study [30] estimated that the **critical current density** for microbumps is approximately $3 \times 10^5 \text{ A/cm}^2$:
+
+- When the applied current density is **below this threshold**, no EM damage can be induced regardless of how long the test runs.
+- This represents a **true immunity regime** — analogous to the Blech product condition for interconnect lines — specific to the microbump geometry.
+
+---
+
+### 12.I — Thermomigration Accompanied by EM in Solder Joints
+
+#### 12.I.1 Origin of Thermal Gradient Under Current Stressing
+
+When current is applied to solder joints in electronic packaging, two simultaneous transport phenomena occur:
+
+1. **Electromigration (EM)**: driven by the electron wind force
+2. **Thermomigration (TM)**: driven by the thermal gradient arising from Joule heating
+
+The Joule heating distribution is **asymmetric** due to packaging geometry:
+- Heating on the **substrate side** of the solder joint is much less than that from the **chip side**, where transistors and finer back-end-of-line (BEOL) interconnects generate more heat.
+- This inherent asymmetry creates a **temperature gradient across the solder joint height**.
+
+#### 12.I.2 Threshold for Thermomigration Damage
+
+A temperature difference of **10 °C across a 100 µm diameter solder joint** (equivalent to a thermal gradient of **1000 °C/cm**) is sufficient to:
+- Induce thermomigration
+- Drive measurable elemental redistribution within the solder
+
+> **Thermomigration is expected to be far more severe in microbumps of 3D packaging** — their diameter is more than one order of magnitude smaller, and stacked Si dies generate more heat with poorer thermal dissipation paths, resulting in much steeper thermal gradients (up to ~5000 °C/cm or more).
+
+#### 12.I.3 Direction of Migration — Heat of Transport Q
+
+The migration direction of each species under a thermal gradient is governed by the **heat of transport Q** — defined as the difference between the heat carried by a moving atom per mole and the enthalpy of atoms per mole at the hot end:
+
+| Sign of Q | Migration Direction | Species |
+|---|---|---|
+| **Q < 0** | Cold → Hot (up-gradient) | **Sn** |
+| **Q > 0** | Hot → Cold (down-gradient) | **Ni, Cu, Ag, Ti** |
+
+In summary:
+- **Sn migrates from cold end to hot end**
+- **Ni, Cu, Ag, Ti migrate from hot end to cold end**
+
+This opposing migration tendency between Sn and metallization elements creates **flux divergence** that can result in IMC redistribution and void formation.
+
+#### 12.I.4 Comparative Thermomigration Susceptibility of Cu vs. Ni
+
+**Cu thermomigration** occurs much more readily than Ni thermomigration, partly due to the difference in solubility in Pb-free solder:
+
+| Element | Solubility in Pb-free Solder | Thermal Gradient for TM Observation |
+|---|---|---|
+| **Cu** | 1.54 wt% at 260 °C | **1000 °C/cm** (flip chip joint) |
+| **Ni** | 0.28 wt% at 250 °C | **1429 °C/cm** (flip chip, no TM); **5345 °C/cm** (microbumps, TM observed) |
+
+The lower Ni solubility means less Ni is available in solution to migrate, requiring a far steeper thermal gradient to induce observable Ni thermomigration.
+
+#### 12.I.5 Time-Resolved Thermomigration in Microbumps — Fig. 12.12
+
+> **Fig. 12.12** — Time-series SEM cross-sections showing thermomigration evolution in a microbump under thermal gradient, at 0 h, 213 h, 323 h, and 644 h:
+
+![Fig. 12.12 — Time-series SEM images (0 h, 213 h, 323 h, 644 h) of a microbump under thermal gradient. No Sn migration is observed. Ni and Ag migrate from hot end (top, Cu/Ni) to cold end (bottom, Ni). Dashed circles in (c) and (d) show progressive void/Ni depletion at the hot end interface.](c:\Users\SINGAPORE\Desktop\Reading section\Semiconductors\Packaging\figures\fig_12_12_thermomigration_microbump.png)
+
+- **(a) 0 h** — As-reflowed state: Ni₃Sn₄ and Ag₃Sn IMC particles distributed throughout the solder bulk; both hot end (top, Cu/Ni) and cold end (bottom, Ni) interfaces intact.
+- **(b) 213 h** — Ag₃Sn particles begin clustering toward the cold end; Ni redistribution not yet prominent but early interface changes visible.
+- **(c) 323 h** — Progressive Ni depletion at the hot-end interface visible (dashed circle); Ag₃Sn particles migrated to cold end; Ni accumulation at cold end interface.
+- **(d) 644 h** — Continued Ni depletion at hot end (dashed circle); Ag₃Sn fully concentrated at cold end; significant microstructural redistribution. **No Sn migration** is observable throughout all time steps, consistent with the opposing Q sign.
+
+#### 12.I.6 Inhibition of Cu Thermomigration by Ag₃Sn
+
+**Ag₃Sn IMC particles or plates can suppress thermomigration of Cu** by two mechanisms:
+
+1. **Physical obstruction**: Ag₃Sn particles inhibit Cu dissolution at the hot end.
+2. **Suppression of abnormal IMC accumulation**: They prevent excessive Cu-Sn IMC build-up at the cold end.
+
+The ability of Ag₃Sn to resist Cu thermomigration is speculated to be related to the **lower susceptibility of Ag atoms to temperature gradients** (near-zero or negative Q for Ag), meaning Ag₃Sn particles tend to remain stable or migrate slowly — effectively acting as immobile barriers to Cu flux.
+
+---
+
+### 12.J — EM in TSV of 3D Packaging
+
+#### 12.J.1 EM in Cu Damascene Interconnects — Inherent Differences from Al
+
+Unlike Al-based interconnects where EM failure is **grain boundary dominated**, EM damage in Cu-based metal lines is **interface dominated**:
+
+- Fast diffusion paths are at the **via sidewalls** and at the **interface between the Cu line and the barrier/passivation layer**.
+- These interfaces — not grain boundaries — are the **likely failure initiation locations** for Cu EM.
+
+#### 12.J.2 Four Key EM Factors for TSV-Related Interconnects
+
+The following EM factors from Cu damascene interconnects are directly applicable to TSV-connected systems:
+
+##### Factor 1 — Current Crowding
+
+Due to non-uniform interconnect dimensions and complex routing geometries, current density is non-uniform along the interconnect path:
+
+- **Higher current density** concentrates at the **inner corner of bent conductors** — this is where EM failure initiates.
+- Local Joule heating increases at these hotspots, generating:
+  - A **thermal gradient** → thermomigration driving force
+  - A **thermo-mechanical stress gradient** → both serve as additional Cu diffusion drivers
+
+##### Factor 2 — Influence of Passivation Layer
+
+Since Cu EM is interface-dominated, the passivation layer quality directly controls EM lifetime:
+
+- Anything that **improves Cu/passivation adhesion** or **slows interfacial Cu diffusion** extends EM lifetime.
+- Key experimental data:
+
+| Passivation Material | Relative MTTF | Cu/Passivation Debond Energy |
+|---|---|---|
+| **SiNₓ** | ~12× longer | High (strong adhesion) |
+| **SiC** | 1× (baseline) | Much lower (weaker adhesion) |
+
+The MTTF ratio correlates directly with the debond energy — stronger adhesion = slower interfacial diffusion = longer EM lifetime.
+
+##### Factor 3 — Reservoir Effect
+
+Metal line **extensions adjacent to via connections** (also termed overhang regions or reservoirs) can delay EM failure:
+
+- The extension acts as a **reservoir for void growth** — vacancies must fill the reservoir before a critical void forms at the via.
+- Lower stress and vacancy concentration in the extension region slow void migration.
+- Current density distribution analysis shows a **low current density zone in the M2 extension corners above the cathode** — this retards void migration into the extension.
+- A **critical extension length exists**: beyond this length, increasing the extension further provides **no additional EM lifetime improvement** — diminishing returns.
+
+##### Factor 4 — Thermo-Mechanical Stress Impact
+
+Analogous to the Blech back-stress effect:
+
+- **Stress gradient** serves as a driving force for atomic flux, opposing the electron wind–driven vacancy density difference between cathode and anode.
+- EM-induced vacancy accumulation at the cathode creates a tensile stress; atomic accumulation at the anode creates compressive stress.
+- This mechanical back-stress can partially or fully counteract EM, depending on the geometry (Blech product regime).
+
+#### 12.J.3 TSV EM Connection Types and Failure Modes
+
+> **Fig. 12.13** — Schematic cross-sections of the two types of TSV EM testing patterns:
+
+![Fig. 12.13 — Cross-sectional schematics of EM test patterns. (a) Type 1: TSV + micro bump connection — current flows through top-die BEOL, down the TSV, through RDL, and into the micro bump connecting to the bottom-die BEOL. (b) Type 2: TSV + RDL connection — current flows through top-die BEOL, down the TSV, and laterally through the RDL to the micro bump.](c:\Users\SINGAPORE\Desktop\Reading section\Semiconductors\Packaging\figures\fig_12_13_tsv_em_test_pattern.png)
+
+| Type | Configuration | Current Path |
+|---|---|---|
+| **Type 1** | TSV + micro bump | Top BEOL → TSV → RDL → Bump → Bottom BEOL |
+| **Type 2** | TSV + RDL | Top BEOL → TSV → RDL → Bump → Bottom BEOL (lateral RDL emphasis) |
+
+> **Fig. 12.14** — SEM cross-sections of the four TSV EM failure modes across both connection types and current directions:
+
+![Fig. 12.14 — TSV EM failure modes. (a) Type 1 downstream e-flow: multiple voids at cathode solder/RDL interface; (b) Type 1 upstream e-flow: catastrophic solder joint failure part separation visible; (c) Type 2 downstream e-flow: TSV intact, no visible damage; (d) Type 2 upstream e-flow: void formation at the RDL/bump interface under the TSV.](c:\Users\SINGAPORE\Desktop\Reading section\Semiconductors\Packaging\figures\fig_12_14_tsv_em_failure_modes.png)
+
+| Panel | Type | e⁻ Flow Direction | Failure Mode |
+|---|---|---|---|
+| **(a)** | Type 1 (TSV + Bump) | Downstream | Void formation at cathode interface within solder joint |
+| **(b)** | Type 1 (TSV + Bump) | Upstream | Catastrophic solder joint separation (failure part detached) |
+| **(c)** | Type 2 (TSV + RDL) | Downstream | No visible damage — TSV acts as electron wind barrier |
+| **(d)** | Type 2 (TSV + RDL) | Upstream | Void nucleation and growth at RDL/bump interface below TSV |
+
+The key distinction: **electron flow direction relative to the TSV/bump stack** determines whether damage concentrates at the solder joint or at the RDL interface, with the solder bump being most vulnerable when it sits at the cathode side of the TSV.
+
+---
+
+## Chapter 13 — Fundamentals of Heat Dissipation in 3D IC Packaging and Thermal-Aware Design
+
+---
+
+### 13.A — Overview of Thermal Challenges in 3D IC Stacking
+
+#### 13.A.1 Microchannel Cooling — Design Constraints
+
+Design of an **integrated cooling layer** in 3D IC stacks is restricted by the placement of TSVs connecting adjacent chip stacks:
+- TSVs must pass through or around the cooling interlayer, limiting the channel dimensions and layout freedom.
+- **IBM demonstrated** a practical silicon chip cooler capable of addressing **> 1 kW/cm² cooling** needs:
+  - Utilised **offset strip fins** (instead of straight microchannels) for lower thermal resistance.
+  - Achieved thermal resistance of approximately **$1 \times 10^{-6}$ m²·°C/W**.
+
+#### 13.A.2 Thermal Intensification Factor (TIF)
+
+The **Thermal Intensification Factor (TIF)** accounts for the overlapping of heat-generating devices from different layers along the shared heat flow path:
+
+$$
+\text{TIF} = \frac{q''_{3D-H}}{q''_{3D-U}}
+$$
+
+Where:
+- $q''_{3D-U}$ = uniform heat flux based on **total power** dissipated at the active cooling area
+- $q''_{3D-H}$ = **local** value of heat flux apparent at the heat sink at any given location
+
+TIF captures the non-uniformity of heat generation across stacked dies — a critical input for hot-spot thermal management in 3D ICs.
+
+#### 13.A.3 Thermal Derating Factor
+
+The **thermal derating factor** accounts for **additional thermal resistance** introduced at the interface between:
+- A heat-generating device on a chip in the 3D stack, and
+- The adjacent chip bonded toward the heat sink.
+
+When adjacent chips are mechanically bonded, this interface adds resistance that must be compensated for by effectively increasing the apparent heat flux at the heat sink level. The thermal derating factor is used to:
+- **Estimate device temperature maps** (uses apparent heat flux)
+- **Perform coolant heat balance calculations** (uses actual heat flux)
+
+---
+
+### 13.B — Air Cooling of 3D ICs
+
+Stacking **more than 2 IC chips** in a conduction-cooled configuration still permits the use of **conventional heat sinks** on the outer face of the 3D chip stack. However:
+
+- Heat flux levels are **higher than a single chip** (power from multiple dies must exit through the same cooling area).
+- **Advanced air cooling options** may be required to handle the increased thermal load.
+- The **increased thermal resistance** in the heat flow pathway through the stack must be considered — this can be partially compensated by using a **lower thermal resistance heat sink**.
+
+---
+
+### 13.C — Jet Impingement and Spray Cooling
+
+#### 13.C.1 Jet Impingement
+
+High-speed jets from a nozzle impinging directly on a target surface offer effective high-heat-flux dissipation:
+
+- A **single jet** provides cooling concentrated in the immediate impingement area.
+- **Arrays of jets** can cover larger areas, using air or liquid as the cooling medium.
+- **Liquids** are most suitable for the highest heat flux levels.
+
+**Key disadvantages**:
+
+| Issue | Detail |
+|---|---|
+| High pressure drops | 50–500 kPa required |
+| Fabrication and leakage | Complex plumbing; leakage risk at high pressure |
+| Vibration and erosion | High-velocity jets cause target surface degradation |
+
+> **Jet impingement cannot be readily applied to conduction-cooled 3D ICs** — placing jets in interlayers creates extremely complex fluid distribution systems, and leakage remains a critical concern due to the high pressures required for high-velocity jets.
+
+#### 13.C.2 Spray Cooling
+
+Spray cooling involves **spraying liquid droplets from a nozzle** onto a target surface where they **evaporate**:
+
+- Exploits **latent heat of evaporation** — far more effective than single-phase forced convection used in standard jet impingement.
+- Target surfaces may be coated with **porous coatings or microstructures** to enhance evaporation rate.
+
+**Key design challenges**:
+- Spray distribution pattern uniformity
+- Effect of returning vapour on incoming droplet velocity
+- Controlling flow rate to avoid **surface flooding** (which degrades evaporation efficiency)
+
+---
+
+### 13.D — Microchannel Cooling
+
+#### 13.D.1 Definition and Geometry
+
+Microchannels are defined as channels with **minimum dimensions in the range of 10–200 µm**. They can be:
+
+1. **Etched directly** into the silicon substrate (monolithic integration).
+2. **Etched or machined** in a separate silicon or copper chip that is **bonded to the back side** of the IC chip (conduction-cooled configuration).
+
+> **Fig. 13.3** — Schematic of a microchannel-cooled three-layer 3D IC structure:
+
+![Fig. 13.3 — Schematic of a 3-layer 3D IC structure with interlayer microchannel cooling. Each IC layer (1st, 2nd, 3rd) is separated by a Cooling Layer containing microchannel evaporators. Electrical vias pass through the structure vertically. Optical and RF access is available at the top (no heat sink required at top surface). Solder ball array connects the stack to the substrate at the bottom.](c:\Users\SINGAPORE\Desktop\Reading section\Semiconductors\Packaging\figures\fig_13_3_microchannel_3d_ic.png)
+
+Key features shown in Fig. 13.3:
+- **Cooling layers** are interleaved between each IC die layer (1st, 2nd, 3rd).
+- **Electrical vias** (TSVs) run vertically through the cooling layers — highlighted constraint on channel placement.
+- **Microchannel evaporators** support both **single-phase** (liquid convection) and **two-phase** (evaporative) cooling modes.
+- **Optical & RF access** is maintained at the top without a traditional heat sink.
+
+#### 13.D.2 Why Microchannels Are the Most Promising Cooling Method
+
+Microchannels offer the most promising cooling solution for 3D ICs because:
+- They are **compatible with interlayer integration** — directly within the chip stack.
+- They offer **high heat transfer coefficients** due to small hydraulic diameters.
+
+**Critical design constraint**: The **height of the cooling layer** is severely restricted by the **maximum permissible TSV length** from the electrical design viewpoint — a fundamental co-design tension between cooling performance and electrical interconnect requirements.
+
+---
+
+### 13.E — Thermal Consideration in TSV Placement
+
+An alternative technique to extract high heat fluxes in 3D ICs is through **thermal TSVs** (also called thermal vias):
+
+- **Useful for extracting heat** in monolithic 3D ICs.
+- **Trade-off**: The size of thermal via islands occupies silicon real estate that would otherwise be available for signal routing.
+- This limits the **number and placement options** for thermal via islands, each of which consists of several individual vias.
+
+---
+
+### 13.F — Emerging Wireless Interconnects for 3D ICs with Liquid Cooling
+
+#### 13.F.1 Co-Design Problem: Microchannels and TSVs
+
+The presence of active cooling layers with microchannels imposes significant constraints on TSV integration:
+
+- **TSVs with aspect ratio > 10** are extremely difficult to manufacture at high yield due to challenges in etching, sidewall passivation, insulation formation, and via filling.
+- **Microchannels occupy significant floor area**, severely restricting TSV placement and routing freedom in 3D multicore ICs.
+- Increasing microchannel height → increases die thickness → increases TSV height → to maintain a fixed aspect ratio, TSV diameter must also increase → **reduces area available for routing**.
+- These factors make **co-existence and co-design of TSVs and microchannels extremely challenging**, particularly when thousands of TSVs are required for dies with area > 100 mm².
+
+#### 13.F.2 Wireless Interconnects as a Solution
+
+**On-chip wireless interconnects** in the millimetre-wave (mmWave) frequency bands offer a complementary solution:
+
+- Demonstrated to be **more energy-efficient** than conventional wireline interconnect fabrics for certain communication patterns.
+- Do **not require physical layout of links** — provide direct single-hop links between transceivers distributed across chips.
+- Enable a **Wireless Network-on-Chip (NoC)** architecture.
+
+**Network-on-Chip (NoC)**: An on-chip network providing a scalable communication fabric among multiple components of an IC. Wireless NoCs enable:
+- **Low energy** communication among IC blocks
+- **Low latency** single-hop connectivity
+- Elimination of long serpentine TSV routing across cooling interlayers
+
+---
+
+### 13.G — Liquid Cooling with Integrated Microchannels
+
+#### 13.G.1 Integration Challenges
+
+Microchannels embedded as a **cooling interlayer** in a 3D IC chip stack face a fundamental challenge:
+
+- TSVs can only be located at the **channel walls** (not inside the channels).
+- Requiring large numbers of closely-spaced TSVs → desirable channel dimensions tend to be **short and narrow**.
+- **Narrow channels** ($D_h < 200\ \mu\text{m}$) provide high heat transfer coefficients but generate **excessive coolant pressure drop**.
+
+This creates a dilemma:
+
+| Channel Dimension | Heat Transfer | Pressure Drop | Practical |
+|---|---|---|---|
+| Small $D_h$ | ↑ High | ↑ Excessive | Limited by pumping power |
+| Large $D_h$ | ↓ Lower | ↓ Manageable | May not meet heat flux target |
+
+#### 13.G.2 Example Application — Interlayer Water Cooling Results
+
+An interlayer microchannel cooler with **200 µm hydraulic diameter** using water as coolant:
+- Achieved heat flux dissipation of **150 W/cm²** at a volumetric flow rate of **0.8 L/min**.
+- Introducing **pin fins** (through which TSVs were connected) resulted in **significantly higher pressure drops** — further limiting practical implementation.
+
+---
+
+### 13.H — Thermal Performance Improvement with Variable Fin Density
+
+#### 13.H.1 The TSV Height Constraint and Its Thermal Impact
+
+TSV height is an **extremely important consideration** in cooling interlayer design:
+
+| Scenario | TSV Height | Channel $D_h$ | $h$ (Heat Transfer Coeff.) | Flow Rate (fixed $\Delta P$) | Net Heat Dissipation |
+|---|---|---|---|---|---|
+| Short TSV | Small | Small | ↑ High | ↓ Low | ↓ Decreases |
+| Tall TSV | Large | Large | ↓ Lower | ↑ High | ↑ Better |
+
+As shorter TSV heights are employed, the resulting smaller hydraulic diameters increase flow resistance — so even though heat transfer coefficient improves locally, the reduced flow rate under a given pressure drop limit causes the **net heat dissipation to decrease**.
+
+#### 13.H.2 Temperature Profile Along Flow Direction — Fig. 13.8
+
+As coolant traverses through the interlayer passages, its temperature rises **linearly** along the flow direction (assuming constant heat flux and uniform heat transfer coefficient, except at the entrance where entrance effects produce a higher local coefficient):
+
+> **Fig. 13.8** — Temperature profile of coolant (T fluid) and substrate (T bottom) under constant heat flux boundary condition:
+
+![Fig. 13.8 — Graph showing temperature vs. flow direction for a microchannel under constant heat flux. The coolant temperature (T fluid, solid line) rises linearly from inlet to outlet. The substrate temperature (T bottom, dashed line) rises in parallel, offset above the fluid temperature by q″·R_total (the total thermal resistance times heat flux), which remains roughly constant along the channel length.](c:\Users\SINGAPORE\Desktop\Reading section\Semiconductors\Packaging\figures\fig_13_8_coolant_substrate_temp_profile.png)
+
+Key observations from Fig. 13.8:
+- **T fluid** (solid line): rises approximately linearly due to steady heat pick-up from the dies.
+- **T bottom** (dashed line): tracks parallel to T fluid, offset upward by $q'' \cdot R_\text{total}$ — the product of heat flux and total thermal resistance.
+- The gap $q'' R_\text{total}$ is **approximately constant** along the channel — indicating that thermal resistance is fairly uniform (for uniform fin geometry).
+- The **substrate temperature at the outlet is highest** — representing the worst-case thermal condition and the design-limiting location.
+
+#### 13.H.3 Variable Fin Density Design — Fig. 13.10
+
+> *(Fig. 13.10 — Variable fin density design in which fin density varies in different zones along the flow length — not provided as image; described from text)*
+
+To address the non-uniform temperature rise along the flow direction, a **variable fin density** approach zones the microchannel passages:
+
+- **Inlet zone** (lower coolant temperature, lower substrate temperature risk): Lower fin density → lower flow resistance → higher flow velocity.
+- **Outlet zone** (higher coolant temperature, highest substrate temperature risk): Higher fin density → improved local heat transfer coefficient to compensate for the reduced temperature driving force.
+
+This zoning maintains a more **uniform substrate temperature** along the flow path compared to uniform fin density designs.
+
+#### 13.H.4 Substrate Temperature Variation Along Flow Direction — Fig. 13.11
+
+> *(Fig. 13.11 — Variation of substrate temperature along flow direction for different fin density configurations — not provided as image; described from text)*
+
+With variable fin density:
+- The substrate temperature rise along the flow direction is **significantly flattened** compared to uniform fin designs.
+- Peak substrate temperature at the outlet is **reduced**, extending the thermal margin for device operation.
+- The trade-off is a **more complex fin geometry** fabrication requirement within the cooling interlayer.
+
+---
+
+### 13.I — Summary: 3D IC Cooling Methods Comparison
+
+| Cooling Method | Heat Flux Capability | Key Advantage | Key Limitation |
+|---|---|---|---|
+| **Air cooling (heat sink)** | Moderate | Simple integration; conventional hardware | Limited by convection; insufficient for high-power stacks |
+| **Jet impingement (liquid)** | High | High local heat transfer | High pressure drop; leakage risk; vibration/erosion |
+| **Spray cooling** | High | Latent heat exploited; no direct contact pressure | Vapour interference; flooding risk; uniformity challenges |
+| **Microchannel (single-phase)** | Very high (150+ W/cm²) | Compact; interlayer integrable | Pressure drop at small $D_h$; TSV co-design constraint |
+| **Microchannel (two-phase)** | Highest | Latent heat benefit; highest efficiency | Two-phase instability; flow control complexity |
+| **Variable fin density** | Very high + uniform T | Reduces peak substrate temperature | Complex fabrication; detailed thermal-hydraulic design |
+| **Wireless interconnects + µchannel** | Very high | Removes TSV routing conflict in cooling layers | mmWave design complexity; range limits |
 
