@@ -2099,4 +2099,228 @@ Surface finishes are metallic or organic coatings applied onto exposed substrate
 | **Solder Mask** | Thermal Epoxy vs. UV-Cured Acrylate | Trace protection, chemical shield during plating, via isolation | UV Acrylate: high sensitivity to surface contamination causing flaking |
 | **Surface Finish** | ENEPIG, ENIG, OSP, Immersion Ag/Sn, E-Ni/E-Au | Solderability, wire bondability (Al/Au), EM suppression | ENIG: Black pad hyper-corrosion; Immersion Sn: whisker growth; OSP: short shelf-life |
 
+---
+
+## Chapter 15 — Thermal Stress and Its Effects on TSV Structures
+
+---
+
+### 15.A — Physical Mechanisms of Thermal Stress in TSVs
+
+#### 15.A.1 Thermal Expansion Mismatch & Triaxial Stress State
+Mechanical stresses in Through-Silicon Via (TSV) interconnects arise primarily from the large Coefficient of Thermal Expansion (CTE) mismatch between the electroplated copper core ($\alpha_{\text{Cu}} \approx 16.5\text{--}17.0\ \text{ppm}/^\circ\text{C}$) and the surrounding silicon matrix ($\alpha_{\text{Si}} \approx 2.3\text{--}2.6\ \text{ppm}/^\circ\text{C}$).
+
+The rigid confinement imposed by the thick silicon substrate creates a complex **triaxial stress state** ($\sigma_{rr}, \sigma_{\theta\theta}, \sigma_{zz}$) inside and around the TSV structure. This triaxial stress state is fundamentally distinct from the simple biaxial stress state ($\sigma_{xx} = \sigma_{yy}$) observed in thin metallic planar films.
+
+```
+ Biaxial Stress (Thin Film) vs. Triaxial Stress (TSV):
+    [ Thin Film ]                 [ TSV Core in Si Matrix ]
+      σ_xx ◄─► σ_xx                  σ_rr ◄─► σ_rr  (Radial)
+      σ_yy ◄─► σ_yy                  σ_θθ ◄─► σ_θθ  (Hoop)
+      (σ_zz = 0, Free surface)       σ_zz ◄─► σ_zz  (Axial, Confined)
+```
+
+#### 15.A.2 Elastic Behavior and Localized Plasticity
+For a typical process thermal load (e.g., cooling from an annealing temperature $\Delta T = 200\ ^\circ\text{C}$):
+- **Von-Mises Stress Distribution**: The von-Mises stress ($\sigma_{\text{vm}}$)—which represents the effective shear stress driving dislocation motion and plastic yielding—remains **much lower than the yield strength of Cu** throughout the bulk of the via core.
+- **Localized Plasticity at Top Surface**: Finite Element Analysis (FEA) reveals that the Cu via remains **mostly elastic** during thermal excursions. Plastic deformation is strictly **localized near the top junction** where the via/Si interface meets the wafer free surface.
+- **Triaxial Stress Confinement**: Because hydrostatic pressure components ($\sigma_h = \frac{1}{3}(\sigma_{rr} + \sigma_{\theta\theta} + \sigma_{zz})$) dominate inside the deep via shaft, the net effective shear stress ($\tau_{\text{eff}} \propto \sigma_{\text{vm}}$) driving plastic deformation is kept relatively low in the TSV interior, confining plastic flow to near-surface regions.
+
+> **Fig. 15.2** — FEA von-Mises stress contour for a thermal load $\Delta T = 200\ ^\circ\text{C}$ in a $10\ \mu\text{m} \times 55\ \mu\text{m}$ (diameter $\times$ depth) Cu-TSV embedded in a $780\ \mu\text{m}$ thick Si substrate:
+
+![Fig. 15.2 — Von-Mises stress distribution for a thermal load ΔT = 200 °C in a 10 µm x 55 µm Cu-TSV in 780 µm thick Si](c:\Users\SINGAPORE\Desktop\Reading section\Semiconductors\Packaging\figures\fig_15_2_von_mises_stress_tsv.png)
+
+#### Breakdown of FEA Stress Features (Fig. 15.2):
+- **Bulk Via Core**: Moderate stress levels ($100\text{--}180\ \text{MPa}$), remaining below the plastic yield threshold of electroplated copper.
+- **Interface Corner Peak**: High von-Mises stress concentration ($> 500\ \text{MPa}$, black/red region in inset) localized at the topmost edge where the Cu via, dielectric liner, and Si wafer surface intersect. Plastic yielding and micro-extrusion initiate in this concentrated corner zone.
+
+---
+
+### 15.B — Experimental Measurement of Thermal Stress
+
+Accurate characterization of TSV thermal stress requires combining experimental metrology (wafer curvature, micro-Raman spectroscopy) with crystallographic orientation mapping (EBSD) and FEA simulation.
+
+#### 15.B.1 Wafer Curvature Method
+The wafer curvature technique uses an optical lever laser setup to measure the real-time thermal bending curvature ($\Delta \kappa$) of a silicon strip containing periodic arrays of TSVs during thermal cycling.
+
+> **Fig. 15.3** — Schematic of the TSV specimen geometry and bending curvature behavior during thermal cycling:
+
+![Fig. 15.3 — Illustration of TSV specimen for wafer curvature test (5 mm x 50 mm x 780 µm strip with 10 µm x 55 µm vias) and curvature modes](c:\Users\SINGAPORE\Desktop\Reading section\Semiconductors\Packaging\figures\fig_15_3_tsv_wafer_curvature_specimen.png)
+
+- **Specimen Dimensions**: $5\ \text{mm} \times 50\ \text{mm} \times 780\ \mu\text{m}$ (width $\times$ length $\times$ thickness), containing periodic TSV arrays ($10\ \mu\text{m}$ diameter $\times 55\ \mu\text{m}$ depth; pitch $50\ \mu\text{m}$ longitudinal, $40\ \mu\text{m}$ transverse).
+- **Curvature Modes**:
+  - *Heating $\to$ Negative Curvature*: Cu expands faster than Si ($\alpha_{\text{Cu}} > \alpha_{\text{Si}}$), creating compressive stress in Cu and causing the TSV-patterned top surface to arch upward (concave down / negative curvature).
+  - *Cooling $\to$ Positive Curvature*: Cu contracts faster than Si, inducing tensile stress in Cu and causing the top surface to bow downward (concave up / positive curvature).
+
+> **Fig. 15.4** — (a) Experimental curvature-temperature ($\Delta \kappa - T$) hysteresis loops for single thermal cycles up to 100, 200, 300, and 400 °C. (b) Grain growth evolution in Cu TSVs measured by EBSD orientation maps and mean grain size ($d$):
+
+![Fig. 15.4 — (a) Wafer curvature hysteresis loops up to 400 °C. (b) EBSD crystal orientation maps and average grain size growth](c:\Users\SINGAPORE\Desktop\Reading section\Semiconductors\Packaging\figures\fig_15_4_tsv_curvature_and_grain_growth.png)
+
+#### Thermal Cycling & Grain Growth Insights (Fig. 15.4):
+- **Curvature Hysteresis Loop**: Upon thermal cycling up to $400^\circ\text{C}$, the curvature curve exhibits a pronounced open hysteresis loop, signaling plastic deformation and stress relaxation in the Cu vias at elevated temperatures.
+- **Microstructure Growth**: As-received Cu TSVs have a fine grain structure (mean grain size $d \approx 0.77\ \mu\text{m}$). Thermal annealing drives rapid grain growth, increasing average grain diameter to $d > 1.1\ \mu\text{m}$ at $400^\circ\text{C}$ with a strong $<111>$ and $<101>$ texture development.
+
+---
+
+### 15.C — Effect of Thermal Stress on Carrier Mobility & Keep-Out Zone (KOZ)
+
+Thermal stresses transmitted from Cu TSVs into the surrounding monocrystalline silicon matrix distort the lattice, modifying the electronic energy band structure through the **piezoresistivity effect**.
+
+#### 15.C.1 Piezoresistance Coefficients of Silicon
+For standard $[001]$ silicon wafers with current flow along the $[100]$ crystallographic direction, the fractional change in electrical resistivity ($\Delta \rho / \rho_0$) or mobility ($\Delta \mu / \mu_0$) depends on the piezoresistance tensor coefficients ($\pi_{11}, \pi_{12}, \pi_{44}$).
+
+> **Table 15.2** — Piezoresistance coefficients for n-type and p-type Silicon (for current along $[100]$ on $(001)$ Si):
+
+| Carrier / Conductive Type | $\pi_{11}$ ($\text{TPa}^{-1}$) | $\pi_{12}$ ($\text{TPa}^{-1}$) | $\pi_{44}$ ($\text{TPa}^{-1}$) |
+|---|---|---|---|
+| **n-type Silicon** | **-102.2** | **+53.4** | **-13.6** |
+| **p-type Silicon** | **+6.6** | **-1.1** | **+138.1** |
+
+*(Note: $1\ \text{TPa}^{-1} = 10^{-11}\ \text{Pa}^{-1} = 10^{-5}\ \text{MPa}^{-1}$)*
+
+#### 15.C.2 Carrier Mobility Contours & Definition of Keep-Out Zone (KOZ)
+Combining FEA stress fields with the piezoresistance tensor yields spatial maps of carrier mobility degradation around a TSV.
+
+> **Fig. 15.6** — Distribution of carrier mobility changes ($\Delta \mu / \mu$) surrounding a Cu TSV ($d = 10\ \mu\text{m}, H = 200\ \mu\text{m}, \Delta T = -250\ ^\circ\text{C}$):
+
+![Fig. 15.6 — Distribution of carrier mobility changes around TSV for n-type and p-type MOSFETs in [100] and [110] channel orientations](c:\Users\SINGAPORE\Desktop\Reading section\Semiconductors\Packaging\figures\fig_15_6_carrier_mobility_change_koz.png)
+
+#### Analysis of Mobility Distributions (Fig. 15.6):
+- **(a) n-MOSFET ([100] channel)**: High mobility sensitivity; peak $\Delta \mu / \mu$ reaches **61.67%** near the TSV edge.
+- **(b) p-MOSFET ([100] channel)**: Low mobility sensitivity; peak $\Delta \mu / \mu$ is only **3.35%**.
+- **(c) n-MOSFET ([110] channel)**: Moderate mobility sensitivity; peak $\Delta \mu / \mu$ is **5.00%**.
+- **(d) p-MOSFET ([110] channel)**: Extremely high mobility sensitivity; peak $\Delta \mu / \mu$ reaches **63.47%** along diagonal lobes.
+- **Keep-Out Zone (KOZ) Definition**: The white dashed lines mark the **5% mobility change boundary** ($\Delta \mu / \mu = 5\%$). Active transistors must be excluded from this region to prevent device parameter shift.
+
+#### 15.C.3 Key Scaling & Pitch Interaction Rules for KOZ:
+1. **Diameter Scaling**: KOZ area increases monotonically with increasing TSV diameter ($d$).
+2. **Cu Plasticity Effect**: Local plastic yielding of Cu relaxes stress near the via/Si interface, slightly reducing KOZ size, but this relaxation is restricted to the immediate interface.
+3. **Pitch Interaction**: When TSVs are placed in close proximity, stress fields from adjacent vias overlap, expanding the KOZ. However, **stress interaction becomes completely negligible when the via pitch-to-diameter ratio ($P/d$) is greater than 5**.
+
+---
+
+### 15.D — Thermal Stress Induced Via Extrusion (Protrusion)
+
+#### 15.D.1 Physical Mechanisms of Via Extrusion
+**Via extrusion** (or protrusion) is the irreversible, non-recoverable plastic deformation of electroplated Cu near the top of the via after thermal processing.
+
+```
+ Via Extrusion Process during Thermal Cycle:
+   [ Room Temp ]         [ Heating to 400°C ]          [ Cool Down to RT ]
+    ┌───┬───┬───┐         ┌───╔═══════╗───┐             ┌───╔═══════╗───┐
+    │ Si│ Cu│ Si│  ───►   │ Si║  Cu   ║ Si│    ───►     │ Si║Extruded║Si│
+    └───┴───┴───┘         └───╚═══════╝───┘             └───╚═══════╝───┘
+   (Flat Surface)        (Compressive Yielding)       (Permanent Protrusion)
+```
+
+The underlying microstructural mechanisms driving via extrusion include:
+1. **Plastic Yielding by Dislocation Glide**: Compressive stress exceeding Cu yield strength during thermal ramp-up.
+2. **Diffusional Creep**: Vacancy and atomic diffusion along Cu grain boundaries and/or via/liner interfaces.
+3. **Grain Growth (Hall-Petch Effect)**: High-temperature annealing drives Cu grain growth. By the Hall-Petch relationship ($\sigma_y = \sigma_0 + k_y d^{-1/2}$), larger grain size ($d$) **lowers the yield strength ($\sigma_y$) of Cu**, promoting easier plastic deformation and larger extrusion.
+
+> **Fig. 15.7** — (a) Average Peak Width (APW) maps of Cu via cross-sections (EBSD diffraction peak broadening) indicating plasticity levels after thermal cycling to 200, 300, and 400 °C. (b) Topographic via extrusion profiles measured by Atomic Force Microscopy (AFM):
+
+![Fig. 15.7 — (a) APW maps showing Cu via plasticity vs. temperature. (b) AFM via extrusion height profiles up to 400 °C](c:\Users\SINGAPORE\Desktop\Reading section\Semiconductors\Packaging\figures\fig_15_7_via_extrusion_apw_and_afm.png)
+
+#### Extrusion Measurement Data (Fig. 15.7):
+- **APW Maps (a)**: Increasing thermal cycle temperature increases APW values (green/red regions at 400 °C), directly confirming accumulated plastic strain in the Cu via.
+- **AFM Extrusion Height (b)**: Extrusion is minimal at $200^\circ\text{C}$ ($\sim 25\ \text{nm}$), but surges to **$140\ \text{nm}$** after $400^\circ\text{C}$ thermal cycling, forming a characteristic double-peak profile near the via edges.
+
+#### 15.D.2 Yield Strength, Critical Temperature & Interfacial Adhesion
+- **Critical Yield Temperature**: When heated above a critical temperature $T_{\text{crit}} \propto \sigma_y$, compressive stress exceeds yield strength $\sigma_y$. Deforming plastically beyond $T_{\text{crit}}$ produces permanent residual extrusion upon cooling back to room temperature.
+- **Interfacial Bonding Effect**:
+  - FEA cohesive zone modeling shows that a **perfectly bonded via/Si interface reduces residual extrusion by ~3×** compared to a sliding interface.
+  - Via extrusion is bounded by two thermodynamic limits:
+    - *Upper Bound*: Frictionless interfacial sliding.
+    - *Lower Bound*: Perfectly bonded interface (zero sliding).
+  - Improving liner/Cu interfacial adhesion is an effective knob to suppress via extrusion.
+
+#### 15.D.3 Statistical Lognormal Distribution & Weakest-Link Reliability
+In large ensembles of TSVs, via extrusion follows a **lognormal statistical distribution**.
+
+```
+ Lognormal Extrusion Distribution:
+   Cumulative Probability (%)
+   99.9% ┤                         [ Tail: ~0.1% Weakest Link Extrusions ]
+         │                         (Identical ~150 nm for ALL sizes!)
+    50%  ┤              ┌─────────── Small Vias (5x50 µm) ~ half average
+         │   ┌──────────┘
+         └───┴────────────────────── Extrusion Height (nm)
+```
+
+- **Median Behavior (50% Probability)**: Smaller TSVs ($5\ \mu\text{m} \times 50\ \mu\text{m}$) exhibit roughly **half the average extrusion** of larger TSVs ($10\ \mu\text{m} \times 100\ \mu\text{m}$).
+- **Tail Behavior (99.9% Probability)**: The maximum extrusions at the extreme tail (99.9%) are **virtually identical for both via sizes**, regardless of via diameter or post-plating anneal condition!
+
+> ⚠️ **CRITICAL RELIABILITY FACT**: TSV reliability **cannot be improved by simply reducing via diameter**. Overall interconnect reliability is dictated by the largest extrusions (**the weakest link**, $\sim 0.1\%$ of the via population) which pop the overlying BEOL dielectric layers and cause metal line cracking.
+
+#### 15.D.4 Mitigation Strategy — Twin Boundary Engineering
+Statistical spread in via extrusion correlates strongly with grain size and crystallographic orientation at the top via surface:
+- Vias containing a higher fraction of **$\Sigma 3$ coherent twin boundaries** exhibit significantly lower extrusion heights.
+- **Actionable Optimization**: Electroplating chemistry (additives/suppressors) and post-plating anneal thermal profiles must be tailored to produce high-density twin boundary microstructures, raising local yield strength without compromising electrical conductivity.
+
+---
+
+### 15.E — Thermal Stresses and Package-Level Warpage Control
+
+#### 15.E.1 Package-Level Warpage Challenges in 3D ICs
+In 3D multi-die stacks connected to organic substrates, thermal expansion mismatch across thick multi-material stacks induces severe package-level warpage.
+
+#### Major Failure Modes Induced by Warpage:
+1. **FLI / SLI Open Circuits**: Excessive corner uplift prevents solder joint contact during reflow, leaving open circuits.
+2. **Solder Bridging / Short Circuits**: Compressive warpage squeezes molten solder bumps laterally, causing unintended solder bridging between adjacent pads.
+3. **Die Cracking & Delamination**: High flexural moments induce interfacial shear stresses that delaminate underfill/dielectric interfaces.
+
+#### 15.E.2 Limitations of Traditional Control Methods
+Traditional substrate-level warpage mitigation techniques—such as attaching a stiffener ring or a metal lid—are often inefficient for thin 3D IC stacks because they add parasitic mass/thickness and transfer additional thermal stresses into fragile ultra-thin silicon dies.
+
+---
+
+### 15.F — Thermal Stresses in Multilayered Structures (Natural Bending Theory)
+
+To rapidly evaluate thermal stresses and warpage in multi-layer 3D stacks without full 3D FEA meshes, **Natural Bending Theory** provides an exact analytical formulation based on linear elasticity and small deformation theory.
+
+> **Fig. 15.10** — Natural Bending Theory model for a two-layer strip under thermal mismatch during cooling:
+
+```
+ Natural Bending Theory Mechanism (2-Layer Strip):
+ 
+  1. Stress-Free State at High Temp (T_ref):
+     ┌────────────────────────┐ Layer 1 (α1, E1, h1)
+     ├────────────────────────┤ Layer 2 (α2, E2, h2)  [α1 > α2]
+     └────────────────────────┘
+ 
+  2. Hypothetical Unconstrained Contraction during Cooling (T0):
+     ┌─────────────────┐        Layer 1 contracts more (Δε1 = α1·ΔT)
+     ├─────────────────────┤    Layer 2 contracts less (Δε2 = α2·ΔT)
+ 
+  3. Reconnected Equilibrium State (Interfacial Forces + Natural Bending Curvature κ):
+         ▄▄▄▄▄▄▄▄▄▄▄
+       ▄▀           ▀▄          Positive Curvature (Bending Moment Equilibrium)
+      █───────────────█         Interfacial Shear Force F + Moment M
+```
+
+#### Mathematical Formulation of Natural Bending Theory:
+1. **Unconstrained Thermal Strain Mismatch**:
+   $$\Delta \epsilon^{\text{th}} = (\alpha_1 - \alpha_2)(T_0 - T_{\text{ref}}) = (\alpha_1 - \alpha_2)\Delta T$$
+
+2. **Force & Moment Equilibrium**:
+   $$\sum F = 0 \implies F_1 + F_2 = 0$$
+   $$\sum M = 0 \implies M_1 + M_2 + F \cdot \frac{h_1 + h_2}{2} = 0$$
+
+3. **Closed-Form Bending Curvature ($\kappa$)**:
+   $$\kappa = \frac{6 E_1 E_2 h_1 h_2 (h_1 + h_2)(\alpha_1 - \alpha_2)\Delta T}{E_1^2 h_1^4 + 4 E_1 E_2 h_1^3 h_2 + 6 E_1 E_2 h_1^2 h_2^2 + 4 E_1 E_2 h_1 h_2^3 + E_2^2 h_2^4}$$
+
+This closed-form formulation allows instant thermal stress and warpage profiling for complex multi-layer stacked dies, silicon interposers, and organic substrates during early-stage packaging architecture design.
+
+---
+
+### 15.G — Summary: Thermal Stress & Reliability Risk Matrix for TSV Structures
+
+| Structural Region | Primary Stress Driver | Dominant Reliability Failure Mode | Primary Mitigation Strategy |
+|---|---|---|---|
+| **TSV Top Corner** | Localized triaxial von-Mises stress peak ($>500\ \text{MPa}$) | Plastic yielding, oxide liner cracking, delamination | Radius corner polishing; optimized oxide liner thickness |
+| **Silicon Bulk around TSV** | Radial & hoop thermal stresses ($\sigma_{rr}, \sigma_{\theta\theta}$) | Transistor mobility shift ($\Delta \mu/\mu > 5\%$) defining KOZ | Maintain pitch-to-diameter ratio $P/d > 5$; align channel along low-sensitivity direction |
+| **TSV Copper Core** | Compressive stress during heating above $T_{\text{crit}}$ | Non-recoverable **Via Extrusion** ($>100\ \text{nm}$) | Post-plating anneal; electroplating twin boundary engineering ($\Sigma 3$ twins) |
+| **TSV / Si Interface** | Interfacial shear stress ($\tau_{rz}$) | Interfacial sliding & accelerated via extrusion | Enhance Cu/liner adhesion; cohesive interface engineering |
+| **3D Package Stack** | Global CTE mismatch between silicon stack & substrate | Substrate warpage, FLI/SLI solder bridging or open circuits | Layer symmetry tuning; Natural Bending Theory optimization |
 
