@@ -172,6 +172,26 @@ body {
 .viewer-3d{--bg:#160900;--bg2:#221100;--card:#2d1600;--accent:#fbbf24;--accent2:#fcd34d;--border:#78350f;--tag-bg:#291200;--tag:#fde68a;--text:#fff7ed;--text2:#78634a;--th:#291200;--tr-alt:#1c0d00;--btn-act:#f59e0b;--btn-txt:#160900;background:var(--bg);color:var(--text);}
 .viewer-dracula{--bg:#282a36;--bg2:#21222c;--card:#343746;--accent:#ff79c6;--accent2:#bd93f9;--border:#44475a;--tag-bg:#44475a;--tag:#8be9fd;--text:#f8f8f2;--text2:#6272a4;--th:#21222c;--tr-alt:#21222c;--btn-act:#ff79c6;--btn-txt:#282a36;background:var(--bg);color:var(--text);}
 
+/* ===== RUBY PINYIN DIRECTLY UNDERNEATH CHINESE WORDS ===== */
+ruby {
+  ruby-position: under;
+  -webkit-ruby-position: after;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0.08em;
+  vertical-align: top;
+}
+rt {
+  font-size: 0.62em;
+  line-height: 1.1;
+  color: var(--accent2);
+  font-weight: 600;
+  display: block;
+  letter-spacing: 0;
+  user-select: none;
+}
+
 /* ===== THEME SELECTOR STYLES ===== */
 .theme-selector-container{display:flex;align-items:center;gap:0.5rem;margin-left:auto;}
 .theme-label{font-size:0.78rem;color:var(--text2);font-weight:600;}
@@ -1121,17 +1141,113 @@ const PINYIN_WORD_MAP = {
   "寄生应力产生": "jì shēng yìng lì chǎn shēng"
 };
 
-function attachPinyinToChinese(text) {
+const WORD_RUBY_MAP = {
+  "倒装芯片结构组装工艺流程及传统翘曲控制方法机制": "<ruby>倒<rt>dào</rt>装<rt>zhuāng</rt>芯<rt>xīn</rt>片<rt>piàn</rt>结<rt>jié</rt>构<rt>gòu</rt>组<rt>zǔ</rt>装<rt>zhuāng</rt>工<rt>gōng</rt>艺<rt>yì</rt>流<rt>liú</rt>程<rt>chéng</rt>及<rt>jí</rt>传<rt>chuán</rt>统<rt>tǒng</rt>翘<rt>qiào</rt>曲<rt>qū</rt>控<rt>kòng</rt>制<rt>zhì</rt>方<rt>fāng</rt>法<rt>fǎ</rt>机<rt>jī</rt>制<rt>zhì</rt></ruby>",
+  "倒装芯片结构组装工艺流程": "<ruby>倒<rt>dào</rt>装<rt>zhuāng</rt>芯<rt>xīn</rt>片<rt>piàn</rt>结<rt>jié</rt>构<rt>gòu</rt>组<rt>zǔ</rt>装<rt>zhuāng</rt>工<rt>gōng</rt>艺<rt>yì</rt>流<rt>liú</rt>程<rt>chéng</rt></ruby>",
+  "传统翘曲控制方法的机制与权衡": "<ruby>传<rt>chuán</rt>统<rt>tǒng</rt>翘<rt>qiào</rt>曲<rt>qū</rt>控<rt>kòng</rt>制<rt>zhì</rt>方<rt>fāng</rt>法<rt>fǎ</rt>的<rt>de</rt>机<rt>jī</rt>制<rt>zhì</rt>与<rt>yǔ</rt>权<rt>quán</rt>衡<rt>héng</rt></ruby>",
+  "封装组装工艺流程与翘曲动态演变": "<ruby>封<rt>fēng</rt>装<rt>zhuāng</rt>组<rt>zǔ</rt>装<rt>zhuāng</rt>工<rt>gōng</rt>艺<rt>yì</rt>流<rt>liú</rt>程<rt>chéng</rt>与<rt>yǔ</rt>翘<rt>qiào</rt>曲<rt>qū</rt>动<rt>dòng</rt>态<rt>tài</rt>演<rt>yǎn</rt>变<rt>biàn</rt></ruby>",
+  "定量对比与内部应力权衡分析": "<ruby>定<rt>dìng</rt>量<rt>liàng</rt>对<rt>duì</rt>比<rt>bǐ</rt>与<rt>yǔ</rt>内<rt>nèi</rt>部<rt>bù</rt>应<rt>yìng</rt>力<rt>lì</rt>权<rt>quán</rt>衡<rt>héng</rt>分<rt>fēn</rt>析<rt>xī</rt></ruby>",
+  "倒装芯片及 3D 封装中翘曲引发的失效模式": "<ruby>倒<rt>dào</rt>装<rt>zhuāng</rt>芯<rt>xīn</rt>片<rt>piàn</rt>及<rt>jí</rt> 3D 封<rt>fēng</rt>装<rt>zhuāng</rt>中<rt>zhōng</rt>翘<rt>qiào</rt>曲<rt>qū</rt>引<rt>yǐn</rt>发<rt>fā</rt>的<rt>de</rt>失<rt>shī</rt>效<rt>xiào</rt>模<rt>mó</rt>式<rt>shì</rt></ruby>",
+  "热应力与封装级翘曲控制": "<ruby>热<rt>rè</rt>应<rt>yìng</rt>力<rt>lì</rt>与<rt>yǔ</rt>封<rt>fēng</rt>装<rt>zhuāng</rt>级<rt>jí</rt>翘<rt>qiào</rt>曲<rt>qū</rt>控<rt>kòng</rt>制<rt>zhì</rt></ruby>",
+  "倒装芯片": "<ruby>倒<rt>dào</rt>装<rt>zhuāng</rt>芯<rt>xīn</rt>片<rt>piàn</rt></ruby>",
+  "失效分析": "<ruby>失<rt>shī</rt>效<rt>xiào</rt>分<rt>fēn</rt>析<rt>xī</rt></ruby>",
+  "电迁移": "<ruby>电<rt>diàn</rt>迁<rt>qiān</rt>移<rt>yí</rt></ruby>",
+  "热迁移": "<ruby>热<rt>rè</rt>迁<rt>qiān</rt>移<rt>yí</rt></ruby>",
+  "硅通孔": "<ruby>硅<rt>guī</rt>通<rt>tōng</rt>孔<rt>kǒng</rt></ruby>",
+  "保持区": "<ruby>保<rt>bǎo</rt>持<rt>chí</rt>区<rt>qū</rt></ruby>",
+  "金属间化合物": "<ruby>金<rt>jīn</rt>属<rt>shǔ</rt>间<rt>jiān</rt>化<rt>huà</rt>合<rt>hé</rt>物<rt>wù</rt></ruby>",
+  "热膨胀系数": "<ruby>热<rt>rè</rt>膨<rt>péng</rt>胀<rt>zhàng</rt>系<rt>xì</rt>数<rt>shù</rt></ruby>",
+  "介电常数": "<ruby>介<rt>jiè</rt>电<rt>diàn</rt>常<rt>cháng</rt>数<rt>shù</rt></ruby>",
+  "损耗角正切": "<ruby>损<rt>sǔn</rt>耗<rt>hào</rt>角<rt>jiǎo</rt>正<rt>zhèng</rt>切<rt>qiē</rt></ruby>",
+  "玻璃化转变温度": "<ruby>玻<rt>bō</rt>璃<rt>li</rt>化<rt>huà</rt>转<rt>zhuǎn</rt>变<rt>biàn</rt>温<rt>wēn</rt>度<rt>dù</rt></ruby>",
+  "阻焊层": "<ruby>阻<rt>zǔ</rt>焊<rt>hàn</rt>层<rt>céng</rt></ruby>",
+  "底部填充剂": "<ruby>底<rt>dǐ</rt>部<rt>bù</rt>填<rt>tián</rt>充<rt>chōng</rt>剂<rt>jì</rt></ruby>",
+  "翘曲": "<ruby>翘<rt>qiào</rt>曲<rt>qū</rt></ruby>",
+  "屈服强度": "<ruby>屈<rt>qū</rt>服<rt>fú</rt>强<rt>qiáng</rt>度<rt>dù</rt></ruby>",
+  "等效应力": "<ruby>等<rt>děng</rt>效<rt>xiào</rt>应<rt>yìng</rt>力<rt>lì</rt></ruby>",
+  "压阻效应": "<ruby>压<rt>yā</rt>阻<rt>zǔ</rt>效<rt>xiào</rt>应<rt>yìng</rt></ruby>",
+  "微凸块": "<ruby>微<rt>wēi</rt>凸<rt>tū</rt>块<rt>kuài</rt></ruby>",
+  "混合键合": "<ruby>混<rt>hùn</rt>合<rt>hé</rt>键<rt>jiàn</rt>合<rt>hé</rt></ruby>",
+  "表面处理": "<ruby>表<rt>biǎo</rt>面<rt>miàn</rt>处<rt>chǔ</rt>理<rt>lǐ</rt></ruby>",
+  "基板": "<ruby>基<rt>jī</rt>板<rt>bǎn</rt></ruby>",
+  "钝化层": "<ruby>钝<rt>dùn</rt>化<rt>huà</rt>层<rt>céng</rt></ruby>",
+  "电流拥挤效应": "<ruby>电<rt>diàn</rt>流<rt>liú</rt>拥<rt>yōng</rt>挤<rt>jǐ</rt>效<rt>xiào</rt>应<rt>yìng</rt></ruby>",
+  "温度梯度": "<ruby>温<rt>wēn</rt>度<rt>dù</rt>梯<rt>tī</rt>度<rt>dù</rt></ruby>",
+  "热阻": "<ruby>热<rt>rè</rt>阻<rt>zǔ</rt></ruby>",
+  "热通量": "<ruby>热<rt>rè</rt>通<rt>tōng</rt>量<rt>liàng</rt></ruby>",
+  "微通道": "<ruby>微<rt>wēi</rt>通<rt>tōng</rt>道<rt>dào</rt></ruby>",
+  "片上网络": "<ruby>片<rt>piàn</rt>上<rt>shàng</rt>网<rt>wǎng</rt>络<rt>luò</rt></ruby>",
+  "喷射冲击冷却": "<ruby>喷<rt>pēn</rt>射<rt>shè</rt>冲<rt>chōng</rt>击<rt>jī</rt>冷<rt>lěng</rt>却<rt>què</rt></ruby>",
+  "喷雾冷却": "<ruby>喷<rt>pēn</rt>雾<rt>wù</rt>冷<rt>lěng</rt>却<rt>què</rt></ruby>",
+  "无线互连": "<ruby>无<rt>wú</rt>线<rt>xiàn</rt>互<rt>hù</rt>连<rt>lián</rt></ruby>",
+  "重布线层": "<ruby>重<rt>zhòng</rt>布<rt>bù</rt>线<rt>xiàn</rt>层<rt>céng</rt></ruby>",
+  "自然弯曲理论": "<ruby>自<rt>zì</rt>然<rt>rán</rt>弯<rt>wān</rt>曲<rt>qū</rt>理<rt>lǐ</rt>论<rt>lùn</rt></ruby>",
+  "原子力显微镜": "<ruby>原<rt>yuán</rt>子<rt>zǐ</rt>力<rt>lì</rt>显<rt>xiǎn</rt>微<rt>wēi</rt>镜<rt>jìng</rt></ruby>",
+  "电子背散照衍射": "<ruby>电<rt>diàn</rt>子<rt>zǐ</rt>背<rt>bèi</rt>散<rt>sàn</rt>照<rt>zhào</rt>衍<rt>yǎn</rt>射<rt>shè</rt></ruby>",
+  "有限元分析": "<ruby>有<rt>yǒu</rt>限<rt>xiàn</rt>元<rt>yuán</rt>分<rt>fēn</rt>析<rt>xī</rt></ruby>",
+  "扫描电子显微镜": "<ruby>扫<rt>sǎo</rt>描<rt>miáo</rt>电<rt>diàn</rt>子<rt>zǐ</rt>显<rt>xiǎn</rt>微<rt>wēi</rt>镜<rt>jìng</rt></ruby>",
+  "透射电子显微镜": "<ruby>透<rt>tòu</rt>射<rt>shè</rt>电<rt>diàn</rt>子<rt>zǐ</rt>显<rt>xiǎn</rt>微<rt>wēi</rt>镜<rt>jìng</rt></ruby>",
+  "能谱分析": "<ruby>能<rt>néng</rt>谱<rt>pǔ</rt>分<rt>fēn</rt>析<rt>xī</rt></ruby>",
+  "俄歇电子能谱": "<ruby>俄<rt>é</rt>歇<rt>xiē</rt>电<rt>diàn</rt>子<rt>zǐ</rt>能<rt>néng</rt>谱<rt>pǔ</rt></ruby>",
+  "二次离子质谱": "<ruby>二<rt>èr</rt>次<rt>cì</rt>离<rt>lí</rt>子<rt>zǐ</rt>质<rt>zhì</rt>谱<rt>pǔ</rt></ruby>",
+  "傅里叶变换红外光谱": "<ruby>傅<rt>fù</rt>里<rt>lǐ</rt>叶<rt>yè</rt>变<rt>biàn</rt>换<rt>huàn</rt>红<rt>hóng</rt>外<rt>wài</rt>光<rt>guāng</rt>谱<rt>pǔ</rt></ruby>"
+};
+
+const SINGLE_CHAR_RUBY = {
+  "半":"bàn","导":"dǎo","体":"tǐ","专":"zhuān","业":"yè","研":"yán","读":"dú","笔":"bǐ","记":"jì","库":"kù",
+  "失":"shī","效":"xiào","分":"fēn","析":"xī","具":"jù","技":"jì","术":"shù","性":"xìng","电":"diàn","移":"yí",
+  "热":"rè","硅":"guī","通":"tōng","孔":"kǒng","翘":"qiào","曲":"qū","力":"lì","极":"jí","微":"wēi","装":"zhuāng",
+  "芯":"xīn","片":"piàn","晶":"jīng","圆":"yuán","贴":"tiē","盖":"gài","环":"huán","应":"yìng","重":"zhòng","层":"céng",
+  "界":"jiè","阻":"zǔ","焊":"hàn","底":"dǐ","充":"chōng","剂":"jì","基":"jī","板":"bǎn","钝":"dùn","化":"huà",
+  "集":"jí","成":"chéng","路":"lù","图":"tú","表":"biǎo","章":"zhāng","节":"jié","关":"guān","输":"shū","工":"gōng",
+  "艺":"yì","流":"liú","程":"chéng","常":"cháng","规":"guī","控":"kòng","制":"zhì","方":"fāng","法":"fǎ","机":"jī",
+  "权":"quán","衡":"héng","混":"hùn","合":"hé","键":"jiàn","表":"biǎo","面":"miàn","处":"chǔ","理":"lǐ","包":"bāo",
+  "可":"kě","靠":"kào","前":"qián","沿":"yán","定":"dìng","量":"liàng","对":"duì","比":"bǐ","内":"nèi","部":"bù",
+  "水":"shuǐ","平":"píng","弯":"wān","自":"zì","然":"rán","组":"zǔ","级":"jí","故":"gù","障":"zhàng","开":"kāi",
+  "短":"duǎn","交":"jiāo","连":"lián","锡":"xī","点":"diǎn","挤":"jǐ","压":"yā","共":"gòng","冷":"lěng","却":"què",
+  "喷":"pēn","射":"shè","冲":"chōng","雾":"wù","无":"wú","线":"xiàn","互":"hù","络":"luò","率":"lǜ","核":"hé",
+  "心":"xīn","悖":"bèi","论":"lùn","冻":"dòng","结":"jié","固":"gù","产":"chǎn","生":"shēng","即":"jí","为":"wèi",
+  "多":"duō","低":"dī","高":"gāo","最":"zuì","适":"shì","度":"dù","受":"shòu","束":"shù","第":"dì","请":"qǐng",
+  "选":"xuǎn","择":"zé","下":"xià","文":"wén","献":"xiàn","探":"tàn","索":"suǒ","精":"jīng","摘":"zhāi","录":"lù",
+  "矢":"shǐ","概":"gài","念":"niàn","持":"chí","续":"xù","更":"gēng","新":"xīn","喝":"hē","杯":"bēi","咖":"kā",
+  "啡":"fēi","能":"néng","谱":"pǔ","俄":"é","歇":"xiē","次":"cì","离":"lí","质":"zhì","傅":"fù","里":"lǐ",
+  "叶":"yè","变":"biàn","红":"hóng","外":"wài","光":"guāng","原":"yuán","衍":"yǎn","绝":"jué","缘":"yuán","带":"dài"
+};
+
+function formatTextToRubyHtml(text) {
   if (currentLang !== 'zh' || !text || typeof text !== 'string') return text;
+  
   let result = text;
-  Object.keys(PINYIN_WORD_MAP).forEach(word => {
-    if (result.includes(word) && !result.includes(` [${PINYIN_WORD_MAP[word]}]`)) {
-      const pinyin = PINYIN_WORD_MAP[word];
+  Object.keys(WORD_RUBY_MAP).forEach(word => {
+    if (result.includes(word) && !result.includes('<ruby>')) {
+      const rubyHtml = WORD_RUBY_MAP[word];
       const regex = new RegExp(word.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'g');
-      result = result.replace(regex, `${word} [${pinyin}]`);
+      result = result.replace(regex, rubyHtml);
     }
   });
-  return result;
+
+  let finalHtml = '';
+  let inRuby = false;
+  for (let i = 0; i < result.length; i++) {
+    if (result.substring(i, i+6) === '<ruby>') {
+      inRuby = true;
+    }
+    if (result.substring(i, i+7) === '</ruby>') {
+      inRuby = false;
+      finalHtml += '</ruby>';
+      i += 6;
+      continue;
+    }
+
+    const char = result[i];
+    if (!inRuby && /[\u4e00-\u9fa5]/.test(char) && SINGLE_CHAR_RUBY[char]) {
+      finalHtml += `<ruby>${char}<rt>${SINGLE_CHAR_RUBY[char]}</rt></ruby>`;
+    } else {
+      finalHtml += char;
+    }
+  }
+
+  return finalHtml;
 }
 
 function translateContentText(text) {
@@ -1140,9 +1256,8 @@ function translateContentText(text) {
   GLOSSARY_REPLACEMENTS.forEach(([regex, replacement]) => {
     translated = translated.replace(regex, replacement);
   });
-  return attachPinyinToChinese(translated);
+  return formatTextToRubyHtml(translated);
 }
-
 
 const translationCache = JSON.parse(localStorage.getItem('notes_translation_cache') || '{}');
 
@@ -1197,20 +1312,17 @@ async function translateRenderedDOM(container) {
   // 2. Translate text nodes in document (headings, paragraphs, blockquotes, table cells)
   const textEls = container.querySelectorAll('h1, h2, h3, h4, p, li, blockquote, th, td, .note-content');
   for (let el of textEls) {
-    if (el.children.length > 2) continue;
+    if (el.children.length > 2 && !el.querySelector('ruby')) continue;
     const origText = el.innerText || el.textContent;
     if (origText && /[a-zA-Z]{3,}/.test(origText)) {
       const trans = await translateTextAsync(origText);
       if (trans && trans !== origText) {
-        if (el.children.length === 0) {
-          el.textContent = trans;
-        } else {
-          el.innerText = trans;
-        }
+        el.innerHTML = formatTextToRubyHtml(trans);
       }
     }
   }
 }
+
 
 function toggleLanguage() {
   currentLang = currentLang === 'en' ? 'zh' : 'en';
@@ -1227,25 +1339,25 @@ function toggleLanguage() {
 
 function applyLanguageUI() {
   const dict = TRANSLATION_DICT[currentLang];
-  const lTitle = document.getElementById('landing-title'); if(lTitle) lTitle.textContent = dict.landingTitle;
-  const lSub = document.getElementById('landing-subtitle'); if(lSub) lSub.textContent = dict.landingSubtitle;
+  const lTitle = document.getElementById('landing-title'); if(lTitle) lTitle.innerHTML = formatTextToRubyHtml(dict.landingTitle);
+  const lSub = document.getElementById('landing-subtitle'); if(lSub) lSub.innerHTML = formatTextToRubyHtml(dict.landingSubtitle);
   
   document.querySelectorAll('.lang-text').forEach(el => el.textContent = dict.langBtn);
   
-  const kMsg = document.getElementById('kofi-banner-msg'); if(kMsg) kMsg.innerHTML = dict.kofiMsg;
-  const kBtn = document.getElementById('kofi-banner-btn'); if(kBtn) kBtn.textContent = dict.kofiBtn;
-  const kFloat = document.getElementById('kofi-float-text'); if(kFloat) kFloat.textContent = dict.kofiFloat;
+  const kMsg = document.getElementById('kofi-banner-msg'); if(kMsg) kMsg.innerHTML = formatTextToRubyHtml(dict.kofiMsg);
+  const kBtn = document.getElementById('kofi-banner-btn'); if(kBtn) kBtn.innerHTML = formatTextToRubyHtml(dict.kofiBtn);
+  const kFloat = document.getElementById('kofi-float-text'); if(kFloat) kFloat.innerHTML = formatTextToRubyHtml(dict.kofiFloat);
   
-  const c1T = document.getElementById('card1-title'); if(c1T) c1T.textContent = dict.card1Title;
-  const c1S = document.getElementById('card1-sub'); if(c1S) c1S.textContent = dict.card1Sub;
-  const c2T = document.getElementById('card2-title'); if(c2T) c2T.textContent = dict.card2Title;
-  const c2S = document.getElementById('card2-sub'); if(c2S) c2S.textContent = dict.card2Sub;
-  const c3T = document.getElementById('card3-title'); if(c3T) c3T.textContent = dict.card3Title;
-  const c3S = document.getElementById('card3-sub'); if(c3S) c3S.textContent = dict.card3Sub;
-  const c4T = document.getElementById('card4-title'); if(c4T) c4T.textContent = dict.card4Title;
-  const c4S = document.getElementById('card4-sub'); if(c4S) c4S.textContent = dict.card4Sub;
+  const c1T = document.getElementById('card1-title'); if(c1T) c1T.innerHTML = formatTextToRubyHtml(dict.card1Title);
+  const c1S = document.getElementById('card1-sub'); if(c1S) c1S.innerHTML = formatTextToRubyHtml(dict.card1Sub);
+  const c2T = document.getElementById('card2-title'); if(c2T) c2T.innerHTML = formatTextToRubyHtml(dict.card2Title);
+  const c2S = document.getElementById('card2-sub'); if(c2S) c2S.innerHTML = formatTextToRubyHtml(dict.card2Sub);
+  const c3T = document.getElementById('card3-title'); if(c3T) c3T.innerHTML = formatTextToRubyHtml(dict.card3Title);
+  const c3S = document.getElementById('card3-sub'); if(c3S) c3S.innerHTML = formatTextToRubyHtml(dict.card3Sub);
+  const c4T = document.getElementById('card4-title'); if(c4T) c4T.innerHTML = formatTextToRubyHtml(dict.card4Title);
+  const c4S = document.getElementById('card4-sub'); if(c4S) c4S.innerHTML = formatTextToRubyHtml(dict.card4Sub);
   
-  document.querySelectorAll('.card-open-btn').forEach(btn => btn.textContent = dict.openBtn);
+  document.querySelectorAll('.card-open-btn').forEach(btn => btn.innerHTML = formatTextToRubyHtml(dict.openBtn));
 }
 
 
