@@ -176,19 +176,15 @@ body {
 ruby {
   ruby-position: under;
   -webkit-ruby-position: after;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 0.08em;
-  vertical-align: top;
+  display: inline-ruby;
+  font-style: normal;
 }
 rt {
-  font-size: 0.62em;
+  font-size: 0.64em;
   line-height: 1.1;
   color: var(--accent2);
   font-weight: 600;
   display: block;
-  letter-spacing: 0;
   user-select: none;
 }
 
@@ -948,25 +944,25 @@ const TRANSLATION_DICT = {
     ready: "Ready"
   },
   zh: {
-    landingTitle: "半导体专业研读笔记库 [bàn dǎo tǐ zhuān yè yán dú bǐ jì kù]",
-    landingSubtitle: "请选择下方文献，探索研读笔记、精选摘录、矢量图表与核心概念 [qǐng xuǎn zé xià fāng wén xiàn, tàn suǒ yán dú bǐ jì, jīng xuǎn zhāi lù, shǐ liàng tú biǎo yǔ hé xīn gài niàn]。",
+    landingTitle: "半导体专业研读笔记库",
+    landingSubtitle: "请选择下方文献，探索研读笔记、精选摘录、矢量图表与核心概念。",
     langBtn: "🌐 English Original (英文原版)",
-    kofiMsg: "觉得这些笔记有帮助？<strong>支持我的工作</strong>，让知识库持续更新！ [jué de zhè xiē bǐ jì yǒu bāng zhù? zhī chí wǒ de gōng zuò, ràng zhī shí kù chí xù gēng xīn!]",
-    kofiBtn: "☕ 请我喝杯咖啡 [qǐng wǒ hē bēi kā fēi]",
-    kofiFloat: "在 Ko-fi 上支持 [zài Ko-fi shàng zhī chí]",
-    card1Title: "集成电路失效分析 (FA) [jí chéng diàn lù shī xiào fēn xī]",
-    card1Sub: "工具与技术——涵盖电学故障定位、物理结构分析、样品制备、化学元素分析 (EDS、AES、SIMS、FTIR) 及未来 FA 发展方向 [gōng jù yǔ jì shù——hán gài diàn xué gù zhàng dìng wèi, wù lǐ jié gòu fēn xī, yàng pǐn zhì bèi, huà xué yuán sù fēn xī jí wèi lái FA fā zhǎn fāng xiàng]。",
-    card2Title: "失效分析理论 — Bâzu (2011) [shī xiào fēn xī lǐ lùn]",
-    card2Sub: "全面失效分析理论：FMEA、FTA、半导体器件、无源元件及光电子器件的失效机理与分析方法 [quán miàn shī xiào fēn xī lǐ lùn: FMEA, FTA, bàn dǎo tǐ qì jiàn, wú yuán yuán jiàn jí guāng diàn zǐ qì jiàn de shī xiào jī lǐ yǔ fēn xī fāng fǎ]。",
-    card3Title: "集成电路封装可靠性技术 [jí chéng diàn lù fēng zhuāng kě kào xìng jì shù]",
-    card3Sub: "IC 封装基础：四大基本功能、封装类型、材料特性 (电学、热学、CTE 热膨胀系数)、失效机理及行业统计数据 [IC fēng zhuāng jī chǔ: sì dà jī běn gōng néng, fēng zhuāng lèi xíng, cái liào tè xìng, shī xiào jī lǐ jí háng yè tǒng jì shù jù]。",
-    card4Title: "3D 微电子封装技术 [3D wēi diàn zǐ fēng zhuāng jì shù]",
-    card4Sub: "先进 3D 封装前沿：TSV 硅通孔应力、微拉曼光谱、金属挤出 (Pumping)、铜微观结构、SAB 表面活性键合、混合键合及电迁移 (EM) 机理 [xiān jìn 3D fēng zhuāng qián yán: TSV guī tōng kǒng yìng lì, wēi lā màn guāng pǔ, jīn shǔ jǐ chū, tóng wēi guān jié gòu, SAB biǎo miàn huó xìng jiàn hé, hùn hé jiàn hé jí diàn qiān yí jī zhì]。",
-    openBtn: "打开笔记 → [dǎ kāi bǐ jì]",
+    kofiMsg: "觉得这些笔记有帮助？<strong>支持我的工作</strong>，让知识库持续更新！",
+    kofiBtn: "☕ 请我喝杯咖啡",
+    kofiFloat: "在 Ko-fi 上支持",
+    card1Title: "集成电路失效分析",
+    card1Sub: "工具与技术——涵盖电学故障定位、物理结构分析、样品制备、化学元素分析及未来发展方向。",
+    card2Title: "失效分析理论 — Bâzu (2011)",
+    card2Sub: "全面失效分析理论：FMEA、FTA、半导体器件、无源元件及光电子器件的失效机理与分析方法。",
+    card3Title: "集成电路封装可靠性技术",
+    card3Sub: "IC 封装基础：四大基本功能、封装类型、材料特性、失效机理及行业统计数据。",
+    card4Title: "3D 微电子封装技术",
+    card4Sub: "先进 3D 封装前沿：TSV 硅通孔应力、微拉曼光谱、金属挤出、铜微观结构、表面活性键合、混合键合及电迁移机理。",
+    openBtn: "打开笔记 →",
     readAloud: "▶ 朗读 (Read Aloud)",
     pause: "⏸ 暂停 (Pause)",
     stop: "⏹ 停止 (Stop)",
-    ready: "就绪 [jiù xù]"
+    ready: "就绪"
   }
 };
 
@@ -978,11 +974,11 @@ const GLOSSARY_REPLACEMENTS = [
   [/Assembly processes of a flip-chip structure and mechanisms of conventional warpage control methods/gi, "倒装芯片结构组装工艺流程及传统翘曲控制方法机制"],
   [/Assembly processes of a flip-chip structure/gi, "倒装芯片结构组装工艺流程"],
   [/mechanisms of conventional ways for warpage control/gi, "传统翘曲控制方法的机制与权衡"],
-  [/die attach/gi, "芯片贴装 (Die Attach)"],
+  [/die attach/gi, "芯片贴装"],
   [/underfill dispensing and curing/gi, "底部填充剂点胶与热固化"],
-  [/stiffener attach/gi, "加强环 (Stiffener) 贴装"],
-  [/lid attach/gi, "金属顶盖 (Lid) 贴装"],
-  [/Bare Die/gi, "裸芯片 (Bare Die)"],
+  [/stiffener attach/gi, "加强环贴装"],
+  [/lid attach/gi, "金属顶盖贴装"],
+  [/Bare Die/gi, "裸芯片"],
   [/Stiffener Attach/gi, "贴装加强环"],
   [/Full Lid Attach/gi, "贴装全覆盖金属顶盖"],
   [/Room-Temperature Warpage/gi, "室温翘曲量"],
@@ -1002,60 +998,60 @@ const GLOSSARY_REPLACEMENTS = [
   [/Assembly Process Mechanics/gi, "组装工艺力学机制"],
   [/Quantitative Comparison & The Internal Stress Trade-Off/gi, "定量对比与内部应力权衡分析"],
   [/Failure Modes Induced by Warpage in Flip-Chip & 3D Packages/gi, "倒装芯片及 3D 封装中翘曲引发的失效模式"],
-  [/FLI \/ SLI Open Circuits/gi, "一级/二级互连 (FLI/SLI) 开路故障"],
+  [/FLI \/ SLI Open Circuits/gi, "一级/二级互连开路故障"],
   [/Solder Bridging & Short Circuits/gi, "焊点挤压连锡与短路故障"],
   [/Board-Level SMT Assembly Defects/gi, "板级 SMT 组装缺陷与共面性失效"],
   [/Thermal Stresses and Package-Level Warpage Control/gi, "热应力与封装级翘曲控制"],
   [/Thermal Stresses in Multilayered Structures \(Natural Bending Theory\)/gi, "多层结构中的热应力 (自然弯曲理论)"],
-  [/Thermal Stress Induced Via Extrusion \(Protrusion\)/gi, "热应力诱导的硅通孔挤出/凸起 (Via Extrusion)"],
+  [/Thermal Stress Induced Via Extrusion \(Protrusion\)/gi, "热应力诱导的硅通孔挤出/凸起"],
   [/Physical Mechanisms of Via Extrusion/gi, "硅通孔挤出/凸起的物理机制"],
-  [/Mitigation Strategy — Twin Boundary Engineering/gi, "改善策略——孪晶界工程 (Twin Boundary Engineering)"],
-  [/Carrier Mobility Contours & Definition of Keep-Out Zone \(KOZ\)/gi, "载流子迁移率等高线与保持区 (KOZ) 定义"],
-  [/Effect of Thermal Stress on Carrier Mobility & Keep-Out Zone \(KOZ\)/gi, "热应力对载流子迁移率及保持区 (KOZ) 的影响"],
-  [/Piezoresistance Coefficients of Silicon/gi, "硅的压阻系数 (Piezoresistance Coefficients)"],
+  [/Mitigation Strategy — Twin Boundary Engineering/gi, "改善策略——孪晶界工程"],
+  [/Carrier Mobility Contours & Definition of Keep-Out Zone \(KOZ\)/gi, "载流子迁移率等高线与保持区定义"],
+  [/Effect of Thermal Stress on Carrier Mobility & Keep-Out Zone \(KOZ\)/gi, "热应力对载流子迁移率及保持区的影响"],
+  [/Piezoresistance Coefficients of Silicon/gi, "硅的压阻系数"],
   
   // Domain Terms
-  [/Failure Analysis/gi, "失效分析 (FA)"],
-  [/Electromigration/gi, "电迁移 (EM)"],
-  [/Thermomigration/gi, "热迁移 (TM)"],
-  [/Through-Silicon Via/gi, "硅通孔 (TSV)"],
-  [/Keep-Out Zone/gi, "保持区 (KOZ)"],
-  [/Intermetallic Compound/gi, "金属间化合物 (IMC)"],
-  [/Coefficient of Thermal Expansion/gi, "热膨胀系数 (CTE)"],
-  [/Dielectric Constant/gi, "介电常数 (Dk)"],
-  [/Loss Tangent/gi, "损耗角正切 (Df)"],
-  [/Glass Transition Temperature/gi, "玻璃化转变温度 (Tg)"],
-  [/Solder Mask/gi, "阻焊层 (Solder Mask)"],
-  [/Underfill/gi, "底部填充剂 (Underfill)"],
-  [/Warpage/gi, "翘曲 (Warpage)"],
+  [/Failure Analysis/gi, "失效分析"],
+  [/Electromigration/gi, "电迁移"],
+  [/Thermomigration/gi, "热迁移"],
+  [/Through-Silicon Via/gi, "硅通孔"],
+  [/Keep-Out Zone/gi, "保持区"],
+  [/Intermetallic Compound/gi, "金属间化合物"],
+  [/Coefficient of Thermal Expansion/gi, "热膨胀系数"],
+  [/Dielectric Constant/gi, "介电常数"],
+  [/Loss Tangent/gi, "损耗角正切"],
+  [/Glass Transition Temperature/gi, "玻璃化转变温度"],
+  [/Solder Mask/gi, "阻焊层"],
+  [/Underfill/gi, "底部填充剂"],
+  [/Warpage/gi, "翘曲"],
   [/Yield Strength/gi, "屈服强度"],
   [/Von-Mises Stress/gi, "Von-Mises 等效应力"],
-  [/Piezoresistivity/gi, "压阻效应 (Piezoresistivity)"],
-  [/Microbump/gi, "微凸块 (Microbump)"],
-  [/Hybrid Bonding/gi, "混合键合 (Hybrid Bonding)"],
-  [/Surface Finish/gi, "表面处理 (Surface Finish)"],
-  [/Substrate/gi, "基板 (Substrate)"],
-  [/Passivation/gi, "钝化层 (Passivation)"],
-  [/Current Crowding/gi, "电流拥挤效应 (Current Crowding)"],
-  [/Thermal Gradient/gi, "温度梯度 (Thermal Gradient)"],
-  [/Thermal Resistance/gi, "热阻 (Thermal Resistance)"],
-  [/Heat Flux/gi, "热通量 (Heat Flux)"],
-  [/Microchannel/gi, "微通道 (Microchannel)"],
-  [/Network-on-Chip/gi, "片上网络 (NoC)"],
+  [/Piezoresistivity/gi, "压阻效应"],
+  [/Microbump/gi, "微凸块"],
+  [/Hybrid Bonding/gi, "混合键合"],
+  [/Surface Finish/gi, "表面处理"],
+  [/Substrate/gi, "基板"],
+  [/Passivation/gi, "钝化层"],
+  [/Current Crowding/gi, "电流拥挤效应"],
+  [/Thermal Gradient/gi, "温度梯度"],
+  [/Thermal Resistance/gi, "热阻"],
+  [/Heat Flux/gi, "热通量"],
+  [/Microchannel/gi, "微通道"],
+  [/Network-on-Chip/gi, "片上网络"],
   [/Jet Impingement/gi, "喷射冲击冷却"],
   [/Spray Cooling/gi, "喷雾冷却"],
   [/Wireless Interconnects/gi, "无线互连"],
-  [/Redistribution Layer/gi, "重布线层 (RDL)"],
+  [/Redistribution Layer/gi, "重布线层"],
   [/Natural Bending Theory/gi, "自然弯曲理论"],
-  [/Atomic Force Microscopy/gi, "原子力显微镜 (AFM)"],
-  [/Electron Backscatter Diffraction/gi, "电子背散照衍射 (EBSD)"],
-  [/Finite Element Analysis/gi, "有限元分析 (FEA)"],
-  [/Scanning Electron Microscopy/gi, "扫描电子显微镜 (SEM)"],
-  [/Transmission Electron Microscopy/gi, "透射电子显微镜 (TEM)"],
-  [/Energy Dispersive X-ray Spectroscopy/gi, "能谱分析 (EDS)"],
-  [/Auger Electron Spectroscopy/gi, "俄歇电子能谱 (AES)"],
-  [/Secondary Ion Mass Spectrometry/gi, "二次离子质谱 (SIMS)"],
-  [/Fourier Transform Infrared/gi, "傅里叶变换红外光谱 (FTIR)"]
+  [/Atomic Force Microscopy/gi, "原子力显微镜"],
+  [/Electron Backscatter Diffraction/gi, "电子背散照衍射"],
+  [/Finite Element Analysis/gi, "有限元分析"],
+  [/Scanning Electron Microscopy/gi, "扫描电子显微镜"],
+  [/Transmission Electron Microscopy/gi, "透射电子显微镜"],
+  [/Energy Dispersive X-ray Spectroscopy/gi, "能谱分析"],
+  [/Auger Electron Spectroscopy/gi, "俄歇电子能谱"],
+  [/Secondary Ion Mass Spectrometry/gi, "二次离子质谱"],
+  [/Fourier Transform Infrared/gi, "傅里叶变换红外光谱"]
 ];
 
 const PINYIN_WORD_MAP = {
