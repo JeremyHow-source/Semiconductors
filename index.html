@@ -951,6 +951,50 @@ const TRANSLATION_DICT = {
 };
 
 const GLOSSARY_REPLACEMENTS = [
+  // Figure and Table captions
+  [/^Fig\.\s*(\d+[\.\d]*)\s*—\s*/gi, "图 $1 — "],
+  [/^Figure\s*(\d+[\.\d]*)\s*—\s*/gi, "图 $1 — "],
+  [/^Table\s*(\d+[\.\d]*)\s*—\s*/gi, "表 $1 — "],
+  [/Assembly processes of a flip-chip structure and mechanisms of conventional warpage control methods/gi, "倒装芯片结构组装工艺流程及传统翘曲控制方法机制"],
+  [/Assembly processes of a flip-chip structure/gi, "倒装芯片结构组装工艺流程"],
+  [/mechanisms of conventional ways for warpage control/gi, "传统翘曲控制方法的机制与权衡"],
+  [/die attach/gi, "芯片贴装 (Die Attach)"],
+  [/underfill dispensing and curing/gi, "底部填充剂点胶与热固化"],
+  [/stiffener attach/gi, "加强环 (Stiffener) 贴装"],
+  [/lid attach/gi, "金属顶盖 (Lid) 贴装"],
+  [/Bare Die/gi, "裸芯片 (Bare Die)"],
+  [/Stiffener Attach/gi, "贴装加强环"],
+  [/Full Lid Attach/gi, "贴装全覆盖金属顶盖"],
+  [/Room-Temperature Warpage/gi, "室温翘曲量"],
+  [/Internal Package Stress Level/gi, "封装内部应力水平"],
+  [/Mechanical Trade-Off Mechanism/gi, "机械权衡与应力转移机制"],
+  [/Unconstrained thermal bending; maximum displacement but minimal internal constraint stress/gi, "无约束自由热弯曲；物理变形最大，但内部约束应力最低"],
+  [/Stiffener ring applies edge torque; partial warpage reduction with moderate internal stress increase/gi, "加强环在边缘施加扭矩；局部降低翘曲，内部应力适度上升"],
+  [/Lid forces total coplanarity; lowest physical warpage, but highest internal stress in die, underfill, and bumps/gi, "金属盖强行拉平共面；物理翘曲最低，但芯片、底部填充剂及焊点中的内部应力最高"],
+  [/CRITICAL WARPAGE-STRESS PARADOX/gi, "核心翘曲与应力矛盾悖论"],
+  [/Warpage is frozen early/gi, "翘曲早期冻结"],
+  [/Post-cure attachment/gi, "固化后贴装"],
+  [/Re-deformation mechanism/gi, "重新变形机制"],
+  [/Parasitic stress generation/gi, "寄生应力产生"],
+  
+  // Section Headings & Technical Terms
+  [/Package Assembly Process & Warpage Evolution/gi, "封装组装工艺流程与翘曲动态演变"],
+  [/Assembly Process Mechanics/gi, "组装工艺力学机制"],
+  [/Quantitative Comparison & The Internal Stress Trade-Off/gi, "定量对比与内部应力权衡分析"],
+  [/Failure Modes Induced by Warpage in Flip-Chip & 3D Packages/gi, "倒装芯片及 3D 封装中翘曲引发的失效模式"],
+  [/FLI \/ SLI Open Circuits/gi, "一级/二级互连 (FLI/SLI) 开路故障"],
+  [/Solder Bridging & Short Circuits/gi, "焊点挤压连锡与短路故障"],
+  [/Board-Level SMT Assembly Defects/gi, "板级 SMT 组装缺陷与共面性失效"],
+  [/Thermal Stresses and Package-Level Warpage Control/gi, "热应力与封装级翘曲控制"],
+  [/Thermal Stresses in Multilayered Structures \(Natural Bending Theory\)/gi, "多层结构中的热应力 (自然弯曲理论)"],
+  [/Thermal Stress Induced Via Extrusion \(Protrusion\)/gi, "热应力诱导的硅通孔挤出/凸起 (Via Extrusion)"],
+  [/Physical Mechanisms of Via Extrusion/gi, "硅通孔挤出/凸起的物理机制"],
+  [/Mitigation Strategy — Twin Boundary Engineering/gi, "改善策略——孪晶界工程 (Twin Boundary Engineering)"],
+  [/Carrier Mobility Contours & Definition of Keep-Out Zone \(KOZ\)/gi, "载流子迁移率等高线与保持区 (KOZ) 定义"],
+  [/Effect of Thermal Stress on Carrier Mobility & Keep-Out Zone \(KOZ\)/gi, "热应力对载流子迁移率及保持区 (KOZ) 的影响"],
+  [/Piezoresistance Coefficients of Silicon/gi, "硅的压阻系数 (Piezoresistance Coefficients)"],
+  
+  // Domain Terms
   [/Failure Analysis/gi, "失效分析 (FA)"],
   [/Electromigration/gi, "电迁移 (EM)"],
   [/Thermomigration/gi, "热迁移 (TM)"],
@@ -995,12 +1039,80 @@ const GLOSSARY_REPLACEMENTS = [
 ];
 
 function translateContentText(text) {
-  if (currentLang !== 'zh') return text;
+  if (currentLang !== 'zh' || !text) return text;
   let translated = text;
   GLOSSARY_REPLACEMENTS.forEach(([regex, replacement]) => {
     translated = translated.replace(regex, replacement);
   });
   return translated;
+}
+
+const translationCache = JSON.parse(localStorage.getItem('notes_translation_cache') || '{}');
+
+async function translateTextAsync(text) {
+  if (!text || text.trim().length < 2) return text;
+  let patternTrans = translateContentText(text);
+  if (currentLang !== 'zh') return text;
+  
+  if (!/[a-zA-Z]{4,}/.test(patternTrans)) {
+    return patternTrans;
+  }
+  
+  if (translationCache[text]) {
+    return translationCache[text];
+  }
+  
+  try {
+    const cleanText = text.replace(/[*#>`~_]/g, '').trim();
+    if (cleanText.length > 0) {
+      const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(cleanText.substring(0, 450))}&langpair=en|zh-CN`;
+      const res = await fetch(url);
+      const data = await res.json();
+      if (data && data.responseData && data.responseData.translatedText) {
+        let apiTrans = data.responseData.translatedText;
+        apiTrans = translateContentText(apiTrans);
+        translationCache[text] = apiTrans;
+        localStorage.setItem('notes_translation_cache', JSON.stringify(translationCache));
+        return apiTrans;
+      }
+    }
+  } catch (e) {
+    console.warn('Live API translation warning:', e);
+  }
+  
+  return patternTrans;
+}
+
+async function translateRenderedDOM(container) {
+  if (currentLang !== 'zh' || !container) return;
+
+  // 1. Translate Image alt & title descriptions (graphical depictions)
+  const images = container.querySelectorAll('img');
+  images.forEach(async (img) => {
+    const alt = img.getAttribute('alt');
+    if (alt) {
+      const transAlt = await translateTextAsync(alt);
+      img.setAttribute('alt', transAlt);
+      img.setAttribute('title', transAlt);
+    }
+  });
+
+  // 2. Translate text nodes in document (headings, paragraphs, blockquotes, table cells)
+  const textEls = container.querySelectorAll('h1, h2, h3, h4, p, li, blockquote, th, td, .note-content');
+  for (let el of textEls) {
+    if (el.children.length > 2) continue;
+    const origText = el.innerText || el.textContent;
+    if (origText && /[a-zA-Z]{3,}/.test(origText)) {
+      const trans = await translateTextAsync(origText);
+      if (trans && trans !== origText) {
+        if (el.children.length === 0) {
+          el.textContent = trans;
+        } else {
+          el.innerText = trans;
+        }
+      }
+    }
+  }
 }
 
 function toggleLanguage() {
@@ -1038,6 +1150,7 @@ function applyLanguageUI() {
   
   document.querySelectorAll('.card-open-btn').forEach(btn => btn.textContent = dict.openBtn);
 }
+
 
 // ============================================================
 // INBUILT AUDIO NARRATOR ENGINE (Text-to-Speech)
@@ -1306,6 +1419,10 @@ function renderMarkdownContent(container, mdText) {
   } else {
     container.innerHTML = `<pre class="markdown-body">${escapeHtml(translateContentText(mdText))}</pre>`;
   }
+  
+  if (currentLang === 'zh') {
+    translateRenderedDOM(container);
+  }
 }
 
 function escapeHtml(text) {
@@ -1366,7 +1483,12 @@ function renderNotes(bookId) {
     </div>`;
   });
   container.innerHTML = html;
+  
+  if (currentLang === 'zh') {
+    translateRenderedDOM(container);
+  }
 }
+
 
 
 // ============================================================
