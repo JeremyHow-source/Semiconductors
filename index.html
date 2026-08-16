@@ -928,25 +928,25 @@ const TRANSLATION_DICT = {
     ready: "Ready"
   },
   zh: {
-    landingTitle: "半导体专业研读笔记库",
-    landingSubtitle: "请选择下方文献，探索研读笔记、精选摘录、矢量图表与核心概念。",
+    landingTitle: "半导体专业研读笔记库 [bàn dǎo tǐ zhuān yè yán dú bǐ jì kù]",
+    landingSubtitle: "请选择下方文献，探索研读笔记、精选摘录、矢量图表与核心概念 [qǐng xuǎn zé xià fāng wén xiàn, tàn suǒ yán dú bǐ jì, jīng xuǎn zhāi lù, shǐ liàng tú biǎo yǔ hé xīn gài niàn]。",
     langBtn: "🌐 English Original (英文原版)",
-    kofiMsg: "觉得这些笔记有帮助？<strong>支持我的工作</strong>，让知识库持续更新！",
-    kofiBtn: "☕ 请我喝杯咖啡",
-    kofiFloat: "在 Ko-fi 上支持",
-    card1Title: "集成电路失效分析 (FA)",
-    card1Sub: "工具与技术——涵盖电学故障定位、物理结构分析、样品制备、化学元素分析 (EDS、AES、SIMS、FTIR) 及未来 FA 发展方向。",
-    card2Title: "失效分析理论 — Bâzu (2011)",
-    card2Sub: "全面失效分析理论：FMEA、FTA、半导体器件、无源元件及光电子器件的失效机理与分析方法。",
-    card3Title: "集成电路封装可靠性技术",
-    card3Sub: "IC 封装基础：四大基本功能、封装类型、材料特性 (电学、热学、CTE 热膨胀系数)、失效机理及行业统计数据。",
-    card4Title: "3D 微电子封装技术",
-    card4Sub: "先进 3D 封装前沿：TSV 硅通孔应力、微拉曼光谱、金属挤出 (Pumping)、铜微观结构、SAB 表面活性键合、混合键合及电迁移 (EM) 机理。",
-    openBtn: "打开笔记 →",
+    kofiMsg: "觉得这些笔记有帮助？<strong>支持我的工作</strong>，让知识库持续更新！ [jué de zhè xiē bǐ jì yǒu bāng zhù? zhī chí wǒ de gōng zuò, ràng zhī shí kù chí xù gēng xīn!]",
+    kofiBtn: "☕ 请我喝杯咖啡 [qǐng wǒ hē bēi kā fēi]",
+    kofiFloat: "在 Ko-fi 上支持 [zài Ko-fi shàng zhī chí]",
+    card1Title: "集成电路失效分析 (FA) [jí chéng diàn lù shī xiào fēn xī]",
+    card1Sub: "工具与技术——涵盖电学故障定位、物理结构分析、样品制备、化学元素分析 (EDS、AES、SIMS、FTIR) 及未来 FA 发展方向 [gōng jù yǔ jì shù——hán gài diàn xué gù zhàng dìng wèi, wù lǐ jié gòu fēn xī, yàng pǐn zhì bèi, huà xué yuán sù fēn xī jí wèi lái FA fā zhǎn fāng xiàng]。",
+    card2Title: "失效分析理论 — Bâzu (2011) [shī xiào fēn xī lǐ lùn]",
+    card2Sub: "全面失效分析理论：FMEA、FTA、半导体器件、无源元件及光电子器件的失效机理与分析方法 [quán miàn shī xiào fēn xī lǐ lùn: FMEA, FTA, bàn dǎo tǐ qì jiàn, wú yuán yuán jiàn jí guāng diàn zǐ qì jiàn de shī xiào jī lǐ yǔ fēn xī fāng fǎ]。",
+    card3Title: "集成电路封装可靠性技术 [jí chéng diàn lù fēng zhuāng kě kào xìng jì shù]",
+    card3Sub: "IC 封装基础：四大基本功能、封装类型、材料特性 (电学、热学、CTE 热膨胀系数)、失效机理及行业统计数据 [IC fēng zhuāng jī chǔ: sì dà jī běn gōng néng, fēng zhuāng lèi xíng, cái liào tè xìng, shī xiào jī lǐ jí háng yè tǒng jì shù jù]。",
+    card4Title: "3D 微电子封装技术 [3D wēi diàn zǐ fēng zhuāng jì shù]",
+    card4Sub: "先进 3D 封装前沿：TSV 硅通孔应力、微拉曼光谱、金属挤出 (Pumping)、铜微观结构、SAB 表面活性键合、混合键合及电迁移 (EM) 机理 [xiān jìn 3D fēng zhuāng qián yán: TSV guī tōng kǒng yìng lì, wēi lā màn guāng pǔ, jīn shǔ jǐ chū, tóng wēi guān jié gòu, SAB biǎo miàn huó xìng jiàn hé, hùn hé jiàn hé jí diàn qiān yí jī zhì]。",
+    openBtn: "打开笔记 → [dǎ kāi bǐ jì]",
     readAloud: "▶ 朗读 (Read Aloud)",
     pause: "⏸ 暂停 (Pause)",
     stop: "⏹ 停止 (Stop)",
-    ready: "就绪"
+    ready: "就绪 [jiù xù]"
   }
 };
 
@@ -1038,14 +1038,111 @@ const GLOSSARY_REPLACEMENTS = [
   [/Fourier Transform Infrared/gi, "傅里叶变换红外光谱 (FTIR)"]
 ];
 
+const PINYIN_WORD_MAP = {
+  "倒装芯片结构组装工艺流程及传统翘曲控制方法机制": "dào zhuāng xīn piàn jié gòu zǔ zhuāng gōng yì liú chéng jí chuán tǒng qiào qū kòng zhì fāng fǎ jī zhì",
+  "倒装芯片结构组装工艺流程": "dào zhuāng xīn piàn jié gòu zǔ zhuāng gōng yì liú chéng",
+  "传统翘曲控制方法的机制与权衡": "chuán tǒng qiào qū kòng zhì fāng fǎ de jī zhì yǔ quán héng",
+  "封装组装工艺流程与翘曲动态演变": "fēng zhuāng zǔ zhuāng gōng yì liú chéng yǔ qiào qū dòng tài yǎn biàn",
+  "定量对比与内部应力权衡分析": "dìng liàng duì bǐ yǔ nèi bù yìng lì quán héng fēn xī",
+  "倒装芯片及 3D 封装中翘曲引发的失效模式": "dào zhuāng xīn piàn jí 3D fēng zhuāng zhōng qiào qū yǐn fā de shī xiào mó shì",
+  "一级/二级互连 (FLI/SLI) 开路故障": "yī jí/èr jí hù lián (FLI/SLI) kāi lù gù zhàng",
+  "焊点挤压连锡与短路故障": "hàn diǎn jǐ yā lián xī yǔ duǎn lù gù zhàng",
+  "板级 SMT 组装缺陷与共面性失效": "bǎn jí SMT zǔ zhuāng quē xiàn yǔ gòng miàn xìng shī xiào",
+  "热应力与封装级翘曲控制": "rè yìng lì yǔ fēng zhuāng jí qiào qū kòng zhì",
+  "多层结构中的热应力 (自然弯曲理论)": "duō céng jié gòu zhōng de rè yìng lì (zì rán wān qū lǐ lùn)",
+  "热应力诱导的硅通孔挤出/凸起": "rè yìng lì yòu dǎo de guī tōng kǒng jǐ chū/tū qǐ",
+  "硅通孔挤出/凸起的物理机制": "guī tōng kǒng jǐ chū/tū qǐ de wù lǐ jī zhì",
+  "改善策略——孪晶界工程": "gǎi shàn cè lüè——luán jīng jiè gōng chéng",
+  "载流子迁移率等高线与保持区 (KOZ) 定义": "zǎi liú zǐ qiān yí lǜ děng gāo xiàn yǔ bǎo chí qū (KOZ) dìng yì",
+  "热应力对载流子迁移率及保持区 (KOZ) 的影响": "rè yìng lì duì zǎi liú zǐ qiān yí lǜ jí bǎo chí qū (KOZ) de yǐng xiǎng",
+  "硅的压阻系数": "guī de yā zǔ xì shù",
+  "倒装芯片": "dào zhuāng xīn piàn",
+  "失效分析": "shī xiào fēn xī",
+  "电迁移": "diàn qiān yí",
+  "热迁移": "rè qiān yí",
+  "硅通孔": "guī tōng kǒng",
+  "保持区": "bǎo chí qū",
+  "金属间化合物": "jīn shǔ jiān huà hé wù",
+  "热膨胀系数": "rè péng zhàng xì shù",
+  "介电常数": "jiè diàn cháng shù",
+  "损耗角正切": "sǔn hào jiǎo zhèng qiē",
+  "玻璃化转变温度": "bō li huà zhuǎn biàn wēn dù",
+  "阻焊层": "zǔ hàn céng",
+  "底部填充剂": "dǐ bù tián chōng jì",
+  "翘曲": "qiào qū",
+  "屈服强度": "qū fú qiáng dù",
+  "等效应力": "děng xiào yìng lì",
+  "压阻效应": "yā zǔ xiào yìng",
+  "微凸块": "wēi tū kuài",
+  "混合键合": "hùn hé jiàn hé",
+  "表面处理": "biǎo miàn chǔ lǐ",
+  "基板": "jī bǎn",
+  "钝化层": "dùn huà céng",
+  "电流拥挤效应": "diàn liú yōng jǐ xiào yìng",
+  "温度梯度": "wēn dù tī dù",
+  "热阻": "rè zǔ",
+  "热通量": "rè tōng liàng",
+  "微通道": "wēi tōng dào",
+  "片上网络": "piàn shàng wǎng luò",
+  "喷射冲击冷却": "pēn shè chōng jī lěng què",
+  "喷雾冷却": "pēn wù lěng què",
+  "无线互连": "wú xiàn hù lián",
+  "重布线层": "zhòng bù xiàn céng",
+  "自然弯曲理论": "zì rán wān qū lǐ lùn",
+  "原子力显微镜": "yuán zǐ lì xiǎn wēi jìng",
+  "电子背散照衍射": "diàn zǐ bèi sàn zhào yǎn shè",
+  "有限元分析": "yǒu xiàn yuán fēn xī",
+  "扫描电子显微镜": "sǎo miáo diàn zǐ xiǎn wēi jìng",
+  "透射电子显微镜": "tòu shè diàn zǐ xiǎn wēi jìng",
+  "能谱分析": "néng pǔ fēn xī",
+  "俄歇电子能谱": "é xiē diàn zǐ néng pǔ",
+  "二次离子质谱": "èr cì lí zǐ zhì pǔ",
+  "傅里叶变换红外光谱": "fù lǐ yè biàn huàn hóng wài guāng pǔ",
+  "半导体专业研读笔记库": "bàn dǎo tǐ zhuān yè yán dú bǐ jì kù",
+  "请选择下方文献": "qǐng xuǎn zé xià fāng wén xiàn",
+  "芯片贴装": "xīn piàn tiē zhuāng",
+  "点胶与热固化": "diǎn jiào yǔ rè gù huà",
+  "加强环": "jiā qiáng huán",
+  "贴装全覆盖金属顶盖": "tiē zhuāng quán fù gài jīn shǔ dǐng gài",
+  "室温翘曲量": "shì wēn qiào qū liàng",
+  "封装内部应力水平": "fēng zhuāng nèi bù yìng lì shuǐ píng",
+  "机械权衡与应力转移机制": "jī xiè quán héng yǔ yìng lì zhuǎn yí jī zhì",
+  "无约束自由热弯曲": "wú yuē shù zì yóu rè wān qū",
+  "物理变形最大": "wù lǐ biàn xíng zuì dà",
+  "但内部约束应力最低": "dàn nèi bù yuē shù yìng lì zuì dī",
+  "局部降低翘曲": "jú bù jiàng dī qiào qū",
+  "内部应力适度上升": "nèi bù yìng lì shì dù shàng shēng",
+  "物理翘曲最低": "wù lǐ qiào qū zuì dī",
+  "内部应力最高": "nèi bù yìng lì zuì gāo",
+  "核心翘曲与应力矛盾悖论": "hé xīn qiào qū yǔ yìng lì máo dùn bèi lùn",
+  "翘曲早期冻结": "qiào qū zǎo qī dòng jié",
+  "固化后贴装": "gù huà hòu tiē zhuāng",
+  "重新变形机制": "chóng xīn biàn xíng jī zhì",
+  "寄生应力产生": "jì shēng yìng lì chǎn shēng"
+};
+
+function attachPinyinToChinese(text) {
+  if (currentLang !== 'zh' || !text || typeof text !== 'string') return text;
+  let result = text;
+  Object.keys(PINYIN_WORD_MAP).forEach(word => {
+    if (result.includes(word) && !result.includes(` [${PINYIN_WORD_MAP[word]}]`)) {
+      const pinyin = PINYIN_WORD_MAP[word];
+      const regex = new RegExp(word.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'g');
+      result = result.replace(regex, `${word} [${pinyin}]`);
+    }
+  });
+  return result;
+}
+
 function translateContentText(text) {
   if (currentLang !== 'zh' || !text) return text;
   let translated = text;
   GLOSSARY_REPLACEMENTS.forEach(([regex, replacement]) => {
     translated = translated.replace(regex, replacement);
   });
-  return translated;
+  return attachPinyinToChinese(translated);
 }
+
 
 const translationCache = JSON.parse(localStorage.getItem('notes_translation_cache') || '{}');
 
