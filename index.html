@@ -11,42 +11,130 @@
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 
 <style>
-/* ===== GLOBAL RESET ===== */
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.7;min-height:100vh;transition:background 0.4s,color 0.4s;}
+/* ===== GLOBAL RESET & MOBILE VIEWPORT FIXES ===== */
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #061325;
+  min-height: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.7;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: inherit;
+  transition: background 0.4s, color 0.4s;
+}
 
 /* ===== LANDING PAGE ===== */
 .landing{display:flex;flex-direction:column;min-height:100vh;background:linear-gradient(135deg,#061325 0%,#092342 50%,#0e3860 100%);}
-.landing-header{text-align:center;padding:4rem 2rem 2rem;}
+.landing-header{text-align:center;padding:3rem 1.5rem 1.5rem;}
 .landing-header h1{font-size:2.4rem;font-weight:700;background:linear-gradient(90deg,#38bdf8,#818cf8,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.6rem;}
 .landing-header p{color:#93c5fd;font-size:1rem;max-width:600px;margin:0 auto;}
-.book-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;padding:2rem 3rem 4rem;max-width:1200px;margin:0 auto;width:100%;}
+.book-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.8rem;padding:2rem 2rem 4rem;max-width:1200px;margin:0 auto;width:100%;}
 
 /* ===== KO-FI FLOATING BUTTON ===== */
-.kofi-float{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:0.5rem;padding:0.7rem 1.3rem;border-radius:50px;background:linear-gradient(135deg,#ff5e5b 0%,#ff2400 50%,#e8362a 100%);color:#fff;text-decoration:none;font-weight:700;font-size:0.92rem;box-shadow:0 6px 24px rgba(255,36,0,0.45),0 2px 8px rgba(0,0,0,0.3);transition:transform 0.25s,box-shadow 0.25s;animation:kofi-pulse 2.5s ease-in-out infinite;}
+.kofi-float{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;align-items:center;gap:0.5rem;padding:0.65rem 1.2rem;border-radius:50px;background:linear-gradient(135deg,#ff5e5b 0%,#ff2400 50%,#e8362a 100%);color:#fff;text-decoration:none;font-weight:700;font-size:0.88rem;box-shadow:0 6px 24px rgba(255,36,0,0.45),0 2px 8px rgba(0,0,0,0.3);transition:transform 0.25s,box-shadow 0.25s;animation:kofi-pulse 2.5s ease-in-out infinite;}
 .kofi-float:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 10px 36px rgba(255,36,0,0.55),0 4px 12px rgba(0,0,0,0.35);}
-.kofi-float .kofi-icon{font-size:1.3rem;line-height:1;}
+.kofi-float .kofi-icon{font-size:1.2rem;line-height:1;}
 .kofi-float .kofi-text{white-space:nowrap;}
 @keyframes kofi-pulse{0%,100%{box-shadow:0 6px 24px rgba(255,36,0,0.45),0 2px 8px rgba(0,0,0,0.3);}50%{box-shadow:0 6px 32px rgba(255,36,0,0.65),0 2px 12px rgba(0,0,0,0.35);}}
 
 /* ===== KO-FI LANDING BANNER ===== */
-.kofi-banner{display:flex;align-items:center;justify-content:center;gap:1rem;padding:0.9rem 2rem;margin:1.5rem auto 0;max-width:520px;border-radius:14px;background:linear-gradient(135deg,rgba(255,94,91,0.12) 0%,rgba(255,36,0,0.08) 100%);border:1px solid rgba(255,94,91,0.25);backdrop-filter:blur(8px);}
-.kofi-banner .kofi-emoji{font-size:1.6rem;}
+.kofi-banner{display:flex;align-items:center;justify-content:center;gap:1rem;padding:0.9rem 1.5rem;margin:1.2rem auto 0;max-width:540px;border-radius:14px;background:linear-gradient(135deg,rgba(255,94,91,0.12) 0%,rgba(255,36,0,0.08) 100%);border:1px solid rgba(255,94,91,0.25);backdrop-filter:blur(8px);width:90%;}
+.kofi-banner .kofi-emoji{font-size:1.5rem;}
 .kofi-banner .kofi-msg{color:#fca5a5;font-size:0.88rem;line-height:1.5;}
 .kofi-banner .kofi-msg strong{color:#ff8a80;}
-.kofi-banner .kofi-btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 1.1rem;border-radius:8px;background:linear-gradient(135deg,#ff5e5b,#e8362a);color:#fff;text-decoration:none;font-weight:700;font-size:0.82rem;white-space:nowrap;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 3px 12px rgba(255,36,0,0.3);}
+.kofi-banner .kofi-btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.45rem 1rem;border-radius:8px;background:linear-gradient(135deg,#ff5e5b,#e8362a);color:#fff;text-decoration:none;font-weight:700;font-size:0.82rem;white-space:nowrap;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 3px 12px rgba(255,36,0,0.3);}
 .kofi-banner .kofi-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(255,36,0,0.45);}
 
+/* ===== TOOLBAR CONTROLS (Translation & Narrator) ===== */
+.viewer-controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+  margin-top: 0.7rem;
+  padding: 0.6rem 0.9rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+.control-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--accent);
+  border: 1px solid var(--border);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s;
+}
+.control-btn:hover {
+  background: var(--tag-bg);
+  border-color: var(--accent);
+}
+.control-btn.active {
+  background: var(--btn-act);
+  color: var(--btn-txt);
+  border-color: var(--btn-act);
+}
+.narrator-status-text {
+  font-size: 0.75rem;
+  color: var(--accent2);
+  font-weight: 600;
+  margin-left: 0.3rem;
+}
+.speech-rate-select {
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--accent);
+  border: 1px solid var(--border);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+/* Reading highlight animation */
+.reading-highlight {
+  outline: 2px solid var(--accent) !important;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.4) !important;
+  background: var(--tag-bg) !important;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
 /* ===== BOOK CARDS ===== */
-.book-card{border-radius:16px;padding:2rem;cursor:pointer;transition:transform 0.3s,box-shadow 0.3s;position:relative;overflow:hidden;}
+.book-card{border-radius:16px;padding:1.8rem;cursor:pointer;transition:transform 0.3s,box-shadow 0.3s;position:relative;overflow:hidden;}
 .book-card::before{content:'';position:absolute;inset:0;opacity:0.07;background:repeating-linear-gradient(45deg,#fff,#fff 1px,transparent 1px,transparent 8px);}
 .book-card:hover{transform:translateY(-6px);}
-.book-card .book-icon{font-size:2.8rem;margin-bottom:1rem;}
+.book-card .book-icon{font-size:2.6rem;margin-bottom:0.8rem;}
 .book-card h2{font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;}
 .book-card p{font-size:0.85rem;opacity:0.8;margin-bottom:1.2rem;line-height:1.6;}
-.book-card .meta{display:flex;gap:0.8rem;flex-wrap:wrap;}
+.book-card .meta{display:flex;gap:0.6rem;flex-wrap:wrap;}
 .book-card .badge{font-size:0.72rem;padding:0.2rem 0.6rem;border-radius:20px;font-weight:600;}
-.book-card .open-btn{margin-top:1.5rem;display:inline-block;padding:0.55rem 1.4rem;border-radius:8px;font-size:0.85rem;font-weight:600;border:none;cursor:pointer;transition:opacity 0.2s;}
+.book-card .open-btn{margin-top:1.4rem;display:inline-block;padding:0.55rem 1.4rem;border-radius:8px;font-size:0.85rem;font-weight:600;border:none;cursor:pointer;transition:opacity 0.2s;}
 .book-card .open-btn:hover{opacity:0.85;}
 
 /* CARD 1 — FA IC Notes (Deep Blue) */
@@ -74,7 +162,7 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
 .card-3d .open-btn{background:#f59e0b;color:#1c1008;}
 
 /* ===== NOTE VIEWER ===== */
-.viewer{display:none;flex-direction:column;min-height:100vh;}
+.viewer{display:none;flex-direction:column;min-height:100vh;width:100%;overflow-x:hidden;}
 .viewer.active{display:flex;}
 
 /* ===== THEME STYLES ===== */
@@ -91,61 +179,62 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
 .theme-select:hover,.theme-select:focus{border-color:var(--accent);}
 
 /* ===== VIEW MODE TOGGLE ===== */
-.view-mode-toggle{display:flex;gap:0.5rem;margin-top:0.8rem;}
+.view-mode-toggle{display:flex;gap:0.5rem;margin-top:0.6rem;flex-wrap:wrap;}
 .mode-btn{padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text2);cursor:pointer;font-size:0.8rem;font-weight:600;transition:all 0.2s;}
 .mode-btn:hover{border-color:var(--accent);color:var(--accent);}
 .mode-btn.active{background:var(--btn-act);color:var(--btn-txt);border-color:var(--btn-act);}
 
 /* ===== VIEWER HEADER ===== */
-.viewer-header{padding:1.4rem 2rem;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:var(--bg2);}
-.vh-top{display:flex;align-items:center;gap:1rem;margin-bottom:0.8rem;}
+.viewer-header{padding:1.2rem 1.8rem;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:var(--bg2);}
+.vh-top{display:flex;align-items:center;gap:0.8rem;margin-bottom:0.6rem;flex-wrap:wrap;}
 .back-btn{background:none;border:1px solid var(--border);color:var(--accent);padding:0.4rem 0.9rem;border-radius:6px;cursor:pointer;font-size:0.82rem;transition:background 0.2s;}
 .back-btn:hover{background:var(--tag-bg);}
 .viewer-header h2{font-size:1.2rem;font-weight:700;color:var(--accent);}
 .viewer-header .subtitle{font-size:0.8rem;color:var(--text2);}
-.nav-buttons{display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:0.8rem;}
+.nav-buttons{display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:0.7rem;}
 .nav-btn{padding:0.35rem 0.85rem;border:1px solid var(--border);border-radius:20px;background:transparent;color:var(--text2);cursor:pointer;font-size:0.78rem;font-weight:500;transition:all 0.2s;}
 .nav-btn:hover{border-color:var(--accent);color:var(--accent);}
 .nav-btn.active{background:var(--btn-act);color:var(--btn-txt);border-color:var(--btn-act);font-weight:700;}
 
 /* ===== NOTE CARDS ===== */
-.notes-container{max-width:1080px;margin:0 auto;padding:1.8rem 2rem;}
-.note-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.4rem;margin-bottom:1rem;transition:border-color 0.2s;}
+.notes-container{max-width:1080px;width:100%;margin:0 auto;padding:1.5rem 1.5rem;overflow-x:hidden;}
+.note-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.4rem;margin-bottom:1rem;transition:border-color 0.2s;word-break:break-word;}
 .note-card:hover{border-color:var(--accent);}
 .note-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:0.5rem;gap:0.5rem;}
 .ch-badge{background:var(--tag-bg);color:var(--accent);font-size:0.72rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:4px;white-space:nowrap;flex-shrink:0;}
 .note-date{color:var(--text2);font-size:0.72rem;white-space:nowrap;flex-shrink:0;}
-.note-content{color:var(--text);font-size:0.9rem;line-height:1.78;}
+.note-content{color:var(--text);font-size:0.9rem;line-height:1.78;overflow-x:auto;}
 .note-content strong{color:var(--accent2);}
 .note-tags{margin-top:0.6rem;display:flex;flex-wrap:wrap;gap:0.35rem;}
 .tag{background:var(--tag-bg);color:var(--tag);font-size:0.7rem;padding:0.15rem 0.5rem;border-radius:3px;}
-.note-content table{width:100%;border-collapse:collapse;margin:0.8rem 0;font-size:0.83rem;}
+.note-content table{width:100%;border-collapse:collapse;margin:0.8rem 0;font-size:0.83rem;display:block;overflow-x:auto;max-width:100%;}
 .note-content th{background:var(--th);color:var(--accent);padding:0.55rem 0.7rem;text-align:left;font-weight:600;border:1px solid var(--border);}
 .note-content td{padding:0.45rem 0.7rem;border:1px solid var(--border);color:var(--text);}
 .note-content tr:nth-child(even) td{background:var(--tr-alt);}
 
 /* ===== MARKDOWN WATERFALL CONTAINER ===== */
-.markdown-container{max-width:1080px;margin:0 auto;padding:1.8rem 2rem;display:none;}
+.markdown-container{max-width:1080px;width:100%;margin:0 auto;padding:1.5rem 1.5rem;display:none;overflow-x:hidden;}
 .markdown-container.active{display:block !important;}
 
-.markdown-body{line-height:1.85;color:var(--text);}
-.markdown-body h1{font-size:1.8rem;color:var(--accent);border-bottom:2px solid var(--border);padding-bottom:0.5rem;margin:1.6rem 0 1rem;}
-.markdown-body h2{font-size:1.4rem;color:var(--accent2);border-bottom:1px solid var(--border);padding-bottom:0.4rem;margin:1.5rem 0 0.8rem;}
-.markdown-body h3{font-size:1.15rem;color:var(--accent);margin:1.3rem 0 0.6rem;}
-.markdown-body h4{font-size:1rem;color:var(--accent2);margin:1.1rem 0 0.5rem;}
-.markdown-body p{margin-bottom:1rem;}
-.markdown-body ul,.markdown-body ol{padding-left:1.8rem;margin-bottom:1rem;}
-.markdown-body li{margin-bottom:0.4rem;}
-.markdown-body table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:0.88rem;overflow-x:auto;display:block;}
+.markdown-body{line-height:1.85;color:var(--text);overflow-x:hidden;word-wrap:break-word;}
+.markdown-body h1{font-size:1.7rem;color:var(--accent);border-bottom:2px solid var(--border);padding-bottom:0.5rem;margin:1.6rem 0 1rem;word-break:break-word;}
+.markdown-body h2{font-size:1.35rem;color:var(--accent2);border-bottom:1px solid var(--border);padding-bottom:0.4rem;margin:1.5rem 0 0.8rem;word-break:break-word;}
+.markdown-body h3{font-size:1.15rem;color:var(--accent);margin:1.3rem 0 0.6rem;word-break:break-word;}
+.markdown-body h4{font-size:1rem;color:var(--accent2);margin:1.1rem 0 0.5rem;word-break:break-word;}
+.markdown-body p{margin-bottom:1rem;word-break:break-word;}
+.markdown-body ul,.markdown-body ol{padding-left:1.5rem;margin-bottom:1rem;}
+.markdown-body li{margin-bottom:0.4rem;word-break:break-word;}
+.markdown-body img {max-width:100%!important;height:auto!important;box-sizing:border-box;border-radius:8px;margin:1rem 0;border:1px solid var(--border);}
+.markdown-body table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:0.85rem;overflow-x:auto;display:block;max-width:100%;-webkit-overflow-scrolling:touch;}
 .markdown-body th{background:var(--th);color:var(--accent);padding:0.6rem 0.8rem;text-align:left;font-weight:600;border:1px solid var(--border);}
 .markdown-body td{padding:0.5rem 0.8rem;border:1px solid var(--border);color:var(--text);}
 .markdown-body tr:nth-child(even) td{background:var(--tr-alt);}
 .markdown-body blockquote{border-left:4px solid var(--accent);padding:0.6rem 1rem;background:var(--tag-bg);margin:1.2rem 0;border-radius:0 8px 8px 0;}
-.markdown-body pre{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem;overflow-x:auto;font-family:'Consolas','Courier New',monospace;font-size:0.85rem;margin:1.2rem 0;color:var(--text);}
-.markdown-body code{font-family:'Consolas','Courier New',monospace;background:var(--tag-bg);padding:0.15rem 0.4rem;border-radius:4px;color:var(--accent2);font-size:0.88em;}
-.markdown-body pre code{background:transparent;padding:0;color:inherit;}
+.markdown-body pre{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem;overflow-x:auto;font-family:'Consolas','Courier New',monospace;font-size:0.85rem;margin:1.2rem 0;color:var(--text);max-width:100%;-webkit-overflow-scrolling:touch;}
+.markdown-body code{font-family:'Consolas','Courier New',monospace;background:var(--tag-bg);padding:0.15rem 0.4rem;border-radius:4px;color:var(--accent2);font-size:0.88em;word-break:break-word;}
+.markdown-body pre code{background:transparent;padding:0;color:inherit;white-space:pre;}
 .markdown-body hr{border:none;border-top:1px solid var(--border);margin:2rem 0;}
-.mermaid{display:flex;justify-content:center;margin:1.5rem 0;background:var(--bg2);padding:1rem;border-radius:8px;border:1px solid var(--border);}
+.mermaid{display:flex;justify-content:center;margin:1.5rem 0;background:var(--bg2);padding:1rem;border-radius:8px;border:1px solid var(--border);max-width:100%;overflow-x:auto;}
 
 /* Stats bar */
 .stats-bar{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:0.3rem;}
@@ -170,7 +259,8 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
 .toast{position:fixed;bottom:5rem;right:2rem;background:#22c55e;color:#fff;padding:0.6rem 1.2rem;border-radius:8px;font-size:0.85rem;opacity:0;transition:opacity 0.3s;z-index:300;font-weight:600;}
 .toast.show{opacity:1;}
 .empty-state{text-align:center;color:var(--text2);padding:3rem 1rem;font-style:italic;}
-@media(max-width:768px){.book-grid{padding:1rem;grid-template-columns:1fr;}.notes-container,.markdown-container{padding:1rem;}.viewer-header{padding:1rem;}}
+@media(max-width:768px){.book-grid{padding:1rem;grid-template-columns:1fr;}.notes-container,.markdown-container{padding:1rem;}.viewer-header{padding:0.9rem 1rem;}.viewer-controls-bar{flex-direction:column;align-items:stretch;}}
+
 </style>
 </head>
 <body>
@@ -178,64 +268,67 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
 <!-- ===== LANDING PAGE ===== -->
 <div class="landing" id="landing">
   <div class="landing-header">
-    <h1>Semiconductor Reading Notes</h1>
-    <p>Select a literature below to explore reading notes, excerpts, figures, and key concepts.</p>
+    <h1 id="landing-title">Semiconductor Reading Notes</h1>
+    <p id="landing-subtitle">Select a literature below to explore reading notes, excerpts, figures, and key concepts.</p>
+    <div style="margin-top:1rem;display:flex;justify-content:center;">
+      <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
+    </div>
   </div>
 
   <div class="kofi-banner">
     <span class="kofi-emoji">☕</span>
-    <span class="kofi-msg">Enjoying these notes? <strong>Support my work</strong> to keep this resource growing!</span>
-    <a class="kofi-btn" href="https://ko-fi.com/jeremyhow" target="_blank" rel="noopener noreferrer">☕ Buy me a Coffee</a>
+    <span class="kofi-msg" id="kofi-banner-msg">Enjoying these notes? <strong>Support my work</strong> to keep this resource growing!</span>
+    <a class="kofi-btn" id="kofi-banner-btn" href="https://ko-fi.com/jeremyhow" target="_blank" rel="noopener noreferrer">☕ Buy me a Coffee</a>
   </div>
 
   <div class="book-grid">
 
     <div class="book-card card-fa-ic" onclick="openViewer('fa-ic')">
       <div class="book-icon">🔬</div>
-      <h2>Failure Analysis of Integrated Circuits</h2>
-      <p>Tools and Techniques — covering electrical fault isolation, physical analysis, sample preparation, chemical analysis (EDS, AES, SIMS, FTIR), and future FA directions.</p>
+      <h2 id="card1-title">Failure Analysis of Integrated Circuits</h2>
+      <p id="card1-sub">Tools and Techniques — covering electrical fault isolation, physical analysis, sample preparation, chemical analysis (EDS, AES, SIMS, FTIR), and future FA directions.</p>
       <div class="meta">
         <span class="badge">Ch. 3–15</span>
         <span class="badge">Deep Blue</span>
         <span class="badge">FA·SEM·FIB·TEM</span>
       </div>
-      <button class="open-btn">Open Notes →</button>
+      <button class="open-btn card-open-btn">Open Notes →</button>
     </div>
 
     <div class="book-card card-bazu" onclick="openViewer('bazu')">
       <div class="book-icon">📖</div>
-      <h2>Failure Analysis — Bâzu (2011)</h2>
-      <p>Comprehensive FA theory covering why, when, and how of failure analysis, FMEA, FTA, failure mechanisms in semiconductor devices, passive components, and optoelectronics.</p>
+      <h2 id="card2-title">Failure Analysis — Bâzu (2011)</h2>
+      <p id="card2-sub">Comprehensive FA theory covering why, when, and how of failure analysis, FMEA, FTA, failure mechanisms in semiconductor devices, passive components, and optoelectronics.</p>
       <div class="meta">
         <span class="badge">Ch. 2–5</span>
         <span class="badge">Dark Amethyst</span>
         <span class="badge">FMEA·FTA·HCI·EM</span>
       </div>
-      <button class="open-btn">Open Notes →</button>
+      <button class="open-btn card-open-btn">Open Notes →</button>
     </div>
 
     <div class="book-card card-packaging" onclick="openViewer('packaging')">
       <div class="book-icon">📦</div>
-      <h2>Reliability Technology for IC Packaging</h2>
-      <p>IC packaging fundamentals covering basic functions, package types, material properties (electrical, thermal, CTE), failure mechanisms, and industry statistics.</p>
+      <h2 id="card3-title">Reliability Technology for IC Packaging</h2>
+      <p id="card3-sub">IC packaging fundamentals covering basic functions, package types, material properties (electrical, thermal, CTE), failure mechanisms, and industry statistics.</p>
       <div class="meta">
         <span class="badge">Ch. 1–2</span>
         <span class="badge">Forest Dark</span>
         <span class="badge">Ceramic·Plastic·TSV</span>
       </div>
-      <button class="open-btn">Open Notes →</button>
+      <button class="open-btn card-open-btn">Open Notes →</button>
     </div>
 
     <div class="book-card card-3d" onclick="openViewer('3d')">
       <div class="book-icon">🏗️</div>
-      <h2>3D Microelectronic Packaging</h2>
-      <p>Advanced 3D packaging concepts covering TSV stresses, micro-Raman spectroscopy, metal pumping, Cu microstructure, temperature regimes, SAB, hybrid bonding, Cu particle sintering, and bonding process materials.</p>
+      <h2 id="card4-title">3D Microelectronic Packaging</h2>
+      <p id="card4-sub">Advanced 3D packaging concepts covering TSV stresses, micro-Raman spectroscopy, metal pumping, Cu microstructure, temperature regimes, SAB, hybrid bonding, Cu particle sintering, and bonding process materials.</p>
       <div class="meta">
         <span class="badge">Ch. 4, 6, 8, 9, 10</span>
         <span class="badge">Amber / Copper</span>
         <span class="badge">TSV·Raman·TCB·SAB</span>
       </div>
-      <button class="open-btn">Open Notes →</button>
+      <button class="open-btn card-open-btn">Open Notes →</button>
     </div>
 
   </div>
@@ -244,7 +337,7 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
 <!-- ===== FLOATING KO-FI BUTTON (Always Visible) ===== -->
 <a class="kofi-float" href="https://ko-fi.com/jeremyhow" target="_blank" rel="noopener noreferrer">
   <span class="kofi-icon">☕</span>
-  <span class="kofi-text">Support on Ko-fi</span>
+  <span class="kofi-text" id="kofi-float-text">Support on Ko-fi</span>
 </a>
 
 <!-- ===== VIEWER: FA IC ===== -->
@@ -274,6 +367,24 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
     <div class="view-mode-toggle">
       <button class="mode-btn" id="mode-card-faic" onclick="switchViewMode('fa-ic', 'card')">📱 Snippet Cards</button>
       <button class="mode-btn active" id="mode-doc-faic" onclick="switchViewMode('fa-ic', 'doc')">📄 Full Waterfall Markdown</button>
+    </div>
+    <div class="viewer-controls-bar">
+      <div class="control-group">
+        <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
+      </div>
+      <div class="control-group">
+        <button class="control-btn" onclick="startNarrator()" title="Read content aloud">▶ <span class="narrator-play-text">朗读 (Read Aloud)</span></button>
+        <button class="control-btn" onclick="pauseNarrator()" title="Pause/Resume reading">⏸ <span class="narrator-pause-text">暂停 (Pause)</span></button>
+        <button class="control-btn" onclick="stopNarrator()" title="Stop reading">⏹ <span class="narrator-stop-text">停止 (Stop)</span></button>
+        <select class="speech-rate-select" onchange="updateSpeechRate(this.value)" title="Voice Speed">
+          <option value="0.8">0.8x</option>
+          <option value="1.0" selected>1.0x</option>
+          <option value="1.2">1.2x</option>
+          <option value="1.5">1.5x</option>
+          <option value="2.0">2.0x</option>
+        </select>
+        <span class="narrator-status-text">Ready</span>
+      </div>
     </div>
     <div class="nav-buttons" id="faic-nav"></div>
   </div>
@@ -310,6 +421,24 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
       <button class="mode-btn" id="mode-card-bazu" onclick="switchViewMode('bazu', 'card')">📱 Snippet Cards</button>
       <button class="mode-btn active" id="mode-doc-bazu" onclick="switchViewMode('bazu', 'doc')">📄 Full Waterfall Markdown</button>
     </div>
+    <div class="viewer-controls-bar">
+      <div class="control-group">
+        <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
+      </div>
+      <div class="control-group">
+        <button class="control-btn" onclick="startNarrator()" title="Read content aloud">▶ <span class="narrator-play-text">朗读 (Read Aloud)</span></button>
+        <button class="control-btn" onclick="pauseNarrator()" title="Pause/Resume reading">⏸ <span class="narrator-pause-text">暂停 (Pause)</span></button>
+        <button class="control-btn" onclick="stopNarrator()" title="Stop reading">⏹ <span class="narrator-stop-text">停止 (Stop)</span></button>
+        <select class="speech-rate-select" onchange="updateSpeechRate(this.value)" title="Voice Speed">
+          <option value="0.8">0.8x</option>
+          <option value="1.0" selected>1.0x</option>
+          <option value="1.2">1.2x</option>
+          <option value="1.5">1.5x</option>
+          <option value="2.0">2.0x</option>
+        </select>
+        <span class="narrator-status-text">Ready</span>
+      </div>
+    </div>
     <div class="nav-buttons" id="bazu-nav"></div>
   </div>
   <div class="notes-container" id="bazu-container"></div>
@@ -344,6 +473,24 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
     <div class="view-mode-toggle">
       <button class="mode-btn" id="mode-card-packaging" onclick="switchViewMode('packaging', 'card')">📱 Snippet Cards</button>
       <button class="mode-btn active" id="mode-doc-packaging" onclick="switchViewMode('packaging', 'doc')">📄 Full Waterfall Markdown</button>
+    </div>
+    <div class="viewer-controls-bar">
+      <div class="control-group">
+        <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
+      </div>
+      <div class="control-group">
+        <button class="control-btn" onclick="startNarrator()" title="Read content aloud">▶ <span class="narrator-play-text">朗读 (Read Aloud)</span></button>
+        <button class="control-btn" onclick="pauseNarrator()" title="Pause/Resume reading">⏸ <span class="narrator-pause-text">暂停 (Pause)</span></button>
+        <button class="control-btn" onclick="stopNarrator()" title="Stop reading">⏹ <span class="narrator-stop-text">停止 (Stop)</span></button>
+        <select class="speech-rate-select" onchange="updateSpeechRate(this.value)" title="Voice Speed">
+          <option value="0.8">0.8x</option>
+          <option value="1.0" selected>1.0x</option>
+          <option value="1.2">1.2x</option>
+          <option value="1.5">1.5x</option>
+          <option value="2.0">2.0x</option>
+        </select>
+        <span class="narrator-status-text">Ready</span>
+      </div>
     </div>
     <div class="nav-buttons" id="pkg-nav"></div>
   </div>
@@ -380,12 +527,31 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;line-hei
       <button class="mode-btn" id="mode-card-3d" onclick="switchViewMode('3d', 'card')">📱 Snippet Cards</button>
       <button class="mode-btn active" id="mode-doc-3d" onclick="switchViewMode('3d', 'doc')">📄 Full Waterfall Markdown</button>
     </div>
+    <div class="viewer-controls-bar">
+      <div class="control-group">
+        <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
+      </div>
+      <div class="control-group">
+        <button class="control-btn" onclick="startNarrator()" title="Read content aloud">▶ <span class="narrator-play-text">朗读 (Read Aloud)</span></button>
+        <button class="control-btn" onclick="pauseNarrator()" title="Pause/Resume reading">⏸ <span class="narrator-pause-text">暂停 (Pause)</span></button>
+        <button class="control-btn" onclick="stopNarrator()" title="Stop reading">⏹ <span class="narrator-stop-text">停止 (Stop)</span></button>
+        <select class="speech-rate-select" onchange="updateSpeechRate(this.value)" title="Voice Speed">
+          <option value="0.8">0.8x</option>
+          <option value="1.0" selected>1.0x</option>
+          <option value="1.2">1.2x</option>
+          <option value="1.5">1.5x</option>
+          <option value="2.0">2.0x</option>
+        </select>
+        <span class="narrator-status-text">Ready</span>
+      </div>
+    </div>
     <div class="nav-buttons" id="pkg3d-nav"></div>
   </div>
   <div class="notes-container" id="pkg3d-container"></div>
   <div class="markdown-container" id="pkg3d-doc-container"></div>
   <button class="add-btn" onclick="openModal('3d')" title="Add Note">+</button>
 </div>
+
 
 <!-- ===== SHARED MODAL ===== -->
 <div class="modal-overlay" id="modalOverlay">
@@ -694,6 +860,14 @@ function getActiveTheme() {
   return (saved && VALID_THEMES.includes(saved)) ? saved : 'dracula';
 }
 
+const themeBgMap = {
+  'dracula': '#282a36',
+  'fa-ic': '#0b1624',
+  'bazu': '#12062a',
+  'packaging': '#021208',
+  '3d': '#160900'
+};
+
 function applyTheme(themeName) {
   const theme = VALID_THEMES.includes(themeName) ? themeName : 'dracula';
   
@@ -706,6 +880,9 @@ function applyTheme(themeName) {
     sel.value = theme;
   });
   
+  // Set html element background to prevent white borders on zoom out on mobile devices
+  document.documentElement.style.backgroundColor = activeBook ? (themeBgMap[theme] || '#282a36') : '#061325';
+  
   localStorage.setItem('reading_notes_theme', theme);
 }
 
@@ -713,11 +890,293 @@ function changeTheme(themeName) {
   applyTheme(themeName);
 }
 
-// Initial theme application
+// Initial theme & language application
 applyTheme(getActiveTheme());
 document.addEventListener('DOMContentLoaded', () => {
   applyTheme(getActiveTheme());
+  applyLanguageUI();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.onvoiceschanged = () => {};
+  }
 });
+
+// ============================================================
+// CHINESE TRANSLATION ENGINE & DICTIONARY
+// ============================================================
+let currentLang = localStorage.getItem('reading_notes_lang') || 'en';
+
+const TRANSLATION_DICT = {
+  en: {
+    landingTitle: "Semiconductor Reading Notes",
+    landingSubtitle: "Select a literature below to explore reading notes, excerpts, figures, and key concepts.",
+    langBtn: "🌐 中文翻译 (Translate to Chinese)",
+    kofiMsg: "Enjoying these notes? <strong>Support my work</strong> to keep this resource growing!",
+    kofiBtn: "☕ Buy me a Coffee",
+    kofiFloat: "Support on Ko-fi",
+    card1Title: "Failure Analysis of Integrated Circuits",
+    card1Sub: "Tools and Techniques — covering electrical fault isolation, physical analysis, sample preparation, chemical analysis (EDS, AES, SIMS, FTIR), and future FA directions.",
+    card2Title: "Failure Analysis — Bâzu (2011)",
+    card2Sub: "Comprehensive FA theory covering why, when, and how of failure analysis, FMEA, FTA, failure mechanisms in semiconductor devices, passive components, and optoelectronics.",
+    card3Title: "Reliability Technology for IC Packaging",
+    card3Sub: "IC packaging fundamentals covering basic functions, package types, material properties (electrical, thermal, CTE), failure mechanisms, and industry statistics.",
+    card4Title: "3D Microelectronic Packaging",
+    card4Sub: "Advanced 3D packaging concepts covering TSV stresses, micro-Raman spectroscopy, metal pumping, Cu microstructure, temperature regimes, SAB, hybrid bonding, Cu particle sintering, and bonding process materials.",
+    openBtn: "Open Notes →",
+    readAloud: "▶ 朗读 (Read Aloud)",
+    pause: "⏸ 暂停 (Pause)",
+    stop: "⏹ 停止 (Stop)",
+    ready: "Ready"
+  },
+  zh: {
+    landingTitle: "半导体专业研读笔记库",
+    landingSubtitle: "请选择下方文献，探索研读笔记、精选摘录、矢量图表与核心概念。",
+    langBtn: "🌐 English Original (英文原版)",
+    kofiMsg: "觉得这些笔记有帮助？<strong>支持我的工作</strong>，让知识库持续更新！",
+    kofiBtn: "☕ 请我喝杯咖啡",
+    kofiFloat: "在 Ko-fi 上支持",
+    card1Title: "集成电路失效分析 (FA)",
+    card1Sub: "工具与技术——涵盖电学故障定位、物理结构分析、样品制备、化学元素分析 (EDS、AES、SIMS、FTIR) 及未来 FA 发展方向。",
+    card2Title: "失效分析理论 — Bâzu (2011)",
+    card2Sub: "全面失效分析理论：FMEA、FTA、半导体器件、无源元件及光电子器件的失效机理与分析方法。",
+    card3Title: "集成电路封装可靠性技术",
+    card3Sub: "IC 封装基础：四大基本功能、封装类型、材料特性 (电学、热学、CTE 热膨胀系数)、失效机理及行业统计数据。",
+    card4Title: "3D 微电子封装技术",
+    card4Sub: "先进 3D 封装前沿：TSV 硅通孔应力、微拉曼光谱、金属挤出 (Pumping)、铜微观结构、SAB 表面活性键合、混合键合及电迁移 (EM) 机理。",
+    openBtn: "打开笔记 →",
+    readAloud: "▶ 朗读 (Read Aloud)",
+    pause: "⏸ 暂停 (Pause)",
+    stop: "⏹ 停止 (Stop)",
+    ready: "就绪"
+  }
+};
+
+const GLOSSARY_REPLACEMENTS = [
+  [/Failure Analysis/gi, "失效分析 (FA)"],
+  [/Electromigration/gi, "电迁移 (EM)"],
+  [/Thermomigration/gi, "热迁移 (TM)"],
+  [/Through-Silicon Via/gi, "硅通孔 (TSV)"],
+  [/Keep-Out Zone/gi, "保持区 (KOZ)"],
+  [/Intermetallic Compound/gi, "金属间化合物 (IMC)"],
+  [/Coefficient of Thermal Expansion/gi, "热膨胀系数 (CTE)"],
+  [/Dielectric Constant/gi, "介电常数 (Dk)"],
+  [/Loss Tangent/gi, "损耗角正切 (Df)"],
+  [/Glass Transition Temperature/gi, "玻璃化转变温度 (Tg)"],
+  [/Solder Mask/gi, "阻焊层 (Solder Mask)"],
+  [/Underfill/gi, "底部填充剂 (Underfill)"],
+  [/Warpage/gi, "翘曲 (Warpage)"],
+  [/Yield Strength/gi, "屈服强度"],
+  [/Von-Mises Stress/gi, "Von-Mises 等效应力"],
+  [/Piezoresistivity/gi, "压阻效应 (Piezoresistivity)"],
+  [/Microbump/gi, "微凸块 (Microbump)"],
+  [/Hybrid Bonding/gi, "混合键合 (Hybrid Bonding)"],
+  [/Surface Finish/gi, "表面处理 (Surface Finish)"],
+  [/Substrate/gi, "基板 (Substrate)"],
+  [/Passivation/gi, "钝化层 (Passivation)"],
+  [/Current Crowding/gi, "电流拥挤效应 (Current Crowding)"],
+  [/Thermal Gradient/gi, "温度梯度 (Thermal Gradient)"],
+  [/Thermal Resistance/gi, "热阻 (Thermal Resistance)"],
+  [/Heat Flux/gi, "热通量 (Heat Flux)"],
+  [/Microchannel/gi, "微通道 (Microchannel)"],
+  [/Network-on-Chip/gi, "片上网络 (NoC)"],
+  [/Jet Impingement/gi, "喷射冲击冷却"],
+  [/Spray Cooling/gi, "喷雾冷却"],
+  [/Wireless Interconnects/gi, "无线互连"],
+  [/Redistribution Layer/gi, "重布线层 (RDL)"],
+  [/Natural Bending Theory/gi, "自然弯曲理论"],
+  [/Atomic Force Microscopy/gi, "原子力显微镜 (AFM)"],
+  [/Electron Backscatter Diffraction/gi, "电子背散照衍射 (EBSD)"],
+  [/Finite Element Analysis/gi, "有限元分析 (FEA)"],
+  [/Scanning Electron Microscopy/gi, "扫描电子显微镜 (SEM)"],
+  [/Transmission Electron Microscopy/gi, "透射电子显微镜 (TEM)"],
+  [/Energy Dispersive X-ray Spectroscopy/gi, "能谱分析 (EDS)"],
+  [/Auger Electron Spectroscopy/gi, "俄歇电子能谱 (AES)"],
+  [/Secondary Ion Mass Spectrometry/gi, "二次离子质谱 (SIMS)"],
+  [/Fourier Transform Infrared/gi, "傅里叶变换红外光谱 (FTIR)"]
+];
+
+function translateContentText(text) {
+  if (currentLang !== 'zh') return text;
+  let translated = text;
+  GLOSSARY_REPLACEMENTS.forEach(([regex, replacement]) => {
+    translated = translated.replace(regex, replacement);
+  });
+  return translated;
+}
+
+function toggleLanguage() {
+  currentLang = currentLang === 'en' ? 'zh' : 'en';
+  localStorage.setItem('reading_notes_lang', currentLang);
+  applyLanguageUI();
+  
+  if (activeBook) {
+    const book = books[activeBook];
+    const docContainer = document.getElementById(book.docContainerId);
+    if (docContainer) docContainer.dataset.loaded = 'false';
+    switchViewMode(activeBook, viewModeState[activeBook]);
+  }
+}
+
+function applyLanguageUI() {
+  const dict = TRANSLATION_DICT[currentLang];
+  const lTitle = document.getElementById('landing-title'); if(lTitle) lTitle.textContent = dict.landingTitle;
+  const lSub = document.getElementById('landing-subtitle'); if(lSub) lSub.textContent = dict.landingSubtitle;
+  
+  document.querySelectorAll('.lang-text').forEach(el => el.textContent = dict.langBtn);
+  
+  const kMsg = document.getElementById('kofi-banner-msg'); if(kMsg) kMsg.innerHTML = dict.kofiMsg;
+  const kBtn = document.getElementById('kofi-banner-btn'); if(kBtn) kBtn.textContent = dict.kofiBtn;
+  const kFloat = document.getElementById('kofi-float-text'); if(kFloat) kFloat.textContent = dict.kofiFloat;
+  
+  const c1T = document.getElementById('card1-title'); if(c1T) c1T.textContent = dict.card1Title;
+  const c1S = document.getElementById('card1-sub'); if(c1S) c1S.textContent = dict.card1Sub;
+  const c2T = document.getElementById('card2-title'); if(c2T) c2T.textContent = dict.card2Title;
+  const c2S = document.getElementById('card2-sub'); if(c2S) c2S.textContent = dict.card2Sub;
+  const c3T = document.getElementById('card3-title'); if(c3T) c3T.textContent = dict.card3Title;
+  const c3S = document.getElementById('card3-sub'); if(c3S) c3S.textContent = dict.card3Sub;
+  const c4T = document.getElementById('card4-title'); if(c4T) c4T.textContent = dict.card4Title;
+  const c4S = document.getElementById('card4-sub'); if(c4S) c4S.textContent = dict.card4Sub;
+  
+  document.querySelectorAll('.card-open-btn').forEach(btn => btn.textContent = dict.openBtn);
+}
+
+// ============================================================
+// INBUILT AUDIO NARRATOR ENGINE (Text-to-Speech)
+// ============================================================
+let readingNodes = [];
+let currentReadIndex = 0;
+let isSpeaking = false;
+let isPaused = false;
+let speechRate = 1.0;
+
+function updateSpeechRate(val) {
+  speechRate = parseFloat(val);
+}
+
+function updateNarratorUI(statusText) {
+  document.querySelectorAll('.narrator-status-text').forEach(el => {
+    el.textContent = statusText;
+  });
+}
+
+function getVoiceForLanguage(lang) {
+  if (!('speechSynthesis' in window)) return null;
+  const voices = window.speechSynthesis.getVoices();
+  if (lang === 'zh') {
+    return voices.find(v => v.lang.startsWith('zh') || v.lang.includes('CN') || v.lang.includes('TW')) || voices[0];
+  } else {
+    return voices.find(v => v.lang.startsWith('en')) || voices[0];
+  }
+}
+
+function speakCurrentNode() {
+  if (!('speechSynthesis' in window)) {
+    updateNarratorUI('Speech synthesis unsupported');
+    return;
+  }
+  
+  if (currentReadIndex >= readingNodes.length) {
+    stopNarrator();
+    updateNarratorUI(TRANSLATION_DICT[currentLang].ready);
+    return;
+  }
+
+  // Clear previous highlights
+  readingNodes.forEach(n => n.classList.remove('reading-highlight'));
+
+  const node = readingNodes[currentReadIndex];
+  node.classList.add('reading-highlight');
+  node.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  const rawText = (node.innerText || node.textContent).trim();
+  if (!rawText || rawText.length < 2) {
+    currentReadIndex++;
+    speakCurrentNode();
+    return;
+  }
+
+  const ut = new SpeechSynthesisUtterance(rawText);
+  ut.lang = currentLang === 'zh' ? 'zh-CN' : 'en-US';
+  const voice = getVoiceForLanguage(currentLang);
+  if (voice) ut.voice = voice;
+  ut.rate = speechRate;
+
+  ut.onend = () => {
+    if (isSpeaking && !isPaused) {
+      currentReadIndex++;
+      speakCurrentNode();
+    }
+  };
+
+  ut.onerror = (err) => {
+    console.error('Speech Synthesis Error:', err);
+    if (isSpeaking) {
+      currentReadIndex++;
+      speakCurrentNode();
+    }
+  };
+
+  updateNarratorUI(`Reading ${currentReadIndex + 1}/${readingNodes.length}`);
+  window.speechSynthesis.speak(ut);
+}
+
+function startNarrator() {
+  if (!('speechSynthesis' in window)) {
+    alert('Speech synthesis is not supported in this browser.');
+    return;
+  }
+  
+  stopNarrator();
+  
+  let activeContainer = null;
+  if (activeBook) {
+    const book = books[activeBook];
+    if (viewModeState[activeBook] === 'doc') {
+      activeContainer = document.getElementById(book.docContainerId);
+    } else {
+      activeContainer = document.getElementById(book.containerId);
+    }
+  }
+
+  if (!activeContainer) return;
+
+  readingNodes = Array.from(activeContainer.querySelectorAll('p, li, h1, h2, h3, h4, .note-content'));
+  if (readingNodes.length === 0) {
+    updateNarratorUI('No text to read');
+    return;
+  }
+
+  currentReadIndex = 0;
+  isSpeaking = true;
+  isPaused = false;
+  speakCurrentNode();
+}
+
+function pauseNarrator() {
+  if (!('speechSynthesis' in window)) return;
+  if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+    window.speechSynthesis.pause();
+    isPaused = true;
+    updateNarratorUI('Paused');
+  } else if (window.speechSynthesis.paused) {
+    window.speechSynthesis.resume();
+    isPaused = false;
+    updateNarratorUI(`Reading ${currentReadIndex + 1}/${readingNodes.length}`);
+  }
+}
+
+function stopNarrator() {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+  }
+  isSpeaking = false;
+  isPaused = false;
+  currentReadIndex = 0;
+  if (readingNodes) {
+    readingNodes.forEach(n => n.classList.remove('reading-highlight'));
+  }
+  updateNarratorUI(TRANSLATION_DICT[currentLang].ready);
+}
+
 
 // ============================================================
 // NAVIGATION & VIEW SWITCHING
@@ -798,7 +1257,8 @@ function renderMarkdownContent(container, mdText) {
       breaks: true
     });
     
-    let html = marked.parse(mdText);
+    let processedMd = translateContentText(mdText);
+    let html = marked.parse(processedMd);
     container.innerHTML = `<div class="markdown-body">${html}</div>`;
     
     // Fix relative image paths: when fetching md files from subdirectories,
@@ -844,7 +1304,7 @@ function renderMarkdownContent(container, mdText) {
       }
     }
   } else {
-    container.innerHTML = `<pre class="markdown-body">${escapeHtml(mdText)}</pre>`;
+    container.innerHTML = `<pre class="markdown-body">${escapeHtml(translateContentText(mdText))}</pre>`;
   }
 }
 
@@ -860,7 +1320,7 @@ function buildNav(bookId) {
   book.sections.forEach(sec => {
     const btn = document.createElement('button');
     btn.className = 'nav-btn' + (activeSection[bookId] === sec.id ? ' active' : '');
-    btn.textContent = sec.label;
+    btn.textContent = currentLang === 'zh' ? translateContentText(sec.label) : sec.label;
     btn.dataset.section = sec.id;
     btn.onclick = () => {
       activeSection[bookId] = sec.id;
@@ -884,27 +1344,30 @@ function renderNotes(bookId) {
   const container = document.getElementById(book.containerId);
   if (!container) return;
 
-  document.getElementById(book.countId).innerHTML = `Notes: <strong>${allNotes.length}</strong>`;
+  const dict = TRANSLATION_DICT[currentLang];
+  document.getElementById(book.countId).innerHTML = `${dict.notesCount} <strong>${allNotes.length}</strong>`;
 
   if (filtered.length === 0) {
-    container.innerHTML = '<div class="empty-state">No notes in this section yet. Click + to add one.</div>';
+    container.innerHTML = `<div class="empty-state">${currentLang==='zh'?'该分类下暂无笔记。':'No notes in this section yet.'}</div>`;
     return;
   }
 
   let html = '';
   filtered.forEach(note => {
     const tags = (note.t && note.t.length) ? `<div class="note-tags">${note.t.map(t=>`<span class="tag">#${t}</span>`).join('')}</div>` : '';
+    const noteContent = translateContentText(note.c);
     html += `<div class="note-card">
       <div class="note-header">
         <span class="ch-badge">${note.ch}</span>
         <span class="note-date">${note.d}</span>
       </div>
-      <div class="note-content">${note.c}</div>
+      <div class="note-content">${note.c ? noteContent : ''}</div>
       ${tags}
     </div>`;
   });
   container.innerHTML = html;
 }
+
 
 // ============================================================
 // MODAL
