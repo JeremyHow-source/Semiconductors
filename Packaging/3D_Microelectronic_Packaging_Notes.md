@@ -2305,6 +2305,16 @@ Although stiffener rings and lids successfully reduce visible room-temperature d
 
 ---
 
+#### 15.E.4 Section 15.3.4 — A Capped Die Approach for Warpage Control [NOTE-TAKING PAUSED]
+
+> 📌 **READING & NOTE-TAKING PAUSE POINT**:
+> - **Status**: Note-taking is explicitly **PAUSED at Section 15.3.4 — A Capped Die Approach for Warpage Control**.
+> - **Context & Accomplished Summary**: Sections 15.E.1 through 15.E.3 cover package assembly process flow, underfill freezing mechanics, conventional stiffener/lid attach methods, the quantitative $45\text{ mm} \times 45\text{ mm}$ stress trade-off matrix, the Critical Warpage-Stress Paradox, and FLI/SLI interconnect failure modes.
+> - **Next Section to Resume**: Section 15.3.4 (Capped Die Approach: silicon cap integration, pre-cure CTE balancing, and interfacial shear stress minimization).
+
+---
+
+
 ### 15.F — Thermal Stresses in Multilayered Structures (Natural Bending Theory)
 
 To rapidly evaluate thermal stresses and warpage in multi-layer 3D stacks without full 3D FEA meshes, **Natural Bending Theory** provides an exact analytical formulation based on linear elasticity and small deformation theory.
