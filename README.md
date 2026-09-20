@@ -16,6 +16,7 @@ A curated collection of technical reading notes on semiconductor engineering, fa
 | **Failure Analysis — Bâzu (2011)** | Ch. 1–8 | Reliability theory, bathtub curve, acceleration models, failure mechanisms |
 | **Reliability Technology for IC Packaging** | Ch. 1–2 | Package types, material properties, CTE, thermal/electrical fundamentals |
 | **3D Microelectronic Packaging** | Ch. 4, 6, 8–10 | TSV, micro-Raman, metal pumping, Cu microstructure, SAB, hybrid bonding, Cu sintering, TCB, process materials |
+| **Bruker QUANTAX EDS Advanced Training** | Modules 1–5 | SDD detector physics, pulse processing, beam-matter interactions, interaction volumes, specimen prep, ZAF/$\Phi(\rho z)$ matrix corrections, standardless vs standard quantification, carbon anomaly analysis |
 
 ## ☕ Support This Project
 
@@ -31,7 +32,7 @@ Every contribution helps me continue curating and expanding this semiconductor k
 
 - **Waterfall Markdown View** — Full-length, continuous reading with embedded figures, tables, and Mermaid diagrams
 - **Snippet Card View** — Quick-reference cards with search and section filtering
-- **Multiple Themes** — Dracula (default), Deep Blue, Dark Amethyst, Forest Dark, Amber/Copper
+- **Multiple Themes** — Dracula (default), Deep Blue, Dark Amethyst, Forest Dark, Amber/Copper, Electric Cyan (Bruker EDS)
 - **Technical Figures** — Generated diagrams illustrating key packaging concepts and processes
 - **Mermaid Diagrams** — Interactive flowcharts, process maps, and decision trees
 
@@ -42,7 +43,9 @@ Every contribution helps me continue curating and expanding this semiconductor k
 ├── Failure/                 # Failure analysis notes
 │   ├── FA_IC_Notes.md
 │   ├── Bazu_FA_Notes.md
-│   └── IC_Packaging_Reliability_Notes.md
+│   ├── IC_Packaging_Reliability_Notes.md
+│   ├── Bruker_EDS_Training_Notes.md
+│   └── extracted_assets/    # High-resolution EDS figures, spectra, and schematics
 ├── Packaging/               # 3D packaging notes
 │   ├── 3D_Microelectronic_Packaging_Notes.md
 │   └── figures/             # Technical figures and diagrams
