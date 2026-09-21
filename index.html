@@ -283,6 +283,80 @@ rt {
 .stats-bar{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:0.3rem;}
 .stat{font-size:0.78rem;color:var(--text2);}
 .stat strong{color:var(--accent);}
+
+/* ===== FLOATING FEEDBACK BUTTON (Bottom-Left, completely separated from Ko-fi Support on Bottom-Right) ===== */
+.feedback-float-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #1d4ed8 100%);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.88rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 24px rgba(2, 132, 199, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+  outline: none;
+}
+.feedback-float-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 10px 32px rgba(2, 132, 199, 0.6), 0 4px 12px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(135deg, #0369a1 0%, #1d4ed8 100%);
+}
+.feedback-float-btn .fb-icon {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+.feedback-float-btn .fb-text {
+  white-space: nowrap;
+}
+
+/* Modal styling improvements */
+.modal-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+.modal-close-x {
+  background: transparent;
+  border: none;
+  color: var(--text2);
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+.modal-close-x:hover {
+  color: var(--accent);
+  background: var(--tag-bg);
+}
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+@media (max-width: 600px) {
+  .form-row-2 {
+    grid-template-columns: 1fr;
+  }
+  .feedback-float-btn {
+    bottom: 16px;
+    left: 16px;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.82rem;
+  }
+}
+
 /* Add note FAB */
 .add-btn{position:fixed;bottom:2rem;right:2rem;width:54px;height:54px;border-radius:50%;background:var(--btn-act);color:var(--btn-txt);border:none;font-size:1.7rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.4);transition:transform 0.2s;z-index:50;}
 .add-btn:hover{transform:scale(1.1);}
@@ -390,6 +464,13 @@ rt {
       <button class="open-btn card-open-btn">Open Notes →</button>
     </div>
 
+
+<!-- ===== FLOATING FEEDBACK BUTTON (Always Visible, Bottom-Left) ===== -->
+<button class="feedback-float-btn" onclick="openModal(activeBook || 'fa-ic')" title="Provide Feedback, Corrections or Reader Notes">
+  <span class="fb-icon">💬</span>
+  <span class="fb-text" id="fb-float-text">Feedback & Notes</span>
+</button>
+
 <!-- ===== FLOATING KO-FI BUTTON (Always Visible) ===== -->
 <a class="kofi-float" href="https://ko-fi.com/jeremyhow" target="_blank" rel="noopener noreferrer">
   <span class="kofi-icon">☕</span>
@@ -426,7 +507,8 @@ rt {
     </div>
     <div class="viewer-controls-bar">
       <div class="control-group">
-        <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
+        <button class="control-btn" onclick="openModal(activeBook || 'fa-ic')" title="Submit feedback or save reading notes">💬 <span class="fb-toolbar-text">Feedback (反馈)</span></button>
+      <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
       </div>
       <div class="control-group">
         <button class="control-btn" onclick="startNarrator()" title="Read content aloud">▶ <span class="narrator-play-text">朗读 (Read Aloud)</span></button>
@@ -446,7 +528,7 @@ rt {
   </div>
   <div class="notes-container" id="faic-container"></div>
   <div class="markdown-container" id="faic-doc-container"></div>
-  <button class="add-btn" onclick="openModal('fa-ic')" title="Add Note">+</button>
+  
 </div>
 
 <!-- ===== VIEWER: BAZU ===== -->
@@ -479,7 +561,8 @@ rt {
     </div>
     <div class="viewer-controls-bar">
       <div class="control-group">
-        <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
+        <button class="control-btn" onclick="openModal(activeBook || 'fa-ic')" title="Submit feedback or save reading notes">💬 <span class="fb-toolbar-text">Feedback (反馈)</span></button>
+      <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
       </div>
       <div class="control-group">
         <button class="control-btn" onclick="startNarrator()" title="Read content aloud">▶ <span class="narrator-play-text">朗读 (Read Aloud)</span></button>
@@ -499,7 +582,7 @@ rt {
   </div>
   <div class="notes-container" id="bazu-container"></div>
   <div class="markdown-container" id="bazu-doc-container"></div>
-  <button class="add-btn" onclick="openModal('bazu')" title="Add Note">+</button>
+  
 </div>
 
 <!-- ===== VIEWER: PACKAGING ===== -->
@@ -532,7 +615,8 @@ rt {
     </div>
     <div class="viewer-controls-bar">
       <div class="control-group">
-        <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
+        <button class="control-btn" onclick="openModal(activeBook || 'fa-ic')" title="Submit feedback or save reading notes">💬 <span class="fb-toolbar-text">Feedback (反馈)</span></button>
+      <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
       </div>
       <div class="control-group">
         <button class="control-btn" onclick="startNarrator()" title="Read content aloud">▶ <span class="narrator-play-text">朗读 (Read Aloud)</span></button>
@@ -552,7 +636,7 @@ rt {
   </div>
   <div class="notes-container" id="pkg-container"></div>
   <div class="markdown-container" id="pkg-doc-container"></div>
-  <button class="add-btn" onclick="openModal('packaging')" title="Add Note">+</button>
+  
 </div>
 
 <!-- ===== VIEWER: 3D PACKAGING ===== -->
@@ -585,7 +669,8 @@ rt {
     </div>
     <div class="viewer-controls-bar">
       <div class="control-group">
-        <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
+        <button class="control-btn" onclick="openModal(activeBook || 'fa-ic')" title="Submit feedback or save reading notes">💬 <span class="fb-toolbar-text">Feedback (反馈)</span></button>
+      <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
       </div>
       <div class="control-group">
         <button class="control-btn" onclick="startNarrator()" title="Read content aloud">▶ <span class="narrator-play-text">朗读 (Read Aloud)</span></button>
@@ -605,7 +690,7 @@ rt {
   </div>
   <div class="notes-container" id="pkg3d-container"></div>
   <div class="markdown-container" id="pkg3d-doc-container"></div>
-  <button class="add-btn" onclick="openModal('3d')" title="Add Note">+</button>
+  
 </div>
 
 
@@ -641,7 +726,8 @@ rt {
     </div>
     <div class="viewer-controls-bar">
       <div class="control-group">
-        <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
+        <button class="control-btn" onclick="openModal(activeBook || 'fa-ic')" title="Submit feedback or save reading notes">💬 <span class="fb-toolbar-text">Feedback (反馈)</span></button>
+      <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
       </div>
       <div class="control-group">
         <button class="control-btn" onclick="startNarrator()" title="Read content aloud">▶ <span class="narrator-play-text">朗读 (Read Aloud)</span></button>
@@ -661,32 +747,78 @@ rt {
   </div>
   <div class="notes-container" id="eds-container"></div>
   <div class="markdown-container" id="eds-doc-container"></div>
-  <button class="add-btn" onclick="openModal('bruker-eds')" title="Add Note">+</button>
+  
 </div>
 
-<!-- ===== SHARED MODAL ===== -->
+<!-- ===== SHARED COMPREHENSIVE FEEDBACK & NOTES MODAL ===== -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
-    <h3>Add New Note</h3>
-    <div class="form-group">
-      <label>Section</label>
-      <select id="noteSection"></select>
+    <div class="modal-header-row">
+      <div style="display:flex;align-items:center;gap:0.6rem;">
+        <span style="font-size:1.4rem;">💬</span>
+        <div>
+          <h3 style="margin:0;font-size:1.15rem;color:var(--accent);">Feedback & Reader Notes</h3>
+          <div style="font-size:0.75rem;color:var(--text2);margin-top:2px;">意见反馈、技术勘误与读书笔记</div>
+        </div>
+      </div>
+      <button class="modal-close-x" onclick="closeModal()" title="Close">✕</button>
     </div>
+
     <div class="form-group">
-      <label>Chapter</label>
-      <input type="text" id="noteChapter" placeholder="e.g. Ch.5">
+      <label>Feedback Category / 反馈类型</label>
+      <select id="feedbackType">
+        <option value="correction">🐛 Typo / Technical Error Correction (勘误与内容修正)</option>
+        <option value="suggestion">💡 Content Suggestion / Deep Insight (内容补充与技术见解)</option>
+        <option value="question">❓ Question / Technical Discussion (技术疑问与讨论)</option>
+        <option value="note">📝 Personal Study Note (个人阅读笔记)</option>
+      </select>
     </div>
+
+    <div class="form-row-2">
+      <div class="form-group">
+        <label>Literature / 涉及书目与模块</label>
+        <select id="noteBook" onchange="onModalBookChange(this.value)">
+          <option value="fa-ic">Failure Analysis of ICs</option>
+          <option value="bazu">Failure Analysis (Bâzu 2011)</option>
+          <option value="packaging">IC Packaging Reliability</option>
+          <option value="3d">3D Microelectronic Packaging</option>
+          <option value="bruker-eds">Bruker QUANTAX EDS Advanced Training</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Section / 章节分类</label>
+        <select id="noteSection"></select>
+      </div>
+    </div>
+
+    <div class="form-row-2">
+      <div class="form-group">
+        <label>Chapter / Specific Topic (e.g. Ch.5, Mod.2, Slide 45)</label>
+        <input type="text" id="noteChapter" placeholder="e.g. Ch.5, Mod.2, or Page 120">
+      </div>
+      <div class="form-group">
+        <label>Your Name / Handle (Optional / 姓名或联系方式)</label>
+        <input type="text" id="feedbackAuthor" placeholder="e.g. @engineer or email">
+      </div>
+    </div>
+
     <div class="form-group">
-      <label>Note Content</label>
-      <textarea id="noteContent" placeholder="Enter your note here..."></textarea>
+      <label>Detailed Feedback / Notes / 详细反馈与笔记内容 <span style="color:#f43f5e;">*</span></label>
+      <textarea id="noteContent" placeholder="Describe the specific page, section, technical inaccuracy, suggested addition, or personal note in detail..."></textarea>
     </div>
+
     <div class="form-group">
-      <label>Tags (comma-separated)</label>
-      <input type="text" id="noteTags" placeholder="e.g. HCI, MOSFET, reliability">
+      <label>Tags / 标签 (comma-separated)</label>
+      <input type="text" id="noteTags" placeholder="e.g. EDS, SDD, ZAF, calibration, typo">
     </div>
-    <div class="modal-actions">
-      <button class="btn-secondary" onclick="closeModal()">Cancel</button>
-      <button class="btn-primary" onclick="saveNote()">Add Note</button>
+
+    <div class="modal-actions" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.6rem;">
+      <button class="btn-secondary" onclick="closeModal()">Cancel (取消)</button>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+        <button class="btn-secondary" onclick="copyFeedbackMarkdown()" title="Copy formatted feedback markdown to clipboard">📋 Copy Details</button>
+        <button class="btn-primary" onclick="submitGitHubIssue()" title="Open pre-filled GitHub Issue with these details" style="background:#2563eb;color:#fff;">🚀 Submit on GitHub</button>
+        <button class="btn-primary" onclick="saveNote()" title="Save to local browser notes">💾 Save to Notes</button>
+      </div>
     </div>
   </div>
 </div>
@@ -1895,40 +2027,147 @@ function renderNotes(bookId) {
 // MODAL
 // ============================================================
 let modalBook = null;
+// ============================================================
+// MODAL & FEEDBACK FUNCTIONS
+// ============================================================
+const GITHUB_REPO_URL = 'https://github.com/JeremyHow-source/Semiconductors';
+
 function openModal(bookId) {
-  modalBook = bookId;
-  const book = books[bookId];
-  const sel = document.getElementById('noteSection');
-  sel.innerHTML = book.modalSections.map(s => `<option value="${s.id}">${s.label}</option>`).join('');
+  modalBook = bookId || activeBook || 'bruker-eds';
+  const bookSelect = document.getElementById('noteBook');
+  if (bookSelect) {
+    bookSelect.value = modalBook;
+  }
+  updateModalSectionOptions(modalBook);
   document.getElementById('noteChapter').value = '';
   document.getElementById('noteContent').value = '';
   document.getElementById('noteTags').value = '';
+  document.getElementById('feedbackAuthor').value = localStorage.getItem('reader_feedback_author') || '';
   document.getElementById('modalOverlay').classList.add('show');
 }
+
 function closeModal() {
   document.getElementById('modalOverlay').classList.remove('show');
-  modalBook = null;
 }
-function saveNote() {
+
+function onModalBookChange(bookId) {
+  modalBook = bookId;
+  updateModalSectionOptions(bookId);
+}
+
+function updateModalSectionOptions(bookId) {
+  const sectionSelect = document.getElementById('noteSection');
+  if (!sectionSelect) return;
+  sectionSelect.innerHTML = '';
+  const book = books[bookId];
+  if (book && book.modalSections) {
+    book.modalSections.forEach(s => {
+      const opt = document.createElement('option');
+      opt.value = s.id;
+      opt.textContent = s.label;
+      sectionSelect.appendChild(opt);
+    });
+  }
+}
+
+function getFeedbackPayload() {
+  const category = document.getElementById('feedbackType').value;
+  const bookId = document.getElementById('noteBook').value;
+  const sectionId = document.getElementById('noteSection').value;
+  const sectionLabel = document.getElementById('noteSection').selectedOptions[0]?.textContent || sectionId;
+  const chapter = document.getElementById('noteChapter').value.trim() || 'General';
+  const author = document.getElementById('feedbackAuthor').value.trim() || 'Anonymous Reader';
   const content = document.getElementById('noteContent').value.trim();
-  if (!content || !modalBook) return;
-  const book = books[modalBook];
+  const tags = document.getElementById('noteTags').value.split(',').map(t=>t.trim()).filter(Boolean);
+  
+  if (author) {
+    localStorage.setItem('reader_feedback_author', author);
+  }
+
+  const categoryNames = {
+    'correction': '🐛 Bug / Technical Correction',
+    'suggestion': '💡 Content Suggestion',
+    'question': '❓ Technical Question',
+    'note': '📝 Study Note'
+  };
+
+  const formattedMarkdown = `### ${categoryNames[category] || 'Reader Feedback'}
+- **Literature**: ${bookId}
+- **Section**: ${sectionLabel}
+- **Chapter / Reference**: ${chapter}
+- **Submitted by**: ${author}
+- **Date**: ${new Date().toISOString().split('T')[0]}
+${tags.length ? '- **Tags**: ' + tags.join(', ') : ''}
+
+#### Details & Feedback:
+${content}
+`;
+
+  return { category, bookId, sectionId, sectionLabel, chapter, author, content, tags, formattedMarkdown };
+}
+
+function copyFeedbackMarkdown() {
+  const payload = getFeedbackPayload();
+  if (!payload.content) {
+    alert('Please enter your feedback details before copying.');
+    return;
+  }
+  navigator.clipboard.writeText(payload.formattedMarkdown).then(() => {
+    showToast('Feedback details copied to clipboard! 📋');
+  }).catch(() => {
+    showToast('Feedback copied!');
+  });
+}
+
+function submitGitHubIssue() {
+  const payload = getFeedbackPayload();
+  if (!payload.content) {
+    alert('Please enter your feedback details before submitting.');
+    return;
+  }
+  
+  const title = `[Feedback] ${payload.bookId} - ${payload.chapter}: ${payload.category}`;
+  const issueUrl = `${GITHUB_REPO_URL}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(payload.formattedMarkdown)}`;
+  window.open(issueUrl, '_blank', 'noopener,noreferrer');
+  
+  showToast('Opening GitHub Issue creation page... 🚀');
+  closeModal();
+}
+
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  if (toast) {
+    toast.textContent = msg || 'Note saved';
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2800);
+  }
+}
+
+function saveNote() {
+  const payload = getFeedbackPayload();
+  if (!payload.content) {
+    alert('Please enter note content.');
+    return;
+  }
+  const book = books[payload.bookId];
+  if (!book) return;
   const userNotes = JSON.parse(localStorage.getItem(book.storageKey) || '[]');
   const newNote = {
-    s: document.getElementById('noteSection').value,
-    ch: document.getElementById('noteChapter').value || 'Ch.',
+    s: payload.sectionId,
+    ch: payload.chapter,
     d: new Date().toISOString().split('T')[0],
-    t: document.getElementById('noteTags').value.split(',').map(t=>t.trim()).filter(Boolean),
-    c: content
+    t: payload.tags.length ? payload.tags : [payload.category],
+    c: (payload.author !== 'Anonymous Reader' ? `[${payload.author}] ` : '') + payload.content
   };
   userNotes.push(newNote);
   localStorage.setItem(book.storageKey, JSON.stringify(userNotes));
   closeModal();
-  renderNotes(modalBook);
-  const toast = document.getElementById('toast');
-  toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 2500);
+  if (activeBook === payload.bookId) {
+    renderNotes(payload.bookId);
+  }
+  showToast('Note saved to local reading collection! 💾');
 }
+
 document.getElementById('modalOverlay').addEventListener('click', e => { if(e.target===e.currentTarget) closeModal(); });
 </script>
 </body>
