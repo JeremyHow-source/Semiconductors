@@ -9,12 +9,12 @@
 ---
 
 ## 全书总目录 / Master Table of Contents
-1. [模块一：QUANTAX EDS 硬件系统及工作原理 / Hardware System & Principles](#module-1-quantax-eds-硬件系统及工作原理)
-2. [模块二：一、EDS 分析原理及分析技术 / Principles & Analytical Techniques](#module-2-一eds-分析原理及分析技术)
-3. [模块三：二、EDS 分析对试样的要求及试样制备 / Specimen Requirements & Preparation](#module-3-二eds-分析对试样的要求及试样制备)
-4. [模块四：三、EDS 定量分析方法与分析误差 / Quantitative Analysis & Errors](#module-4-三eds-定量分析方法与分析误差)
-5. [模块五：碳元素异常分析及微区分析疑难解答 / Carbon Anomaly FAQ](#module-5-碳元素异常分析及微区分析疑难问题解答)
-6. [附录：核心微束分析技术术语总览 / Master Technical Glossary](#附录核心微束分析技术术语总览--master-technical-glossary)
+1. [模块一：QUANTAX EDS 硬件系统及工作原理 / Hardware System & Principles](#module-1)
+2. [模块二：一、EDS 分析原理及分析技术 / Principles & Analytical Techniques](#module-2)
+3. [模块三：二、EDS 分析对试样的要求及试样制备 / Specimen Requirements & Preparation](#module-3)
+4. [模块四：三、EDS 定量分析方法与分析误差 / Quantitative Analysis & Errors](#module-4)
+5. [模块五：碳元素异常分析及微区分析疑难解答 / Carbon Anomaly FAQ](#module-5)
+6. [附录：核心微束分析技术术语总览 / Master Technical Glossary](#master-glossary)
 
 ---
 
@@ -23,22 +23,26 @@
 
 ---
 
+<span id="module-1"></span>
+<span id="module-1-quantax-eds-硬件系统及工作原理"></span>
 # Module 1: QUANTAX EDS 硬件系统及工作原理
 # QUANTAX EDS Hardware System and Working Principles
 
 ---
 
 ## 目录 / Table of Contents
-1. [系统整体构成 / Overall System Architecture](#1-系统整体构成--overall-system-architecture)
-2. [SDD 硅漂移探测器结构与原理 / SDD Detector Structure & Operating Principles](#2-sdd-硅漂移探测器结构与原理--sdd-detector-structure--operating-principles)
-3. [混合脉冲处理器 (SVE) 与信号链 / SVE Hybrid Pulse Processor & Signal Chain](#3-混合脉冲处理器-sve-与信号链--sve-hybrid-pulse-processor--signal-chain)
-4. [工作站 PC 与扫描控制单元 (SCU / I/O Scan-Card)](#4-工作站-pc-与扫描控制单元-scu--io-scan-card)
-5. [常见问题、故障排查与维护保养 / FAQs & Maintenance](#5-常见问题故障排查与维护保养--faqs--maintenance)
-6. [能量轴校准操作指南 / Energy Axis Calibration Guide](#6-能量轴校准操作指南--energy-axis-calibration-guide)
-7. [关键技术术语对照表 / Key Technical Glossary](#7-关键技术术语对照表--key-technical-glossary)
+1. [系统整体构成 / Overall System Architecture](#mod1-sec1)
+2. [SDD 硅漂移探测器结构与原理 / SDD Detector Structure & Operating Principles](#mod1-sec2)
+3. [混合脉冲处理器 (SVE) 与信号链 / SVE Hybrid Pulse Processor & Signal Chain](#mod1-sec3)
+4. [工作站 PC 与扫描控制单元 (SCU / I/O Scan-Card)](#mod1-sec4)
+5. [常见问题、故障排查与维护保养 / FAQs & Maintenance](#mod1-sec5)
+6. [能量轴校准操作指南 / Energy Axis Calibration Guide](#mod1-sec6)
+7. [关键技术术语对照表 / Key Technical Glossary](#mod1-sec7)
 
 ---
 
+<span id="mod1-sec1"></span>
+<span id="1-系统整体构成--overall-system-architecture"></span>
 ## 1. 系统整体构成 / Overall System Architecture
 
 ![Slide 3: EDS System Architecture](extracted_assets/module_01_hardware/slides/slide_003.png)
@@ -88,6 +92,8 @@ Signal Transduction and Processing Chain:
 
 ---
 
+<span id="mod1-sec2"></span>
+<span id="2-sdd-硅漂移探测器结构与原理--sdd-detector-structure--operating-principles"></span>
 ## 2. SDD 硅漂移探测器结构与原理 / SDD Detector Structure & Operating Principles
 
 ![Slide 6 & 7: Detector Collimator & Front End](extracted_assets/module_01_hardware/slides/slide_007.png)
@@ -190,6 +196,8 @@ The Silicon Drift Detector (SDD) utilizes a concentric ring electrode geometry:
 
 ---
 
+<span id="mod1-sec3"></span>
+<span id="3-混合脉冲处理器-sve-与信号链--sve-hybrid-pulse-processor--signal-chain"></span>
 ## 3. 混合脉冲处理器 (SVE) 与信号链 / SVE Hybrid Pulse Processor & Signal Chain
 
 ![Slide 10: Multichannel Pulse Processing](extracted_assets/module_01_hardware/slides/slide_010.png)
@@ -278,6 +286,8 @@ Maximum Input Count Rate (ICR) reaches up to 1,500,000 cps (1,500 kcps) with Out
 
 ---
 
+<span id="mod1-sec4"></span>
+<span id="4-工作站-pc-与扫描控制单元-scu--io-scan-card"></span>
 ## 4. 工作站 PC 与扫描控制单元 (SCU / I/O Scan-Card)
 
 ![Slide 13 & 14: PC Workstation and Scan Card](extracted_assets/module_01_hardware/slides/slide_014.png)
@@ -309,6 +319,8 @@ Equipped with ESPRIT software (ESPRIT 1.9 / 2.0) containing comprehensive fundam
 
 ---
 
+<span id="mod1-sec5"></span>
+<span id="5-常见问题故障排查与维护保养--faqs--maintenance"></span>
 ## 5. 常见问题、故障排查与维护保养 / FAQs & Maintenance
 
 ![Slide 16: Sudden Drop in Count Rate](extracted_assets/module_01_hardware/slides/slide_016.png)
@@ -419,6 +431,8 @@ Third-party aggressive antivirus software can intercept kernel PCIe/USB interrup
 
 ---
 
+<span id="mod1-sec6"></span>
+<span id="6-能量轴校准操作指南--energy-axis-calibration-guide"></span>
 ## 6. 能量轴校准操作指南 / Energy Axis Calibration Guide
 
 ![Slide 27 & 28: Calibration Threshold & ESPRIT 1.9 Procedure](extracted_assets/module_01_hardware/slides/slide_028.png)
@@ -492,6 +506,8 @@ Standard Operating Procedure (SOP) for Calibration:
 
 ---
 
+<span id="mod1-sec7"></span>
+<span id="7-关键技术术语对照表--key-technical-glossary"></span>
 ## 7. 关键技术术语对照表 / Key Technical Glossary
 
 | 中文术语 (Chinese) | 汉语拼音 (Hanyu Pinyin) | 英文术语 (English) | 技术释义 (Technical Definition) |
@@ -513,25 +529,29 @@ Standard Operating Procedure (SOP) for Calibration:
 
 ---
 
+<span id="module-2"></span>
+<span id="module-2-一eds-分析原理及分析技术"></span>
 # Module 2: 一、EDS 分析原理及分析技术
 # Module 2: EDS Analytical Principles and Analytical Techniques
 
 ---
 
 ## 目录 / Table of Contents
-1. [SEM/EDS 物理信号与特征 X 射线激发原理 / Physics of SEM Signals & Characteristic X-rays](#1-semeds-物理信号与特征-x-射线激发原理--physics-of-sem-signals--characteristic-x-rays)
-2. [连续 X 射线（韧致辐射）与谱峰伪像 / Continuum X-rays & Spectral Artifacts](#2-连续-x-射线韧致辐射与谱峰伪像--continuum-x-rays--spectral-artifacts)
-3. [扫描电镜 (SEM) 性能对能谱定量结果的影响 / SEM Performance Impact on EDS Results](#3-扫描电镜-sem-性能对能谱定量结果的影响--sem-performance-impact-on-eds-results)
-4. [环境电镜 (ESEM) 与低真空电镜 (LV-SEM) 的气体裙散效应 / Gas Skirt Scattering in ESEM & LV-SEM](#4-环境电镜-esem-与低真空电镜-lv-sem-的气体裙散效应--gas-skirt-scattering-in-esem--lv-sem)
-5. [能谱仪 (EDS) 的演进与 SDD 技术飞跃 / Evolution of EDS & SDD Innovations](#5-能谱仪-eds-的演进与-sdd-技术飞跃--evolution-of-eds--sdd-innovations)
-6. [SEM/EDS 分析的主要核心特点 / Core Features of SEM/EDS Microanalysis](#6-semeds-分析的主要核心特点--core-features-of-semeds-microanalysis)
-7. [EDS 关键分析条件的选择准则 / Selection Rules for Optimal Analytical Conditions](#7-eds-关键分析条件的选择准则--selection-rules-for-optimal-analytical-conditions)
-8. [激发体积、空间分辨率与低电压分析技术 / Interaction Volume, Spatial Resolution & Low-kV Techniques](#8-激发体积空间分辨率与低电压分析技术--interaction-volume-spatial-resolution--low-kv-techniques)
-9. [光束束流、活时间与死时间优化 / Beam Current, Live Time & Dead Time Optimization](#9-光束束流活时间与死时间优化--beam-current-live-time--dead-time-optimization)
-10. [关键技术术语对照表 / Key Technical Glossary](#10-关键技术术语对照表--key-technical-glossary)
+1. [SEM/EDS 物理信号与特征 X 射线激发原理 / Physics of SEM Signals & Characteristic X-rays](#mod2-sec1)
+2. [连续 X 射线（韧致辐射）与谱峰伪像 / Continuum X-rays & Spectral Artifacts](#mod2-sec2)
+3. [扫描电镜 (SEM) 性能对能谱定量结果的影响 / SEM Performance Impact on EDS Results](#mod2-sec3)
+4. [环境电镜 (ESEM) 与低真空电镜 (LV-SEM) 的气体裙散效应 / Gas Skirt Scattering in ESEM & LV-SEM](#mod2-sec4)
+5. [能谱仪 (EDS) 的演进与 SDD 技术飞跃 / Evolution of EDS & SDD Innovations](#mod2-sec5)
+6. [SEM/EDS 分析的主要核心特点 / Core Features of SEM/EDS Microanalysis](#mod2-sec6)
+7. [EDS 关键分析条件的选择准则 / Selection Rules for Optimal Analytical Conditions](#mod2-sec7)
+8. [激发体积、空间分辨率与低电压分析技术 / Interaction Volume, Spatial Resolution & Low-kV Techniques](#mod2-sec8)
+9. [光束束流、活时间与死时间优化 / Beam Current, Live Time & Dead Time Optimization](#mod2-sec9)
+10. [关键技术术语对照表 / Key Technical Glossary](#mod2-sec10)
 
 ---
 
+<span id="mod2-sec1"></span>
+<span id="1-semeds-物理信号与特征-x-射线激发原理--physics-of-sem-signals--characteristic-x-rays"></span>
 ## 1. SEM/EDS 物理信号与特征 X 射线激发原理 / Physics of SEM Signals & Characteristic X-rays
 
 ![Slide 4 & 6: Electron-Matter Interactions & Emission Signals](extracted_assets/module_02_principles/slides/slide_006.png)
@@ -621,6 +641,8 @@ Atomic Shell De-excitation and Moseley's Law:
 
 ---
 
+<span id="mod2-sec2"></span>
+<span id="2-连续-x-射线韧致辐射与谱峰伪像--continuum-x-rays--spectral-artifacts"></span>
 ## 2. 连续 X 射线（韧致辐射）与谱峰伪像 / Continuum X-rays & Spectral Artifacts
 
 ![Slide 25 & 27: Continuous Spectrum & Duane-Hunt Limit](extracted_assets/module_02_principles/slides/slide_027.png)
@@ -693,6 +715,8 @@ Diagnostic Identification of Spectral Artifacts:
 
 ---
 
+<span id="mod2-sec3"></span>
+<span id="3-扫描电镜-sem-性能对能谱定量结果的影响--sem-performance-impact-on-eds-results"></span>
 ## 3. 扫描电镜 (SEM) 性能对能谱定量结果的影响 / SEM Performance Impact on EDS Results
 
 ![Slide 44-46: SEM Electron Guns - W vs LaB6 vs FEG](extracted_assets/module_02_principles/slides/slide_046.png)
@@ -733,6 +757,8 @@ Impact of SEM Electron Source Architecture on Quantitative EDS:
 
 ---
 
+<span id="mod2-sec4"></span>
+<span id="4-环境电镜-esem-与低真空电镜-lv-sem-的气体裙散效应--gas-skirt-scattering-in-esem--lv-sem"></span>
 ## 4. 环境电镜 (ESEM) 与低真空电镜 (LV-SEM) 的气体裙散效应 / Gas Skirt Scattering in ESEM & LV-SEM
 
 ![Slide 49-52: ESEM Gas Skirt Scattering and Analytical Distortion](extracted_assets/module_02_principles/slides/slide_052.png)
@@ -776,6 +802,8 @@ The Gas Skirt Phenomenon in ESEM and Low-Vacuum SEM:
 
 ---
 
+<span id="mod2-sec5"></span>
+<span id="5-能谱仪-eds-的演进与-sdd-技术飞跃--evolution-of-eds--sdd-innovations"></span>
 ## 5. 能谱仪 (EDS) 的演进与 SDD 技术飞跃 / Evolution of EDS & SDD Innovations
 
 ![Slide 59-64: SDD Revolution & Large Solid Angle Geometries](extracted_assets/module_02_principles/slides/slide_064.png)
@@ -816,6 +844,8 @@ The Technological Paradigm Shift from Si(Li) to Silicon Drift Detectors (SDD):
 
 ---
 
+<span id="mod2-sec6"></span>
+<span id="6-semeds-分析的主要核心特点--core-features-of-semeds-microanalysis"></span>
 ## 6. SEM/EDS 分析的主要核心特点 / Core Features of SEM/EDS Microanalysis
 
 ![Slide 66-73: Capabilities, Detection Limits & Microstructural Analysis](extracted_assets/module_02_principles/slides/slide_073.png)
@@ -859,6 +889,8 @@ Four Cardinal Pillars of Modern SEM/EDS Microanalysis:
 
 ---
 
+<span id="mod2-sec7"></span>
+<span id="7-eds-关键分析条件的选择准则--selection-rules-for-optimal-analytical-conditions"></span>
 ## 7. EDS 关键分析条件的选择准则 / Selection Rules for Optimal Analytical Conditions
 
 ![Slide 78-83: Accelerating Voltage Selection & Overvoltage Ratio](extracted_assets/module_02_principles/slides/slide_083.png)
@@ -902,6 +934,8 @@ Golden Rules for SEM Accelerating Voltage Selection:
 
 ---
 
+<span id="mod2-sec8"></span>
+<span id="8-激发体积空间分辨率与低电压分析技术--interaction-volume-spatial-resolution--low-kv-techniques"></span>
 ## 8. 激发体积、空间分辨率与低电压分析技术 / Interaction Volume, Spatial Resolution & Low-kV Techniques
 
 ![Slide 86-94: Monte Carlo Simulations of Interaction Volume](extracted_assets/module_02_principles/slides/slide_094.png)
@@ -977,6 +1011,8 @@ Nanoscale Spatial Resolution Strategies via Low-kV EDS:
 
 ---
 
+<span id="mod2-sec9"></span>
+<span id="9-光束束流活时间与死时间优化--beam-current-live-time--dead-time-optimization"></span>
 ## 9. 光束束流、活时间与死时间优化 / Beam Current, Live Time & Dead Time Optimization
 
 ![Slide 111-115: Dead Time, Live Time & Working Distance Calibration](extracted_assets/module_02_principles/slides/slide_115.png)
@@ -1032,6 +1068,8 @@ Temporal and Geometric Parameters for Quantitative Rigor:
 
 ---
 
+<span id="mod2-sec10"></span>
+<span id="10-关键技术术语对照表--key-technical-glossary"></span>
 ## 10. 关键技术术语对照表 / Key Technical Glossary
 
 | 中文术语 (Chinese) | 汉语拼音 (Hanyu Pinyin) | 英文术语 (English) | 技术释义 (Technical Definition) |
@@ -1052,23 +1090,27 @@ Temporal and Geometric Parameters for Quantitative Rigor:
 
 ---
 
+<span id="module-3"></span>
+<span id="module-3-二eds-分析对试样的要求及试样制备"></span>
 # Module 3: 二、EDS 分析对试样的要求及试样制备
 # Module 3: Specimen Requirements and Specimen Preparation for EDS Analysis
 
 ---
 
 ## 目录 / Table of Contents
-1. [准确定量对分析试样的五大核心要求 / Five Cardinal Specimen Requirements](#1-准确定量对分析试样的五大核心要求--five-cardinal-specimen-requirements)
-2. [绝缘试样的荷电效应物理机制与诊断 / Physics & Diagnostics of Specimen Charging](#2-绝缘试样的荷电效应物理机制与诊断--physics--diagnostics-of-specimen-charging)
-3. [导电镀膜技术与碳膜 (C-Coating) 的必然性 / Conductive Coating & Why Carbon is Mandatory](#3-导电镀膜技术与碳膜-c-coating-的必然性--conductive-coating--why-carbon-is-mandatory)
-4. [试样装载、导电粘结与粉末团聚防范 / Mounting, Conductive Adhesives & Powder Dispersion](#4-试样装载导电粘结与粉末团聚防范--mounting-conductive-adhesives--powder-dispersion)
-5. [试样表面平整度、粗糙度与 X 射线检出角 / Surface Flatness, Roughness & Take-off Angle](#5-试样表面平整度粗糙度与-x-射线检出角--surface-flatness-roughness--take-off-angle)
-6. [传统金相研磨抛光与真空镶嵌工艺 / Metallographic Polishing & Vacuum Embedding](#6-传统金相研磨抛光与真空镶嵌工艺--metallographic-polishing--vacuum-embedding)
-7. [先进氩离子束截面抛光技术 (BIB / CP) / Broad Ion Beam (BIB) Cross-Section Polishing](#7-先进氩离子束截面抛光技术-bib--cp--broad-ion-beam-bib-cross-section-polishing)
-8. [关键技术术语对照表 / Key Technical Glossary](#8-关键技术术语对照表--key-technical-glossary)
+1. [准确定量对分析试样的五大核心要求 / Five Cardinal Specimen Requirements](#mod3-sec1)
+2. [绝缘试样的荷电效应物理机制与诊断 / Physics & Diagnostics of Specimen Charging](#mod3-sec2)
+3. [导电镀膜技术与碳膜 (C-Coating) 的必然性 / Conductive Coating & Why Carbon is Mandatory](#mod3-sec3)
+4. [试样装载、导电粘结与粉末团聚防范 / Mounting, Conductive Adhesives & Powder Dispersion](#mod3-sec4)
+5. [试样表面平整度、粗糙度与 X 射线检出角 / Surface Flatness, Roughness & Take-off Angle](#mod3-sec5)
+6. [传统金相研磨抛光与真空镶嵌工艺 / Metallographic Polishing & Vacuum Embedding](#mod3-sec6)
+7. [先进氩离子束截面抛光技术 (BIB / CP) / Broad Ion Beam (BIB) Cross-Section Polishing](#mod3-sec7)
+8. [关键技术术语对照表 / Key Technical Glossary](#mod3-sec8)
 
 ---
 
+<span id="mod3-sec1"></span>
+<span id="1-准确定量对分析试样的五大核心要求--five-cardinal-specimen-requirements"></span>
 ## 1. 准确定量对分析试样的五大核心要求 / Five Cardinal Specimen Requirements
 
 ![Slide 3-7: Five Core Specimen Requirements](extracted_assets/module_03_samples/slides/slide_003.png)
@@ -1115,6 +1157,8 @@ Five Cardinal Specimen Requirements for Quantitative EDS:
 
 ---
 
+<span id="mod3-sec2"></span>
+<span id="2-绝缘试样的荷电效应物理机制与诊断--physics--diagnostics-of-specimen-charging"></span>
 ## 2. 绝缘试样的荷电效应物理机制与诊断 / Physics & Diagnostics of Specimen Charging
 
 ![Slide 8-12: Charge Balance & Charging Phenomena](extracted_assets/module_03_samples/slides/slide_008.png)
@@ -1170,6 +1214,8 @@ In non-conductive ceramics, glasses, minerals, and polymers, the conduction path
 
 ---
 
+<span id="mod3-sec3"></span>
+<span id="3-导电镀膜技术与碳膜-c-coating-的必然性--conductive-coating--why-carbon-is-mandatory"></span>
 ## 3. 导电镀膜技术与碳膜 (C-Coating) 的必然性 / Conductive Coating & Why Carbon is Mandatory
 
 ![Slide 15-21: Conductive Carbon Coating vs Metal Sputtering](extracted_assets/module_03_samples/slides/slide_020.png)
@@ -1222,6 +1268,8 @@ Why High-Purity Carbon Evaporation is Mandatory for Quantitative EDS (Prohibitin
 
 ---
 
+<span id="mod3-sec4"></span>
+<span id="4-试样装载导电粘结与粉末团聚防范--mounting-conductive-adhesives--powder-dispersion"></span>
 ## 4. 试样装载、导电粘结与粉末团聚防范 / Mounting, Conductive Adhesives & Powder Dispersion
 
 ![Slide 22-25: Specimen Mounting & Powder Dispersion](extracted_assets/module_03_samples/slides/slide_025.png)
@@ -1262,6 +1310,8 @@ Standardized Specimen Mounting and Grounding Protocols:
 
 ---
 
+<span id="mod3-sec5"></span>
+<span id="5-试样表面平整度粗糙度与-x-射线检出角--surface-flatness-roughness--take-off-angle"></span>
 ## 5. 试样表面平整度、粗糙度与 X 射线检出角 / Surface Flatness, Roughness & Take-off Angle
 
 ![Slide 28-31: X-ray Take-off Angle & Rough Surface Shadowing](extracted_assets/module_03_samples/slides/slide_030.png)
@@ -1308,6 +1358,8 @@ Geometric Physics of X-ray Take-off Angle (ψ) and Rough Surface Shadowing:
 
 ---
 
+<span id="mod3-sec6"></span>
+<span id="6-传统金相研磨抛光与真空镶嵌工艺--metallographic-polishing--vacuum-embedding"></span>
 ## 6. 传统金相研磨抛光与真空镶嵌工艺 / Metallographic Polishing & Vacuum Embedding
 
 ![Slide 38-42: Metallographic Grinding, Polishing & Vacuum Impregnation](extracted_assets/module_03_samples/slides/slide_038.png)
@@ -1359,6 +1411,8 @@ Standard Metallographic Specimen Preparation Protocol:
 
 ---
 
+<span id="mod3-sec7"></span>
+<span id="7-先进氩离子束截面抛光技术-bib--cp--broad-ion-beam-bib-cross-section-polishing"></span>
 ## 7. 先进氩离子束截面抛光技术 (BIB / CP) / Broad Ion Beam (BIB) Cross-Section Polishing
 
 ![Slide 44-48: Broad Ion Beam (BIB) Cross-Section Polishing Comparison](extracted_assets/module_03_samples/slides/slide_048.png)
@@ -1407,6 +1461,8 @@ Broad Ion Beam (BIB / CP) Cross-Sectioning Technology:
 
 ---
 
+<span id="mod3-sec8"></span>
+<span id="8-关键技术术语对照表--key-technical-glossary"></span>
 ## 8. 关键技术术语对照表 / Key Technical Glossary
 
 | 中文术语 (Chinese) | 汉语拼音 (Hanyu Pinyin) | 英文术语 (English) | 技术释义 (Technical Definition) |
@@ -1426,25 +1482,29 @@ Broad Ion Beam (BIB / CP) Cross-Sectioning Technology:
 
 ---
 
+<span id="module-4"></span>
+<span id="module-4-三eds-定量分析方法与分析误差"></span>
 # Module 4: 三、EDS 定量分析方法与分析误差
 # Module 4: EDS Quantitative Analysis Methods and Analytical Errors
 
 ---
 
 ## 目录 / Table of Contents
-1. [定性分析原理、自动寻峰与谱峰去卷积 (Deconvolution)](#1-定性分析原理自动寻峰与谱峰去卷积-deconvolution)
-2. [定量分析基本原理与基体效应 (Matrix Effects)](#2-定量分析基本原理与基体效应-matrix-effects)
-3. [经典 ZAF 基体校正物理模型 / Classical ZAF Matrix Correction Model](#3-经典-zaf-基体校正物理模型--classical-zaf-matrix-correction-model)
-4. [深度分布函数 Phi-Rho-Z [Φ(ρz)] 与 XPP 模型 / Phi-Rho-Z & XPP Models](#4-深度分布函数-phi-rho-z-φρz-与-xpp-模型--phi-rho-z--xpp-models)
-5. [粗糙不平试样与峰背比定量法 (P/B-ZAF) / P/B Method for Rough Surfaces](#5-粗糙不平试样与峰背比定量法-pb-zaf--pb-method-for-rough-surfaces)
-6. [有标样定量 vs 无标样定量与计算策略 / Standard-based vs Standardless](#6-有标样定量-vs-无标样定量与计算策略--standard-based-vs-standardless)
-7. [超轻元素 (Z < 10) 定量分析难点与优化方案 / Light Element Microanalysis](#7-超轻元素-z--10-定量分析难点与优化方案--light-element-microanalysis)
-8. [误差来源、泊松统计置信度与检出限 / Error Analysis, Counting Statistics & LOD](#8-误差来源泊松统计置信度与检出限--error-analysis-counting-statistics--lod)
-9. [国家标准 GB/T 25189 误差等级与数据保留位数 / National Standards & Significant Digits](#9-国家标准-gbt-25189-误差等级与数据保留位数--national-standards--significant-digits)
-10. [关键技术术语对照表 / Key Technical Glossary](#10-关键技术术语对照表--key-technical-glossary)
+1. [定性分析原理、自动寻峰与谱峰去卷积 (Deconvolution)](#mod4-sec1)
+2. [定量分析基本原理与基体效应 (Matrix Effects)](#mod4-sec2)
+3. [经典 ZAF 基体校正物理模型 / Classical ZAF Matrix Correction Model](#mod4-sec3)
+4. [深度分布函数 Phi-Rho-Z [Φ(ρz)] 与 XPP 模型 / Phi-Rho-Z & XPP Models](#mod4-sec4)
+5. [粗糙不平试样与峰背比定量法 (P/B-ZAF) / P/B Method for Rough Surfaces](#mod4-sec5)
+6. [有标样定量 vs 无标样定量与计算策略 / Standard-based vs Standardless](#mod4-sec6)
+7. [超轻元素 (Z < 10) 定量分析难点与优化方案 / Light Element Microanalysis](#mod4-sec7)
+8. [误差来源、泊松统计置信度与检出限 / Error Analysis, Counting Statistics & LOD](#mod4-sec8)
+9. [国家标准 GB/T 25189 误差等级与数据保留位数 / National Standards & Significant Digits](#mod4-sec9)
+10. [关键技术术语对照表 / Key Technical Glossary](#mod4-sec10)
 
 ---
 
+<span id="mod4-sec1"></span>
+<span id="1-定性分析原理自动寻峰与谱峰去卷积-deconvolution"></span>
 ## 1. 定性分析原理、自动寻峰与谱峰去卷积 (Deconvolution)
 
 ![Slide 6-11: Qualitative Analysis, Peak Overlaps & Bayes Deconvolution](extracted_assets/module_04_quantification/slides/slide_010.png)
@@ -1497,6 +1557,8 @@ Qualitative Identification and Advanced Spectral Deconvolution:
 
 ---
 
+<span id="mod4-sec2"></span>
+<span id="2-定量分析基本原理与基体效应-matrix-effects"></span>
 ## 2. 定量分析基本原理与基体效应 (Matrix Effects)
 
 ![Slide 14-16: Castaing First Approximation & Matrix Correction Need](extracted_assets/module_04_quantification/slides/slide_016.png)
@@ -1540,6 +1602,8 @@ From Castaing's First Approximation to Modern Matrix Correction:
 
 ---
 
+<span id="mod4-sec3"></span>
+<span id="3-经典-zaf-基体校正物理模型--classical-zaf-matrix-correction-model"></span>
 ## 3. 经典 ZAF 基体校正物理模型 / Classical ZAF Matrix Correction Model
 
 ![Slide 17-21: ZAF Mathematical Formulation](extracted_assets/module_04_quantification/slides/slide_021.png)
@@ -1594,6 +1658,8 @@ C_A = [Z * A * F]_A * k_A
 
 ---
 
+<span id="mod4-sec4"></span>
+<span id="4-深度分布函数-phi-rho-z-φρz-与-xpp-模型--phi-rho-z--xpp-models"></span>
 ## 4. 深度分布函数 Phi-Rho-Z [Φ(ρz)] 与 XPP 模型 / Phi-Rho-Z & XPP Models
 
 ![Slide 22-25: Phi-Rho-Z Depth Distribution & XPP Model](extracted_assets/module_04_quantification/slides/slide_025.png)
@@ -1631,6 +1697,8 @@ The Modern Φ(ρz) Depth Distribution Function and XPP Paradigm:
 
 ---
 
+<span id="mod4-sec5"></span>
+<span id="5-粗糙不平试样与峰背比定量法-pb-zaf--pb-method-for-rough-surfaces"></span>
 ## 5. 粗糙不平试样与峰背比定量法 (P/B-ZAF) / P/B Method for Rough Surfaces
 
 ![Slide 28 & 32-37: Peak-to-Background P/B-ZAF for Rough Samples](extracted_assets/module_04_quantification/slides/slide_036.png)
@@ -1671,6 +1739,8 @@ The Peak-to-Background (P/B-ZAF) Method for Unpolished & Rough Specimens:
 
 ---
 
+<span id="mod4-sec6"></span>
+<span id="6-有标样定量-vs-无标样定量与计算策略--standard-based-vs-standardless"></span>
 ## 6. 有标样定量 vs 无标样定量与计算策略 / Standard-based vs Standardless
 
 ![Slide 38-43: Quantification Methods & Normalization Rules](extracted_assets/module_04_quantification/slides/slide_042.png)
@@ -1726,6 +1796,8 @@ Quantitative Methodology Comparison and Calculation Paradigms:
 
 ---
 
+<span id="mod4-sec7"></span>
+<span id="7-超轻元素-z--10-定量分析难点与优化方案--light-element-microanalysis"></span>
 ## 7. 超轻元素 (Z < 10) 定量分析难点与优化方案 / Light Element Microanalysis
 
 ![Slide 44-53: Light Element Challenges & Mitigation](extracted_assets/module_04_quantification/slides/slide_050.png)
@@ -1772,6 +1844,8 @@ Five Physical Hurdles of Light Element (Z < 10: Be, B, C, N, O, F) Microanalysis
 
 ---
 
+<span id="mod4-sec8"></span>
+<span id="8-误差来源泊松统计置信度与检出限--error-analysis-counting-statistics--lod"></span>
 ## 8. 误差来源、泊松统计置信度与检出限 / Error Analysis, Counting Statistics & LOD
 
 ![Slide 56-59: Counting Statistics & Error Definitions](extracted_assets/module_04_quantification/slides/slide_056.png)
@@ -1856,6 +1930,8 @@ C_DL = (3 * sqrt(I_B)) / (I_std - I_B) * C_std
 
 ---
 
+<span id="mod4-sec9"></span>
+<span id="9-国家标准-gbt-25189-误差等级与数据保留位数--national-standards--significant-digits"></span>
 ## 9. 国家标准 GB/T 25189 误差等级与数据保留位数 / National Standards & Significant Digits
 
 ![Slide 69-71 & 78: GB/T 25189 Error Limits & Significant Digits](extracted_assets/module_04_quantification/slides/slide_078.png)
@@ -1899,6 +1975,8 @@ National Standard GB/T 25189 Regulatory Error Allowances and Significant Digits:
 
 ---
 
+<span id="mod4-sec10"></span>
+<span id="10-关键技术术语对照表--key-technical-glossary"></span>
 ## 10. 关键技术术语对照表 / Key Technical Glossary
 
 | 中文术语 (Chinese) | 汉语拼音 (Hanyu Pinyin) | 英文术语 (English) | 技术释义 (Technical Definition) |
@@ -1919,19 +1997,23 @@ National Standard GB/T 25189 Regulatory Error Allowances and Significant Digits:
 
 ---
 
+<span id="module-5"></span>
+<span id="module-5-碳元素异常分析及微区分析疑难问题解答"></span>
 # Module 5: 碳元素异常分析及微区分析疑难问题解答
 # Module 5: Carbon Element Anomaly Analysis and Microanalysis FAQ
 
 ---
 
 ## 目录 / Table of Contents
-1. [问题一：为什么能谱分析中碳 (C) 元素测定值普遍偏高？ / Question 1: Why is Carbon Over-Quantified?](#问题一为什么能谱分析中碳-c-元素测定值普遍偏高--question-1-why-is-carbon-over-quantified)
-2. [问题二：SEM-EDS 分析碳化硅 (SiC) 时碳含量偏低的原因？ / Question 2: Why is Carbon Underestimated in SiC?](#问题二sem-eds-分析碳化硅-sic-时碳含量偏低的原因--question-2-why-is-carbon-underestimated-in-sic)
-3. [问题三：为什么 TEM-EDS 的薄区分析结果比 SEM-EDS 更准确？ / Question 3: Why is TEM-EDS More Accurate than SEM-EDS for Thin Foils?](#问题三为什么-tem-eds-的薄区分析结果比-sem-eds-更准确--question-3-why-is-tem-eds-more-accurate-than-sem-eds-for-thin-foils)
-4. [关键技术术语对照表 / Key Technical Glossary](#4-关键技术术语对照表--key-technical-glossary)
+1. [问题一：为什么能谱分析中碳 (C) 元素测定值普遍偏高？ / Question 1: Why is Carbon Over-Quantified?](#mod5-sec1)
+2. [问题二：SEM-EDS 分析碳化硅 (SiC) 时碳含量偏低的原因？ / Question 2: Why is Carbon Underestimated in SiC?](#mod5-sec2)
+3. [问题三：为什么 TEM-EDS 的薄区分析结果比 SEM-EDS 更准确？ / Question 3: Why is TEM-EDS More Accurate than SEM-EDS for Thin Foils?](#mod5-sec3)
+4. [关键技术术语对照表 / Key Technical Glossary](#mod5-sec4)
 
 ---
 
+<span id="mod5-sec1"></span>
+<span id="问题一为什么能谱分析中碳-c-元素测定值普遍偏高--question-1-why-is-carbon-over-quantified"></span>
 ## 问题一：为什么能谱分析中碳 (C) 元素测定值普遍偏高？ / Question 1: Why is Carbon Over-Quantified?
 
 **[CN]**  
@@ -1982,6 +2064,8 @@ Corrective Actions:
 
 ---
 
+<span id="mod5-sec2"></span>
+<span id="问题二sem-eds-分析碳化硅-sic-时碳含量偏低的原因--question-2-why-is-carbon-underestimated-in-sic"></span>
 ## 问题二：SEM-EDS 分析碳化硅 (SiC) 时碳含量偏低的原因？ / Question 2: Why is Carbon Underestimated in SiC?
 
 **[CN]**  
@@ -2029,6 +2113,8 @@ Why is carbon systematically under-quantified when analyzing silicon carbide (Si
 
 ---
 
+<span id="mod5-sec3"></span>
+<span id="问题三为什么-tem-eds-的薄区分析结果比-sem-eds-更准确--question-3-why-is-tem-eds-more-accurate-than-sem-eds-for-thin-foils"></span>
 ## 问题三：为什么 TEM-EDS 的薄区分析结果比 SEM-EDS 更准确？ / Question 3: Why is TEM-EDS More Accurate than SEM-EDS for Thin Foils?
 
 **[CN]**  
@@ -2076,6 +2162,8 @@ Why does Transmission Electron Microscopy EDS (TEM-EDS) demonstrate superior spa
 
 ---
 
+<span id="mod5-sec4"></span>
+<span id="4-关键技术术语对照表--key-technical-glossary"></span>
 ## 4. 关键技术术语对照表 / Key Technical Glossary
 
 | 中文术语 (Chinese) | 汉语拼音 (Hanyu Pinyin) | 英文术语 (English) | 技术释义 (Technical Definition) |
@@ -2093,6 +2181,8 @@ Why does Transmission Electron Microscopy EDS (TEM-EDS) demonstrate superior spa
 
 ---
 
+<span id="master-glossary"></span>
+<span id="附录核心微束分析技术术语总览--master-technical-glossary"></span>
 ## 附录：核心微束分析技术术语总览 / Master Technical Glossary
 
 / Master Technical Glossary Matrix
