@@ -817,7 +817,7 @@ rt {
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
         <button class="btn-secondary" onclick="copyFeedbackMarkdown()" title="Copy formatted feedback markdown to clipboard">📋 Copy Details</button>
         <button class="btn-primary" onclick="submitGitHubIssue()" title="Open pre-filled GitHub Issue with these details" style="background:#2563eb;color:#fff;">🚀 Submit on GitHub</button>
-        <button class="btn-primary" onclick="saveNote()" title="Save to local browser notes">💾 Save to Notes</button>
+        <button class="btn-primary" id="btnSubmitFeedback" onclick="submitFeedbackDirect()" title="Send feedback directly to the author" style="background:linear-gradient(135deg, #059669 0%, #10b981 100%);color:#fff;">📨 Send Feedback</button>
       </div>
     </div>
   </div>
@@ -2143,30 +2143,64 @@ function showToast(msg) {
   }
 }
 
-function saveNote() {
+const GOOGLE_SHEET_WEBHOOK_URL = ""; // Paste your Google Apps Script Web App URL here
+
+async function submitFeedbackDirect() {
   const payload = getFeedbackPayload();
   if (!payload.content) {
-    alert('Please enter note content.');
+    alert('Please enter your feedback details before sending.');
     return;
   }
-  const book = books[payload.bookId];
-  if (!book) return;
-  const userNotes = JSON.parse(localStorage.getItem(book.storageKey) || '[]');
-  const newNote = {
-    s: payload.sectionId,
-    ch: payload.chapter,
-    d: new Date().toISOString().split('T')[0],
-    t: payload.tags.length ? payload.tags : [payload.category],
-    c: (payload.author !== 'Anonymous Reader' ? `[${payload.author}] ` : '') + payload.content
-  };
-  userNotes.push(newNote);
-  localStorage.setItem(book.storageKey, JSON.stringify(userNotes));
-  closeModal();
-  if (activeBook === payload.bookId) {
-    renderNotes(payload.bookId);
+  const btn = document.getElementById('btnSubmitFeedback');
+  const oldText = btn ? btn.innerHTML : '';
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = '⏳ Sending...';
   }
-  showToast('Note saved to local reading collection! 💾');
+
+  const postData = {
+    website: 'Semiconductors Knowledge Hub',
+    category: payload.category,
+    book: payload.bookId,
+    section: payload.sectionLabel,
+    topic: payload.chapter,
+    author: payload.author,
+    content: payload.content,
+    tags: payload.tags
+  };
+
+  if (GOOGLE_SHEET_WEBHOOK_URL && GOOGLE_SHEET_WEBHOOK_URL.startsWith('http')) {
+    try {
+      await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(postData)
+      });
+      showToast('Feedback submitted to Google Sheet! 📨');
+      document.getElementById('noteContent').value = '';
+      closeModal();
+    } catch (err) {
+      console.error(err);
+      showToast('Transmission error, copied to clipboard! 📋');
+      copyFeedbackMarkdown();
+    } finally {
+      if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = oldText;
+      }
+    }
+  } else {
+    copyFeedbackMarkdown();
+    alert('Feedback details copied to clipboard!\n\nTo submit directly to your Google Sheet, paste your Google Apps Script Web App URL into GOOGLE_SHEET_WEBHOOK_URL in index.html.');
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = oldText;
+    }
+    closeModal();
+  }
 }
+
 
 document.getElementById('modalOverlay').addEventListener('click', e => { if(e.target===e.currentTarget) closeModal(); });
 </script>
