@@ -399,28 +399,16 @@ rt {
   </div>
 
   <div class="book-grid">
-    <!-- HITACHI SEMICONDUCTOR ANALYSIS BOOK CARD -->
-    <div class="book-card" onclick="openViewer('hitachi')">
-      <div class="book-cover" style="background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem;">
-        🔬
+    <div class="book-card card-hitachi" onclick="openViewer('hitachi')">
+      <div class="book-icon">🔬</div>
+      <h2 id="card6-title">Hitachi Semiconductor Analysis & Characterization Handbook</h2>
+      <p id="card6-sub">Comprehensive technical knowledge source covering STEM Z-contrast imaging, EDX detector principles, low-vacuum SEM charge suppression, Cathodoluminescence (CL) defect spectroscopy, EBSD crystallography, and FIB specimen preparation with 96 tagged images.</p>
+      <div class="meta">
+        <span class="badge">Ch. 1–6</span>
+        <span class="badge">Teal / Cyan</span>
+        <span class="badge">STEM·EDX·CL·EBSD·FIB</span>
       </div>
-      <div class="book-info">
-        <div class="book-badge" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px; display: inline-block; margin-bottom: 0.4rem;">
-          Hitachi & Oxford Instruments
-        </div>
-        <h3 class="book-title" style="font-size: 1.15rem; font-weight: 700; color: #f8fafc; margin-bottom: 0.4rem;">
-          Hitachi Semiconductor Analysis & Characterization Handbook
-        </h3>
-        <p class="book-desc" style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 0.8rem;">
-          Comprehensive technical knowledge source covering STEM Z-contrast imaging, EDX detector principles, low-vacuum SEM charge suppression, Cathodoluminescence (CL) defect spectroscopy, EBSD crystallography, and FIB specimen preparation with 96 tagged images.
-        </p>
-        <div class="book-tags" style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
-          <span style="background: rgba(255, 255, 255, 0.06); color: #2dd4bf; font-size: 0.72rem; padding: 0.15rem 0.45rem; border-radius: 4px;">STEM / HAADF</span>
-          <span style="background: rgba(255, 255, 255, 0.06); color: #fbbf24; font-size: 0.72rem; padding: 0.15rem 0.45rem; border-radius: 4px;">EDX & WDX</span>
-          <span style="background: rgba(255, 255, 255, 0.06); color: #38bdf8; font-size: 0.72rem; padding: 0.15rem 0.45rem; border-radius: 4px;">CL & EBSD</span>
-          <span style="background: rgba(255, 255, 255, 0.06); color: #c084fc; font-size: 0.72rem; padding: 0.15rem 0.45rem; border-radius: 4px;">FIB Lamella</span>
-        </div>
-      </div>
+      <button class="open-btn card-open-btn" onclick="openViewer('hitachi')">Open Notes →</button>
     </div>
 
 
@@ -1306,6 +1294,8 @@ const TRANSLATION_DICT = {
     card4Sub: "Advanced 3D packaging concepts covering TSV stresses, micro-Raman spectroscopy, metal pumping, Cu microstructure, temperature regimes, SAB, hybrid bonding, Cu particle sintering, and bonding process materials.",
 card5Title: "Bruker QUANTAX EDS Advanced Training",
     card5Sub: "Comprehensive SEM/EDS Microanalysis — covering SDD detector physics, pulse processors, beam-matter interactions, interaction volumes, specimen prep, ZAF/Phi-Rho-Z quantification, and carbon anomaly analysis.",
+    card6Title: "Hitachi Semiconductor Analysis & Characterization Handbook",
+    card6Sub: "Comprehensive technical knowledge source covering STEM Z-contrast imaging, EDX detector principles, low-vacuum SEM charge suppression, Cathodoluminescence (CL) defect spectroscopy, EBSD crystallography, and FIB specimen preparation with 96 tagged images.",
     openBtn: "Open Notes →",
     readAloud: "▶ 朗读 (Read Aloud)",
     pause: "⏸ 暂停 (Pause)",
@@ -1329,6 +1319,8 @@ card5Title: "Bruker QUANTAX EDS Advanced Training",
     card4Sub: "先进 3D 封装前沿：TSV 硅通孔应力、微拉曼光谱、金属挤出、铜微观结构、表面活性键合、混合键合及电迁移机理。",
 card5Title: "布鲁克 QUANTAX EDS 高级应用培训",
     card5Sub: "扫描电镜微区成分能谱分析全景——涵盖 SDD 硅漂移探测器、脉冲处理器、电子束-物质相互作用、激发体积、试样制备、ZAF/Phi-Rho-Z 定量计算及碳异常分析。",
+    card6Title: "日立半导体分析与微观表征手册",
+    card6Sub: "全面涵盖 STEM Z衬度成像、EDX 探测器原理、低真空 SEM 电荷抑制、阴极发光 (CL) 缺陷光谱、EBSD 晶体学与 FIB 样品制备（附 96 张标定图表）。",
     openBtn: "打开笔记 →",
     readAloud: "▶ 朗读 (Read Aloud)",
     pause: "⏸ 暂停 (Pause)",
