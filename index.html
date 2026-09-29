@@ -866,6 +866,181 @@ rt {
   filter: brightness(1.1) !important;
 }
 
+
+/* ============================================================
+   HIGH DEFINITION SEM FIGURE CONTAINERS & FULLSCREEN LIGHTBOX
+   ============================================================ */
+.hd-figure-container {
+  margin: 2rem 0 !important;
+  padding: 1.2rem !important;
+  background: #0a101d !important;
+  border: 1px solid #1e293b !important;
+  border-radius: 14px !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45) !important;
+  text-align: center !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
+}
+
+.hd-figure-container:hover {
+  border-color: #38bdf8 !important;
+  box-shadow: 0 16px 48px rgba(56, 189, 248, 0.15) !important;
+}
+
+.hd-img-frame {
+  position: relative !important;
+  display: inline-block !important;
+  max-width: 100% !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  background: #020617 !important;
+  border: 1px solid #334155 !important;
+}
+
+.hd-sem-image {
+  display: block !important;
+  max-width: 100% !important;
+  max-height: 680px !important;
+  height: auto !important;
+  margin: 0 auto !important;
+  border-radius: 8px !important;
+  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering: crisp-edges !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.hd-img-frame:hover .hd-sem-image {
+  transform: scale(1.012) !important;
+}
+
+.hd-zoom-btn {
+  position: absolute !important;
+  top: 12px !important;
+  right: 12px !important;
+  background: rgba(15, 23, 42, 0.88) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  color: #38bdf8 !important;
+  border: 1px solid rgba(56, 189, 248, 0.45) !important;
+  border-radius: 8px !important;
+  padding: 0.4rem 0.85rem !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  opacity: 0.9 !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;
+  transition: all 0.2s ease !important;
+  z-index: 10 !important;
+}
+
+.hd-zoom-btn:hover {
+  opacity: 1 !important;
+  background: #0284c7 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) scale(1.04) !important;
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.5) !important;
+}
+
+.hd-figure-caption {
+  margin-top: 0.9rem !important;
+  font-size: 0.9rem !important;
+  color: #94a3b8 !important;
+  line-height: 1.5 !important;
+  font-style: italic !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  flex-wrap: wrap !important;
+}
+
+.hd-fig-tag {
+  background: rgba(56, 189, 248, 0.15) !important;
+  color: #38bdf8 !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  padding: 0.2rem 0.55rem !important;
+  border-radius: 6px !important;
+  font-size: 0.76rem !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+}
+
+/* Fullscreen High-Definition Image Lightbox */
+.hd-lightbox-overlay {
+  display: none;
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(2, 6, 23, 0.95) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  z-index: 9999999 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 1.5rem !important;
+  opacity: 0;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.hd-lightbox-overlay.show {
+  display: flex !important;
+  opacity: 1 !important;
+}
+
+.hd-lightbox-content {
+  position: relative !important;
+  max-width: 96vw !important;
+  max-height: 94vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  background: #0f172a !important;
+  border: 1px solid #334155 !important;
+  border-radius: 16px !important;
+  padding: 1.2rem !important;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.95), 0 0 30px rgba(56, 189, 248, 0.2) !important;
+}
+
+.hd-lightbox-img {
+  max-width: 100% !important;
+  max-height: 82vh !important;
+  object-fit: contain !important;
+  border-radius: 8px !important;
+  border: 1px solid #1e293b !important;
+  background: #020617 !important;
+}
+
+.hd-lightbox-caption {
+  margin-top: 0.9rem !important;
+  color: #38bdf8 !important;
+  font-size: 0.96rem !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  max-width: 900px !important;
+}
+
+.hd-lightbox-close {
+  position: absolute !important;
+  top: -14px !important;
+  right: -14px !important;
+  background: #ef4444 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 50% !important;
+  width: 38px !important;
+  height: 38px !important;
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.6) !important;
+  transition: transform 0.2s ease !important;
+}
+
+.hd-lightbox-close:hover {
+  transform: scale(1.12) rotate(90deg) !important;
+}
+
 </style>
 </head>
 <body>
@@ -2213,343 +2388,118 @@ function formatTextToRubyHtml(text) {
   return finalHtml;
 }
 
+function openHdImageLightbox(src, caption) {
+  let lightbox = document.getElementById('hdLightboxOverlay');
+  if (!lightbox) {
+    lightbox = document.createElement('div');
+    lightbox.id = 'hdLightboxOverlay';
+    lightbox.className = 'hd-lightbox-overlay';
+    lightbox.onclick = function(e) {
+      if (e.target === this) closeHdImageLightbox();
+    };
+    lightbox.innerHTML = `
+      <div class="hd-lightbox-content" onclick="event.stopPropagation()">
+        <button class="hd-lightbox-close" onclick="closeHdImageLightbox()" title="Close Lightbox (ESC)">✕</button>
+        <img id="hdLightboxImg" class="hd-lightbox-img" src="" alt="">
+        <div id="hdLightboxCaption" class="hd-lightbox-caption"></div>
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+    
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeHdImageLightbox();
+    });
+  }
+  document.getElementById('hdLightboxImg').src = src;
+  document.getElementById('hdLightboxCaption').textContent = caption || '';
+  lightbox.classList.add('show');
+}
+
+function closeHdImageLightbox() {
+  const lightbox = document.getElementById('hdLightboxOverlay');
+  if (lightbox) lightbox.classList.remove('show');
+}
+
 function translateContentText(text) {
-  if (currentLang !== 'zh' || !text) return text;
-  let translated = text;
+  if (currentLang !== 'zh' || !text || typeof text !== 'string') return text;
+  
+  // Protect markdown image tags and HTML tags from regex distortion
+  const protectedItems = [];
+  let protectedText = text.replace(/!\[([^\]]*)\]\(([^)]+)\)|<[^>]+>/g, (match) => {
+    const placeholder = `___PROTECTED_TOKEN_${protectedItems.length}___`;
+    protectedItems.push(match);
+    return placeholder;
+  });
+
   GLOSSARY_REPLACEMENTS.forEach(([regex, replacement]) => {
-    translated = translated.replace(regex, replacement);
+    protectedText = protectedText.replace(regex, replacement);
   });
-  return formatTextToRubyHtml(translated);
-}
-
-const translationCache = JSON.parse(localStorage.getItem('notes_translation_cache') || '{}');
-
-async function translateTextAsync(text) {
-  if (!text || text.trim().length < 2) return text;
-  let patternTrans = translateContentText(text);
-  if (currentLang !== 'zh') return text;
   
-  if (!/[a-zA-Z]{4,}/.test(patternTrans)) {
-    return patternTrans;
-  }
+  let result = formatTextToRubyHtml(protectedText);
   
-  if (translationCache[text]) {
-    return translationCache[text];
-  }
-  
-  try {
-    const cleanText = text.replace(/[*#>`~_]/g, '').trim();
-    if (cleanText.length > 0) {
-      const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(cleanText.substring(0, 450))}&langpair=en|zh-CN`;
-      const res = await fetch(url);
-      const data = await res.json();
-      if (data && data.responseData && data.responseData.translatedText) {
-        let apiTrans = data.responseData.translatedText;
-        apiTrans = translateContentText(apiTrans);
-        translationCache[text] = apiTrans;
-        localStorage.setItem('notes_translation_cache', JSON.stringify(translationCache));
-        return apiTrans;
-      }
-    }
-  } catch (e) {
-    console.warn('Live API translation warning:', e);
-  }
-  
-  return patternTrans;
-}
-
-async function translateRenderedDOM(container) {
-  if (currentLang !== 'zh' || !container) return;
-
-  // 1. Translate Image alt & title descriptions (graphical depictions)
-  const images = container.querySelectorAll('img');
-  images.forEach(async (img) => {
-    const alt = img.getAttribute('alt');
-    if (alt) {
-      const transAlt = await translateTextAsync(alt);
-      img.setAttribute('alt', transAlt);
-      img.setAttribute('title', transAlt);
-    }
+  // Restore protected items
+  protectedItems.forEach((item, idx) => {
+    result = result.replace(`___PROTECTED_TOKEN_${idx}___`, item);
   });
-
-  // 2. Translate text nodes in document (headings, paragraphs, blockquotes, table cells)
-  const textEls = container.querySelectorAll('h1, h2, h3, h4, p, li, blockquote, th, td, .note-content');
-  for (let el of textEls) {
-    if (el.children.length > 2 && !el.querySelector('ruby')) continue;
-    const origText = el.innerText || el.textContent;
-    if (origText && /[a-zA-Z]{3,}/.test(origText)) {
-      const trans = await translateTextAsync(origText);
-      if (trans && trans !== origText) {
-        el.innerHTML = formatTextToRubyHtml(trans);
-      }
-    }
-  }
-}
-
-
-function toggleLanguage() {
-  currentLang = currentLang === 'en' ? 'zh' : 'en';
-  localStorage.setItem('reading_notes_lang', currentLang);
-  applyLanguageUI();
   
-  if (activeBook) {
-    const book = books[activeBook];
-    const docContainer = document.getElementById(book.docContainerId);
-    if (docContainer) docContainer.dataset.loaded = 'false';
-    switchViewMode(activeBook, viewModeState[activeBook]);
-  }
-}
-
-function applyLanguageUI() {
-  const dict = TRANSLATION_DICT[currentLang];
-  const lTitle = document.getElementById('landing-title'); if(lTitle) lTitle.innerHTML = formatTextToRubyHtml(dict.landingTitle);
-  const lSub = document.getElementById('landing-subtitle'); if(lSub) lSub.innerHTML = formatTextToRubyHtml(dict.landingSubtitle);
-  
-  document.querySelectorAll('.lang-text').forEach(el => el.textContent = dict.langBtn);
-  
-  const kMsg = document.getElementById('kofi-banner-msg'); if(kMsg) kMsg.innerHTML = formatTextToRubyHtml(dict.kofiMsg);
-  const kBtn = document.getElementById('kofi-banner-btn'); if(kBtn) kBtn.innerHTML = formatTextToRubyHtml(dict.kofiBtn);
-  const kFloat = document.getElementById('kofi-float-text'); if(kFloat) kFloat.innerHTML = formatTextToRubyHtml(dict.kofiFloat);
-  
-  const c1T = document.getElementById('card1-title'); if(c1T) c1T.innerHTML = formatTextToRubyHtml(dict.card1Title);
-  const c1S = document.getElementById('card1-sub'); if(c1S) c1S.innerHTML = formatTextToRubyHtml(dict.card1Sub);
-  const c2T = document.getElementById('card2-title'); if(c2T) c2T.innerHTML = formatTextToRubyHtml(dict.card2Title);
-  const c2S = document.getElementById('card2-sub'); if(c2S) c2S.innerHTML = formatTextToRubyHtml(dict.card2Sub);
-  const c5T = document.getElementById('card5-title'); if(c5T) c5T.innerHTML = formatTextToRubyHtml(dict.card5Title);
-  const c5S = document.getElementById('card5-sub'); if(c5S) c5S.innerHTML = formatTextToRubyHtml(dict.card5Sub);
-  const c3T = document.getElementById('card3-title'); if(c3T) c3T.innerHTML = formatTextToRubyHtml(dict.card3Title);
-  const c3S = document.getElementById('card3-sub'); if(c3S) c3S.innerHTML = formatTextToRubyHtml(dict.card3Sub);
-  const c4T = document.getElementById('card4-title'); if(c4T) c4T.innerHTML = formatTextToRubyHtml(dict.card4Title);
-  const c4S = document.getElementById('card4-sub'); if(c4S) c4S.innerHTML = formatTextToRubyHtml(dict.card4Sub);
-  
-  document.querySelectorAll('.card-open-btn').forEach(btn => btn.innerHTML = formatTextToRubyHtml(dict.openBtn));
-}
-
-
-// ============================================================
-// INBUILT AUDIO NARRATOR ENGINE (Text-to-Speech)
-// ============================================================
-let readingNodes = [];
-let currentReadIndex = 0;
-let isSpeaking = false;
-let isPaused = false;
-let speechRate = 1.0;
-
-function updateSpeechRate(val) {
-  speechRate = parseFloat(val);
-}
-
-function updateNarratorUI(statusText) {
-  document.querySelectorAll('.narrator-status-text').forEach(el => {
-    el.textContent = statusText;
-  });
-}
-
-function getVoiceForLanguage(lang) {
-  if (!('speechSynthesis' in window)) return null;
-  const voices = window.speechSynthesis.getVoices();
-  if (lang === 'zh') {
-    return voices.find(v => v.lang.startsWith('zh') || v.lang.includes('CN') || v.lang.includes('TW')) || voices[0];
-  } else {
-    return voices.find(v => v.lang.startsWith('en')) || voices[0];
-  }
-}
-
-function speakCurrentNode() {
-  if (!('speechSynthesis' in window)) {
-    updateNarratorUI('Speech synthesis unsupported');
-    return;
-  }
-  
-  if (currentReadIndex >= readingNodes.length) {
-    stopNarrator();
-    updateNarratorUI(TRANSLATION_DICT[currentLang].ready);
-    return;
-  }
-
-  // Clear previous highlights
-  readingNodes.forEach(n => n.classList.remove('reading-highlight'));
-
-  const node = readingNodes[currentReadIndex];
-  node.classList.add('reading-highlight');
-  node.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-  const rawText = (node.innerText || node.textContent).trim();
-  if (!rawText || rawText.length < 2) {
-    currentReadIndex++;
-    speakCurrentNode();
-    return;
-  }
-
-  const ut = new SpeechSynthesisUtterance(rawText);
-  ut.lang = currentLang === 'zh' ? 'zh-CN' : 'en-US';
-  const voice = getVoiceForLanguage(currentLang);
-  if (voice) ut.voice = voice;
-  ut.rate = speechRate;
-
-  ut.onend = () => {
-    if (isSpeaking && !isPaused) {
-      currentReadIndex++;
-      speakCurrentNode();
-    }
-  };
-
-  ut.onerror = (err) => {
-    console.error('Speech Synthesis Error:', err);
-    if (isSpeaking) {
-      currentReadIndex++;
-      speakCurrentNode();
-    }
-  };
-
-  updateNarratorUI(`Reading ${currentReadIndex + 1}/${readingNodes.length}`);
-  window.speechSynthesis.speak(ut);
-}
-
-function startNarrator() {
-  if (!('speechSynthesis' in window)) {
-    alert('Speech synthesis is not supported in this browser.');
-    return;
-  }
-  
-  stopNarrator();
-  
-  let activeContainer = null;
-  if (activeBook) {
-    const book = books[activeBook];
-    if (viewModeState[activeBook] === 'doc') {
-      activeContainer = document.getElementById(book.docContainerId);
-    } else {
-      activeContainer = document.getElementById(book.containerId);
-    }
-  }
-
-  if (!activeContainer) return;
-
-  readingNodes = Array.from(activeContainer.querySelectorAll('p, li, h1, h2, h3, h4, .note-content'));
-  if (readingNodes.length === 0) {
-    updateNarratorUI('No text to read');
-    return;
-  }
-
-  currentReadIndex = 0;
-  isSpeaking = true;
-  isPaused = false;
-  speakCurrentNode();
-}
-
-function pauseNarrator() {
-  if (!('speechSynthesis' in window)) return;
-  if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
-    window.speechSynthesis.pause();
-    isPaused = true;
-    updateNarratorUI('Paused');
-  } else if (window.speechSynthesis.paused) {
-    window.speechSynthesis.resume();
-    isPaused = false;
-    updateNarratorUI(`Reading ${currentReadIndex + 1}/${readingNodes.length}`);
-  }
-}
-
-function stopNarrator() {
-  if ('speechSynthesis' in window) {
-    window.speechSynthesis.cancel();
-  }
-  isSpeaking = false;
-  isPaused = false;
-  currentReadIndex = 0;
-  if (readingNodes) {
-    readingNodes.forEach(n => n.classList.remove('reading-highlight'));
-  }
-  updateNarratorUI(TRANSLATION_DICT[currentLang].ready);
-}
-
-
-// ============================================================
-// NAVIGATION & VIEW SWITCHING
-// ============================================================
-function openViewer(bookId) {
-  document.getElementById('landing').style.display = 'none';
-  document.querySelectorAll('.viewer').forEach(v => v.classList.remove('active'));
-  document.getElementById('viewer-' + bookId).classList.add('active');
-  activeBook = bookId;
-  applyTheme(getActiveTheme());
-  buildNav(bookId);
-  
-  // Apply current view mode
-  switchViewMode(bookId, viewModeState[bookId]);
-}
-
-function goLanding() {
-  document.querySelectorAll('.viewer').forEach(v => v.classList.remove('active'));
-  document.getElementById('landing').style.display = 'flex';
-  activeBook = null;
-}
-
-function switchViewMode(bookId, mode) {
-  if (!mode) mode = 'doc';
-  viewModeState[bookId] = mode;
-  const book = books[bookId];
-  const cardsContainer = document.getElementById(book.containerId);
-  const docContainer = document.getElementById(book.docContainerId);
-  const cardBtn = document.getElementById(book.cardBtnId);
-  const docBtn = document.getElementById(book.docBtnId);
-  const navContainer = document.getElementById(book.navId);
-  
-  if (mode === 'doc') {
-    if (cardsContainer) cardsContainer.style.display = 'none';
-    if (navContainer) navContainer.style.display = 'none';
-    if (docContainer) {
-      docContainer.classList.add('active');
-      loadAndRenderMarkdown(bookId);
-    }
-    if (cardBtn) cardBtn.classList.remove('active');
-    if (docBtn) docBtn.classList.add('active');
-    loadAndRenderMarkdown(bookId);
-  } else {
-    if (cardsContainer) cardsContainer.style.display = 'block';
-    if (navContainer) navContainer.style.display = 'flex';
-    if (docContainer) docContainer.classList.remove('active');
-    if (cardBtn) cardBtn.classList.add('active');
-    if (docBtn) docBtn.classList.remove('active');
-    renderNotes(bookId);
-  }
-}
-
-async function loadAndRenderMarkdown(bookId) {
-  const book = books[bookId];
-  const container = document.getElementById(book.docContainerId);
-  if (!container || container.dataset.loaded === 'true') return;
-  
-  // Always try fetching the live .md file first (most up-to-date)
-  const filePath = mdFilePaths[bookId];
-  try {
-    const response = await fetch(filePath);
-    if (!response.ok) throw new Error('HTTP error ' + response.status);
-    const fetchedText = await response.text();
-    renderMarkdownContent(container, fetchedText);
-    container.dataset.loaded = 'true';
-  } catch (err) {
-    // Fallback to embedded data if fetch fails
-    const mdText = EMBEDDED_MD_DATA[bookId];
-    if (mdText) {
-      renderMarkdownContent(container, mdText);
-      container.dataset.loaded = 'true';
-    } else {
-      container.innerHTML = '<div class="empty-state">Unable to load document waterfall.</div>';
-    }
-  }
+  return result;
 }
 
 function renderMarkdownContent(container, mdText) {
   if (typeof marked !== 'undefined') {
     const renderer = new marked.Renderer();
-    renderer.heading = function(text, level, raw) {
-      const cleanRaw = (raw || '').replace(/<[^>]*>/g, '').trim();
+    
+    // Robust heading renderer supporting both marked v12+ token objects and older positional arguments
+    renderer.heading = function(tokenOrText, level, raw) {
+      let text = '', depth = 1, rawText = '';
+      if (tokenOrText && typeof tokenOrText === 'object') {
+        text = tokenOrText.text || '';
+        depth = tokenOrText.depth || 1;
+        rawText = tokenOrText.raw || text;
+      } else {
+        text = tokenOrText || '';
+        depth = level || 1;
+        rawText = raw || text;
+      }
+      const cleanRaw = (rawText || '').replace(/<[^>]*>/g, '').trim();
       const slug = cleanRaw.toLowerCase()
         .replace(/[\s/\:,，。、()（）\[\]{}+#?!~`'"\\|<>]+/g, '-')
         .replace(/^-+|-+$/g, '');
-      return `<h${level} id="${slug}" data-raw="${escapeHtml(cleanRaw)}">${text}</h${level}>`;
+      return `<h${depth} id="${slug}" data-raw="${escapeHtml(cleanRaw)}">${text}</h${depth}>`;
+    };
+
+    // Robust high-definition image renderer
+    renderer.image = function(tokenOrHref, title, text) {
+      let href = '', titleStr = '', altText = '';
+      if (tokenOrHref && typeof tokenOrHref === 'object') {
+        href = tokenOrHref.href || '';
+        titleStr = tokenOrHref.title || '';
+        altText = tokenOrHref.text || '';
+      } else {
+        href = tokenOrHref || '';
+        titleStr = title || '';
+        altText = text || '';
+      }
+      
+      let resolvedSrc = (href || '').trim();
+      if (resolvedSrc.startsWith('../Hitachi_Images/')) {
+        resolvedSrc = resolvedSrc.replace(/^\.\.\/Hitachi_Images\//, 'Hitachi_Images/');
+      } else if (resolvedSrc.startsWith('./Hitachi_Images/')) {
+        resolvedSrc = resolvedSrc.replace(/^\.\/Hitachi_Images\//, 'Hitachi_Images/');
+      }
+      
+      const altEscaped = escapeHtml(altText || 'SEM Handbook Figure');
+      const titleAttr = titleStr ? ` title="${escapeHtml(titleStr)}"` : '';
+      
+      return `
+        <figure class="hd-figure-container">
+          <div class="hd-img-frame">
+            <img src="${resolvedSrc}" alt="${altEscaped}"${titleAttr} loading="lazy" class="hd-sem-image" onerror="if(!this.dataset.retried){this.dataset.retried='true';var f=this.src.split('/').pop();this.src='Hitachi_Images/'+f;}">
+            <button class="hd-zoom-btn" type="button" onclick="openHdImageLightbox('${resolvedSrc}', '${altEscaped}')" title="Click to view Fullscreen High-Definition (高清全屏放大)">🔍 High-Definition</button>
+          </div>
+          <figcaption class="hd-figure-caption"><span class="hd-fig-tag">📷 Source Image</span> ${altEscaped}</figcaption>
+        </figure>
+      `;
     };
 
     marked.setOptions({
@@ -2589,78 +2539,34 @@ function renderMarkdownContent(container, mdText) {
               const hId = (h.id || '').toLowerCase().replace(/[^a-z0-9\u4e00-\u9fa5]/g, '');
               const hRaw = (h.getAttribute('data-raw') || '').toLowerCase().replace(/[^a-z0-9\u4e00-\u9fa5]/g, '');
               const hText = (h.textContent || '').toLowerCase().replace(/[^a-z0-9\u4e00-\u9fa5]/g, '');
-              if (hId === cleanQuery || hRaw.includes(cleanQuery) || cleanQuery.includes(hRaw) || hText.includes(cleanQuery)) {
+              if (hId === cleanQuery || hRaw.includes(cleanQuery) || cleanQuery.includes(hRaw) || (hText && (hText.includes(cleanQuery) || cleanQuery.includes(hText)))) {
                 target = h;
                 break;
               }
             }
           }
 
-          // 3. Scroll to target element with sticky header offset
           if (target) {
-            const viewerHeader = container.closest('.viewer')?.querySelector('.viewer-header');
-            const headerOffset = viewerHeader ? viewerHeader.offsetHeight : 120;
-            const targetRect = target.getBoundingClientRect();
-            const scrollPos = window.pageYOffset + targetRect.top - headerOffset - 20;
-
-            window.scrollTo({
-              top: Math.max(0, scrollPos),
-              behavior: 'smooth'
-            });
-
-            // Pulse highlight target
-            target.classList.add('reading-highlight');
-            setTimeout(() => target.classList.remove('reading-highlight'), 2200);
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            target.style.transition = 'background-color 0.4s ease';
+            const origBg = target.style.backgroundColor;
+            target.style.backgroundColor = 'rgba(56, 189, 248, 0.25)';
+            setTimeout(() => { target.style.backgroundColor = origBg; }, 1800);
           }
         }
       });
     }
 
-    // Fix relative image paths: when fetching md files from subdirectories,
-    // images like "figures/fig_..." need to become "Packaging/figures/fig_..."
-    const images = container.querySelectorAll('img');
-    images.forEach(img => {
-      const src = img.getAttribute('src');
-      if (src && !src.startsWith('http') && !src.startsWith('/') && !src.startsWith('Packaging/') && !src.startsWith('Failure/')) {
-        const bookId = Object.keys(mdFilePaths).find(id => {
-          const docContainer = books[id] && document.getElementById(books[id].docContainerId);
-          return docContainer && docContainer.contains(img);
-        });
-        if (bookId && mdFilePaths[bookId]) {
-          const mdDir = mdFilePaths[bookId].substring(0, mdFilePaths[bookId].lastIndexOf('/') + 1);
-          img.setAttribute('src', mdDir + src);
-        }
-      }
-      img.style.maxWidth = '100%';
-      img.style.height = 'auto';
-      img.style.borderRadius = '8px';
-      img.style.margin = '1rem 0';
-      img.style.border = '1px solid var(--border)';
-    });
-    
-    // Replace mermaid pre/code blocks with mermaid divs
-    const codeBlocks = container.querySelectorAll('pre code.language-mermaid');
-    codeBlocks.forEach((block, idx) => {
-      const pre = block.parentElement;
-      const div = document.createElement('div');
-      div.className = 'mermaid';
-      div.id = 'mermaid-' + Date.now() + '-' + idx;
-      div.textContent = block.textContent;
-      pre.replaceWith(div);
-    });
-    
+    // Initialize Mermaid diagrams if any exist
     if (typeof mermaid !== 'undefined') {
       try {
-        mermaid.run({ nodes: container.querySelectorAll('.mermaid') });
-      } catch (mErr) {
-        console.error('Mermaid render error:', mErr);
+        mermaid.init(undefined, container.querySelectorAll('.language-mermaid, .mermaid'));
+      } catch (err) {
+        console.warn('Mermaid rendering error:', err);
       }
     }
   } else {
-    container.innerHTML = `<pre class="markdown-body">${escapeHtml(translateContentText(mdText))}</pre>`;
-  }
-  if (currentLang === 'zh') {
-    translateRenderedDOM(container);
+    container.innerHTML = `<pre class="fallback-raw-md">${escapeHtml(mdText)}</pre>`;
   }
 }
 
