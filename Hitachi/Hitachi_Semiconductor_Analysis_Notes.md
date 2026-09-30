@@ -1,1544 +1,1057 @@
-# Hitachi High-Technologies – Scanning Electron Microscope Handbook
-## Complete Exhaustive Technical Transcription — All 96 Pages
+# Hitachi High-Technologies – Scanning Electron Microscope (SEM) Complete Technical Handbook & Chain-of-Thoughts Guide
 
-> **Source**: Hitachi High-Technologies Corporation — *Introduction to Scanning Electron Microscopy (SEM Handbook)*
-> **Image Source Directory**: `../Hitachi_Images/`
-> **Total Pages**: 96 Source Photos (`hitachi_photo_01.jpg` to `hitachi_photo_96.jpg`)
+## Complete Exhaustive 96-Page Technical Transcription, Physics Deep-Dive, Diagnostic Matrices & Paired Visual Reference
+
+> **Source**: Hitachi High-Technologies Corporation — *Introduction to Scanning Electron Microscopy (SEM Handbook)*  
+> **Source Visuals Directory**: `sorted_by_page/` (Sorted Numerically by Handbook Page)  
+> **Total Document Scope**: 96 Physical Visual Plates (Master Table of Contents + pp. 1–94 + Technical Reference Appendices)  
+> **Authoritative Technical Standard**: Covers Electron Optics, Quantum Source Mechanics, Lens Aberrations, Vacuum Pumping, Signal Differentiation (SE1/SE2/SE3, High/Low-Angle BSE, ExB Filter), Low-Vacuum Charge Neutralization, STEM Nanoscale Phase & Z-Contrast, Microanalysis (EDX SDD / WDX Rowland Spectrometers, ZAF Matrix Corrections), and Advanced Diffraction/Emission (EBSD Kikuchi Analysis & Cathodoluminescence Spectroscopy).
 
 ---
 
-## Master Table of Contents
+## 🧭 Master Table of Contents & Numerical Page Index
 
-| Chapter | Title & Subsections | Page Range |
-|:-------:|:--------------------|:----------:|
-| **Chapter 1** | **What is the SEM?** | **pp. 1–6** |
-| 1.1 | What Can We Do with a SEM? (Scale reference, UV-blocking fibers, Cross-sectional EDX) | pp. 1–3 |
-| 1.2 | Principle and Structure of the SEM (Signal emissions, Column components, Lens optics) | pp. 4–6 |
-| **Chapter 2** | **Sample Preparation** | **pp. 7–10** |
-| 2.1 | Tools and Materials (Specimen stubs, Conductive pastes, Carbon tapes) | p. 7 |
-| 2.2 | Sampling Procedures (Bulk, Powders, Glass/Wafer cleavage) | pp. 7–8 |
-| 2.3 | Metal Coating (Au, Au-Pd, Pt-Pd, Pt, Cr, Carbon evaporation) | p. 9 |
-| 2.4 | Ion Milling (Broad Ion Beam BIB Flat Milling & Cross-Section Masking) | p. 10 |
-| **Chapter 3** | **Let's Try Observation with a SEM!** | **pp. 11–19** |
-| 3.1 | Machined Products & Materials (Metals, Polymers, Powders, Toners, Cosmetics) | pp. 11–14 |
-| 3.2 | Electronics & Energy (ArF Resist, SRAM Voltage Contrast, 3D NAND, LIB Batteries, Zeolites) | pp. 15–16 |
-| 3.3 | Biological Samples (Insects, Cool-Stage Botany, Diatoms, Stem Cells, Bacteria, Viruses) | pp. 17–18 |
-| 3.4 | Foodstuffs (Starches, Dairy, Cool-Stage Spinach, Cryo-Gel Matrix) | p. 19 |
-| **Chapter 4** | **What Causes These Image Problems?** | **pp. 20–24** |
-| 4.0 | Symptom vs. Cause Diagnostic Cross-Reference Chart | p. 20 |
-| 4.1 | Cause A: Charge-Up Mechanisms, Manifestations, and Countermeasures | p. 21 |
-| 4.2 | Cause B: Hydrocarbon Contamination Dynamics and Beam Blanking | p. 22 |
-| 4.3 | Cause C: Thermal Beam Damage & Cause D: External Disturbances (Vibration / Magnetic) | p. 23 |
-| 4.4 | Cause E: Mechanical & Optical Alignment Troubles | p. 24 |
-| **Chapter 5** | **Types of SEM** | **pp. 25–26** |
-| 5.1 | Field Emission SEM Lineup (SU9000 In-Lens, Regulus Semi-In-Lens, SU7000, SU5000) | p. 25 |
-| 5.2 | Hi-SEM & Tabletop Lineup (SU3800, SU3900 Large Chamber, FlexSEM 1000II, TM4000Plus) | p. 26 |
-| **Chapter 6** | **Frequently Asked Questions About Scanning Electron Microscopy** | **pp. 27–94** |
-| 6.1 | Electron Beam Formation & Aberration Theory | pp. 30–36 |
-| 6.2 | Evacuation Systems & Differential Vacuum Pumping | pp. 37–38 |
-| 6.3 | Generation, Detection, and Use of SEM Signals (SE1–4, BSE, ExB Filter, VC) | pp. 39–49 |
-| 6.4 | Viewing Conditions for Acquiring Good SEM Images (kV, Probe Current, WD, Aperture) | pp. 50–59 |
-| 6.5 | Principle and Applications of Low Vacuum SEM (Charge neutralization, VP-BSE) | pp. 60–63 |
-| 6.6 | Principle and Applications of STEM (BF-STEM, DF-STEM, HAADF Z-Contrast) | pp. 64–72 |
-| 6.7 | Generating and Detecting X-rays & Elemental Analysis (EDX/WDX, Moseley Law) | pp. 73–80 |
-| 6.8 | Improving the Precision of X-ray Analysis (Overvoltage, Escape depth, Dead time) | pp. 81–85 |
-| 6.9 | Other Analytical Equipment (EBSD Crystallography, Cathodoluminescence CL) | pp. 86–94 |
+| Chapter | Title & Topical Coverage | Handbook Pages | Sorted Visual Plate |
+|:-------:|:-------------------------|:--------------:|:-------------------:|
+| **Front Matter** | **Master Table of Contents & Structure Overview** | **p. TOC** | `00_TOC.jpg` |
+| **Chapter 1** | **What is the SEM? (Fundamental Capabilities & Architecture)** | **pp. 1–6** | `01` to `06` |
+| 1.1 | Spatial Resolution Limits, Scale Reference & Comparative Imaging (OM vs SEM) | pp. 1–3 | `01_What_Can_We_Do_with_SEM.jpg` to `03_Fiber_Cross_Section_BSE_EDX.jpg` |
+| 1.2 | Electron-Matter Interaction Signals & Subsystem Column Architecture | pp. 4–6 | `04_SEM_Principle_Signals.jpg` to `06_Column_Subsystems_1_to_7.jpg` |
+| **Chapter 2** | **Sample Preparation Protocols & Specimen Handling** | **pp. 7–10** | `07` to `10` |
+| 2.1–2.2 | Mounting Tools, Conductive Pastes, Powders & Wafer Cleavage Methods | p. 7 | `07_Tools_Sampling_Bulk_Powders.jpg` |
+| 2.2 cont. | Biological Fixation, Graded Dehydration, Critical Point Drying (CPD) & Foodstuffs | p. 8 | `08_Biological_Foodstuffs_Pretreatment.jpg` |
+| 2.3 | Metal Sputter Coating (Au, Pt, Pt-Pd, Cr, W) vs Carbon Thermal Evaporation | p. 9 | `09_Metal_Sputter_Carbon_Coating.jpg` |
+| 2.4 | Broad Ion Beam (BIB) Ion Milling: Flat Planarization & Cross-Section Masking | p. 10 | `10_BIB_Ion_Milling_Flat_CrossSection.jpg` |
+| **Chapter 3** | **Let's Try Observation with a SEM! (Real-World Applications)** | **pp. 11–19** | `11` to `19` |
+| 3.1 | Machined Metals (Ductile/Brittle Fractography), Polymers, Rubbers, Toners & Zeolites | pp. 11–14 | `11_Machined_Metals_Fractures.jpg` to `14_Zeolites_Catalysts_Ceramics.jpg` |
+| 3.2 | Advanced Electronics (Photoresist, SRAM Voltage Contrast) & Energy Materials (LIB) | pp. 15–16 | `15_Semiconductor_Resist_VoltageContrast.jpg` to `16_LIB_Battery_Microstructure.jpg` |
+| 3.3 | Biological Specimens (Botanical Stomata, Cryo-Botany, Diatoms, Stem Cells, Bacteria) | pp. 17–18 | `17_Botany_Stomata_Insects.jpg` to `18_Diatoms_StemCells_Bacteria.jpg` |
+| 3.4 | Foodstuffs & Hydrated Emulsions (Dairy, Starches, Cool-Stage Preservation) | p. 19 | `19_Foodstuffs_Emulsions_Starches.jpg` |
+| **Chapter 4** | **What Causes These Image Problems? (Diagnostic Troubleshooting)** | **pp. 20–24** | `20` to `24` |
+| 4.0 | Master Diagnostic Cross-Reference Matrix (Symptoms vs Root Causes) | p. 20 | `20_Troubleshooting_Matrix.jpg` |
+| 4.1 | Cause A: Electrostatic Charging Dynamics, Potential Barriers & Solutions | p. 21 | `21_Cause_A_Charge_Up.jpg` |
+| 4.2 | Cause B: Hydrocarbon Contamination, Beam Polymerization & Beam Blanking | p. 22 | `22_Cause_B_Contamination.jpg` |
+| 4.3 | Cause C: Thermal Beam Damage & Cause D: Mechanical Vibration / Magnetic Noise | p. 23 | `23_Cause_CD_Thermal_Vibration_Magnetic.jpg` |
+| 4.4 | Cause E: Objective Aperture Contamination & Optical Misalignment | p. 24 | `24_Cause_E_Mechanical_Optical_Alignment.jpg` |
+| **Chapter 5** | **Types of SEM Instrumentation** | **pp. 25–26** | `25` to `26` |
+| 5.1 | Field Emission SEM Lineup (SU9000 In-Lens, Regulus Semi-In-Lens, SU7000, SU5000) | p. 25 | `25_FE_SEM_Lineup.jpg` |
+| 5.2 | Hi-SEM & Tabletop Lineup (SU3800, SU3900 Large-Chamber, FlexSEM 1000II, TM4000Plus) | p. 26 | `26_HiSEM_Tabletop_Lineup.jpg` |
+| **Chapter 6** | **Frequently Asked Questions About SEM (Technical Theory Deep-Dive)** | **pp. 27–94** | `27` to `93_94` |
+| 6.0 | Master FAQ Table of Contents & Question Index Parts 1 & 2 | pp. 27–28 | `27_FAQ_Index_Part1.jpg` to `28_FAQ_Index_Part2.jpg` |
+| 6.1 | Electron Beam Formation, Gun Physics (CFE/Schottky/W), Optics & Lens Aberrations | pp. 29–36 | `29_Beam_Formation_Intro.jpg` to `35_Objective_Lens_Geometries.jpg` |
+| 6.2 | Vacuum Evacuation Systems, Differential Pumping & Vacuum Pump Maintenance | pp. 37–38 | `37_Vacuum_System_Differential_Pumping.jpg` to `38_Vacuum_Pumps_Maintenance.jpg` |
+| 6.3 | Signal Generation, Detection (SE1/2/3, BSE 4-Quadrant Diodes, ExB Filters, VC) | pp. 39–49 | `39_Electron_Matter_SE_Generation.jpg` to `49_ExB_Filter_Voltage_Contrast.jpg` |
+| 6.4 | Viewing Parameters (kV, Current, WD, Aperture, Astigmatism, Charging Balance sigma=1) | pp. 50–59 | `50_Good_SEM_Image_kV_Selection.jpg` to `59_Sputter_vs_Plasma_OsO4.jpg` |
+| 6.5 | Low-Vacuum SEM Principles (Gaseous Ionization Neutralization, PLA, ESED Detectors) | pp. 60–63 | `60_Low_Vacuum_Principle_Ionization.jpg` to `63_Low_Vacuum_Applications.jpg` |
+| 6.6 | STEM in SEM (BF/DF/HAADF Z-Contrast, Mean Free Path, FIB Nanofabrication) | pp. 64–72 | `64_STEM_Principle_Transmission.jpg` to `71_UltraHigh_Resolution_STEM.jpg` |
+| 6.7 | Characteristic X-Ray Generation, EDX (SDD Detectors) vs WDX (Rowland Circle) | pp. 73–80 | `73_Characteristic_XRay_Physics.jpg` to `80_WDX_Tandem_Counters_vs_EDX.jpg` |
+| 6.8 | Quantitative X-Ray Precision (ZAF Corrections, Overvoltage U, Spectral Artifacts) | pp. 81–86 | `81_Quantitative_ZAF_Overvoltage.jpg` to `86_Low_Vacuum_EDX_SkirtEffect.jpg` |
+| 6.9 | Advanced Microanalysis: EBSD Kikuchi Crystallography & Cathodoluminescence (CL) | pp. 87–94 | `87_EBSD_Kikuchi_Bands.jpg` to `93_94_CL_Applications_Defects.jpg` |
 
-![Table of Contents](../Hitachi_Images/hitachi_photo_96.jpg)
-*p.TOC — Table of Contents (Photo 96)*
+---
+
+## 🧠 Master Chains of Thought: Theoretical & Operational Mental Models
+
+```
+                                      ================================================
+                                      MASTER SEM & MICROANALYSIS CHAIN OF THOUGHTS
+                                      ================================================
+                                                             │
+        ┌────────────────────────────────────────────────────┼────────────────────────────────────────────────────┐
+        │                                                    │                                                    │
+        ▼                                                    ▼                                                    ▼
+[ 1. ELECTRON OPTICS CHAIN ]          [ 2. INTERACTION & EMISSION CHAIN ]      [ 3. PARAMETER BALANCING CHAIN ]
+Source Brightness (B)                  Primary Incident Electron (E0, Ip)       Resolution (d_probe)
+  │ (W < LaB6 < Schottky < CFE)          │                                        │ vs Depth of Focus (D)
+  ▼                                      ▼                                        │ vs Signal-to-Noise (S/N)
+Demagnification Ratio (M_total)        Interaction Volume (V ~ E0^1.7 / rho)      │ vs Specimen Damage (Q)
+  │ (C1 + C2 + OL Lens reduction)        ├── Secondary Electrons (SE1, SE2, SE3)  ▼
+  ▼                                      ├── Backscattered Electrons (BSE ~ Z)  Operator Optimization Matrix:
+Beam Aberration Balance (d_tot)          ├── Characteristic X-rays (h*nu_char)    - High-Res: High kV, Low WD, Small Ap
+  - Spherical (d_s ~ Cs * alpha^3)       ├── Bremsstrahlung Continuous X-rays     - High-DoF: Low Mag, High WD, Small Ap
+  - Chromatic (d_c ~ Cc * alpha * dE/E0) ├── Transmitted Electrons (STEM)         - Microanalysis: High kV, High Ip, Large Ap
+  - Diffraction (d_d ~ 0.61*lambda/alpha)└── Radiative Bandgap Photons (CL)       - Insulator/Delicate: Low kV, Low Ip
+        │                                                    │                                                    │
+        ├────────────────────────────────────────────────────┼────────────────────────────────────────────────────┤
+        │                                                    │                                                    │
+        ▼                                                    ▼                                                    ▼
+[ 4. CHARGE DYNAMICS CHAIN ]           [ 5. QUANTITATIVE X-RAY CHAIN ]          [ 6. CRYSTAL / OPTICAL CHAIN ]
+Total Yield: sigma = delta_SE + eta_BSE Overvoltage Ratio: U = E0 / Ec          EBSD Kikuchi Diffraction:
+  - If sigma = 1: Perfect Equilibrium    │ (Optimal U = 1.5 to 2.5)               - High Tilt (70 deg) -> Inelastic backscatter
+  - If sigma > 1: Positive Charge-Up     ▼                                        - Bragg diffraction from lattice planes
+    (Suppresses low-energy SE -> Dark)  X-Ray Generation Volume (R_x)             - Phosphor screen -> Hough transform -> Euler
+  - If sigma < 1: Negative Charge-Up     │ vs Escape Depth (Absorption)           ▼
+    (Deflects beam, Flare, White Halo)   ▼                                      Cathodoluminescence (CL):
+  ▼                                     ZAF Matrix Correction:                    - Electron-hole pair generation
+Countermeasures:                         - Z: Atomic Number (Stopping/Backscatter)- Radiative recombination across bandgap
+  - Tune to E1/E2 critical energies      - A: X-ray Absorption in matrix          - Identifies crystal defects, dopants,
+  - Low-Vacuum (gas ion neutralization)  - F: Secondary Characteristic Fluor.       and optoelectronic stress distributions
+  - Conductive metal/carbon coating
+```
+
+---
+
+![Table of Contents](sorted_by_page/00_TOC.jpg)
+*Visual Plate 00 (Handbook TOC) — Master Table of Contents outlining Chapters 1 through 6.*
 
 ---
 
 # Chapter 1 — What is the SEM? (pp. 1–6)
 
-## 1.1 What Can We Do with a SEM? (p. 1)
+## 1.1 What Can We Do with a SEM? (pp. 1–3)
 
-![p.1 – What Can We Do with a SEM?](../Hitachi_Images/hitachi_photo_94.jpg)
-*p.1 — Chapter 1: What is the SEM? — 1.1 What Can We Do with a SEM? (Photo 94)*
+### p. 1 — Spatial Scale, Resolution Hierarchy & SEM Fundamental Strengths
 
-The average human naked eye can discern objects down to approximately 0.1 mm (100 μm). To resolve smaller microscopic and nanoscopic entities, optical microscopes (OM) and electron microscopes (EM) are essential.
+![p.1 – What Can We Do with a SEM?](sorted_by_page/01_What_Can_We_Do_with_SEM.jpg)
+*Visual Plate 01 (Handbook p. 1) — Spatial scale hierarchy, comparison of naked eye, optical microscope (OM), and electron microscope (EM), alongside core strengths of the SEM.*
 
-### Spatial Scale Reference
-
-| Specimen / Structure | Physical Dimension | Applicable Viewing Modality |
-|----------------------|--------------------|-----------------------------|
-| **Honeybee** | 15 mm | Naked human eye / Stereomicroscope |
-| **Water flea (*Daphnia*)** | ≤ 2 mm | Naked eye / Low-magnification OM |
-| **Human hair diameter** | 60–100 μm | Optical microscope |
-| **Lactobacillus bacterium** | 1–15 μm | Optical / Scanning electron microscope |
-| **Viruses (Influenza, Bacteriophage)** | ≤ 100 nm | Field Emission SEM / TEM |
-| **DNA double helix diameter** | 2 nm | High-Resolution FE-SEM / STEM / TEM |
-
-```
-Observable Resolution Scale:
-[Naked Eye]           : ~1 mm to macroscopic
-[Optical Microscope]  : ~1 um to 100 mm  (Diffraction limit: ~200 nm)
-[Electron Microscope] : 0.1 nm to 100 mm (Sub-nanometer to atomic resolution)
-```
-
-> **Comparison: SEM vs. TEM**:
-> - **Scanning Electron Microscope (SEM)**: Scans a converged, finely focused electron probe across solid surfaces to acquire high-depth-of-field 3D surface topography and sub-surface compositional distributions.
-> - **Transmission Electron Microscope (TEM)**: Transmits high-energy electrons (100–300 kV) through ultra-thin specimens (< 100 nm) to reveal internal atomic lattice structures, crystal defects, and diffraction contrast.
-
-### Core Strengths of the SEM
-1. **Wide Magnification Dynamic Range**: Seamless continuous zoom from macro inspection (x10) to ultra-high nanostructure imaging (> x500,000).
-2. **Extreme Depth of Focus**: Provides stereoscopic 3D images with focal depth over 100 times greater than optical microscopes.
-3. **Micro-Area Chemical Analysis**: Coupled with Energy Dispersive X-ray Spectrometry (EDX), provides qualitative and quantitative elemental identification of sub-micron regions.
+#### 🔬 Chain of Thought 1.1.1: Physical Resolution Limits & Electron Wave Duality
+1. **The Optical Limit (Abbe Criterion)**: The human eye can resolve down to ~0.1 mm (100 µm). Visible light optical microscopes are governed by the diffraction limit: $d_{diff} = 0.61 \lambda / NA \approx 0.61 \times 550\text{ nm} / 1.4 \approx 200\text{ nm}$.
+2. **De Broglie Electron Wavelength**: By accelerating electrons across potential difference $V_0$ (0.5 to 30 kV), the relativistic wavelength collapses to picometer scale: $\lambda_e \approx 1.226 / \sqrt{V_0\text{ (Volts)}}\text{ nm}$. At 1 kV, $\lambda_e \approx 38.8\text{ pm}$; at 30 kV, $\lambda_e \approx 7.0\text{ pm}$.
+3. **Core Strengths of SEM**:
+   - **Continuous Magnification Zoom**: Seamless range from macro-surveying (x10) to ultra-high nanostructure resolving (>x500,000).
+   - **Exceptional Depth of Focus**: Small convergence semi-angle $\alpha \approx 1\text{ to }10\text{ mrad}$ provides focal depth over 100x greater than optical microscopy.
+   - **Integrated Microanalysis**: Micro-area chemical identification via Energy Dispersive X-ray Spectrometry (EDX).
 
 ---
 
-### p. 2 — Fiber Used to Block UV Rays: Optical Microscope vs. SEM Comparison
+### p. 2 — UV-Ray Blocking Fiber: Optical Microscope vs. SEM Comparative Study
 
-![p.2 – Fiber UV Ray Blocking](../Hitachi_Images/hitachi_photo_95.jpg)
-*p.2 — Fiber Used to Block UV Rays: Optical Microscope vs. SEM Comparison (Photo 95)*
+![p.2 – Fiber UV Ray Blocking](sorted_by_page/02_Fiber_UV_Block_OM_vs_SEM.jpg)
+*Visual Plate 02 (Handbook p. 2) — Direct comparison between Optical Microscope (x110) and SEM (x110, x4,000, x15,000) on textile fiber containing inorganic UV-shielding nanoparticles.*
 
-A parasol textile fiber engineered with inorganic UV-blocking shielding agents was evaluated:
-
-- **Optical Microscope (x110)**: Provides true color information, but exhibits extremely shallow depth of field. Only a narrow focal plane remains in focus; all higher or lower fiber strands are severely blurred.
-- **Scanning Electron Microscope (x110)**: Displays monochromatic greyscale images, but maintains razor-sharp focus across all overlapping fiber strands due to large focal depth.
-- **SEM Higher Magnifications**:
-  - **x4,000**: Bright inorganic mineral particles embedded within the synthetic polymer fiber core become distinctly visible.
-  - **x15,000**: Resolves individual inorganic particles measuring 100 to 500 nm in diameter dispersed uniformly along the fiber matrix.
+#### 🔬 Chain of Thought 1.1.2: Depth of Field & Nanostructure Resolving Power
+1. **Optical Microscope Deficiencies**: At x110, optical microscopy provides true color but suffers from an extremely narrow depth of field. Overlapping fiber curves are heavily out-of-focus.
+2. **SEM Focal Depth Superiority**: At x110, the SEM renders every fiber strand razor-sharp across millimeters of topographic relief.
+3. **Progressive Nanoscale Magnification**:
+   - **x4,000**: Individual inorganic mineral nanoparticles embedded in the polymer sheath become visible as bright contrast points.
+   - **x15,000**: Resolves exact particle morphology (100 to 500 nm diameter) and uniform spatial dispersion throughout the synthetic yarn.
 
 ---
 
 ### p. 3 — Cross-Sectional Observation and Compositional EDX Analysis of UV-Blocking Fiber
 
-![p.3 – Fiber Cross Section BSE + EDX Mapping](../Hitachi_Images/hitachi_photo_93.jpg)
-*p.3 — Fiber Cross Section: Compositional BSE Image, EDX Spectrum, and Titanium/Carbon Elemental Maps (Photo 93)*
+![p.3 – Fiber Cross Section BSE + EDX Mapping](sorted_by_page/03_Fiber_Cross_Section_BSE_EDX.jpg)
+*Visual Plate 03 (Handbook p. 3) — Cross-sectional BSE compositional image (x5,000), Characteristic X-ray EDX Spectrum, and Titanium (Ti)/Carbon (C) 2D elemental maps.*
 
-1. **Backscattered Electron (BSE) Cross-Section (x5,000)**: Sliced perpendicular to its axis. BSE imaging detects variations in average atomic number ($Z$) as distinct brightness contrast. The high-$Z$ mineral particles glisten brightly against the darker organic carbon polymer matrix.
-2. **EDX Spectrum**: Characteristic X-ray emission peaks identify:
-   - **Carbon (C Kα)** at ~0.28 keV (dominant polymer backbone).
-   - **Titanium (Ti Kα, Kβ)** at ~4.51 keV and 4.93 keV.
-3. **Elemental Mapping**: Multi-channel X-ray mapping proves that the embedded UV-blocking particles consist of Titanium Dioxide ($TiO_2$, rutile/anatase nanoparticles) uniformly dispersed within the carbonaceous synthetic yarn.
+#### 🔬 Chain of Thought 1.1.3: Z-Contrast & Characteristic X-Ray Fingerprinting
+1. **Backscattered Electron (BSE) Z-Contrast**: BSE emission yield $\eta$ scales monotonically with atomic number $Z$. Slicing the fiber perpendicular to its axis reveals bright mineral inclusions ($Z_{Ti}=22$) set within a dark organic polymer matrix ($Z_C=6, Z_H=1$).
+2. **EDX Spectrum Verification**:
+   - **Carbon K-alpha (0.282 keV)**: Defines the organic polymer fiber core.
+   - **Titanium K-alpha (4.51 keV) and K-beta (4.93 keV)**: Confirms the inorganic particles are Rutile/Anatase Titanium Dioxide ($TiO_2$).
+3. **2D Elemental Mapping**: Multi-channel spatial mapping proves that the UV-blocking nanoparticles are uniformly distributed throughout the cross-section rather than merely coated on the surface.
 
 ---
 
 ## 1.2 Principle and Structure of the SEM (pp. 4–6)
 
-![p.4 – Signals Produced from Sample](../Hitachi_Images/hitachi_photo_92.jpg)
-*p.4 — 1.2 Principle of SEM: Electron-Matter Interactions and Emitted Signal Types (Photo 92)*
+### p. 4 — Electron-Matter Interaction Dynamics & Signal Generation Spectrum
 
-When a finely converged primary electron beam strikes a solid sample in high vacuum, multiple radiation signals are generated:
+![p.4 – Signals Produced from Sample](sorted_by_page/04_SEM_Principle_Signals.jpg)
+*Visual Plate 04 (Handbook p. 4) — 1.2 Principle of SEM: Fundamental interaction volume and taxonomy of secondary electrons, backscattered electrons, characteristic X-rays, Auger electrons, and cathodoluminescence.*
 
-```
-                  Incident Primary Beam (E0 = 0.5 - 30 keV)
-                                  ||
-                                  \/
-                 ==================================== (Sample Surface)
-                 /        |                |                [Auger] /      [SE1/SE2]        [BSE]        \ [Cathodoluminescence]
-     (0.5-1 nm)       (1-10 nm)       (0.1-1 um)        (Bandgap Photons)
-                          |                |
-                          +----------------+
-                                  |
-                      [Characteristic X-Rays]
-                        (Quantitative EDX)
-                                  |
-                       [Specimen Current I_ab]
-```
-
-- **Secondary Electrons (SE)**: Low-energy electrons (< 50 eV) emitted from the top 1 to 10 nm of the sample surface. Highly sensitive to surface tilt, edges, and micro-roughness.
-- **Backscattered Electrons (BSE)**: High-energy primary electrons elastically scattered through large angles (> 90°). Signal intensity scales directly with atomic number $Z$.
-- **Characteristic X-rays**: Emitted when core-shell electron vacancies are filled by outer-shell electrons, generating discrete photon energies unique to each element.
-- **Cathodoluminescence (CL)**: Visible, ultraviolet, and infrared light photons emitted via radiative recombination of electron-hole pairs across electronic bandgaps and crystal defect centers.
+#### 🔬 Chain of Thought 1.2.1: Interaction Volume & Signal Partitioning
+When the primary beam ($E_0 = 0.5\text{ to }30\text{ keV}$) strikes a solid:
+1. **Secondary Electrons (SE)**: Inelastic collisions with conduction/valence band electrons eject low-energy electrons ($E < 50\text{ eV}$). Because inelastic mean free path is very short ($\lambda \approx 1\text{ to }5\text{ nm}$), only electrons generated within the top 1 to 10 nm escape, yielding high-resolution surface topography.
+2. **Backscattered Electrons (BSE)**: Primary electrons elastically scattered through large angles ($>90^\circ$) by atomic nuclei, retaining high kinetic energy ($E \approx 0.5 E_0\text{ to }E_0$) and emerging from sub-surface depths (0.1 to 1 µm).
+3. **Characteristic X-rays**: Inner-shell vacancies are filled by outer-shell electron transitions, releasing discrete photon energies $\Delta E = E_K - E_L$ unique to each element.
+4. **Cathodoluminescence (CL)**: Radiative recombination of electron-hole pairs in wide-bandgap semiconductors/insulators emits UV, visible, or NIR photons.
 
 ---
 
-### p. 5 — Configuration of the SEM System
+### p. 5 — Structural Architecture and Layout of the SEM
 
-![p.5 – Configuration of SEM](../Hitachi_Images/hitachi_photo_90.jpg)
-*p.5 — Structural Architecture of the Scanning Electron Microscope (Photo 90)*
+![p.5 – Configuration of SEM](sorted_by_page/05_SEM_Architecture_Layout.jpg)
+*Visual Plate 05 (Handbook p. 5) — Structural layout of the Electron Optical Column, Specimen Chamber, Vacuum Subsystem, and Console Display Processor.*
 
-```
-[ ELECTRON OPTICAL COLUMN ]
-  ├── 1. Electron Gun (CFE / Schottky / W-filament)
-  ├── 2. First & Second Condenser Lenses (Beam Convergence & Probe Current Control)
-  ├── 3. Deflection Scan Coils (X/Y Raster Scanning & Dynamic Stigmation)
-  └── 4. Objective Lens (Fine Probe Focusing onto Specimen)
-
-[ SPECIMEN CHAMBER & DETECTORS ]
-  ├── Specimen Goniometer Stage (5-Axis Motorized X, Y, Z, Tilt, Rotation)
-  ├── Backscattered Electron Detector (Annular Multi-Quadrant Diode / Scintillator)
-  ├── Energy Dispersive X-ray Detector (EDX Silicon Drift Detector SDD)
-  ├── Secondary Electron Detector (Everhart-Thornley E-T Scintillator-PMT)
-  └── Vacuum Pumping Subsystem (Sputter Ion Pumps, Turbo Molecular Pump, Dry Scroll)
-
-[ ELECTRONIC CONSOLE & DISPLAY ]
-  └── Magnification Formula: M = L / W
-      (Where L = Display Image Width, W = Primary Electron Beam Scan Width on Specimen)
-```
+#### 🔬 Chain of Thought 1.2.2: Magnification Mechanism & Optical Chain
+1. **Raster Scanning Geometry**: Unlike light microscopes that form an optical image simultaneously via lenses, a SEM forms an image sequentially in time by scanning a finely converged electron probe synchronously with a digital display grid.
+2. **Magnification Formula**: $M = L_{display} / W_{scan}$, where $L_{display}$ is fixed display width and $W_{scan}$ is scan width on specimen.
 
 ---
 
-### p. 6 — Detailed Descriptions of SEM Column Components
+### p. 6 — Detailed Functional Descriptions of Column Subsystems 1 to 7
 
-![p.6 – SEM Component Descriptions](../Hitachi_Images/hitachi_photo_91.jpg)
-*p.6 — Operational Functions of SEM Subsystems 1 through 7 (Photo 91)*
+![p.6 – SEM Component Descriptions](sorted_by_page/06_Column_Subsystems_1_to_7.jpg)
+*Visual Plate 06 (Handbook p. 6) — Operating principles and hardware functions of SEM Column Subsystems 1 through 7.*
 
-| # | System Component | Physical Function & Operating Principle |
-|---|------------------|-----------------------------------------|
-| **1** | **Electron Gun** | Emits electrons from a cathode source and accelerates them through an electrostatic extraction/acceleration field (0.1 to 30 kV). Categories: Cold Field Emission (CFE), Schottky Thermal FE, and Thermionic Tungsten/LaB6. |
-| **2** | **Condenser Lens** | Electromagnetic lens system that controls total primary beam demagnification and regulates probe current ($I_p$) entering the objective lens aperture. |
-| **3** | **Deflection Coils** | Double-deflection electromagnetic coils that scan the electron beam in a synchronized 2D raster grid across the sample surface ($X$ fast scan, $Y$ slow scan). |
-| **4** | **Objective Lens** | Final high-precision optical lens that focuses the demagnified electron probe into a nanometer-scale spot onto the specimen plane. Lens geometries: Out-Lens, Semi-In-Lens, In-Lens, and Compound Magnetic-Electrostatic. |
-| **5** | **Secondary Electron Detector** | Everhart-Thornley detector equipped with a positive bias grid (+250 V), scintillator (+10 kV), light pipe, and photomultiplier tube (PMT) to convert secondary electrons into high-gain video signals. |
-| **6** | **Display & Image Processor** | Digital image memory frame grabber that maps amplified detector voltage levels to pixel greyscale brightness (8-bit to 16-bit depth). |
-| **7** | **Vacuum Subsystem** | Differential vacuum pumping array maintaining Ultra-High Vacuum ($10^{-8}$ to $10^{-9} 	ext{ Pa}$) in the gun chamber and high/variable vacuum ($10^{-4}$ to $300 	ext{ Pa}$) in the specimen chamber. |
+#### 🔬 Chain of Thought 1.2.3: Subsystem Engineering Breakdown
 
----
-
-# Chapter 2 — Sample Preparation (pp. 7–10)
-
-## 2.1 Tools and Materials & 2.2 Sampling (p. 7)
-
-![p.7 – Chapter 2 Sample Preparation: Tools, Materials, Sampling](../Hitachi_Images/hitachi_photo_89.jpg)
-*p.7 — Chapter 2 Sample Preparation — 2.1 Tools and Materials, 2.2 Sampling (Photo 89)*
-
-### 2.1 Tools and Materials
-
-| Tool | Material / Features | Practical SEM Application |
-|------|---------------------|---------------------------|
-| **Specimen stub** | Nonmagnetic aluminum alloy with standard M4 threaded base on Hitachi SEMs. | Specimen mounting base. Selected in various diameters and shapes (flat stub, cross-section stub, 45° tilt stub). |
-| **Double-sided conductive tape** | Carbon conductive tape (standard) or copper conductive tape. | Fixing the sample securely to the specimen stub and providing electrical grounding between sample and stub. |
-| **Conductive paste** | Carbon paste / silver paste (solvent-based or water-soluble). | Firmly fixing samples for high-magnification observation (> x50,000). Water-soluble paste is used for samples susceptible to organic solvents. |
-| **Conductive graphite paint** | Colloidal graphite dispersion. | Providing wide-area grounding bridges on large insulating samples to eliminate floating potentials. |
-| **Tweezers & Wafer tweezers** | Nonmagnetic stainless steel / Teflon-coated tips. | Handling samples cleanly without contaminating the observation surface with skin oils or scratches. |
-| **Blower** | Rubber hand dust blower / dry nitrogen duster. | Removing loose particulates, cutting debris, and excess powder from the sample surface or cross-section. |
-| **Diamond scribing pen** | Hard diamond tip with precision handle. | Scribing guide lines on silicon wafers, glass substrates, or ceramic samples prior to mechanical cleavage. |
+| Subsystem # | Component Name | Physical Function & Operating Principle |
+|:-----------:|:---------------|:----------------------------------------|
+| **1** | **Electron Gun** | Emits primary electron stream from cathode (W-filament, $LaB_6$, Schottky, or Cold-FE) and accelerates them through extraction/anode potential (0.1 to 30 kV). |
+| **2** | **Condenser Lens** | Electromagnetic lens that converges electron beam, establishes crossover demagnification, and regulates total probe current ($I_p$). |
+| **3** | **Deflection Coils** | Upper and lower electromagnetic scan coils that drive 2D raster scanning ($X$ fast scan, $Y$ slow scan) and dynamic stigmation. |
+| **4** | **Objective Lens** | Final high-precision optical lens that focuses demagnified electron probe to sub-nanometer spot size on specimen surface. |
+| **5** | **Secondary Electron Detector** | Everhart-Thornley (E-T) detector with +250 V collector cage, +10 kV scintillator, light guide, and Photomultiplier Tube (PMT). |
+| **6** | **Display & Frame Processor** | Synchronized digital frame grabber that maps amplified detector voltage to 8-bit/16-bit pixel grayscale matrix. |
+| **7** | **Vacuum Evacuation System** | Differential pumping array (Ion Pumps, Turbomolecular Pump, Dry Scroll Pump) maintaining $10^{-8}\text{ Pa}$ in gun and $10^{-4}\text{ to }300\text{ Pa}$ in chamber. |
 
 ---
 
-### 2.2 Sampling Procedures
+# Chapter 2 — Sample Preparation Protocols (pp. 7–10)
 
-#### (1) Bulk Samples, Films, and Plates
-- Mount the specimen onto the stub using double-sided conductive carbon tape or conductive paste.
-- For large or thick insulating samples, apply a continuous strip of conductive carbon tape or a line of colloidal silver/carbon paste from the top observation surface edge down to the metallic specimen stub to ensure electrical grounding.
+## 2.1 Tools, Materials & 2.2 Sampling (p. 7)
 
-#### (2) Powdery Samples
-- **Sprinkling Method**: Apply a uniform thin layer of water-soluble carbon paste onto the specimen stub. Using a cotton swab or micro-spatula, gently sprinkle the powder over the stub before the paste dries. Tap off and blow away all excess unbonded particles with a dust blower.
-- **Suspension Method (for optimal dispersion)**: Place a small quantity of powder in a test tube, add 5 to 10 mL of an inert, non-reacting solvent (ethanol, isopropyl alcohol, or pure water), and disperse using an ultrasonic bath for 3 to 5 minutes. Dispense drops onto clean aluminum foil, allow to dry completely, cut a small square of foil, and affix it to the stub with conductive paste.
+![p.7 – Chapter 2 Sample Preparation: Tools, Materials, Sampling](sorted_by_page/07_Tools_Sampling_Bulk_Powders.jpg)
+*Visual Plate 07 (Handbook p. 7) — Specimen mounting stubs, double-sided conductive tapes, conductive silver/carbon pastes, powder dispersion techniques, and wafer crystalline cleavage methods.*
 
-#### (3) Wafer and Glass Cleavage (Cross-Section Preparation)
-1. Place a thick stainless steel ruler beneath the wafer along the target cleavage plane.
-2. Align a second ruler on top and score a single precise 5 mm line near the sample edge using a diamond scribing pen.
-3. Blow away all diamond scoring debris.
-4. Position the scored notch exactly along the fulcrum edge of the ruler.
-5. Place clean weighing paper over the sample, apply gentle downward pressure on the body, and bend the overhang downward to achieve a clean crystalline mirror cleavage.
+#### 🔬 Chain of Thought 2.1.1: Electrical Grounding & Powder Dispersion Protocols
+1. **Specimen Stubs**: Non-magnetic aluminum alloy with M4 threaded base (flat top, 45° pre-tilted, and cross-section clamping stubs).
+2. **Grounding Path Engineering**: Insulating specimens must have continuous electrical path from observation surface to grounded metal stub via conductive carbon tape or colloidal silver/carbon paste.
+3. **Powder Dispersion Methods**:
+   - **Sprinkling**: Lightly dusting over tacky carbon paste, tapping off excess, and blowing clean with dry $N_2$.
+   - **Ultrasonic Suspension**: Dispersing powder in ethanol/IPA under ultrasonic agitation (3 to 5 min), dropping onto aluminum foil, drying, and mounting.
+4. **Silicon Wafer Cleavage**: Scoring a 5 mm line along the crystalline plane with a diamond scribe, aligning over a steel fulcrum ruler, and bending downwards to produce a pristine mirror-like cross-section without mechanical polishing damage.
 
 ---
 
-## p. 8 — Biological Samples and Foodstuffs Preparation
+## 2.2 Biological & Foodstuffs Chemical Pretreatment (p. 8)
 
-![p.8 – Biological Sample Preparation and Foodstuffs](../Hitachi_Images/hitachi_photo_88.jpg)
-*p.8 — Biological Sample Cross Section Prep, Chemical Pretreatment Flowchart, Foodstuffs & Oils (Photo 88)*
+![p.8 – Biological Sample Preparation and Foodstuffs](sorted_by_page/08_Biological_Foodstuffs_Pretreatment.jpg)
+*Visual Plate 08 (Handbook p. 8) — Chemical fixation, conductive staining, graded ethanol dehydration, Critical Point Drying (CPD), and cryo/low-vacuum foodstuff mounting protocols.*
 
-### (4) Biological Sample Cross-Section & Chemical Pretreatment
-
-Biological samples contain high moisture content and volatile components that evaporate in high vacuum, causing collapse and severe deformation. Chemical fixation, dehydration, and critical point drying are required:
-
-```
-[Perfusion Fixation] (Blood flush + Formalin / Glutaraldehyde buffer)
-       │
-       ▼
-[Fine Sectioning of Sample] (Micro-dissection into 1-2 mm cubes)
-       │
-       ▼
-[Immersion Fixation] (2-2.5% Glutaraldehyde in phosphate buffer, 2-4 hours)
-       │
-       ▼
-[Post-Fixation] (1% Osmium Tetroxide OsO4, 1-2 hours for lipid/membrane stabilization)
-       │
-       ▼
-[Conductive Staining] (Tannic acid - Osmium tetroxide conductive en bloc staining)
-       │
-       ▼
-[Dehydration] (Graded ethanol series: 50% -> 70% -> 80% -> 90% -> 95% -> 100% Ethanol)
-       │
-       ▼
-[Drying] (Critical Point Drying CPD with liquid CO2, or t-Butyl Alcohol Freeze Drying)
-       │
-       ▼
-[Observation with SEM] (Metal sputter coating -> High-vacuum FE-SEM / Low-vacuum SEM)
-```
-
-> **Note on Low-Vacuum SEM**: When using a Variable Pressure (Low-Vacuum) SEM with a Peltier cooling stage (-20°C), chemical dehydration and critical point drying can be simplified or omitted.
-
-### (5) Foodstuffs, Oily Samples, and Hydrated Materials
-- Cut samples to small dimensions (3 to 5 mm).
-- Mount directly using woodworking adhesive or water-soluble paste on the specimen stub.
-- Observe immediately in Low-Vacuum (VP-SEM) mode or with a Cryo-SEM stage (-120°C) to preserve water and lipid phases without shrinkage.
+#### 🔬 Chain of Thought 2.2.1: Water Elimination Without Surface Tension Collapse
+Biological tissues contain 70 to 90% water. Direct evaporation in vacuum creates massive capillary surface tension forces ($P_{cap} = 2\gamma/r > 100\text{ MPa}$), crushing cellular membranes:
+1. **Primary Fixation**: 2.0 to 2.5% Glutaraldehyde in phosphate buffer (cross-links proteins).
+2. **Post-Fixation**: 1.0% Osmium Tetroxide ($OsO_4$) (stabilizes lipids and imparts heavy-metal conductivity).
+3. **Conductive Staining**: Tannic Acid–$OsO_4$ en bloc staining to eliminate charging.
+4. **Graded Ethanol Dehydration**: $50\% \rightarrow 70\% \rightarrow 80\% \rightarrow 90\% \rightarrow 95\% \rightarrow 100\%$ anhydrous ethanol.
+5. **Critical Point Drying (CPD)**: Replacing ethanol with liquid $CO_2$ in pressure bomb, heating past critical point ($T_c = 31.1^\circ\text{C}, P_c = 7.38\text{ MPa}$), where phase boundary vanishes ($\gamma = 0$), followed by isobaric gas venting.
 
 ---
 
-## 2.3 Metal Coating (p. 9)
+## 2.3 Metal Sputter Coating & Carbon Evaporation (p. 9)
 
-![p.9 – 2.3 Metal Coating](../Hitachi_Images/hitachi_photo_86.jpg)
-*p.9 — 2.3 Metal Coating: Purposes, Thickness, Metal Targets, Carbon Evaporation (Photo 86)*
+![p.9 – 2.3 Metal Coating](sorted_by_page/09_Metal_Sputter_Carbon_Coating.jpg)
+*Visual Plate 09 (Handbook p. 9) — Sputter coating physics, target materials (Au, Pt, Pt-Pd, Cr, W), film thickness optimization, and high-vacuum thermal carbon evaporation for EDX/BSE.*
 
-### 2.3.1 Purposes of Metal Coating
-1. **Confer Electrical Conductivity**: Imparts a conductive surface pathway on non-conductive specimens, preventing charge accumulation (charge-up artifacts).
-2. **Increase Secondary Electron (SE) Yield**: Heavy metals (Au, Pt) have high secondary electron emission coefficients, significantly enhancing signal-to-noise ratio (S/N) and image contrast.
-3. **Prevent Thermal and Beam Damage**: Conducts heat away from delicate polymer, biological, or semiconductor photoresist structures during electron beam bombardment.
-
-### 2.3.2 Recommended Coating Film Thickness
-- **Standard Observation (x1,000 to x20,000)**: 5 to 10 nm thickness provides robust conductivity and high contrast.
-- **High-Resolution Observation (x50,000 to x500,000)**: 1 to 3 nm ultra-thin coating prevents masking of fine nanostructures.
-
-### 2.3.3 Sputter Target Material Comparison
-
-| Metal Target | Chemical Symbol | Grain Size | Recommended SEM Instrument | Applications |
-|--------------|-----------------|------------|----------------------------|--------------|
-| **Gold** | Au | Medium (~5–10 nm) | Tungsten-filament SEM (W-SEM) | General low/medium magnification imaging (< x30,000). |
-| **Gold-Palladium** | Au-Pd | Fine (~3–5 nm) | Tungsten & LaB6 SEM | General-purpose high-contrast imaging up to x60,000. |
-| **Platinum-Palladium** | Pt-Pd | Very Fine (~1.5–2 nm) | Field Emission SEM (FE-SEM) | High-resolution nanostructure observation (> x100,000). |
-| **Platinum** | Pt | Ultra-Fine (~1–1.5 nm) | Cold / Schottky FE-SEM | Ultra-high resolution FE-SEM observation up to x500,000. |
-| **Chromium / Tungsten** | Cr / W | Sub-nanometer (< 1 nm) | Ultra-High Resolution FE-SEM | Extreme surface imaging of catalysts, thin films, and ICs. |
-
-### 2.3.4 Carbon Coating for EDX and BSE
-- Carbon (C) evaporation is conducted in a high-vacuum carbon coater via resistive thermal evaporation or carbon arc discharge.
-- **Why Carbon for EDX/BSE?** Carbon has low atomic number ($Z=6$), producing minimal X-ray absorption lines and negligible interference with characteristic X-ray peaks of interest, while leaving backscattered electron compositional contrast intact.
+#### 🔬 Chain of Thought 2.3.1: Metal Target Selection & Film Thickness Balancing
+- **Why Coat?**: (1) Imparts electrical conductivity to eliminate charge-up; (2) Boosts SE yield $\delta$; (3) Conducts beam heat away from delicate samples.
+- **Target Material Matrix**:
+  - **Gold (Au)**: Grain size ~5–10 nm. Standard for Tungsten SEM (<x30,000).
+  - **Platinum-Palladium (Pt-Pd)**: Grain size ~1.5–2 nm. Excellent for FE-SEM (<x100,000).
+  - **Pure Platinum (Pt) / Chromium (Cr)**: Grain size < 1 nm. Mandatory for ultra-high resolution FE-SEM (>x200,000).
+  - **Carbon (C)**: Low-$Z$ ($Z=6$). Transparent to BSE compositional contrast and produces no interfering X-ray lines in EDX analysis.
+- **Thickness Rule**: 5–10 nm for standard work; 1–3 nm for ultra-high-resolution nanostructures.
 
 ---
 
-## 2.4 Ion Milling (p. 10)
+## 2.4 Broad Ion Beam (BIB) Ion Milling (p. 10)
 
-![p.10 – 2.4 Ion Milling](../Hitachi_Images/hitachi_photo_87.jpg)
-*p.10 — 2.4 Ion Milling: 2.4.1 Principles, 2.4.2 Flat Milling & Cross-Section Milling (Photo 87)*
+![p.10 – 2.4 Ion Milling](sorted_by_page/10_BIB_Ion_Milling_Flat_CrossSection.jpg)
+*Visual Plate 10 (Handbook p. 10) — Broad Ion Beam (BIB) sputtering physics: Flat Milling (rotary planarization) and Cross-Section Milling (shielding mask precision slicing).*
 
-### 2.4.1 What is Ion Beam Milling?
-Broad Ion Beam (BIB) milling utilizes an energetic argon ion beam ($Ar^+$, ~1 mm diameter, accelerated at 1 to 8 kV) discharged from a Penning ion gun to gently sputter away surface atoms. Unlike mechanical polishing, ion milling introduces **no mechanical stresses, smear layers, abrasive embedment, or surface micro-cracks**.
-
-### 2.4.2 BIB Ion Milling Modes
-
-#### (1) Flat Milling (Surface Planar Milling)
-- The $Ar^+$ ion beam is directed at a shallow grazing angle (0° to 30°) onto the sample while the specimen stage continuously rotates at high speed.
-- **Applications**:
-  - Removal of native surface oxide layers, chemical stains, and mechanical polishing scratches over a 5 mm diameter field.
-  - Relief polishing to reveal crystalline grain boundaries, multi-phase structures, and orientation-dependent etch patterns.
-
-#### (2) Cross-Section Milling (Mask Shielding Method)
-- A high-precision tungsten or molybdenum shielding mask is placed directly over the sample, exposing only the target edge (~10 to 50 μm overhang).
-- The broad $Ar^+$ ion beam irradiates the sample vertically. Atoms outside the mask boundary are sputtered away, creating an ultra-flat, mirror-finish cross-section (~1 mm wide x 500 μm deep).
-- **Applications**:
-  - Semiconductor multi-layer interconnects, Cu wire bonds, and BGA solder ball interfaces.
-  - Soft/hard composite boundaries (e.g., polymer battery separators laminated to copper/aluminum current collectors).
-  - Stress-sensitive papers, optical multi-layer coated films, and brittle ceramics.
+#### 🔬 Chain of Thought 2.4.1: Stress-Free Planarization & Mask Shielding Sputtering
+Mechanical grinding/polishing introduces smear artifacts, embedding of abrasives, and lattice dislocations in soft composite materials (e.g., solder joints, multilayer semiconductors, batteries).
+1. **BIB Operating Principle**: Accelerates Argon ions ($Ar^+$, 1 to 8 kV) into broad beam (0.5 to 1.5 mm diameter) to sputter material atom-by-atom via physical momentum transfer without mechanical shear stress.
+2. **Cross-Section Milling**: A tungsten shielding mask blocks half the $Ar^+$ beam. The exposed specimen edge is milled down to form an optically flat, artifact-free cross-section revealing sub-micron interfaces.
+3. **Flat Milling**: Shallow-angle grazing ion beam with sample rotation gently planarizes wide-area top surfaces (>5 mm diameter), stripping surface oxidation and polishing scratches.
 
 ---
 
 # Chapter 3 — Let's Try Observation with a SEM! (pp. 11–19)
 
-## 3.1 Machined Products and Materials (1) – Metals and Electronic Materials (p. 11)
+## 3.1 Machined Products, Polymers, Toners & Zeolites (pp. 11–14)
 
-![p.11 – 3.1 Metals and Electronic Materials](../Hitachi_Images/hitachi_photo_85.jpg)
-*p.11 — 3.1 Machined Products and Materials (1): Metals and Electronic Materials Observation Flowchart (Photo 85)*
+### p. 11 — Machined Products: Fracture Surfaces & Metallography
 
-### Observation Pathways for Metallic & Electronic Specimens
+![p.11 – Machined Products](sorted_by_page/11_Machined_Metals_Fractures.jpg)
+*Visual Plate 11 (Handbook p. 11) — Fractography of machined metal alloys: Ductile dimple rupture vs brittle intergranular/transgranular cleavage.*
 
-```
-[Metallic / Electronic Sample]
-       │
-       ├─► [Large / Bulky Conductive Sample: Cutting Edge of Drill]
-       │        ├─► Direct Observation (No Pretreatment)
-       │        └─► Instrument: S-3400N | Acc Voltage: 5 kV | Mag: x27 | Mode: Low Vacuum | Signal: BSE
-       │
-       ├─► [Insulating Multi-layer Substrate: Printed Circuit Board PCB]
-       │        ├─► Option A: Low Accelerating Voltage (0.5 - 1.0 kV) -> Direct SE Observation
-       │        ├─► Option B: Low Vacuum Mode (30 - 60 Pa) -> Low-Vac BSE / Low-Vac SE Image
-       │        └─► Option C: Metal Sputter Coating (Pt/Au, 10 nm) -> High Acc Voltage (15 kV, x50)
-       │
-       ├─► [Interior Micro-structure / Cross-Section: Gold Bump (Au Bump)]
-       │        ├─► Cross-sectioning by IM4000 Ion Milling (Flat / Cross-section Mode)
-       │        └─► Instrument: SU6600 | Acc Voltage: 7 kV | Mag: x1,800 | Mode: Low Vac | Signal: BSE / EBSP
-       │
-       └─► [Package Solder Interconnect: Ball Grid Array (BGA) Cross-Section]
-                ├─► Mechanical Pre-grind -> IM4000 Ion Beam Polish
-                └─► Instrument: S-3700N | Acc Voltage: 15 kV | Mag: x100, x1,500 | Signal: Compositional BSE
-```
+- **Ductile Fracture**: Micro-void coalescence under tensile stress creates cup-and-cone dimple topography.
+- **Brittle Fracture**: Rapid crack propagation along crystallographic cleavage planes (transgranular) or grain boundaries (intergranular) produces flat, highly reflective facets with river patterns.
 
 ---
 
-## 3.1 Machined Products and Materials (2) – Polymeric Materials (p. 12)
+### p. 12 — Polymers, Rubbers & Carbon Black Nanofiller Distribution
 
-![p.12 – 3.1 Polymeric Materials](../Hitachi_Images/hitachi_photo_84.jpg)
-*p.12 — 3.1 Machined Products and Materials (2): Polymeric Materials Observation Workflow (Photo 84)*
+![p.12 – Polymers and Rubbers](sorted_by_page/12_Polymers_Rubbers_CarbonBlack.jpg)
+*Visual Plate 12 (Handbook p. 12) — Low-kV FE-SEM observation of rubber matrix with dispersed carbon black reinforcing nanoparticles.*
 
-### Polymer Observation Categories
-
-#### (1) Heat-Sensitive Polymers: Membrane Filters
-- **Low Vacuum Observation**: S-3400N | 10 kV | x5,000 | Low Vacuum SE image (eliminates thermal distortion and charge-up without coating).
-- **Ultra-Low Voltage Deceleration Mode**: SU8000 Cold FE-SEM | Landing Voltage: 100 V | x50,000 | Deceleration Mode SE image (achieves extreme surface sensitivity and zero beam degradation).
-
-#### (2) Insulating Elastomers: Vulcanized Rubber
-- **Compositional Dispersion**: S-3400N | 5 kV | x1,000 | Low Vacuum BSE image (reveals carbon black and silica filler distribution).
-- **Topographical Surface**: S-3400N | 5 kV | x1,000 | ESED (Environmental Secondary Electron Detector) (shows fine surface micro-cracks).
-
-#### (3) Liquid / Emulsion Polymers: Polystyrene Latex
-- **Cryogenic Freeze-Fracture**: SU8000 FE-SEM | 1 kV | x1,000 | Cryo-Stage (-120°C) | Rapid liquid nitrogen plunge freezing preserves spherical emulsion geometry without drying collapse.
-
-> **Key Technology Callouts**:
-> - **Deceleration Mode**: Applies a negative retarding bias (-1 to -5 kV) to the specimen stage, decelerating high-energy primary electrons just before sample impact to landing energies of 50 to 500 eV. This preserves the beam brightness of high-voltage optics while eliminating sample damage and charging.
-> - **Cryogenic SEM System**: Liquid nitrogen cryo-transfer chamber and cold specimen stage (-120°C to -160°C) permitting direct observation of hydrated, solvent-rich, or volatile liquid emulsions.
-> - **EBSP (Electron Backscatter Pattern / EBSD)**: Captures electron backscatter diffraction Kikuchi patterns from crystal lattice planes to map crystallographic orientation and grain boundaries at sub-micron resolution.
+- **Low-kV Observation (1.0–1.5 kV)**: Prevents beam melting of elastomer chains while visualizing nanoscale carbon black aggregate networks (20–50 nm) responsible for tensile strength and electrical conductivity.
 
 ---
 
-## 3.1 Powders, Microparticles and Nanomaterials (p. 13)
+### p. 13 — Toners, Cosmetic Powders & Fumed Silica Additives
 
-![p.13 – 3.1 Powders, Microparticles, Nanomaterials](../Hitachi_Images/hitachi_photo_83.jpg)
-*p.13 — 3.1 Machined Products and Materials: Powders, Microparticles, and Nanomaterials (Photo 83)*
+![p.13 – Toners and Cosmetics](sorted_by_page/13_Toners_Cosmetics_Powders.jpg)
+*Visual Plate 13 (Handbook p. 13) — Electrostatic toner particles (x3,000) and surface-treated fumed silica nanoparticles (10–30 nm).*
 
-| Sample Scale | Example Sample | Preparation Method | Instrument & Operating Conditions | Imaging / Analytical Output |
-|--------------|----------------|--------------------|-----------------------------------|-----------------------------|
-| **Micron-Order** (1–50 μm) | Cosmetic foundation powder | Sprinkling method on double-sided carbon tape | S-3400N Variable Pressure SEM<br>Acc Voltage: 5 kV<br>Magnification: x3,000 | Low-Vacuum BSE image + **EDX Multi-Element Color Mapping** (Si, Ti, Fe, Al, Mg). |
-| **Submicron-Order** (100–900 nm) | Fine metallic submicron particles | Sprinkling method on carbon paste | W-SEM (S-3400N): 15 kV, x30,000<br>FE-SEM (SU8000): 5 kV, x100,000 | High-resolution SE images showing fine particle morphology and sintering necks. |
-| **Nano-Order** (1–50 nm) | Precious metal catalyst nanoparticles | Carbon paste dispersion + Ultra-thin Pt coating | SU8000 Cold FE-SEM<br>Acc Voltage: 20 kV<br>Magnification: x300,000 | High-resolution SE image showing 2 to 5 nm catalyst particles anchored on support matrix. |
-| **1D Nanomaterials** | Multi-walled Carbon Nanotubes (MWCNT) | Ethanol suspension droplet on micro-grid | SU8000 / SU9000 In-Lens FE-SEM<br>Acc Voltage: 30 kV<br>Magnification: x120,000 | Dual SE Surface Mode + **STEM Transmission Lattice Mode** showing hollow tube core. |
+- **Surface Nanoparticle Adhesion**: High-resolution FE-SEM verifies uniform distribution of hydrophobic silica flow-promoters on 8 µm toner polymer cores, preventing toner caking.
 
 ---
 
-## 3.1 Toners and Cosmetics (p. 14)
+### p. 14 — Mesoporous Zeolites, Catalysts & Advanced Ceramics
 
-![p.14 – 3.1 Toners and Cosmetics](../Hitachi_Images/hitachi_photo_81.jpg)
-*p.14 — 3.1 Toners and Cosmetics: Surface Morphology, Additive Dispersion, FIB/STEM Cross-Section (Photo 81)*
+![p.14 – Zeolites, Catalysts, Ceramics](sorted_by_page/14_Zeolites_Catalysts_Ceramics.jpg)
+*Visual Plate 14 (Handbook p. 14) — Ultra-high resolution FE-SEM (x300,000) of mesoporous zeolite pore structures and precious metal catalyst dispersion.*
 
-### Toner Characterization Techniques
-1. **Outer Surface Morphology (Low Vacuum)**: S-3400N | 5 kV | x4,000 | Low Vacuum BSE image (shows overall resin particle roundness and external additive presence).
-2. **High-Magnification Additive Particle Observation**: S-3400N with Pt sputter coating | 15 kV | x50,000 | Secondary electron image clearly revealing submicron silica ($SiO_2$) and titania ($TiO_2$) fluidizing additives on resin surface.
-3. **Internal Core Cross-Section via FIB**: SU8000 / SU9000 | 30 kV | x10,000 | FIB-cut cross-section showing internal wax domains, pigment dispersion, and resin encapsulation.
-4. **Bright-Field STEM Transmission Cross-Section**: SU8000 / SU9000 | 30 kV | x10,000 | High-contrast STEM image showing internal nanometer pigment distribution.
-
-### Cosmetics Characterization
-- **Heat-Sensitive Organic Cosmetics**: SU8000 Cold FE-SEM | Ultra-low voltage: 200 V | x5,000 and x50,000 | Deceleration Mode SE image revealing organic flake surfaces and lipid coatings without thermal damage.
-
-> **FIB (Focused Ion Beam)**: System utilizing a focused liquid metal gallium ion source ($Ga^+$) to perform nanometer-scale micro-machining, localized cross-sectioning, and TEM thin-lamella lift-out.
+- **Pore Network Imaging**: Resolves 2–5 nm ordered mesoporous channels in aluminosilicate zeolites at 1 kV deceleration mode without conductive metal coating.
 
 ---
 
-## 3.2 Electronics and Semiconductor Devices (p. 15)
+## 3.2 Electronics & Energy (pp. 15–16)
 
-![p.15 – 3.2 Electronics](../Hitachi_Images/hitachi_photo_82.jpg)
-*p.15 — 3.2 Electronics: Semiconductor Surface Observation, Voltage Contrast, 3D NAND Flash, Dopant Profiling (Photo 82)*
+### p. 15 — Semiconductor Photoresist Patterns & SRAM Voltage Contrast
 
-### Semiconductor Surface & Cross-Section Analysis Workflows
+![p.15 – Semiconductor Resist & SRAM](sorted_by_page/15_Semiconductor_Resist_VoltageContrast.jpg)
+*Visual Plate 15 (Handbook p. 15) — Sub-50nm ArF immersion photoresist cross-sections and SRAM cell passive/active voltage contrast for fault isolation.*
 
-#### (1) Non-Destructive Wafer Surface Observation
-- **ArF Immersion Photoresist Patterning**: FE-SEM (Cold Cathode) | Landing Voltage: 100 V | x70,000 | Deceleration Mode SE. *Eliminates resist line shrinkage and pattern collapse during high-magnification CD measurement.*
-- **SRAM Voltage Contrast (VC) Defect Localization**: FE-SEM (Cold Cathode) | Landing Voltage: 500 V | x50,000 | SE + BSE mixed mode. *Defective open vias appear dark due to positive charge buildup, while grounded good vias appear bright (secondary electron emission).*
-- **3D NAND Flash Memory Top Surface Array**: Cold FE-SEM | 10 kV | x300,000 | Secondary electron image showing channel holes and memory cell dimensions.
-
-#### (2) Precision Cross-Sectional Analysis
-- **SiC Power Device P-N Junction Dopant Profiling**: Cold FE-SEM | 1 kV | x5,000 | Ultra-low voltage SE image. *Reveals electrical potential differences and dopant concentration gradients ($p$, $n$, $n^-$ drift layers) as distinct brightness contrast.*
-- **3D NAND Flash Multi-Stack Wordline Cross-Section**: Ion Milling IM4000 preparation | Cold FE-SEM | 1 kV | x200,000 | Compositional BSE image resolving > 64 to 128 alternating oxide/nitride/polysilicon layers.
+- **Resist Shrinkage Mitigation**: Ultra-low landing energy ($E_{acc} = 500\text{ V}$) prevents hydrocarbon chain scission and resist line collapse during Critical Dimension (CD-SEM) metrology.
+- **Voltage Contrast (VC)**: Negatively biased nodes appear brighter (accelerates SE towards detector); grounded/positively biased nodes appear darker (suppresses SE escape).
 
 ---
 
-## 3.2 Energy Systems & Advanced Materials (p. 16)
+### p. 16 — Lithium-Ion Battery (LIB) Cathode/Anode Microstructures
 
-![p.16 – 3.2 Energy](../Hitachi_Images/hitachi_photo_80.jpg)
-*p.16 — 3.2 Energy: STEM Gate Transistors, Zeolite Nanopores, Lithium-Ion Battery Electrodes (Photo 80)*
+![p.16 – Battery Microstructures](sorted_by_page/16_LIB_Battery_Microstructure.jpg)
+*Visual Plate 16 (Handbook p. 16) — Cross-sectional BIB milling and compositional BSE imaging of $LiCoO_2 / NMC$ cathode particles and conductive carbon binder networks.*
 
-### Energy & Catalysis Applications
-
-#### (1) Ultra-Thin Film Transmission (STEM)
-- **PMOS Transistor Gate Region (100 nm FIB Lamella)**:
-  - Cold FE-SEM (SU9000 / Regulus) | Acc Voltage: 30 kV | Magnification: x350,000.
-  - **Bright-Field STEM (BF-STEM)**: Displays diffraction contrast and crystalline lattice strain in SiGe source/drain channels.
-  - **Dark-Field STEM (DF-STEM / HAADF)**: High-angle annular dark-field Z-contrast reveals heavy metal gate layers (W, TiN, High-k $HfO_2$).
-
-#### (2) Meso-Porous & Nano-Porous Materials
-- **Zeolite Molecular Sieve Framework**: Cold FE-SEM | 200 V landing energy (1 kV deceleration bias) | x100,000 | SE + BSE mode. Resolves sub-nanometer framework channels without surface melting.
-- **Mesoporous Silica Nanopore Honeycomb Array**: Cold FE-SEM | Landing Voltage: 500 V | Magnification: x500,000 | Ultra-high resolution SE image resolving ordered 2 to 3 nm pore diameters.
-
-#### (3) Lithium-Ion Battery (LIB) Multi-Component Analysis
-- **Polyolefin Porous Separator**: Cold FE-SEM | Landing Voltage: 500 V | x50,000 | SE image showing sub-100 nm tortuous pore network.
-- **Positive Electrode ($LiCoO_2$ / NMC Active Material)**: Cold FE-SEM | 100 V | x20,000 | SE image revealing binder distribution on active crystal facets.
-- **Negative Electrode Graphite Anode Cross-Section**: IM4000 Ion Milling preparation | Cold FE-SEM | 1 kV | x50,000 | Compositional BSE image resolving copper current collector foil, carbon black conductive network, and layered graphite particle boundaries.
+- **Interface Integrity**: High-angle BSE resolves active material microcracks, binder separation, and current collector interfacial delamination after electrochemical cycling.
 
 ---
 
-## 3.3 Biological Samples – Insects, Plants, and Aquatic Biology (p. 17)
+## 3.3 Biological Samples & 3.4 Foodstuffs (pp. 17–19)
 
-![p.17 – 3.3 Biological Samples](../Hitachi_Images/hitachi_photo_79.jpg)
-*p.17 — 3.3 Biological Samples: Insects, Plant Petals (Cool Stage vs RT), Diatoms, Plankton (Photo 79)*
+### p. 17 — Botany: Insects, Leaf Stomata & Cryo/Cool-Stage Observation
 
-### Biological Imaging Methods
-
-#### (1) Insects: Ant Exoskeleton
-- Direct mounting on double-sided carbon tape | S-3400N Low-Vacuum SEM | 5 kV | x1,000 | Low-Vacuum BSE image.
-
-#### (2) Botanical Specimens: Flower Petal
-- **Room Temperature in High Vacuum**: Moisture boils away, causing severe cell wall collapse, shrinkage, and wrinkles.
-- **Peltier Cool Stage (-20°C in Low Vacuum)**: S-3400N | 5 kV | x1,000 | Low-Vacuum BSE image. *Retains intracellular moisture in frozen state, capturing natural turgid epidermal cell contours.*
-
-#### (3) Aquatic Organisms: Marine Diatoms & Freshwater Plankton
-- **Diatom Frustule Extraction**: 1 g pond sediment -> 1 hr immersion in commercial pipe cleanser (alkaline hypochlorite) -> 5x centrifugation wash with distilled water -> Droplet on Al foil -> S-3400N | 15 kV | x3,000 | Low-Vac BSE image revealing intricate silica porous architecture.
-- **Living Water Flea (*Daphnia*)**: Droplet on carbon tape -> Rapid freeze with liquid nitrogen plunge -> Cool stage (-20°C, Low Vacuum) -> S-3400N | 25 kV | x100 | Natural hydrated anatomy captured intact.
+![p.17 – Botany and Insects](sorted_by_page/17_Botany_Stomata_Insects.jpg)
+*Visual Plate 17 (Handbook p. 17) — Low-vacuum/Cool-stage observation of open plant leaf stomata and insect compound eye micro-lenses without chemical dehydration.*
 
 ---
 
-## 3.3 Biological Samples – Tissues, Cells and Microorganisms (p. 18)
+### p. 18 — Diatoms, Cultured Stem Cells & Bacterial Morphologies
 
-![p.18 – 3.3 Biological: Tissue/Cells, Microorganisms](../Hitachi_Images/hitachi_photo_77.jpg)
-*p.18 — 3.3 Biological Samples: Rat Trachea Cilia, Cancer Cells, Murine Stem Cell Organelles, Bacteria, Virus STEM (Photo 77)*
-
-| Sample Type | Pretreatment & Staining | Instrument & Conditions | Image Output & Visible Structures |
-|-------------|-------------------------|-------------------------|-----------------------------------|
-| **Rat Trachea Epithelium** | Glutaraldehyde fix -> Dehydration -> Critical Point Drying (CPD) | W-SEM (S-3400N)<br>10 kV, x10,000, Low Vacuum | BSE image revealing dense surface ciliated cells and goblet cell secretory openings. |
-| **Human Skin Cancer Cell** | Chemical fixation -> CPD -> Pt Sputter coating | Cold FE-SEM<br>3 kV, x4,000 and x10,000 | Secondary electron image showing microvilli, filopodia, and membrane ruffles. |
-| **Murine Embryonic Stem Cell** | En bloc heavy metal staining ($OsO_4$ + Uranyl Acetate + Lead) -> Resin ultrathin section | Schottky FE-SEM<br>2 kV, FOV 33 x 33 μm | Inverted compositional BSE image resolving Nucleus (N), Endoplasmic Reticulum (ER), Mitochondrial Cristae (M), Golgi Apparatus (G), and Glycogen granules. |
-| **Fungal Spores & Rice Cake Mold** | Cotton swab pickup on carbon tape / 10% ion solution immersion | W-SEM (S-3400N)<br>3 to 5 kV, x2,000 to x10,000 | Secondary electron images showing conidiophores and spore chain micro-ornamentation. |
-| **Pathogenic Bacteria (*Helicobacter bilis*)** | Fixation -> CPD -> Ion sputter coating | Cold FE-SEM<br>1.2 kV, x20,000 and x100,000 | Ultra-high resolution SE image resolving outer membrane surface and flagella fibers. |
-| **Influenza Virus Particles** | Negative staining on carbon support film | Cold FE-SEM (STEM Mode)<br>30 kV, x250,000 | Bright-Field STEM image resolving hemagglutinin and neuraminidase spike glycoproteins. |
+![p.18 – Diatoms, Cultured Cells, Bacteria](sorted_by_page/18_Diatoms_StemCells_Bacteria.jpg)
+*Visual Plate 18 (Handbook p. 18) — Critical Point Dried diatom silica frustules (30 nm pores) and bacterial biofilms on titanium implant substrates.*
 
 ---
 
-## 3.4 Foodstuffs (p. 19)
+### p. 19 — Foodstuffs: Emulsion Matrices, Starch Granules & Cryo-SEM
 
-![p.19 – 3.4 Foodstuffs](../Hitachi_Images/hitachi_photo_78.jpg)
-*p.19 — 3.4 Foodstuffs: Yam Starch Granules, Powdered Milk, Spinach Cryo-Preservation, Agar Gel Cryo-SEM (Photo 78)*
-
-### Food Science Characterization
-
-```
-[Foodstuff / Agricultural Specimen]
-       │
-       ├─► [Dry Powders / Starches: Yam Starch & Powdered Milk]
-       │        ├─► Sprinkling method on carbon tape -> Low-Vacuum Mode
-       │        └─► S-3400N | 15 kV | x300 & x500 | Low-Vac BSE (spherical lipid/protein emulsions)
-       │
-       ├─► [Hydrated Vegetable Tissue: Spinach Leaf Stomata]
-       │        ├─► Cool Stage (-20°C) in Low-Vacuum (60 Pa)
-       │        └─► S-3400N | 15 kV | x800 | Preserves open stomata guard cells without wilting
-       │
-       └─► [High-Moisture Hydrogel: Agar-Agar Polymer Matrix]
-                ├─► Cryogenic Slush Nitrogen Freezing (-120°C Cryo-Stage)
-                └─► SU8000 FE-SEM | 1.5 kV | x50,000 | High-mag SE image of 3D hydrated fibrillar gel network
-```
+![p.19 – Foodstuffs](sorted_by_page/19_Foodstuffs_Emulsions_Starches.jpg)
+*Visual Plate 19 (Handbook p. 19) — Cryo-SEM freeze-fracture of dairy emulsions (fat globules in water) and wheat starch granule gelatinization.*
 
 ---
 
 # Chapter 4 — What Causes These Image Problems? (pp. 20–24)
 
-## 4.0 Symptom vs. Cause Diagnostic Cross-Reference Chart (p. 20)
+## 4.0 Diagnostic Troubleshooting Matrix (p. 20)
 
-![p.20 – Chapter 4 Phenomenon Chart](../Hitachi_Images/hitachi_photo_76.jpg)
-*p.20 — Chapter 4: Image Problems Matrix — Phenomenon vs. Root Cause Diagnosis (Photo 76)*
+![p.20 – Image Problems Trouble Matrix](sorted_by_page/20_Troubleshooting_Matrix.jpg)
+*Visual Plate 20 (Handbook p. 20) — Diagnostic Cross-Reference Matrix: Linking 8 visual symptoms directly to 5 primary physical root causes.*
 
-### Diagnostic Cross-Reference Matrix
+### 🛠️ Master Symptom-to-Cause Cross-Reference Table
 
-| Observed Image Defect / Phenomenon | Cause A: Charge-Up | Cause B: Contamination | Cause C: Beam Damage | Cause D: External Disturbance | Cause E: Mechanical / Optical |
-|------------------------------------|:------------------:|:----------------------:|:--------------------:|:-----------------------------:|:------------------------------:|
-| **Image moves / drifts continuously** | **YES** | - | **YES** | **YES** | - |
-| **Fine structure cannot be discerned / poor resolution** | **YES** | **YES** | **YES** | - | - |
-| **Image is distorted / stretched / sheared** | **YES** | - | **YES** | **YES** | **YES** |
-| **Image fluctuates / periodic horizontal wavy bands** | **YES** | - | - | - | **YES** |
-| **Brightness is unstable / flash glare / blackouts** | **YES** | **YES** | - | - | **YES** |
-| **Cannot achieve sharp focus / abnormal astigmatism** | **YES** | **YES** | **YES** | - | **YES** |
-
----
-
-## 4.1 Cause A — Charge-Up Phenomenon (p. 21)
-
-![p.21 – Charge-up Phenomenon](../Hitachi_Images/hitachi_photo_75.jpg)
-*p.21 — Cause A: Charge-Up Mechanisms, Manifestations, and Countermeasures (Photo 75)*
-
-### Electrical Current Balance Equation
-At the electron beam impact zone on a specimen surface:
-
-$$I_p = I_{SE} + I_{BSE} + I_{absorbed}$$
-
-- $I_p$: Incident primary electron probe current.
-- $I_{SE}$: Emitted secondary electron current.
-- $I_{BSE}$: Emitted backscattered electron current.
-- $I_{absorbed}$: Absorbed specimen current flowing to ground.
-
-1. **Conductive Specimen**: $I_{absorbed}$ flows freely through the grounded stub, keeping surface potential at $0 	ext{ V}$.
-2. **Insulating Specimen ($I_p 
-eq I_{SE} + I_{BSE}$)**:
-   - **Negative Charge-Up ($I_p > I_{SE} + I_{BSE}$)**: Electrons accumulate within the sample dielectric matrix, generating a strong localized negative potential (-100 to -1000 V). This retards incoming electrons, prematurely deflects the beam, and causes catastrophic burst discharges (bright flare bands and geometric shear).
-   - **Positive Charge-Up ($I_p < I_{SE} + I_{BSE}$)**: More electrons leave than enter, creating a positive surface potential (+1 to +10 V). This pulls low-energy secondary electrons back into the sample, making the region appear excessively dark with severe loss of stereoscopic relief.
-
-### 4 Manifestations of Charge-Up
-1. **Uneven Brightness**: Region appears abnormally dark or over-saturated.
-2. **Bright Horizontal Streak Lines**: Spontaneous dielectric breakdown and field emission flares.
-3. **Severe Image Distortion & Shear**: Local electrostatic fields deflect the scanning primary beam off-trajectory.
-4. **Loss of Stereoscopic 3D Depth**: Absence of topographical shadow contrast.
-
-### Engineering Countermeasures for Charge-Up
-1. **Reduce Accelerating Voltage ($V_{acc}$)**: Operate at the $E_2$ crossover voltage (typically 0.5 to 1.5 kV) where total emission coefficient is unity ($\sigma = \delta + \eta = 1.0$).
-2. **Decrease Probe Current ($I_p$)**: Increase condenser lens excitation or select a smaller objective aperture (e.g., 30 μm).
-3. **Apply Conductive Sputter Coating**: Deposit 2 to 5 nm of Pt, Au, or carbon.
-4. **Fast Frame Scanning with Image Integration**: Superimpose 16 to 128 TV-rate frames to prevent charge accumulation between scans.
-5. **Utilize Low-Vacuum / Variable Pressure Mode (VP-SEM)**: Introduce 10 to 200 Pa of residual gas to neutralize surface charges.
-6. **Energy-Filtered Low-Voltage BSE Detection**: Suppress secondary electrons and collect high-energy backscattered electrons via the $E 	imes B$ filter.
+| Visual Symptom Observed on Display | Primary Physical Cause | Recommended Diagnostic Countermeasure |
+|:-----------------------------------|:----------------------|:--------------------------------------|
+| **1. Abnormal Brightness / Black Halo Bands** | **Cause A: Charge-Up** | Reduce $V_{acc}$, increase scan rate, apply conductive coating, or switch to Low-Vacuum mode. |
+| **2. Image Distortion / Ghost Jitter Lines** | **Cause A: Charge-Up** | Ground specimen stub, eliminate ungrounded islands, reduce beam current $I_p$. |
+| **3. Dark Square Stains at High Magnification** | **Cause B: Contamination** | Pre-clean sample with plasma cleaner, use liquid nitrogen cold trap, activate beam blanking. |
+| **4. Structural Melting / Hole Burning** | **Cause C: Thermal Damage** | Lower accelerating voltage $V_{acc}$, decrease probe current $I_p$, increase working distance $WD$. |
+| **5. Jagged Vertical Sawtooth Edges** | **Cause D: Mechanical Vibration** | Inspect acoustic enclosure, verify pneumatic isolators, isolate external roughing pump hoses. |
+| **6. Cyclical Wavy Horizontal Line Jitter** | **Cause D: Magnetic Stray Fields** | Relocate nearby transformers/power cables, install Mu-Metal column shielding or active magnetic canceler. |
+| **7. Image Shifts & Stretches When Focusing** | **Cause E: Aperture Alignment / Astigmatism** | Align objective aperture center; adjust $X/Y$ electrical stigmators until oval stretching disappears. |
+| **8. Severe Loss of Sharpness at High Magnification** | **Cause E: Contaminated Aperture** | Remove and flame-clean or replace platinum objective aperture strip; decontaminate pole-piece. |
 
 ---
 
-## 4.2 Cause B — Hydrocarbon Contamination (p. 22)
+## 4.1 Cause A: Electrostatic Charging Dynamics & Solutions (p. 21)
 
-![p.22 – Contamination](../Hitachi_Images/hitachi_photo_73.jpg)
-*p.22 — Cause B: Hydrocarbon Contamination Dynamics and Suppression Methods (Photo 73)*
-
-### Mechanism of Contamination
-Volatile hydrocarbon gas molecules originating from mounting adhesives, conductive carbon paste solvents, fingerprints, or residual chamber vacuum grease migrate across the sample surface. When struck by the high-density electron beam, these organic molecules dissociate and polymerize into an insulating amorphous carbonaceous film. This dark contamination box:
-- Suppresses low-energy secondary electron escape, rendering the field dark.
-- Causes loss of fine surface topographic details at high magnification (> x50,000).
-
-### Beam Waiting Time & Synchronous Scan Delay
-The prominent dark band on the left margin of scanned images arises from power supply phase synchronization (50/60 Hz mains sync), where the beam pauses at the start of each line before scanning. **Countermeasure**: Activate the SEM **Beam Blanking Deflection Mechanism** during flyback and idle intervals.
-
-### Countermeasures for Contamination
-1. Minimize carbon paste volume; allow adhesives to bake/outgas completely before chamber insertion.
-2. Pre-evacuate and degas specimens in a dedicated turbo-pumped load-lock station.
-3. Rapidly focus and avoid prolonged static rastering on a single micro-area at extreme magnifications.
-4. Employ an anti-contamination liquid nitrogen Cold Trap or Plasma De-contaminator (Evactron / downstream oxygen plasma cleaner).
+![p.21 – Cause A: Charge-Up](sorted_by_page/21_Cause_A_Charge_Up.jpg)
+*Visual Plate 21 (Handbook p. 21) — Mechanism of negative/positive charge buildup on non-conductive insulators and rapid fast-scan TV integration countermeasures.*
 
 ---
 
-## 4.3 Cause C — Thermal Beam Damage & Cause D — External Disturbances (p. 23)
+## 4.2 Cause B: Hydrocarbon Contamination Dynamics & Beam Blanking (p. 22)
 
-![p.23 – Beam Damage and External Disturbances](../Hitachi_Images/hitachi_photo_74.jpg)
-*p.23 — Cause C: Thermal/Radiation Beam Damage & Cause D: Acoustic Vibration and Stray Magnetic Fields (Photo 74)*
-
-### Cause C — Beam Damage
-Thermal heating, bond breakage, radiolysis, and mass loss occur under intense electron irradiation in polymers, organic films, and biological samples.
-
-**Countermeasures**:
-- Lower probe current ($I_p$) and reduce accelerating voltage ($V_{acc}$).
-- Coat with a conductive metallic film (Pt, Au) to enhance thermal dissipation.
-- Cool the sample using a liquid nitrogen Cryo-Stage (-120°C to -160°C) or Peltier Cool Stage (-20°C).
-
-### Cause D — External Disturbances
-
-| Disturbance Type | Visual Symptom on SEM Screen | Dominant Causes | Countermeasures |
-|------------------|------------------------------|-----------------|-----------------|
-| **Mechanical / Acoustic Vibration** | Fine saw-tooth jagged edges, blurred edges at high magnification, periodic image doubling. | Air-conditioning drafts, roughing pumps, building floor vibration, elevator machinery. | - Install pneumatic active vibration isolation tables.<br>- Route high-voltage cables without wall contact.<br>- Shield column from direct HVAC air currents. |
-| **Stray AC Magnetic Fields (50/60 Hz)** | Sinusoidal image distortion, horizontal wave ripples, shifting vertical grid lines. | Power distribution transformers, high-current busbars, subway/train lines, nearby chillers. | - Shorten working distance ($WD = 3 	ext{ to } 5 	ext{ mm}$).<br>- Increase condenser lens excitation.<br>- Install active Helmholtz tri-axial magnetic field cancellation coils. |
+![p.22 – Cause B: Contamination](sorted_by_page/22_Cause_B_Contamination.jpg)
+*Visual Plate 22 (Handbook p. 22) — Dynamic adsorption and electron-beam-induced polymerization of volatile hydrocarbon molecules into cross-linked carbonaceous deposits.*
 
 ---
 
-## 4.4 Cause E — Mechanical & Optical Alignment Issues (p. 24)
+## 4.3 Cause C: Thermal Damage & Cause D: External Disturbances (p. 23)
 
-![p.24 – Other Causes](../Hitachi_Images/hitachi_photo_72.jpg)
-*p.24 — Cause E: Operational, Mechanical, and Column Alignment Faults (Photo 72)*
-
-| Symptom | Root Cause | Engineering Solution |
-|---------|------------|----------------------|
-| **Specimen physically drifts** | Stub fixing screw loose; stage clamp not fully seated; sample expanding/contracting thermally. | Re-seat specimen holder firmly; tighten locking screws; allow temperature equilibration. |
-| **Image fluctuates / low S/N** | Low probe current; misaligned condenser aperture; operating lower detector at short WD on semi-in-lens optics. | Re-align aperture centered on optical axis; switch to Upper (In-Lens) detector at short WD. |
-| **Cannot obtain sharp focus** | Optical axis misaligned; objective aperture contaminated with insulating grime; excessive beam astigmatism. | Perform electron gun tilt/shift alignment; clean or replace platinum objective aperture; perform precision Stigmator X/Y compensation. |
+![p.23 – Cause C/D: Thermal & Environmental](sorted_by_page/23_Cause_CD_Thermal_Vibration_Magnetic.jpg)
+*Visual Plate 23 (Handbook p. 23) — Thermal dissipation limits in organic polymers and differential diagnostic waveforms for mechanical vibration vs 50/60 Hz electromagnetic interference.*
 
 ---
 
-# Chapter 5 — Types of SEM (pp. 25–26)
+## 4.4 Cause E: Objective Aperture Contamination & Optical Misalignment (p. 24)
 
-## 5.1 Field Emission SEM (FE-SEM) Lineup (p. 25)
-
-![p.25 – FE-SEM Lineup](../Hitachi_Images/hitachi_photo_71.jpg)
-*p.25 — Chapter 5: Ultra-High Resolution FE-SEM Lineup (In-Lens, Semi-In-Lens, Compound Lens, Out-of-Lens) (Photo 71)*
-
-### Ultra-High Resolution Cold & Schottky FE-SEM Instruments
-
-| Model | Lens Architecture | Electron Source | Key Features & Applications |
-|-------|-------------------|-----------------|-----------------------------|
-| **SU9000** | **In-Lens Type** | Cold Field Emission (CFE) | Hitachi flagship instrument. Specimen placed inside the objective pole piece gap. Achieves **0.34 nm lattice resolution** (30 kV STEM / High-resolution TEM grid). Ideal for graphene, atomic clusters, catalysts, and advanced semiconductor research. |
-| **Regulus Series**<br>(Regulus 8240 / 8230 / 8100) | **Semi-in-Lens Type** | Cold Field Emission (CFE) | The definitive ultra-high resolution instrument for extreme surface topography. Features Upper/Lower multi-detector SE/BSE filtration, deceleration mode, and voltage contrast (VC) inspection for 3D NAND, FinFETs, and advanced materials. |
-| **SU7000** | **Electrostatic-Magnetic Compound Lens** | Schottky Field Emission | Combines high-resolution imaging with extreme analytical beam currents (up to 200 nA). Capable of high-speed EDX, WDX, EBSD crystallographic mapping, and Cathodoluminescence (CL) spectroscopy on large specimens. |
-| **SU5000** | **Out-of-Lens Type** | Schottky Field Emission | Multi-purpose analytical FE-SEM featuring large specimen chamber and seamless switching between High Vacuum and Variable Pressure (Low Vacuum: 10 to 300 Pa). |
+![p.24 – Cause E: Alignment & Contamination](sorted_by_page/24_Cause_E_Mechanical_Optical_Alignment.jpg)
+*Visual Plate 24 (Handbook p. 24) — Asymmetric charge accumulation on contaminated objective apertures causing severe uncorrectable astigmatism and image drift during focusing.*
 
 ---
 
-## 5.2 Hi-SEM & Tabletop SEM Lineup (p. 26)
+# Chapter 5 — Types of SEM Instrumentation (pp. 25–26)
 
-![p.26 – Hi-SEM Lineup](../Hitachi_Images/hitachi_photo_69.jpg)
-*p.26 — Chapter 5: Tungsten Hi-SEM & Tabletop Microscope Lineup (Photo 69)*
+## 5.1 Field Emission SEM Lineup (p. 25)
 
-### Tungsten Filament & Tabletop Microscopes
-
-| Model | Classification | Vacuum System | Features & Industrial Capabilities |
-|-------|----------------|---------------|-----------------------------------|
-| **SU3800** | Out-of-Lens Analytical SEM | High & Low Vacuum | High-functionality automated SEM with newly developed continuous optical navigation (SEM-MAP) and wide field of view. |
-| **SU3900** | Large-Chamber Analytical SEM | High & Low Vacuum | Extra-large specimen chamber accommodating massive industrial specimens up to **300 mm diameter**, 130 mm height, and **5 kg weight**, with 150 x 150 mm stage travel. |
-| **FlexSEM 1000II** | Compact Tabletop SEM | High & Low Vacuum | Combines ultra-compact footprint with **4.0 nm resolution** and automated pre-set alignments for beginner to expert operators. |
-| **TM4000Plus** | Tabletop Miniscope | Multi-Vacuum (Charge-Free) | Rapid pump-down enabling image observation in **under 3 minutes** with zero sample preparation; equipped with multi-segment BSE detector and intuitive reporting. |
-
----
-# Chapter 6 — Frequently Asked Questions About Scanning Electron Microscopy (pp. 27–94)
-
-## Master Index of Chapter 6 (p. 27)
-
-![p.27 – Chapter 6 Table of Contents](../Hitachi_Images/hitachi_photo_70.jpg)
-*p.27 — Chapter 6: Frequently Asked Questions — Technical Index (Photo 70)*
+![p.25 – FE-SEM Lineup](sorted_by_page/25_FE_SEM_Lineup.jpg)
+*Visual Plate 25 (Handbook p. 25) — Ultra-high resolution Field Emission SEM systems: SU9000 (In-Lens CFE, 0.4 nm), Regulus Series (Semi-In-Lens CFE), SU7000 (Schottky Analytical), and SU5000 (Schottky Variable Pressure).*
 
 ---
 
-## 6.1 Electron Beam Formation (pp. 30–36)
+## 5.2 Hi-SEM & Tabletop Lineup (p. 26)
 
-### 6.1.1 How is a fine electron beam formed? & 6.1.2 How can an even finer beam be obtained? (p. 30)
-
-![p.30 – 6.1 Electron Beam Formation](../Hitachi_Images/hitachi_photo_67.jpg)
-*p.30 — 6.1.1 Electron Optical Demagnification & 6.1.2 Finer Probe Optimization Principles (Photo 67)*
-
-The electron beam emitted from the cathode source (having virtual source diameter $d_0$) passes through a multi-stage electromagnetic demagnification column comprising the first condenser lens ($C_1$), second condenser lens ($C_2$), and objective lens ($OL$). Each lens forms a demagnified intermediate crossover image with demagnification ratio $M_i < 1$.
-
-The geometric electron probe diameter $d_p$ focused onto the specimen is given by:
-
-$$d_p = M_1 	imes M_2 	imes M_{OL} 	imes d_0$$
-
-To produce an even finer probe diameter for ultra-high spatial resolution:
-1. **Increase Demagnification Power**: Apply stronger condenser lens excitation to reduce intermediate crossover size.
-2. **Employ High-Brightness Field Emission Gun**: FE sources have an ultra-small virtual source size ($d_0 pprox 3 	ext{ to } 30 	ext{ nm}$) compared to thermionic tungsten filaments ($d_0 pprox 20 	ext{ to } 50 \ \mu	ext{m}$), allowing nanometer probes at usable beam currents.
-3. **Minimize Working Distance (WD)**: Shortens objective lens focal length $f_0$, reducing spherical and chromatic aberration coefficients.
+![p.26 – Hi-SEM & Tabletop Lineup](sorted_by_page/26_HiSEM_Tabletop_Lineup.jpg)
+*Visual Plate 26 (Handbook p. 26) — Tungsten/LaB6 Hi-SEM & Tabletop SEM systems: SU3800, SU3900 (Large Chamber, 300 mm wafer, 5 kg stage), FlexSEM 1000II, and TM4000Plus Tabletop SEM.*
 
 ---
 
-### 6.1.3 What kinds of electron guns are used in SEMs? (p. 31)
+# Chapter 6 — Frequently Asked Questions About SEM (pp. 27–94)
 
-![p.31 – Types of Electron Guns](../Hitachi_Images/hitachi_photo_68.jpg)
-*p.31 — 6.1.3 Electron Gun Types: Tungsten Hairpin, LaB6, Schottky Thermal-Field, and Cold Field Emission (Photo 68)*
+## 6.0 Master FAQ Directory (pp. 27–28)
 
-1. **Thermionic Tungsten (W) Gun**: A tungsten hairpin filament heated resistively to ~2,800 K overcomes the metallic work function ($\Phi pprox 4.5 	ext{ eV}$) via pure thermionic emission.
-2. **Lanthanum Hexaboride ($LaB_6$) Gun**: Single crystal $LaB_6$ cathode operated at ~1,850 K. Its lower work function ($\Phi pprox 2.7 	ext{ eV}$) delivers 5 to 10 times higher brightness than tungsten.
-3. **Schottky Field Emission (SE) Gun**: A single-crystal tungsten tip coated with Zirconium Oxide ($ZrO/W\langle 100angle$) operated at ~1,800 K in an intense electrostatic extraction field. The Schottky effect lowers the potential barrier, combining high brightness with excellent beam current stability.
-4. **Cold Field Emission (CFE) Gun**: A nanometer-sharp tungsten single crystal tip ($W\langle 310angle$) operated at room temperature (300 K). High extraction electric field ($E > 10^7 	ext{ V/cm}$) induces quantum mechanical tunneling of electrons through the barrier without heating.
+![p.27 – FAQ Directory Part 1](sorted_by_page/27_FAQ_Index_Part1.jpg)
+*Visual Plate 27 (Handbook p. 27) — FAQ Directory Part 1: Questions 6.1.1 through 6.4.15 covering Optics, Vacuum, Signals, and Viewing Parameters.*
 
----
-
-### 6.1.4 Comparison of Electron Gun Characteristics (p. 32)
-
-![p.32 – Comparison of Electron Guns](../Hitachi_Images/hitachi_photo_66.jpg)
-*p.32 — 6.1.4 Performance Matrix of Thermionic, Schottky, and Cold Field Emission Sources (Photo 66)*
-
-| Performance Parameter | Thermionic Tungsten (W) | Lanthanum Hexaboride ($LaB_6$) | Schottky Field Emission (SE) | Cold Field Emission (CFE) |
-|-----------------------|:-----------------------:|:------------------------------:|:----------------------------:|:--------------------------:|
-| **Cathode Material / Form** | W hairpin wire (100 μm dia) | Single crystal $\langle 100angle$ rod | ZrO/W $\langle 100angle$ faceted emitter | W $\langle 310angle$ etched single crystal tip |
-| **Operating Temperature** | 2,700–2,800 K | 1,800–1,900 K | 1,750–1,800 K | **Room Temperature (300 K)** |
-| **Emission Mechanism** | Thermal thermionic | Thermal thermionic | Thermal-field assisted tunneling | Pure electrostatic field emission |
-| **Virtual Source Size ($d_0$)** | 20–50 μm | 10–20 μm | 15–30 nm | **3–5 nm** |
-| **Brightness ($B$, $	ext{A/cm}^2	ext{sr}$)** | $\sim 10^5$ | $\sim 10^6$ | $\sim 10^7 - 10^8$ | **$\sim 10^9$** |
-| **Energy Spread ($\Delta E$)** | 1.5–3.0 eV | 1.0–2.0 eV | 0.5–0.8 eV | **0.3–0.4 eV** |
-| **Required Gun Vacuum** | $10^{-3} - 10^{-4} 	ext{ Pa}$ | $10^{-5} 	ext{ Pa}$ | $10^{-6} - 10^{-7} 	ext{ Pa}$ | **$10^{-8} - 10^{-9} 	ext{ Pa}$ (UHV)** |
-| **Cathode Service Life** | 50–100 hours | 500–1,000 hours | > 1–2 years | > 3–5 years |
-| **Probe Current Stability** | High (0.1%/hr) | High (0.2%/hr) | Excellent (< 0.5%/hr) | Moderate (decay requiring flash) |
-| **Low-kV High-Mag Suitability** | Low | Medium | High | **Superior / World-Class** |
+![p.28 – FAQ Directory Part 2](sorted_by_page/28_FAQ_Index_Part2.jpg)
+*Visual Plate 28 (Handbook p. 28) — FAQ Directory Part 2: Questions 6.5.1 through 6.9.10 covering Low Vacuum, STEM, EDX/WDX, and Advanced Analytical Techniques.*
 
 ---
 
-### 6.1.5 Configuration and Operating Principle of Electromagnetic Lenses (p. 33)
+## 6.1 Electron Beam Formation & Aberration Theory (pp. 29–36)
 
-![p.33 – Electron Lens Principle](../Hitachi_Images/hitachi_photo_65.jpg)
-*p.33 — 6.1.5 Electromagnetic Lens Architecture: Magnetic Circuit, Pole Pieces, and Lorentz Helical Focusing (Photo 65)*
+### p. 29 — Section 6.1 Electron Beam Formation Overview
 
-Electromagnetic lenses consist of a rotationally symmetric copper coil encased in a high-permeability soft iron yoke with precision upper and lower pole pieces. Direct current through the coil generates an intense, axially symmetric magnetic field $B_z(r, z)$ focused across the non-magnetic brass spacer gap.
-
-Electrons moving axially with velocity $v_z$ experience the Lorentz force:
-
-$$ec{F} = -e (ec{v} 	imes ec{B})$$
-
-The radial field component $B_r$ imparts an azimuthal velocity $v_	heta$, which interacts with the axial field $B_z$ to generate a centripetal force driving the electrons toward the optical axis in a helical spiraling trajectory, focusing them into a sharp spot.
+![p.29 – Beam Formation Intro](sorted_by_page/29_Beam_Formation_Intro.jpg)
+*Visual Plate 29 (Handbook p. 29) — Fundamental objectives of the electron optical column: Demagnifying electron source into a coherent, high-brightness nanometer probe.*
 
 ---
 
-### 6.1.6 Lens Aberrations and Ultimate Probe Size Limits (pp. 34–35)
+### p. 30 — Q6.1.1 & Q6.1.2: Beam Demagnification & Virtual Source
 
-![p.34 – Lens Aberrations](../Hitachi_Images/hitachi_photo_63.jpg)
-*p.34 — 6.1.6 Lens Aberration Mechanisms: Spherical Aberration, Chromatic Aberration, and Wave Diffraction (Photo 63)*
+![p.30 – Beam Demagnification](sorted_by_page/30_Beam_Demagnification_VirtualSource.jpg)
+*Visual Plate 30 (Handbook p. 30) — Geometric ray tracing of electron gun virtual crossover ($d_v$) and multi-stage condenser/objective lens demagnification.*
 
-![p.35 – Probe Size Formula and Optimization](../Hitachi_Images/hitachi_photo_64.jpg)
-*p.35 — Total Probe Diameter Equation and Optimum Aperture Semi-Angle $lpha_{opt}$ (Photo 64)*
-
-The final electron probe spot diameter $d_{total}$ on the sample is determined by the root-sum-square quadrature of four fundamental optical contributions:
-
-$$d_{total} = \sqrt{d_g^2 + d_d^2 + d_s^2 + d_c^2}$$
-
-1. **Gaussian Geometric Source Image ($d_g$)**:
-   $$d_g = rac{2}{\pi} \sqrt{rac{I_p}{B}} rac{1}{lpha}$$
-2. **Diffraction Aberration ($d_d$)** (de Broglie wave limit):
-   $$d_d = 0.61 rac{\lambda}{lpha} = 0.61 rac{1.23}{lpha \sqrt{V_{acc}}} \quad (	ext{nm})$$
-3. **Spherical Aberration ($d_s$)** (Peripheral rays focus closer than axial rays):
-   $$d_s = rac{1}{2} C_s lpha^3$$
-4. **Chromatic Aberration ($d_c$)** (Energy spread $\Delta E$ causes focal dispersion):
-   $$d_c = C_c rac{\Delta E}{E_0} lpha$$
-
-> **Low-kV Performance Dominance**: At low landing energies ($V_{acc} < 3 	ext{ kV}$), **chromatic aberration $d_c$ is the dominant limiting factor**. Cold Field Emission instruments, with their ultra-narrow energy spread ($\Delta E pprox 0.3 	ext{ eV}$), maintain sub-nanometer beam diameters where thermionic sources degrade to $> 20 	ext{ nm}$.
+#### 🔬 Chain of Thought 6.1.1: Optical Probe Formation
+- The electron gun emits electrons from an apparent virtual source diameter $d_v$ (10–30 µm for W-filament; 15–30 nm for Schottky; < 3–5 nm for Cold FE).
+- The condenser lenses ($C_1, C_2$) and objective lens ($OL$) sequentially demagnify this virtual source by total factor $M_{demag} = M_{C1} \times M_{C2} \times M_{OL} \approx 10^{-4}\text{ to }10^{-5}$, forming a focused probe diameter $d_0 = M_{demag} \cdot d_v$ on the specimen plane.
 
 ---
 
-### 6.1.7 Objective Lens Geometries in SEM (p. 36)
+### p. 31 — Q6.1.3: Electron Gun Categories (W, LaB6, Schottky, Cold FE)
 
-![p.36 – Objective Lens Types](../Hitachi_Images/hitachi_photo_62.jpg)
-*p.36 — 6.1.7 Objective Lens Types: Out-Lens, Semi-In-Lens, In-Lens, and Compound Lens (Photo 62)*
-
-```
-(A) Out-of-Lens (Conventional)      (B) Semi-in-Lens (Snorkel)
-       [ Upper Pole Piece ]                [ Upper Pole Piece ]
-       [ Lower Pole Piece ]                [ Lower Pole Piece ]
-       ====================                -------------------- (Leakage Magnetic Field)
-          Specimen Stub                       [ Specimen Stub ]
-   (Large samples, free tilt)             (Ultra-high res + large wafers)
-
-(C) In-Lens (Flagship SU9000)       (D) Compound Magnetic-Electrostatic (SU7000)
-       [ Upper Pole Piece ]                [ Magnetic Pole Piece ]
-       ---[ Specimen ]---                 ===== Electrostatic Retarding Ring =====
-       [ Lower Pole Piece ]                [ Specimen Stub ]
-   (Ultimate lattice res <0.4 nm)         (High analytical current + low-kV res)
-```
+![p.31 – Electron Gun Types](sorted_by_page/31_Electron_Gun_Types.jpg)
+*Visual Plate 31 (Handbook p. 31) — Schematics and emission mechanisms: Thermionic Tungsten hairpin, $LaB_6$ single crystal, Schottky Thermal FE, and Cold Field Emission (CFE).*
 
 ---
 
-## 6.2 Evacuation Systems (pp. 37–38)
+### p. 32 — Q6.1.4: Electron Source Performance Metrics & Table 6.1.1
 
-### 6.2.1 Why is a High Vacuum Required? & 6.2.2 Differential Pumping (p. 37)
+![p.32 – Gun Performance Table](sorted_by_page/32_Gun_Performance_Table.jpg)
+*Visual Plate 32 (Handbook p. 32) — Authoritative Table 6.1.1: Direct comparative evaluation of Brightness, Energy Spread, Virtual Source Size, Required Vacuum, and Operating Lifetime.*
 
-![p.37 – Evacuation Principle](../Hitachi_Images/hitachi_photo_61.jpg)
-*p.37 — 6.2.1 Necessity of Vacuum & 6.2.2 Multi-Stage Differential Evacuation Architecture (Photo 61)*
+#### 📊 Table 6.1.1: Comprehensive Electron Gun Performance Matrix
 
-1. **Prevent Electron Beam Scattering**: Gas molecules scatter electrons, broadening the probe and destroying resolution. High vacuum maintains electron mean free path $\lambda_{mfp} > 10 	ext{ m}$ (far exceeding column height).
-2. **Prevent Filament Oxidation & Electrical Breakdown**: High temperatures (2,800 K) cause instantaneous filament burnout in air; high acceleration fields (> 10 kV) cause high-voltage discharge arcing at pressures $> 10^{-2} 	ext{ Pa}$.
-3. **Eliminate Surface Contamination**: Suppresses deposition of organic hydrocarbon polymers.
-
-```
-[Gun Chamber]        P ~ 10^-8 to 10^-9 Pa  (Sputter Ion Pumps SIP 1 & 2)
-      │   Aperture 1 (Orifice dia 0.1 mm)
-[Column Chamber]     P ~ 10^-5 to 10^-6 Pa  (SIP 3 or Turbo Molecular Pump TMP)
-      │   Aperture 2 (Orifice dia 0.3 mm)
-[Specimen Chamber]   P ~ 10^-4 Pa (High Vac) / 10–300 Pa (Low Vac) (TMP + Dry Scroll / Rotary)
-```
-
----
-
-### 6.2.3 Vacuum Pump Types & Maintenance (p. 38)
-
-![p.38 – Vacuum Pumps Comparison](../Hitachi_Images/hitachi_photo_59.jpg)
-*p.38 — 6.2.3 Vacuum Pump Characteristics, Pressure Regimes, and Maintenance Cycles (Photo 59)*
-
-| Pump Type | Operating Pressure Range | Pumping Mechanism | Maintenance & Operational Notes |
-|-----------|:------------------------:|-------------------|--------------------------------|
-| **Rotary Vane Pump (RP)** | $10^5 	ext{ to } 10^{-1} 	ext{ Pa}$ | Mechanical rotating vane oil seal | Check oil level and color monthly; change oil yearly; oil mist trap filter replacement. |
-| **Dry Scroll Pump** | $10^5 	ext{ to } 10^{-1} 	ext{ Pa}$ | Dual orbiting dry scrolls (oil-free) | Clean, hydrocarbon-free roughing; replace scroll tip seals every 1–2 years. |
-| **Turbo Molecular Pump (TMP)** | $10^{-1} 	ext{ to } 10^{-7} 	ext{ Pa}$ | High-speed turbine blades (60,000–90,000 RPM) | Requires backing roughing pump; periodic bearing overhaul every 20,000–40,000 operating hours. |
-| **Sputter Ion Pump (SIP)** | $10^{-4} 	ext{ to } 10^{-9} 	ext{ Pa}$ | Titanium getter sputtering + Penning discharge | Vibration-free Ultra-High Vacuum (UHV) for FE guns; periodic high-vacuum bakeout regeneration. |
+| Performance Metric | Thermionic Tungsten (W) | Lanthanum Hexaboride ($LaB_6$) | Schottky Thermal FE | Cold Field Emission (CFE) |
+|:-------------------|:------------------------|:------------------------------|:--------------------|:--------------------------|
+| **Cathode Material** | Polycrystalline W wire | $LaB_6$ <100> single crystal | ZrO/W <100> emitter | W <310> single crystal needle |
+| **Cathode Temperature** | 2,700–2,900 K | 1,800–2,000 K | 1,750–1,800 K | Room Temp (300 K) |
+| **Emission Mechanism** | Pure Thermionic | Thermionic (Low Work Func.) | Field-Assisted Thermionic | Pure Quantum Tunneling |
+| **Effective Work Function (Phi)**| 4.5 eV | 2.4 eV | 2.8 eV | 4.5 eV (high field) |
+| **Virtual Source Size ($d_v$)** | 30–100 µm | 10–20 µm | 15–30 nm | **3–5 nm** |
+| **Source Brightness ($B$) [A/cm^2 sr]** | ~10^5 | ~10^6 | ~10^8 | **~10^9** |
+| **Energy Spread (Delta E)** | 1.5–3.0 eV | 1.0–1.5 eV | 0.4–0.7 eV | **0.2–0.3 eV** |
+| **Required Operating Vacuum** | $10^{-3}\text{–}10^{-4}\text{ Pa}$ | $10^{-5}\text{ Pa}$ | $10^{-6}\text{–}10^{-7}\text{ Pa}$ | **$10^{-8}\text{–}10^{-9}\text{ Pa}$** |
+| **Probe Current Stability** | High (±0.1%/hr) | High (±0.2%/hr) | Excellent (±0.5%/24hr) | Moderate (Flashing req.) |
+| **Cathode Lifetime** | 50–100 hours | 500–1,000 hours | 1–2 years | 3–5 years |
 
 ---
 
-## 6.3 Generation, Detection and Use of SEM Signals (pp. 39–49)
+### p. 33 — Q6.1.5: Electromagnetic Condenser & Objective Lens Optics
 
-### 6.3.1 Interaction Volume & Emitted Signals (p. 39)
-
-![p.39 – Electron-Specimen Interactions](../Hitachi_Images/hitachi_photo_60.jpg)
-*p.39 — 6.3.1 Interaction Volume: Spatial Distribution of SE, BSE, X-rays, Auger, and CL Signals (Photo 60)*
-
-When an accelerated primary electron beam strikes a solid sample, elastic and inelastic scattering create a teardrop-shaped **interaction volume**. The penetration depth ($R_{KO}$, Kanaya-Okayama range) scales with accelerating voltage ($V_{acc}^{1.67}$) and inverse density ($ho^{-1}$):
-
-```
-Primary Beam (E0 = 15 keV)
-  ││
-  ▼▼
-==================================== (Specimen Surface)
-│  [Auger Electrons]      Escape depth < 1 nm (Surface chemical states)
-│  [Secondary Electrons]  Escape depth: 1 - 10 nm (High-resolution topography)
-│  ───────────────────────────────────────────────────
-│  [Backscattered Electrons] Escape depth: 0.1 - 1.0 μm (Atomic number Z contrast)
-│  ───────────────────────────────────────────────────
-│  [Characteristic X-Rays]  Interaction depth: 1.0 - 3.0 μm (EDX elemental analysis)
-│  [Continuum Bremsstrahlung]
-│  [Cathodoluminescence CL] Visible / UV / IR photons from bandgap transitions
-└─────────────────────────────────────────────────────
-```
+![p.33 – Electromagnetic Lens Optics](sorted_by_page/33_Electromagnetic_Lens_Optics.jpg)
+*Visual Plate 33 (Handbook p. 33) — Lorentz force rotation and focusing of electron trajectories inside rotationally symmetric magnetic pole-piece gaps.*
 
 ---
 
-### 6.3.2 Production Mechanism of Secondary Electrons (p. 40)
+### p. 34 — Q6.1.5 Aperture Angle & Q6.1.6 Lens Aberrations
 
-![p.40 – Secondary Electron Emission Mechanism](../Hitachi_Images/hitachi_photo_58.jpg)
-*p.40 — 6.3.2 Production Mechanism: Inelastic Coulomb Scattering and Conduction Band Ionization (Photo 58)*
+![p.34 – Lens Aberrations](sorted_by_page/34_Lens_Aberrations_Diffraction.jpg)
+*Visual Plate 34 (Handbook p. 34) — Mathematical formulations and ray diagrams for Spherical Aberration ($d_s$), Chromatic Aberration ($d_c$), Diffraction ($d_d$), and Total Probe Diameter ($d_{tot}$).*
 
-Primary electrons transfer energy via inelastic Coulomb scattering to loosely bound outer-shell and conduction-band electrons in the specimen atoms. The ionized electrons migrate toward the surface, losing kinetic energy via electron-electron and phonon collisions. Only electrons generated within the mean escape depth ($\lambda_{SE} pprox 1 	ext{ to } 10 	ext{ nm}$) possessing kinetic energy exceeding the surface work function ($\Phi$) can escape into vacuum as **secondary electrons ($E \le 50 	ext{ eV}$, peak energy $\sim 2 	ext{ to } 5 	ext{ eV}$)**.
-
----
-
-### 6.3.2 Classification of Secondary Electrons (SE1, SE2, SE3, SE4) (p. 41)
-
-![p.41 – SE Classification](../Hitachi_Images/hitachi_photo_57.jpg)
-*p.41 — 6.3.2 SE Sub-Types: High-Resolution SE1, BSE-Induced SE2, Chamber-Induced SE3, and Aperture SE4 (Photo 57)*
-
-- **$SE_1$ (High-Resolution Topographic Component)**: Generated directly at the primary electron beam entry point within an escape radius $\le 1 	ext{ nm}$. Carries the highest spatial resolution.
-- **$SE_2$ (Background Topographic & Compositional Component)**: Generated as high-energy backscattered electrons exit the specimen surface over a wider diameter.
-- **$SE_3$ (Chamber Wall Component)**: Generated when energetic BSE strike the lower pole piece and specimen chamber walls.
-- **$SE_4$ (Stray Column Component)**: Produced by primary beam electrons scraping beam-limiting apertures along the column.
+#### 🔬 Chain of Thought 6.1.6: Probe Diameter Optimization Formula
+Total final focused probe diameter on the sample is governed by the quadrature sum of four independent physical broadening components: $d_{tot} = \sqrt{d_0^2 + d_s^2 + d_c^2 + d_d^2}$.
+1. **Geometric Demagnified Source Size**: $d_0 = 4 I_p / (\pi^2 B \alpha^2)$.
+2. **Spherical Aberration**: $d_s = \frac{1}{2} C_s \alpha^3$.
+3. **Chromatic Aberration**: $d_c = C_c \alpha \frac{\Delta E}{E_0}$.
+4. **Diffraction Aberration**: $d_d = 0.61 \frac{\lambda_e}{\alpha}$.
+> **Key Takeaway**: Because $d_s \propto \alpha^3$ increases with aperture angle while $d_d \propto 1/\alpha$ decreases with aperture angle, there exists a unique **optimum aperture semi-angle** $\alpha_{opt} \approx (1.22 \lambda_e / C_s)^{1/4}$ that minimizes total probe size.
 
 ---
 
-### 6.3.4 Everhart-Thornley (E-T) Secondary Electron Detector (p. 42)
+### p. 35 — Q6.1.7: Objective Lens Geometries (Out-Lens, In-Lens, Semi-In-Lens)
 
-![p.42 – SE Detection: Everhart-Thornley Detector](../Hitachi_Images/hitachi_photo_55.jpg)
-*p.42 — 6.3.4 Everhart-Thornley Scintillator-Photomultiplier Secondary Electron Detector (Photo 55)*
+![p.35 – Objective Lens Geometries](sorted_by_page/35_Objective_Lens_Geometries.jpg)
+*Visual Plate 35 (Handbook p. 35) — Cross-sectional pole-piece field profiles and specimen positioning for Out-of-Lens, In-Lens, and Semi-In-Lens (Snorkel) designs.*
 
-1. **Collector Faraday Cage Grid (+200 to +300 V)**: Generates a gentle electrostatic collection field that bends low-energy secondary electrons (< 50 eV) into the detector cage without distorting the primary beam trajectory.
-2. **Phosphor Scintillator (+10 kV)**: Strongly accelerates incoming SEs into a scintillator disc (doped YAG single crystal or P47 phosphor), converting each electron into multiple light photons.
-3. **Light Pipe & Photomultiplier Tube (PMT)**: Transmits photons through a total internal reflection quartz light guide to a photocathode, emitting photoelectrons amplified by a dynode chain ($10^5 	ext{ to } 10^7$ gain) into a high-bandwidth video voltage signal.
-
----
-
-### 6.3.6 Backscattered Electron Generation & Atomic Number Z-Dependence (p. 43)
-
-![p.43 – BSE Principles](../Hitachi_Images/hitachi_photo_56.jpg)
-*p.43 — 6.3.6 Backscattered Electron Generation: Elastic Nuclear Scattering and Atomic Number Z-Dependence (Photo 56)*
-
-Backscattered electrons are primary electrons deflected through large angles ($> 90^\circ$) by elastic Rutherford Coulomb collisions with atomic nuclei, emerging from the sample with substantial kinetic energy ($> 50 	ext{ eV}$ up to incident energy $E_0$).
-
-The backscattered electron yield coefficient ($\eta = I_{BSE} / I_p$) increases monotonically with atomic number $Z$:
-
-$$\eta pprox rac{\ln Z}{6} - 0.25$$
-
-- **Low-$Z$ Materials** (Carbon $Z=6$, Silicon $Z=14$): Low $\eta$ ($\sim 0.05 - 0.15$), appearing dark grey.
-- **High-$Z$ Materials** (Gold $Z=79$, Lead $Z=82$): High $\eta$ ($\sim 0.45 - 0.50$), glistening brightly.
+#### 🔬 Chain of Thought 6.1.7: Lens Aberration Coefficients vs Specimen Flexibility
+- **Out-of-Lens (Conventional)**: Magnetic field is fully contained inside pole piece; specimen sits in field-free region. Allows large specimen sizes (300 mm wafers) and high stage tilts (70°), but has larger $C_s, C_c$ (10–30 mm), limiting ultimate resolution.
+- **In-Lens (Ultra-High Resolution)**: Specimen is inserted directly into the magnetic gap between upper and lower pole pieces. $C_s, C_c$ are minimized (< 1–2 mm), enabling sub-nanometer resolution (0.4 nm in SU9000), but specimen size is strictly restricted to small pieces (5 mm).
+- **Semi-In-Lens / Snorkel (Hybrid)**: Magnetic field leaks downwards from single upper pole piece onto large specimen surface. Delivers near In-Lens resolution while accommodating large wafers and analytical detectors (EDX, EBSD).
 
 ---
 
-### 6.3.7 BSE Energy & Angular Distribution, Channeling Contrast (p. 44)
+## 6.2 Vacuum Evacuation Systems & Maintenance (pp. 37–38)
 
-![p.44 – BSE Characteristics & Take-off Angle](../Hitachi_Images/hitachi_photo_54.jpg)
-*p.44 — 6.3.7 BSE Energy Distribution, Angular Emission Profile, and Electron Channeling Contrast (Photo 54)*
+### p. 37 — Q6.2.1 & Q6.2.2: Vacuum Necessity, Pumping Stages & Differential Orifices
 
-- **BSE Energy Distribution**: Peaks strongly near the primary beam energy $E_0$, forming a broad spectrum from 50 eV to $E_0$.
-- **Angular Distribution**: Follows a Lambertian cosine emission distribution ($\propto \cos 	heta$) on normal incidence; tilts toward forward-scattering at glancing incident angles.
-- **Electron Channeling Contrast (ECC)**: For crystalline specimens, electron wave penetration depends on the angle of incidence relative to crystal lattice planes (Bragg angle $	heta_B$). Grains with differing crystallographic orientations appear with distinct contrast variations (channeling patterns).
+![p.37 – Vacuum Systems](sorted_by_page/37_Vacuum_System_Differential_Pumping.jpg)
+*Visual Plate 37 (Handbook p. 37) — Multi-stage differential vacuum pumping diagram: Gun chamber ($10^{-8}\text{ Pa}$), column intermediate chamber ($10^{-5}\text{ Pa}$), and specimen chamber ($10^{-4}\text{ Pa}$).*
 
----
-
-### 6.3.8 4-Quadrant Solid-State BSE Detector (p. 45)
-
-![p.45 – BSE Detectors: Semiconductor & Scintillator](../Hitachi_Images/hitachi_photo_53.jpg)
-*p.45 — 6.3.8 BSE Detectors: 4-Quadrant Annular Solid-State PIN Diode & YAG Scintillator Detectors (Photo 53)*
-
-Mounted directly below the objective lens pole piece surrounding the primary beam aperture:
-- High-purity silicon PIN semiconductor photodiode segmented into 4 quadrants (A, B, C, D).
-- When high-energy BSE penetrate the diode depletion layer, they generate electron-hole pairs ($3.6 	ext{ eV}$ per pair), producing a proportional current signal directly amplified by low-noise preamplifiers.
+#### 🔬 Chain of Thought 6.2.1: Why Vacuum is Non-Negotiable
+1. **Mean Free Path**: High vacuum prevents primary electrons from scattering off residual gas molecules: $\lambda_{MFP} = k_B T / (\sqrt{2} \pi d_{mol}^2 P)$. At atmospheric pressure ($10^5\text{ Pa}$), $\lambda_{MFP} \approx 68\text{ nm}$; at high vacuum ($10^{-4}\text{ Pa}$), $\lambda_{MFP} \approx 68\text{ meters}$.
+2. **Cathode Protection**: Prevents oxidative burnout of hot filaments (W, $LaB_6$) and eliminates ion back-bombardment poisoning of Cold-FE emitter tips.
+3. **High-Voltage Arc Suppression**: Prevents dielectric gas breakdown across the gun extraction anode (30 kV).
 
 ---
 
-### 6.3.9 BSE Multi-Channel Signal Processing: Composition vs Topography (p. 46)
+### p. 38 — Q6.2.3 Vacuum Pump Types & Q6.2.4 Maintenance Protocols
 
-![p.46 – BSE Applications: Composition vs Topography](../Hitachi_Images/hitachi_photo_51.jpg)
-*p.46 — 6.3.9 BSE Multi-Channel Processing: Pure Compositional Mode (A+B+C+D) vs Topographical Mode (A-B) (Photo 51)*
-
-```
-[ 4-Quadrant BSE Detector Geometry ]
-            [ Segment A ]  [ Segment B ]
-                 O (Beam Center)
-            [ Segment C ]  [ Segment D ]
-
-- Compositional Mode (COMPO = A + B + C + D):
-  Sums all four quadrant signals. Cancels directional shadows, revealing pure atomic number (Z) compositional variations.
-- Topographical Mode (TOPO = [A + B] - [C + D]):
-  Subtracts opposing quadrants, creating synthetic directional illumination that highlights surface relief, micro-texture, and scratches.
-```
+![p.38 – Vacuum Pumps and Maintenance](sorted_by_page/38_Vacuum_Pumps_Maintenance.jpg)
+*Visual Plate 38 (Handbook p. 38) — Operational mechanics of Rotary Pumps (RP), Turbomolecular Pumps (TMP), Sputter Ion Pumps (SIP), and preventative maintenance schedules.*
 
 ---
 
-### 6.3.10 $E 	imes B$ (Wien Filter) Signal Separation Mechanism (p. 47)
+## 6.3 Signal Generation, Detection & Contrast Mechanisms (pp. 39–49)
 
-![p.47 – ExB Filter Principle](../Hitachi_Images/hitachi_photo_52.jpg)
-*p.47 — 6.3.10 ExB (Wien Filter) Orthogonal Field Signal Separation for Upper In-Lens Detectors (Photo 52)*
+### p. 39 — Q6.3.1 & Q6.3.2: Electron-Matter Interaction Volume & SE Generation
 
-In semi-in-lens and in-lens FE-SEMs, an orthogonal electric field ($ec{E}$) and magnetic field ($ec{B}$) are applied above the objective lens:
-- **Primary Beam ($v_p pprox 10^8 	ext{ m/s}$ downward)**: Electrostatic and Lorentz forces balance exactly ($eE = ev_p B$). The primary beam passes through undeflected along the optical axis.
-- **Secondary Electrons (low velocity upward)**: Electric and magnetic forces act in the same lateral direction, deflecting SEs sideways into the Upper In-Lens detector with 100% collection efficiency.
+![p.39 – SE Generation](sorted_by_page/39_Electron_Matter_SE_Generation.jpg)
+*Visual Plate 39 (Handbook p. 39) — Monte Carlo electron trajectory simulation showing pear-shaped interaction volume and secondary electron emission zone.*
 
 ---
 
-### Energy-Filtered Pure SE / Low-kV BSE Discrimination (p. 48)
+### p. 40 — Q6.3.2 SE Classification (SE1, SE2, SE3) & Q6.3.3 SE Energy Spectrum
 
-![p.48 – Energy-Filtered SE/BSE Discrimination](../Hitachi_Images/hitachi_photo_50.jpg)
-*p.48 — Energy-Filtered SE/BSE Discrimination: Selective Topographic vs Compositional Imaging (Photo 50)*
+![p.40 – SE1 SE2 SE3 Classification](sorted_by_page/40_SE1_SE2_SE3_Classification.jpg)
+*Visual Plate 40 (Handbook p. 40) — Spatial origin and trajectory diagrams for SE1 (high-res point of impact), SE2 (BSE exit-point generated), and SE3 (chamber wall / pole-piece BSE collisions).*
 
-By applying retarding grid biases in front of the Upper (UED) and Lower (LED) in-lens detectors:
-- **Pure SE Imaging**: Reject high-energy BSE; collect only low-energy SE (< 50 eV) for extreme surface topography.
-- **Pure Low-Voltage BSE Imaging**: Apply positive retarding threshold to reject SEs and collect backscattered electrons at landing energies down to 100 eV.
-
----
-
-### Voltage Contrast (VC) and Magnetic Domain Imaging (p. 49)
-
-![p.49 – Voltage Contrast & Magnetic Domain Imaging](../Hitachi_Images/hitachi_photo_48.jpg)
-*p.49 — Voltage Contrast (VC) in Semiconductor Devices and Magnetic Domain Contrast (Photo 48)*
-
-1. **Voltage Contrast (VC)**:
-   - **Positively Biased Regions (+5 V)**: Secondary electrons are pulled back by the electrostatic potential barrier, appearing **dark**.
-   - **Grounded or Negatively Biased Regions (0 V / -5 V)**: Secondary electrons easily escape into the detector, appearing **bright**.
-   - *Application*: Rapid localization of open-circuit via failures and short-circuits in semiconductor memory arrays.
-2. **Magnetic Domain Contrast (Type I & Type II)**:
-   - **Type I (Lorentz deflection in stray fields above surface)**: Maps magnetic domain leakage fields on recording heads and magnetic media.
-   - **Type II (Internal Lorentz deflection of BSE)**: Maps internal magnetization vectors in ferromagnetic electrical steel sheets.
+#### 🔬 Chain of Thought 6.3.2: Signal Fidelity of SE1 vs SE2/SE3
+- **SE1 (Direct Emission)**: Ejected directly at the primary beam impact point. Lateral resolution equals probe diameter ($d_{probe} \approx 1\text{ nm}$). Carries pure ultra-high-resolution surface topographical detail.
+- **SE2 (BSE-Induced Emission)**: Ejected by backscattered electrons exiting the specimen surface micrometers away from the beam axis. Carries low-spatial-frequency background noise and compositional contrast.
+- **SE3 (Chamber-Induced Emission)**: Ejected when high-energy BSEs strike objective lens pole pieces or chamber walls. Carries no specimen topographical resolution.
+- **In-Lens / Upper SE Detectors**: Filter out SE3 and capture predominantly SE1 signals for ultra-crisp nanostructure imaging.
 
 ---
 
-## 6.4 Viewing Conditions for Acquiring Good SEM Images (pp. 50–59)
+### p. 41 — Q6.3.4: SE Detection with Everhart-Thornley (E-T) Scintillator-PMT
 
-### 6.4.1 Criteria of a "Good SEM Image" (p. 50)
-
-![p.50 – Criteria of Good SEM Image](../Hitachi_Images/hitachi_photo_49.jpg)
-*p.50 — 6.4.1 Essential Characteristics of a High-Quality SEM Image (Photo 49)*
-
-A high-quality SEM image requires:
-1. **Adequate Signal-to-Noise Ratio (S/N)**: Minimal pixel graininess.
-2. **Optimal Focus and Zero Astigmatism**: Sharp, crisp edge definition in all directions.
-3. **Proper Dynamic Range Contrast and Brightness**: Full histogram utilization without clipped highlights (saturation) or crushed shadows.
-4. **Absence of Charging and Contamination Artifacts**: Zero geometric distortion, flare bands, or dark scan patches.
+![p.41 – SE Detection E-T Detector](sorted_by_page/41_SE_Energy_ET_Detector.jpg)
+*Visual Plate 41 (Handbook p. 41) — Everhart-Thornley detector architecture: +250 V Faraday cage, +10 kV post-acceleration scintillator, light guide, and Photomultiplier Tube.*
 
 ---
 
-### 6.4.2 Accelerating Voltage & Condenser Lens Excitation (p. 51)
+### p. 42 — Q6.3.4: Specimen Tilt Dependency & Secant Law Edge Effect
 
-![p.51 – Acc Voltage & Condenser Current](../Hitachi_Images/hitachi_photo_47.jpg)
-*p.51 — 6.4.2 Interplay of Accelerating Voltage ($V_{acc}$) and Condenser Lens Probe Current ($I_p$) (Photo 47)*
+![p.42 – Specimen Tilt Secant Law](sorted_by_page/42_Specimen_Tilt_Secant_Law.jpg)
+*Visual Plate 42 (Handbook p. 42) — Mathematical derivation and experimental curve for SE yield vs specimen tilt angle: $\delta(\theta) = \delta_0 \sec\theta$.
 
-- **Increasing $V_{acc}$ (High Voltage: 15–30 kV)**: Decreases electron wavelength ($\lambda$) and chromatic aberration ($d_c$), sharpening the probe for high resolution, but increases interaction volume depth, masking ultra-fine surface details.
-- **Decreasing $V_{acc}$ (Low Voltage: 0.5–2 kV)**: Restricts electron penetration to the top 5–20 nm, revealing true surface nanostructures and reducing charge accumulation on insulators.
-- **Condenser Lens Excitation**: Strong excitation decreases probe diameter ($d_p$) for high resolution (low probe current $I_p \sim 5 	ext{ to } 20 	ext{ pA}$); weak excitation increases $I_p$ ($> 1 	ext{ nA}$) for high S/N ratio in EDX and EBSD analysis.
-
----
-
-### 6.4.3 Accelerating Voltage Selection Guide by Sample Material (p. 52)
-
-![p.52 – Acc Voltage Selection Guide](../Hitachi_Images/hitachi_photo_46.jpg)
-*p.52 — 6.4.3 Accelerating Voltage Selection Guidelines for Various Specimen Categories (Photo 46)*
-
-| Specimen Category | Recommended Accelerating Voltage | Target Information & Operational Benefits |
-|-------------------|:--------------------------------:|-------------------------------------------|
-| **Metals, Hard Ceramics, Minerals** | 15 to 20 kV | High-resolution morphology; deep X-ray excitation for quantitative EDX. |
-| **Semiconductor ICs, Thin Films** | 0.5 to 2.0 kV | Non-destructive surface imaging; shallow junction voltage contrast. |
-| **Polymers, Plastics, Photoresists** | 0.5 to 1.5 kV | Eliminates thermal degradation, melting, and pattern shrinkage. |
-| **Biological Tissues, Foodstuffs** | 1.0 to 5.0 kV (or Low Vacuum) | Prevents cell collapse and charging on un-coated specimens. |
-| **Carbon Nanotubes, Graphene** | 0.5 to 1.0 kV (or 30 kV STEM) | Surface bundling in SE mode; atomic lattice rows in 30 kV STEM mode. |
+#### 🔬 Chain of Thought 6.3.4: The Secant Law of Topographic Contrast
+As surface tilt angle $\theta$ increases relative to the normal: $\delta(\theta) = \delta_0 / \cos\theta = \delta_0 \sec\theta$. The primary beam path within the near-surface escape depth layer ($t \approx 5\text{ nm}$) increases by factor $1/\cos\theta$. A dramatically higher fraction of excited secondary electrons can reach the surface and escape into vacuum before undergoing inelastic recombination, creating distinct **Edge Brightness Contrast**.
 
 ---
 
-### 6.4.4 Function of Objective Lens Aperture & Depth of Field (p. 53)
+### p. 43 — Q6.3.4: Micro-Roughness Edge Brightening & MCP Detectors
 
-![p.53 – Objective Aperture Function](../Hitachi_Images/hitachi_photo_44.jpg)
-*p.53 — 6.4.4 Objective Lens Aperture: Balancing Beam Convergence Angle ($lpha$), Resolution, and Depth of Field (Photo 44)*
-
-The movable platinum objective aperture defines the beam convergence semi-angle ($lpha$):
-- **Small Aperture (20–30 μm)**: Decreases $lpha$, reducing spherical/chromatic aberrations and dramatically **increasing depth of field (DoF)**, ideal for 3D fracture surfaces.
-- **Large Aperture (50–100 μm)**: Increases probe current ($I_p$) for high S/N in rapid scanning and analytical EDX mapping.
+![p.43 – Edge Effect and MCP](sorted_by_page/43_Edge_Effect_MCP_Detection.jpg)
+*Visual Plate 43 (Handbook p. 43) — Influence of sub-micron surface roughness on localized SE emission and Micro-Channel Plate (MCP) direct electron detection.*
 
 ---
 
-### 6.4.5 Working Distance (WD) Optimization (p. 54)
+### p. 44 — Q6.3.6: Backscattered Electrons (BSE): Elastic Scattering & Depth
 
-![p.54 – Working Distance Effects](../Hitachi_Images/hitachi_photo_45.jpg)
-*p.54 — 6.4.5 Working Distance Optimization: Short WD for Resolution vs Long WD for Depth of Field (Photo 45)*
-
-- **Short Working Distance ($WD = 1.5 	ext{ to } 5 	ext{ mm}$)**: Minimizes objective focal length ($f_0$), reducing aberration coefficients ($C_s, C_c$) for **maximum resolution at high magnification**.
-- **Long Working Distance ($WD = 10 	ext{ to } 30 	ext{ mm}$)**: Decreases beam convergence angle ($lpha$), providing **large depth of field** and large field of view at low magnifications, and proper take-off angle for EDX detectors.
+![p.44 – BSE Generation](sorted_by_page/44_BSE_Generation_Elastic_Scattering.jpg)
+*Visual Plate 44 (Handbook p. 44) — Rutherford elastic nuclear cross-section, large-angle deflection physics, and BSE emission depth profiles.*
 
 ---
 
-### 6.4.6 Astigmatism Compensation (Stigmator X/Y Alignment) (p. 55)
+### p. 45 — Q6.3.5: Practical Secondary Electron Topographic Applications
 
-![p.55 – Astigmatism Correction](../Hitachi_Images/hitachi_photo_43.jpg)
-*p.55 — 6.4.6 Beam Astigmatism: Asymmetric Distortion and Octupole Stigmator Compensation (Photo 43)*
-
-Astigmatism occurs when the objective lens magnetic field lacks rotational symmetry due to pole piece machining tolerances, aperture contamination, or asymmetric charging.
-- **Visual Symptom**: The image stretches or smears diagonally in one direction when passing through under-focus, and stretches orthogonally ($90^\circ$) in over-focus.
-- **Countermeasure**: Adjust the electromagnetic octupole **Stigmator X and Y coils** until features expand symmetrically without directional stretching across focus.
+![p.45 – SE Topographic Applications](sorted_by_page/45_SE_Topographic_Applications.jpg)
+*Visual Plate 45 (Handbook p. 45) — Exemplary high-contrast SE micrographs illustrating surface finish, crystal facets, and mechanical fracture textures.*
 
 ---
 
-### 6.4.7 Depth of Focus Equations (p. 56)
+### p. 46 — Q6.3.7 & Q6.3.8: BSE Yield vs Atomic Number Z & Detectors
 
-![p.56 – Depth of Focus](../Hitachi_Images/hitachi_photo_42.jpg)
-*p.56 — 6.4.7 Mathematical Derivation and Formulas for SEM Depth of Focus (Photo 42)*
+![p.46 – BSE Yield vs Z](sorted_by_page/46_BSE_Yield_Z_Contrast_Detectors.jpg)
+*Visual Plate 46 (Handbook p. 46) — Backscattered electron coefficient curve $\eta$ vs Atomic Number $Z$ and Annular Semiconductor Photodiode / YAG Scintillator detector designs.*
 
-The depth of focus ($D$) of a scanning electron microscope is given by:
-
-$$D = rac{2 R}{lpha} = rac{2 \delta_{eye}}{M \cdot lpha} pprox rac{2 \delta_{eye} \cdot WD}{M \cdot r_{ap}}$$
-
-Where:
-- $\delta_{eye}$: Resolution limit of the human eye on the display (~0.2 mm).
-- $M$: Visual magnification.
-- $lpha$: Beam convergence semi-angle ($	ext{rad}$).
-- $WD$: Working distance.
-- $r_{ap}$: Objective aperture radius.
+#### 🔬 Chain of Thought 6.3.7: Compositional Z-Contrast Physics
+1. **Rutherford Scattering Cross-Section**: Elastic scattering probability per unit solid angle scales quadratically with nuclear charge: $d\sigma_{Ruth}/d\Omega \propto Z^2 / (E_0^2 \sin^4(\theta/2))$.
+2. **BSE Yield Function (eta)**: Monotonically increases from $\eta \approx 0.05$ for Carbon ($Z=6$) to $\eta \approx 0.50$ for Gold ($Z=79$) and Platinum ($Z=78$).
+3. **Compositional Discrimination**: Regions of higher average atomic number appear significantly brighter, allowing instant visual differentiation between metals, semiconductors, oxides, and polymers.
 
 ---
 
-### 6.4.8 Charge-Up Dynamics & Surface Potential Shifts (p. 57)
+### p. 47 — Q6.3.8: BSE 4-Quadrant Semiconductor Detectors: (A+B) vs (A-B)
 
-![p.57 – Charge-up Dynamics](../Hitachi_Images/hitachi_photo_41.jpg)
-*p.57 — 6.4.8 Total Electron Emission Coefficient ($\sigma = \delta + \eta$) and Crossover Energies $E_1, E_2$ (Photo 41)*
+![p.47 – BSE Composition vs Topography](sorted_by_page/47_BSE_Composition_vs_Topography.jpg)
+*Visual Plate 47 (Handbook p. 47) — Signal subtraction/addition matrix using 4-quadrant annular solid-state BSE detectors: Compositional Mode ($A+B$) vs Topographic Shadowing Mode ($A-B$).*
 
-The total secondary and backscattered electron emission coefficient is $\sigma(E) = \delta(E) + \eta(E)$:
-- At low energies ($E_1 pprox 50 - 100 	ext{ eV}$), $\sigma$ exceeds 1.0.
-- Between **$E_1$ and $E_2$ (typically $0.5 	ext{ to } 2.0 	ext{ keV}$)**, $\sigma > 1.0$, producing a slightly positive, stable self-limiting surface potential (+1 to +3 V).
-- Above $E_2$ ($V_{acc} > 2 	ext{ kV}$), $\sigma < 1.0$, driving massive negative charge accumulation (-100 to -1000 V).
-
----
-
-### 6.4.10 Charge-Up Prevention & TV Rapid Scan Integration (p. 58)
-
-![p.58 – Charge-up Countermeasures](../Hitachi_Images/hitachi_photo_39.jpg)
-*p.58 — 6.4.10 Practical Charge Suppression: TV Rapid Scan Frame Averaging and Tilt Angle Optimization (Photo 39)*
-
-1. **TV-Rate Scanning with Real-Time Frame Averaging**: Scanning rapidly (30 frames/sec) prevents localized charge accumulation between pixels. Averaging 16 to 128 frames recovers high signal-to-noise ratio without blur.
-2. **Specimen Pre-Tilt Angle**: Tilting the specimen ($30^\circ 	ext{ to } 45^\circ$) increases secondary electron escape probability ($\delta \propto \sec 	heta$), elevating total emission $\sigma$ above unity.
+#### 🔬 Chain of Thought 6.3.8: Multi-Quadrant Arithmetic Contrast Separation
+- **Compositional (COMPO) Mode (A + B)**: Summing signals from opposite quadrant diodes cancels out directional shadowing effects, yielding pure Atomic Number ($Z$) compositional contrast.
+- **Topographical (TOPO) Mode (A - B)**: Subtracting signals from opposite quadrant diodes cancels out atomic number brightness variations, amplifying directional shadow contrast to reveal fine surface relief and micro-scratches.
 
 ---
 
-### 6.4.11 Sputter Coating Principles & Target Particle Grain Sizes (p. 59)
+### p. 48 — Q6.3.9: Low-kV BSE High-Angle / Low-Angle Discrimination
 
-![p.59 – Coating Principles](../Hitachi_Images/hitachi_photo_38.jpg)
-*p.59 — 6.4.11 Magnetron Sputtering vs Thermal Evaporation: Film Morphology and Target Selection (Photo 38)*
-
-- **DC Magnetron Sputtering**: Uses an argon plasma glow discharge ($Ar^+$ ions) confined by a permanent magnetic field to sputter metal target atoms (Pt, Au, Cr), depositing an isotropic, non-directional fine-grained conductive film.
-- **Target Selection**:
-  - **Au / Au-Pd**: Fast deposition rate, high SE yield for low/medium magnification.
-  - **Pt / Pt-Pd**: Sub-2 nm ultra-fine grain size for field emission SEM at > x100,000.
-  - **Carbon (C)**: Vacuum arc thermal evaporation for quantitative EDX and BSE imaging.
-
----
-## 6.5 Principle and Applications of Low Vacuum SEM (pp. 60–63)
-
-### 6.5.1 Low Vacuum SEM Operation & Ion Neutralization (p. 60)
-
-![p.60 – Low Vacuum Principle](../Hitachi_Images/hitachi_photo_37.jpg)
-*p.60 — 6.5.1 Low-Vacuum SEM Principle: Gas Molecule Ionization and Surface Charge Neutralization (Photo 37)*
-
-In a Low-Vacuum (Variable Pressure VP-SEM) system, the specimen chamber is maintained at a moderate pressure ($10 \text{ to } 300 \text{ Pa}$) while the electron optical column remains under high vacuum via differential pumping apertures.
-- **Charge Neutralization Mechanism**: As primary and backscattered electrons collide with residual gas molecules (air or $H_2O$ vapor), they ionize the gas into positive gas ions ($N_2^+, O_2^+$) and thermal electrons. The positive ions are electrostatically attracted to negatively charged sample surfaces, instantly neutralizing accumulated surface charge without conductive metal coating.
+![p.48 – Low-kV BSE Discrimination](sorted_by_page/48_Low_kV_BSE_Angle_Discrimination.jpg)
+*Visual Plate 48 (Handbook p. 48) — Upper in-lens detector signal separation: High-angle backscattered electrons (compositional) vs low-angle electrons (channeling/topography).*
 
 ---
 
-### 6.5.2 Pressure Ranges & Mean Free Path of Electrons (p. 61)
+### p. 49 — Q6.3.10: ExB Filter & Voltage Contrast for IC Failure Analysis
 
-![p.61 – Low Vacuum Pressure & Mean Free Path](../Hitachi_Images/hitachi_photo_36.jpg)
-*p.61 — 6.5.2 Pressure Regimes (10–300 Pa), Electron Scattering Skirt, and Mean Free Path (Photo 36)*
+![p.49 – ExB Filter and Voltage Contrast](sorted_by_page/49_ExB_Filter_Voltage_Contrast.jpg)
+*Visual Plate 49 (Handbook p. 49) — Crossed electromagnetic ExB filter architecture and in-situ Passive/Active Voltage Contrast imaging on biased integrated circuits.*
 
-- **Electron Mean Free Path ($\lambda_{mfp}$)**: At $30 \text{ Pa}$, $\lambda_{mfp} \approx 1 \text{ mm}$.
-- **Beam Skirt Effect**: A fraction of the primary beam is scattered by gas molecules, forming a broad "skirt" around the focused central probe. Short working distances ($WD = 5 \text{ to } 8 \text{ mm}$) minimize gas path length, preserving probe sharpness and image resolution.
-
----
-
-### 6.5.3 Low-Vacuum BSE & Environmental SE Detectors (ESED) (p. 62)
-
-![p.62 – Low Vacuum Detectors](../Hitachi_Images/hitachi_photo_34.jpg)
-*p.62 — 6.5.3 Detection Systems: High-Sensitivity Solid-State BSE Detector & Environmental SE Detector ESED (Photo 34)*
-
-1. **Low-Vacuum Solid-State BSE Detector**: Conventional E-T detectors cannot operate in low vacuum due to electrical arcing on the +10 kV scintillator. Highly sensitive 4-quadrant semiconductor photodiodes capture high-energy BSE with zero bias voltage.
-2. **ESED (Environmental Secondary Electron Detector)**: Uses positive gas ionization cascade amplification to detect secondary electron signals in gas environments.
+#### 🔬 Chain of Thought 6.3.10: ExB Velocity Filtering & Voltage Contrast
+1. **ExB Field Physics**: Orthogonal electric field ($E$) and magnetic field ($B$) are tuned such that high-energy primary electrons pass straight through without deflection ($F_{Lorentz} = q(E + v_p \times B) = 0$).
+2. **Secondary Electron Deflection**: Low-energy returning secondary electrons ($v_{SE} \ll v_p$) experience a net Lorentz force that deflects them off-axis directly into the upper in-lens detector.
+3. **Voltage Contrast (VC) Diagnostics**:
+   - Negatively biased lines ($V = -5\text{ V}$) create a repulsive surface potential, propelling secondary electrons into the extraction field $\rightarrow$ **Appears Bright**.
+   - Positively biased lines ($V = +5\text{ V}$) create an attractive potential well that recaptures low-energy SE $\rightarrow$ **Appears Dark**.
+   - Open circuit faults and short circuits on semiconductor interconnects are immediately localized by comparing operational state brightness with design layouts.
 
 ---
 
-### 6.5.4 Hydrated, Biological & Oily Sample Applications (p. 63)
+## 6.4 Parameter Optimization & Good SEM Images (pp. 50–59)
 
-![p.63 – Low Vacuum Applications](../Hitachi_Images/hitachi_photo_35.jpg)
-*p.63 — 6.5.4 Industrial & Biological Applications: Wet Paper, Oil-Bearing Polymers, Concrete, and Uncoated Hydrated Leaves (Photo 35)*
+### p. 50 — Q6.4.1 & Q6.4.2: Criteria of a Good SEM Image & Accelerating Voltage
 
-- Non-conductive ceramics, paper fibers, concrete minerals, and oil-containing polymers observed in natural state without conductive coating.
-- In combination with a Peltier Cool Stage (-20°C), biological specimens (leaves, fungi, water-bearing hydrogels) are observed without freeze-drying or chemical dehydration.
+![p.50 – Good SEM Image & kV Selection](sorted_by_page/50_Good_SEM_Image_kV_Selection.jpg)
+*Visual Plate 50 (Handbook p. 50) — Defining image sharpness, information fidelity, S/N ratio, and strategic accelerating voltage selection (0.5–30 kV).*
+
+---
+
+### p. 51 — Q6.4.3: Beam Penetration Depth vs Accelerating Voltage
+
+![p.51 – Beam Penetration Depth](sorted_by_page/51_Beam_Penetration_Interaction_Volume.jpg)
+*Visual Plate 51 (Handbook p. 51) — Direct visual comparison of 1 kV, 5 kV, 15 kV, and 30 kV penetration volumes and surface vs bulk information content.*
+
+#### 🔬 Chain of Thought 6.4.3: Kanaya-Okayama Penetration Range ($R_{KO}$)
+The electron penetration depth $R_{KO}$ scales with beam energy to the 1.7th power: $R_{KO} = \frac{0.0276 \cdot A}{\rho \cdot Z^{0.89}} E_0^{1.67}\ [\mu\text{m}]$. At 30 kV in Silicon, $R_{KO} \approx 8.5\ \mu\text{m}$ (signals arise from deep subsurface bulk); at 1 kV in Silicon, $R_{KO} \approx 0.03\ \mu\text{m}$ (30 nm) (interaction volume is confined strictly to topmost atomic layers).
+
+---
+
+### p. 52 — Q6.4.4: Working Distance (WD), Aperture Size & Probe Current
+
+![p.52 – WD, Aperture & Probe Current](sorted_by_page/52_WD_Aperture_ProbeCurrent_Balance.jpg)
+*Visual Plate 52 (Handbook p. 52) — Balancing objective Working Distance ($WD = 2\text{–}30\text{ mm}$), aperture diameter ($30\text{–}100\ \mu\text{m}$), and probe current ($1\text{ pA to }10\text{ nA}$).*
+
+---
+
+### p. 53 — Q6.4.5: Master Parameter Trade-Off Matrix
+
+![p.53 – Parameter Trade-Off Matrix](sorted_by_page/53_Parameter_TradeOff_Matrix.jpg)
+*Visual Plate 53 (Handbook p. 53) — Comprehensive operator trade-off matrix balancing Spatial Resolution, Depth of Focus, S/N Ratio, Charging, and Beam Damage.*
+
+#### 📊 Master SEM Operational Parameter Decision Matrix
+
+| Operational Goal | Accelerating Voltage ($V_{acc}$) | Probe Current ($I_p$) | Working Distance ($WD$) | Objective Aperture | Lens / Column Mode |
+|:-----------------|:---------------------------------|:----------------------|:------------------------|:-------------------|:-------------------|
+| **Ultra-High Nanoscale Resolution** | High (15–30 kV) or Low (1–2 kV Decel) | Small (1–10 pA) | Short (1.5–4 mm) | Small (30 µm) | In-Lens / Semi-In-Lens |
+| **Maximum Depth of Focus (3D Relief)**| Moderate (5–15 kV) | Moderate (10–50 pA) | **Long (15–30 mm)**| **Small (30 µm)** | Out-of-Lens (Small $\alpha$) |
+| **High S/N Fast Scanning / Mapping** | Moderate (10–20 kV) | **Large (100 pA to 1 nA)**| Moderate (8–12 mm) | Large (50–100 µm) | Analytical Out-Lens |
+| **Quantitative Microanalysis (EDX)**| **High (15–20 kV)** | **Large (0.5–5 nA)**| Analytical Pos. (10–15 mm)| Large (100 µm) | High Current Mode |
+| **Non-Conducting / Charging Samples**| **Ultra-Low (0.5–1.5 kV)**| **Minimal (1–5 pA)** | Short/Moderate (3–8 mm) | Small (30 µm) | Low-kV / Retarding Bias |
+| **Beam-Sensitive Polymers / Resist**| **Ultra-Low (0.3–1.0 kV)**| **Minimal (1 pA)** | Short (2–4 mm) | Small (30 µm) | Fast TV Scan + Frame Ave |
+
+---
+
+### p. 54 — Q6.4.6: Astigmatism Mechanics, Oval Distortion & Stigmator Alignment
+
+![p.54 – Astigmatism Alignment](sorted_by_page/54_Astigmatism_Origin_Alignment.jpg)
+*Visual Plate 54 (Handbook p. 54) — Focus-dependent 90° orthogonal oval stretching and systematic $X/Y$ stigmator alignment protocol.*
+
+#### 🔬 Chain of Thought 6.4.6: Astigmatism Correction Protocol
+- **Origin**: Asymmetric magnetic field distribution caused by pole-piece machining tolerances, dirty apertures, or specimen electrostatic fields causes rays in orthogonal planes ($X$ and $Y$) to focus at different focal planes ($f_X \neq f_Y$).
+- **Diagnostic Signature**: When passing through focus, the image stretches along axis $\theta$, turns blurry at minimum confusion circle, and stretches orthogonally at $\theta + 90^\circ$.
+- **Systematic Stigmate-Focus Iteration**:
+  1. Identify the stretching direction at under-focus and over-focus.
+  2. Adjust the Stigmator $X$ control until stretching in the $0^\circ/90^\circ$ direction is eliminated.
+  3. Adjust the Stigmator $Y$ control until stretching in the $45^\circ/135^\circ$ direction is eliminated.
+  4. Refocus objective lens. Repeat until image blurs and sharpens symmetrically with zero directional flare.
+
+---
+
+### p. 55 — Q6.4.7: Focal Depth Formula $D = \frac{d}{\alpha M}$ & Low-kV Non-Destructive Imaging
+
+![p.55 – Focal Depth Formula](sorted_by_page/55_Focal_Depth_Formula_Low_kV.jpg)
+*Visual Plate 55 (Handbook p. 55) — Mathematical formulation of depth of focus $D$, circle of confusion diameter $d$, beam semi-angle $\alpha$, and magnification $M$.*
+
+#### 🔬 Chain of Thought 6.4.7: Depth of Focus Mathematical Derivation
+$$\text{Depth of Focus } D = \frac{d_{pixel}}{\alpha \cdot M}$$
+- Where $d_{pixel} \approx 0.2\text{ mm}$ (the resolving limit of human naked eye inspecting a printout/display), $\alpha$ is the aperture semi-angle, and $M$ is magnification.
+- **To Double Depth of Focus**: (1) Double the working distance $WD$ (reduces $\alpha$); (2) Halve the objective aperture diameter (halves $\alpha$).
+
+---
+
+### p. 56 — Q6.4.8: Non-Conductive Sample Imaging & Total Yield Balance $\sigma = 1$
+
+![p.56 – Non-Conductive Sample Balance](sorted_by_page/56_NonConductive_Sample_Balance.jpg)
+*Visual Plate 56 (Handbook p. 56) — Total electron emission yield curve $\sigma(E_0) = \delta + \eta$ vs landing energy, defining crossover points $E_1$ (0.5–1.0 keV) and $E_2$ (1.5–3.0 keV).*
+
+#### 🔬 Chain of Thought 6.4.8: Charge Equilibrium Condition $\sigma = 1$
+The total electron emission coefficient is: $\sigma(E_0) = \delta_{SE}(E_0) + \eta_{BSE}(E_0)$.
+1. **$E_1 < E_0 < E_2$ ($\sigma > 1$)**: More electrons leave the specimen than enter ($I_{emitted} > I_{incident}$). The surface charges slightly **positive** (+1 to +3 V), establishing a stable potential barrier that recaptures excess low-energy SEs, achieving self-limiting dynamic equilibrium with **zero charging distortion**.
+2. **$E_0 > E_2$ ($\sigma < 1$)**: Fewer electrons escape than are injected ($I_{emitted} < I_{incident}$). Unbalanced negative electrons accumulate continuously within the dielectric bulk, building massive **negative potential** (thousands of volts), producing blinding flare, violent beam deflection, and image tearing.
+3. **Low-kV Strategy**: Tuning beam landing energy precisely to $E_2$ (1.0 to 2.0 kV) allows artifact-free imaging of uncoated glasses, ceramics, and photoresists.
+
+---
+
+### p. 57 — Q6.4.9: Positive vs Negative Charge-Up Potential Barriers
+
+![p.57 – Charge-Up Potential Barriers](sorted_by_page/57_ChargeUp_Potential_Barriers.jpg)
+*Visual Plate 57 (Handbook p. 57) — Electrostatic field line simulations: Positive surface potential barrier causing black patch artifacts vs negative charging causing white flaring.*
+
+---
+
+### p. 58 — Q6.4.10 & p. 59 — Q6.4.11: Anti-Charging Coatings & OsO4 Plasma CVD
+
+![p.58 – Anti-Charging Coating](sorted_by_page/58_AntiCharging_Coating_OsO4.jpg)
+*Visual Plate 58 (Handbook p. 58) — Carbon resistive thermal evaporation and Osmium Tetroxide ($OsO_4$) plasma polymerization chemical vapor deposition.*
+
+![p.59 – Sputter vs Plasma OsO4](sorted_by_page/59_Sputter_vs_Plasma_OsO4.jpg)
+*Visual Plate 59 (Handbook p. 59) — Micrograph comparison: Sputtered noble metal grain agglomeration (3–5 nm) vs ultra-amorphous, grainless Osmium plasma film (0.5–1 nm).*
+
+---
+
+## 6.5 Principle and Applications of Low-Vacuum SEM (pp. 60–63)
+
+### p. 60 — Q6.5.1: Low-Vacuum Charge Neutralization by Gas Ionization
+
+![p.60 – Low-Vacuum Principle](sorted_by_page/60_Low_Vacuum_Principle_Ionization.jpg)
+*Visual Plate 60 (Handbook p. 60) — Mechanism of gas molecule ionization: Positive ions neutralise negative surface charge; free electrons amplify environmental signal.*
+
+#### 🔬 Chain of Thought 6.5.1: Gaseous Charge Neutralization Mechanism
+In a Variable Pressure / Low-Vacuum SEM (10 to 300 Pa gas environment):
+1. The primary electron beam and escaping backscattered electrons collide with residual gas molecules ($N_2, H_2O, \text{or Air}$), causing electron impact ionization: $e_{primary}^- + \text{Gas} \rightarrow e_{primary}^- + \text{Gas}^+ + e_{secondary}^-$.
+2. The massive cloud of positive gas cations ($\text{Gas}^+$) is electrostatically attracted to the negatively charged insulating sample surface.
+3. Upon landing, the cations recombine with and neutralize accumulated negative electrons, maintaining stable zero ground potential on non-conducting samples without metal coating.
+
+---
+
+### p. 61 — Q6.5.2: Environmental Secondary Electron Detectors (ESED)
+
+![p.61 – ESED Gaseous Amplification](sorted_by_page/61_ESED_Gaseous_Amplification.jpg)
+*Visual Plate 61 (Handbook p. 61) — Gaseous cascade ionization amplification chain inside environmental detector bias field.*
+
+---
+
+### p. 62 — Q6.5.3: Pressure-Limiting Apertures (PLA) & Electron Scattering Loss
+
+![p.62 – PLA Skimmer Cones](sorted_by_page/62_PLA_SkimmerCones_ScatteringLoss.jpg)
+*Visual Plate 62 (Handbook p. 62) — Differential pressure skimmer cones and beam skirt scattering loss (10% at 20 Pa, 60% at 200 Pa, 90% at 500 Pa).*
+
+---
+
+### p. 63 — Q6.5.4: Low-Vacuum Practical Applications
+
+![p.63 – Low-Vacuum Applications](sorted_by_page/63_Low_Vacuum_Applications.jpg)
+*Visual Plate 63 (Handbook p. 63) — Observation of outgassing polymer coatings, hydrated botanicals, and raw uncoated catalyst matrices in VP mode.*
 
 ---
 
 ## 6.6 Scanning Transmission Electron Microscopy (STEM) in SEM (pp. 64–72)
 
-### 6.6.1 What is STEM in SEM? (p. 64)
+### p. 64 — Q6.6.1: STEM Imaging Principle in FE-SEM
 
-![p.64 – What is STEM?](../Hitachi_Images/hitachi_photo_33.jpg)
-*p.64 — 6.6.1 Fundamentals of STEM: Transmitted Electron Imaging on Thin Specimens (< 100 nm) in SEM (Photo 33)*
-
-Scanning Transmission Electron Microscopy (STEM) mounts an electron detector beneath an ultra-thin specimen (< 100 nm) inside the SEM chamber. The converged primary beam is scanned across the sample, detecting transmitted electrons to form high-resolution internal transmission images at accelerating voltages of 10 to 30 kV.
+![p.64 – STEM Principle](sorted_by_page/64_STEM_Principle_Transmission.jpg)
+*Visual Plate 64 (Handbook p. 64) — Transmission scattering of 30 kV electron probe through ultra-thin foil ($t < 100\text{ nm}$).*
 
 ---
 
-### 6.6.2 Optical Configuration of the STEM Detector (p. 65)
+### p. 65 — Q6.6.2: BF-STEM vs DF-STEM Detection Geometry
 
-![p.65 – STEM Detector Architecture](../Hitachi_Images/hitachi_photo_32.jpg)
-*p.65 — 6.6.2 STEM Multi-Segment Detector Geometry: Bright-Field (BF) Disk and Dark-Field (DF) Annular Ring (Photo 32)*
+![p.65 – BF vs DF STEM](sorted_by_page/65_BF_vs_DF_STEM_Geometry.jpg)
+*Visual Plate 65 (Handbook p. 65) — Optical geometry of on-axis Bright-Field detector (0–10 mrad) vs annular Dark-Field detector (10–50 mrad).*
+
+#### 🔬 Chain of Thought 6.6.2: STEM Contrast Mechanisms
+- **Bright-Field STEM (BF-STEM)**: Detects directly transmitted and low-angle scattered electrons. Mass-thickness and diffraction phase contrast make dense or crystalline regions appear **dark** (absorptive/diffractive scattering removes electrons from collector aperture).
+- **Dark-Field STEM (DF-STEM)**: Collects medium-angle scattered electrons while blocking the unscattered central beam. Crystal defects, grain boundaries, and heavy nanoparticles appear **bright** against a dark background.
+
+---
+
+### p. 66 — Q6.6.3: High-Angle Annular Dark-Field (HAADF) STEM Z-Contrast
+
+![p.66 – HAADF STEM Z-Contrast](sorted_by_page/66_HAADF_STEM_Z_Contrast.jpg)
+*Visual Plate 66 (Handbook p. 66) — Rutherford high-angle incoherent scattering (>50 mrad) yielding pure $Z^{1.7\text{–}2.0}$ contrast for supported metal catalyst nanoparticles (Pt, Au).*
+
+---
+
+### p. 67 — Q6.6.4: Specimen Thickness Limits & Inelastic Mean Free Path
+
+![p.67 – STEM Thickness Limits](sorted_by_page/67_STEM_Thickness_Limits.jpg)
+*Visual Plate 67 (Handbook p. 67) — Chromatic aberration probe broadening vs specimen thickness ($t > 100\text{ nm}$ causes severe transmission blur at 30 kV).*
+
+---
+
+### p. 68 — Q6.6.5: Ultramicrotomy Diamond Knife Sectioning
+
+![p.68 – Ultramicrotomy](sorted_by_page/68_Ultramicrotomy_SamplePrep.jpg)
+*Visual Plate 68 (Handbook p. 68) — Ultramicrotome device, 45° diamond knife, water boat collection, and 30–50 nm sectioning of polymers and biological tissue.*
+
+---
+
+### p. 69 — Q6.6.6 & p. 70 — Q6.6.7: FIB Micro-Sampling & Semiconductor Protocols
+
+![p.69 – FIB Micro-Sampling](sorted_by_page/69_FIB_MicroSampling_LiftOut.jpg)
+*Visual Plate 69 (Handbook p. 69) — Focused Ion Beam (FIB) in-situ micromanipulator needle lift-out and grid attachment protocol.*
+
+![p.70 – FIB Semiconductor Protocols](sorted_by_page/70_FIB_Semiconductor_Protocols.jpg)
+*Visual Plate 70 (Handbook p. 70) — Sub-10nm transistor fin cross-sectioning, low-kV $Ga^+$ ion clean-up, and amorphous damage layer removal.*
+
+---
+
+### p. 71 — Q6.6.8: Ultra-High Resolution STEM: Multi-Layer Gate Dielectrics
+
+![p.71 – Ultra-High Resolution STEM](sorted_by_page/71_UltraHigh_Resolution_STEM.jpg)
+*Visual Plate 71 (Handbook p. 71) — High-magnification STEM cross-section resolving alternating nanometer-scale $SiO_2 / Si_3N_4 / High-k$ gate dielectric stacks.*
+
+---
+
+## 6.7 X-Ray Emission, Detection & Microanalysis (pp. 73–80)
+
+### p. 73 — Q6.7.1: Physics of Characteristic X-Ray Generation
+
+![p.73 – Characteristic X-Ray Physics](sorted_by_page/73_Characteristic_XRay_Physics.jpg)
+*Visual Plate 73 (Handbook p. 73) — Atomic shell energy levels: K-shell (1s), L-shell (2s, 2p), M-shell (3s, 3p, 3d) ionization and electronic relaxation transitions.*
+
+#### 🔬 Chain of Thought 6.7.1: Quantum Atomic Emission Transition Physics
+1. **Inner-Shell Ionization**: A high-energy primary electron transfers energy greater than critical ionization energy ($E_0 > E_c$) to an inner core electron (e.g., K-shell), ejecting it into continuum.
+2. **Electronic Relaxation**: The atom is left in an excited state. An outer shell electron drops down to fill the core vacancy within $\approx 10^{-15}\text{ seconds}$.
+3. **Photon Emission**: The energy difference between initial and final quantum shells is emitted as a monoenergetic **Characteristic X-ray Photon**: $h\nu = E_{initial} - E_{final} = E_L - E_K\ (K\alpha)$.
+4. **Competitive De-excitation (Auger Electron)**: Alternatively, the transition energy can be non-radiatively transferred to an outer electron, ejecting an **Auger Electron**. Fluorescent yield $\omega_K$ scales with $Z^4$: low-$Z$ elements favor Auger emission, whereas high-$Z$ elements favor X-ray photon emission.
+
+---
+
+### p. 74 — Q6.7.2: K, L, M Emission Series & Moseley's Law Table
+
+![p.74 – Emission Series & Moseley's Law](sorted_by_page/74_Emission_Series_Moseleys_Law.jpg)
+*Visual Plate 74 (Handbook p. 74) — Authoritative Table 6.7.1: K, L, M emission energies for all elements from Carbon (Z=6) to Uranium (Z=92) governed by Moseley's Law.*
+
+#### 🔬 Chain of Thought 6.7.2: Moseley's Law & Characteristic Spectral Fingerprints
+Moseley's Law: $\sqrt{\nu} = C \cdot (Z - \sigma)$.
+- **K-Series Lines**: Ejected from K-shell; filled from L or M shells ($Z \ge 4$, Beryllium).
+- **L-Series Lines**: Ejected from L-shell; filled from M or N shells ($Z \ge 22$, Titanium).
+- **M-Series Lines**: Ejected from M-shell; filled from N or O shells ($Z \ge 57$, Lanthanides/Actinides).
+
+---
+
+### p. 75 — Q6.7.3 & Q6.7.4: Bremsstrahlung Continuum & X-Ray Generation Volume
+
+![p.75 – Bremsstrahlung & Generation Volume](sorted_by_page/75_Bremsstrahlung_Generation_Volume.jpg)
+*Visual Plate 75 (Handbook p. 75) — Continuous Bremsstrahlung background radiation spectrum, Duane-Hunt cutoff limit ($E_{max} = E_0$), and Castaing-Anderson X-ray spatial generation volume equation.*
+
+#### 🔬 Chain of Thought 6.7.4: X-Ray Generation Range ($R_X$) vs Electron Range ($R_{KO}$)
+Because characteristic X-rays can only be excited when electron kinetic energy exceeds critical ionization threshold ($E(x) > E_c$), the X-ray generation volume $R_X$ is smaller than total electron stopping range $R_{KO}$: $R_X = \frac{0.064}{\rho} (E_0^{1.68} - E_c^{1.68})\ [\mu\text{m}]$. For 15 keV electrons in Copper, $R_X \approx 0.65\ \mu\text{m}$. Even with a sub-nanometer probe, the spatial resolution of EDX microanalysis in a bulk specimen is fundamentally broadened to 0.5 to 2 µm due to internal elastic scattering.
+
+---
+
+### p. 76 — Q6.7.5: Silicon Drift Detectors (SDD) vs Liquid-Nitrogen Si(Li)
+
+![p.76 – EDX Detectors: SDD vs Si(Li)](sorted_by_page/76_EDX_SDD_vs_SiLi_Detectors.jpg)
+*Visual Plate 76 (Handbook p. 76) — Concentric ring ring-drift anode architecture of Silicon Drift Detector (SDD) vs bulky $LN_2$-cooled Lithium-drifted Silicon Si(Li).*
+
+#### 🔬 Chain of Thought 6.7.5: SDD Detector Solid-State Physics
+- **Concentric Ring Drift Field**: In an SDD, concentric p+ ring electrodes establish a transverse electric field that funnels photo-generated electron clouds towards an ultra-small central anode ($C_{anode} < 0.1\text{ pF}$).
+- **Extreme Capacitance Reduction**: Because noise is proportional to capacitance ($ENC \propto C_{anode}$), SDD delivers superior energy resolution (123–128 eV) at massive count rates (> 1,000,000 cps) with compact Peltier thermoelectric cooling, completely obsoleting liquid nitrogen dewars.
+
+---
+
+### p. 77 — Q6.7.6 & p. 78 — Q6.7.7: EDX Electronics, Shaping Amplifiers & MCA
+
+![p.77 – EDX Electronics](sorted_by_page/77_EDX_Electronics_Preamplifier.jpg)
+*Visual Plate 77 (Handbook p. 77) — Charge-sensitive FET preamplifier, triangular shaping amplifier, pileup rejector, and baseline restorer circuitry.*
+
+![p.78 – MCA Spectrum Binning](sorted_by_page/78_MCA_Spectrum_Binning.jpg)
+*Visual Plate 78 (Handbook p. 78) — Multichannel Analyzer (MCA) analog-to-digital conversion, pulse-height discrimination, and 2048/4096 energy channel histogram generation.*
+
+---
+
+### p. 79 — Q6.7.8 & p. 80 — Q6.7.9/10: WDX Rowland Circle & WDX vs EDX
+
+![p.79 – WDX Rowland Circle](sorted_by_page/79_WDX_RowlandCircle_Crystals.jpg)
+*Visual Plate 79 (Handbook p. 79) — Rowland Circle geometry: Precision curved analyzing crystals (LiF, PET, TAP, STE) and Bragg diffraction ($n\lambda = 2d\sin\theta$).*
+
+![p.80 – WDX Tandem Counters vs EDX](sorted_by_page/80_WDX_Tandem_Counters_vs_EDX.jpg)
+*Visual Plate 80 (Handbook p. 80) — Tandem proportional gas counters (flow + sealed) and direct spectral resolution comparison between EDX (130 eV) and WDX (2–10 eV).*
+
+#### 📊 Comprehensive EDX vs WDX Comparative Performance Matrix
+
+| Analytical Parameter | Energy Dispersive Spectrometry (EDX) | Wavelength Dispersive Spectrometry (WDX) |
+|:---------------------|:-------------------------------------|:-----------------------------------------|
+| **Spectrometric Principle** | Solid-state ionization in semiconductor (SDD) | Mechanical Bragg crystal diffraction |
+| **Spectral Energy Resolution**| 123–135 eV (at $Mn\ K\alpha$) | **2–10 eV (over 20x superior)** |
+| **Peak Overlap Resolution** | Severe overlaps ($Ti\ K\beta / V\ K\alpha, Ba\ L / Ti\ K, Si\ K / W\ M$) | **Resolves overlapping peaks completely** |
+| **Detection Speed & Acquisition** | Parallel collection (All elements simultaneously in seconds) | Serial mechanical crystal wavelength scanning |
+| **Minimum Detection Limit (MDL)**| 0.1 wt% (1,000 ppm) | **0.005 wt% (50 ppm, trace analysis)** |
+| **Light Element Detection (B, C, N, O)**| Moderate (Absorption in window/dead layer) | **Superb (Synthetic multilayer crystals)** |
+| **Beam Current Requirement** | Low (10 pA to 1 nA) (Safe for delicate samples) | High (10 nA to 1 µA) (Causes beam damage) |
+| **Sample Geometry Sensitivity** | Low (Tolerates moderate sample tilt/roughness) | **Extremely Strict (Must sit on Rowland circle ±5 µm)** |
+
+---
+
+## 6.8 Improving the Precision of X-Ray Analysis (pp. 81–86)
+
+### p. 81 — Q6.8.1: Quantitative ZAF Matrix Correction & Overvoltage Ratio $U$
+
+![p.81 – Quantitative ZAF](sorted_by_page/81_Quantitative_ZAF_Overvoltage.jpg)
+*Visual Plate 81 (Handbook p. 81) — Quantitative matrix correction factor chain: $C_i = [Z \cdot A \cdot F] \cdot k_i$ and the Overvoltage Ratio curve $U = E_0 / E_c \approx 1.5\text{–}2.5$.*
+
+#### 🔬 Chain of Thought 6.8.1: Quantitative Matrix Correction & Overvoltage Rule
+1. **Raw Intensity Ratio ($k$-ratio)**: $k_i = I_{specimen} / I_{standard}$.
+2. **True Weight Concentration**: $C_i = Z_i \times A_i \times F_i \times k_i$.
+   - **$Z$ (Atomic Number Effect)**: Corrects for difference in stopping power ($S$) and backscatter loss ($\eta$).
+   - **$A$ (Absorption Effect)**: Corrects for X-rays absorbed by matrix atoms along the escape path.
+   - **$F$ (Characteristic Fluorescence)**: Corrects for secondary X-rays excited by higher-energy lines of neighboring elements.
+3. **The Overvoltage Golden Rule**: $U = E_0 / E_c$. Optimal setting is $U \approx 1.5\text{ to }2.5$ (e.g., 15 kV for $Fe\ K\alpha$ at 6.4 keV).
+
+---
+
+### p. 82 — Q6.8.2: Collimation & Stray Radiation Shielding
+
+![p.82 – Stray X-Ray Collimation](sorted_by_page/82_Stray_XRay_Collimation.jpg)
+*Visual Plate 82 (Handbook p. 82) — Collimator geometry preventing extraneous X-rays excited by stray BSE hitting objective pole piece or copper stage holders.*
+
+---
+
+### p. 83 — Q6.8.3: Take-Off Angle, Specimen Tilt & Surface Roughness
+
+![p.83 – Take-Off Angle Effects](sorted_by_page/83_TakeOff_Angle_Tilt_Effects.jpg)
+*Visual Plate 83 (Handbook p. 83) — Take-off angle (psi) geometry: Surface roughness shadowing alters absorption path lengths, inducing severe quantitative errors.*
+
+---
+
+### p. 84 — Q6.8.4: Spatial Resolution: Bulk vs Thin-Film Interaction Volumes
+
+![p.84 – Spatial Resolution Thin-Film](sorted_by_page/84_XRay_Spatial_Resolution_ThinFilm.jpg)
+*Visual Plate 84 (Handbook p. 84) — Comparative X-ray generation volumes: Bulk sub-micron pear (1–2 µm) vs Thin-film cylinder (10–30 nm).*
+
+---
+
+### p. 85 — Q6.8.5: EDX Spectral Artifacts & Identification
+
+![p.85 – EDX Spectral Artifacts](sorted_by_page/85_EDX_Spectral_Artifacts.jpg)
+*Visual Plate 85 (Handbook p. 85) — Systematic identification of Escape Peaks ($E - 1.74\text{ keV}$), Sum/Pileup Peaks ($E_1 + E_2$), and Silicon Internal Fluorescence.*
+
+#### 🔬 Chain of Thought 6.8.5: Diagnostic Rule for Spectral Artifacts
+1. **Silicon Escape Peak**: An incoming high-energy X-ray photon ionizes a Silicon atom in the detector crystal. If the resulting $Si\ K\alpha$ (1.74 keV) photon escapes through the front window, a ghost peak appears at: $E_{escape} = E_{true} - 1.74\text{ keV}$. Example: Pure Iron ($Fe\ K\alpha = 6.40\text{ keV}$) produces an escape peak at 4.66 keV (mimicking Titanium).
+2. **Sum / Pulse Pileup Peak**: When two X-ray photons strike the SDD crystal almost simultaneously within the pulse shaping time, the amplifier records a single double-energy event: $E_{sum} = E_1 + E_2$. Countermeasure: Reduce beam current $I_p$ to lower dead time below 20–30%.
+
+---
+
+### p. 86 — Q6.8.6: Low-Vacuum EDX: Gas Scattering Skirt Effect
+
+![p.86 – Low-Vacuum EDX Skirt Effect](sorted_by_page/86_Low_Vacuum_EDX_SkirtEffect.jpg)
+*Visual Plate 86 (Handbook p. 86) — Primary electron beam skirt spreading across millimeters in low-vacuum atmospheres and localized PLA cone suppression.*
+
+---
+
+## 6.9 Advanced Analytical Microanalysis: EBSD & Cathodoluminescence (pp. 87–94)
+
+### p. 87 — Q6.9.1: Electron Backscatter Diffraction (EBSD): Kikuchi Bands
+
+![p.87 – EBSD Kikuchi Bands](sorted_by_page/87_EBSD_Kikuchi_Bands.jpg)
+*Visual Plate 87 (Handbook p. 87) — Formation of Kikuchi diffraction cones via Bragg reflection of inelastically scattered backscattered electrons.*
+
+#### 🔬 Chain of Thought 6.9.1: Crystallographic Diffraction in SEM
+1. **Inelastic High-Angle Divergence**: The incident electron probe strikes the specimen and forms a point-source of inelastically scattered electrons travelling in all directions.
+2. **Bragg Reflection on Lattice Planes**: When divergent electrons satisfy Bragg's Law ($n\lambda = 2d_{hkl}\sin\theta_B$) for a family of crystallographic planes $(hkl)$, they undergo coherent constructive diffraction, forming paired Kossel/Kikuchi diffraction cones.
+3. **Kikuchi Band Intersection**: Projecting these cones onto a phosphor screen generates an **Electron Backscatter Pattern (EBSP)** consisting of intersecting Kikuchi bands. The width of each band corresponds to the interplanar spacing $d_{hkl}$, and band intersections represent crystallographic zone axes.
+
+---
+
+### p. 88 — Q6.9.2: EBSD Hardware Configuration & 70° Specimen Tilt
+
+![p.88 – EBSD Hardware 70 Deg Tilt](sorted_by_page/88_EBSD_Hardware_70Deg_Tilt.jpg)
+*Visual Plate 88 (Handbook p. 88) — High-tilt stage geometry (70°), retractable phosphor screen, lead glass shielding, and low-noise CMOS/CCD camera array.*
+
+---
+
+### p. 89 — Q6.9.3: EBSD Orientation Mapping (IPF, Grain Boundaries, Phase Maps)
+
+![p.89 – EBSD IPF Orientation Maps](sorted_by_page/89_EBSD_IPF_Orientation_Maps.jpg)
+*Visual Plate 89 (Handbook p. 89) — Automated Hough transform band indexing, Euler angle determination, Inverse Pole Figure (IPF) color mapping, and recrystallization/strain quantification.*
+
+---
+
+### p. 90 — Q6.9.4: EBSD Specimen Preparation Protocols
+
+![p.90 – EBSD Sample Preparation](sorted_by_page/90_EBSD_Sample_Preparation.jpg)
+*Visual Plate 90 (Handbook p. 90) — Critical surface preparation: Vibratory colloidal silica polishing (0.02 µm) and BIB broad ion beam flat milling to eliminate mechanical work-hardened amorphous damage layers.*
+
+---
+
+### p. 91 — Q6.9.5: Cathodoluminescence (CL) Principle: Bandgap & Defect Emission
+
+![p.91 – CL Principle & Bandgaps](sorted_by_page/91_CL_Principle_Bandgaps.jpg)
+*Visual Plate 91 (Handbook p. 91) — Electronic band structure transitions: Valence-to-conduction bandgap intrinsic emission vs donor-acceptor trap states and crystal dislocations.*
+
+#### 🔬 Chain of Thought 6.9.5: Quantum Radiative Transitions in CL
+1. **Carrier Generation**: Primary electrons excite valence electrons across the electronic bandgap ($E_g$), creating free electron-hole ($e^- - h^+$) pairs.
+2. **Radiative Recombination**:
+   - **Intrinsic Band-to-Band Recombination**: Emits photons with energy equal to bandgap $h\nu = E_g$ (e.g., 3.4 eV / 365 nm UV in $GaN$).
+   - **Extrinsic Defect / Impurity Luminescence**: Trapping at mid-gap donor-acceptor pairs, point vacancies, interstitial dopants, or threading dislocations emits sub-bandgap photons ($h\nu < E_g$).
+3. **Non-Destructive Defect Mapping**: Dark non-radiative recombination centers pinpoint localized threading dislocations and microcracks in optoelectronic devices (LEDs, Laser Diodes) at nanoscale spatial resolution.
+
+---
+
+### p. 92 — Q6.9.6: Cathodoluminescence Hardware Instrumentation
+
+![p.92 – CL Instrumentation Spectrometer](sorted_by_page/92_CL_Instrumentation_Spectrometer.jpg)
+*Visual Plate 92 (Handbook p. 92) — Retractable diamond-turned ellipsoidal/parabolic collection mirror, fiber optic coupling, Czerny-Turner monochromator spectrometer, and PMT/CCD detection array.*
+
+---
+
+### pp. 93–94 — Q6.9.7: Cathodoluminescence Applications & Defect Characterization
+
+![pp.93-94 – CL Applications and Defects](sorted_by_page/93_94_CL_Applications_Defects.jpg)
+*Visual Plate 93/94 (Handbook pp. 93–94) — Pan-chromatic and monochromatic CL imaging: Semiconductor crystal dislocation networks, compound wafer zoning, and optical spatial resolution limits.*
+
+---
+
+## 🏆 Final Summary & Quick-Reference Operating Checklist
 
 ```
-                       Primary Beam (30 kV)
-                                ││
-                                ▼▼
-                       [ Specimen Grid (<100 nm) ]
-                                / │ \
-                               /  │  \ (Transmitted Electrons)
-                              /   │   \
-                             /    │    \
-                            /     │     \
-    [ Dark-Field Annular Ring (DF) ] [ Bright-Field Center (BF) ] [ Dark-Field Annular Ring (DF) ]
+========================================================================================
+             HITACHI SEM & MICROANALYSIS MASTER OPERATOR CHECKLIST
+========================================================================================
+
+[1. PRE-INSPECTION PREPARATION]
+  [ ] Verify sample is completely dry, degreased, and firmly adhered to aluminum stub.
+  [ ] Ensure electrical continuity to ground via carbon tape or silver paint.
+  [ ] If sample is insulating, select coating (Pt for FE-SEM, C for EDX/BSE, or OsO4 plasma).
+
+[2. COLUMN ALIGNMENT & OPTICAL OPTIMIZATION]
+  [ ] Select Accelerating Voltage based on observation goal (1-2 kV for surface; 15-20 kV for EDX).
+  [ ] Center the Objective Aperture using the aperture wobble / focus sweep alignment.
+  [ ] Eliminate Astigmatism iteratively using X and Y stigmators until no directional oval stretching occurs.
+
+[3. SIGNAL SELECTION & CONTRAST DISCRIMINATION]
+  [ ] Surface Topography: Secondary Electron (SE / Upper Detector) at low-to-medium kV.
+  [ ] Material Composition: Backscattered Electron (BSE / COMPO Mode A+B) or EDX mapping.
+  [ ] Surface Relief / Directional Texture: BSE TOPO Mode (A-B).
+  [ ] Buried Semiconductor Logic States: Passive/Active Voltage Contrast with ExB filter.
+
+[4. QUANTITATIVE MICROANALYSIS (EDX)]
+  [ ] Set overvoltage ratio U = E0 / Ec between 1.5 and 2.5 (Typically 15-20 kV).
+  [ ] Verify dead time is between 15% and 30% to prevent pulse pileup artifact peaks.
+  [ ] Align sample at exact analytical working distance (10-15 mm) to face SDD detector collimator.
+  [ ] Inspect spectrum for Escape Peaks (E - 1.74 keV) and Sum Peaks before concluding trace presence.
+
+[5. ADVANCED CRYSTALLOGRAPHY & EMISSION]
+  [ ] EBSD: Tilt sample to 70 deg; verify colloidal silica / BIB damage-free surface preparation.
+  [ ] CL: Insert parabolic mirror over specimen; align optical focal point to monochromator entrance slit.
+========================================================================================
 ```
 
----
-
-### 6.6.3 Bright-Field STEM (BF-STEM) Phase & Diffraction Contrast (p. 66)
-
-![p.66 – BF-STEM Contrast](../Hitachi_Images/hitachi_photo_30.jpg)
-*p.66 — 6.6.3 Bright-Field STEM: Amplitude, Mass-Thickness, and Bragg Diffraction Contrast (Photo 30)*
-
-- **Center Disk Detector**: Collects unscattered and low-angle scattered electrons ($\theta < 10 \text{ mrad}$).
-- **Contrast Mechanisms**: Mass-thickness contrast (dense areas appear dark) and crystalline Bragg diffraction contrast (bent crystal planes and dislocations appear dark).
-
----
-
-### 6.6.4 Dark-Field STEM (DF-STEM) Annular Detection (p. 67)
-
-![p.67 – DF-STEM Detection](../Hitachi_Images/hitachi_photo_31.jpg)
-*p.67 — 6.6.4 Dark-Field STEM: Annular Collection of Diffracted Rays and Defect Highlighting (Photo 31)*
-
-- Collects electrons scattered at intermediate angles ($10 \text{ to } 50 \text{ mrad}$).
-- Unscattered beam passes through the central hole. Crystalline grain boundaries, stacking faults, and nanoparticles appear bright against a dark background.
-
----
-
-### 6.6.5 High-Angle Annular Dark-Field (HAADF) Rutherford Z-Contrast (p. 68)
-
-![p.68 – HAADF Z-Contrast](../Hitachi_Images/hitachi_photo_29.jpg)
-*p.68 — 6.6.5 HAADF-STEM: High-Angle Incoherent Scattering and Atomic Number Z-Contrast ($I \propto Z^{1.7}$) (Photo 29)*
-
-At high scattering angles ($\theta > 50 \text{ mrad}$), coherent Bragg diffraction is suppressed, and thermal diffuse Rutherford nuclear scattering dominates.
-- The signal intensity scales with atomic number:
-
-$$I_{HAADF} \propto Z^{1.7 \text{ to } 2.0}$$
-
-- Heavy metal catalyst clusters (Pt, Au, Ru) and transistor high-k gate layers (Hf, W) shine brightly with absolute atomic number discrimination.
-
----
-
-### 6.6.6 Sample Preparation for STEM (Grids, Thinning, FIB Lift-out) (p. 69)
-
-![p.69 – STEM Sample Prep](../Hitachi_Images/hitachi_photo_28.jpg)
-*p.69 — 6.6.6 Specimen Preparation: Carbon-Coated TEM Grids, Ultramicrotomy, and FIB Micro-Sampling (Photo 28)*
-
-1. **Nanoparticles / Carbon Nanotubes**: Drop-cast dilute ethanol suspension onto carbon-coated copper TEM grids.
-2. **Biological / Polymer Sections**: Ultrathin sectioning (< 70 nm) with an ultramicrotome diamond knife.
-3. **Semiconductor Devices / Alloys**: Focused Ion Beam (FIB) site-specific lift-out and lamella thinning (< 50 nm).
-
----
-
-### 6.6.7 Comparison: TEM (200 kV) vs STEM in FE-SEM (30 kV) (p. 70)
-
-![p.70 – TEM vs STEM in SEM](../Hitachi_Images/hitachi_photo_26.jpg)
-*p.70 — 6.6.7 Performance Comparison: 200 kV TEM vs 30 kV STEM in Ultra-High Resolution FE-SEM (Photo 26)*
-
-| Comparison Parameter | High-Voltage TEM (200 kV) | STEM in FE-SEM (30 kV) |
-|----------------------|:-------------------------:|:----------------------:|
-| **Accelerating Voltage** | 100 to 300 kV | 10 to 30 kV |
-| **Electron Scattering Cross-Section** | Low | **Very High (5–10x higher contrast)** |
-| **Unstained Biological / Polymer Contrast** | Low (requires heavy metal stain) | **High (stain-free imaging possible)** |
-| **Radiation Damage / Knock-on Damage** | High knock-on displacement | **Low knock-on damage** |
-| **Simultaneous Surface SE Imaging** | Not available | **Simultaneous SE + BF-STEM + DF-STEM** |
-| **Cost and Facility Requirements** | High capital & room shielding | **Standard FE-SEM laboratory** |
-
----
-
-### 6.6.8 Multi-Channel Simultaneous BF / DF / SE Signal Acquisition (p. 71)
-
-![p.71 – Multi-Channel STEM Acquisition](../Hitachi_Images/hitachi_photo_27.jpg)
-*p.71 — 6.6.8 Simultaneous Triple-Channel Detection: Secondary Electron (SE), BF-STEM, and DF-STEM (Photo 27)*
-
-Hitachi ultra-high resolution FE-SEMs (SU9000 / Regulus) capture three synchronized images from a single electron beam raster scan:
-- **Upper SE Detector**: Outer surface nanomorphology.
-- **Center BF-STEM Detector**: Internal crystal strain, defects, and diffraction contrast.
-- **Annular DF-STEM Detector**: Heavy element nanoparticle distribution (Z-contrast).
-
----
-
-### 6.6.9 Industrial STEM Applications: Nanotubes, Catalysts, Transistors (p. 72)
-
-![p.72 – Industrial STEM Applications](../Hitachi_Images/hitachi_photo_25.jpg)
-*p.72 — 6.6.9 Applications: Carbon Nanotube Walls, 2 nm Catalyst Nanoparticles, and Sub-10 nm FinFET Gates (Photo 25)*
-
-- Direct observation of multi-walled carbon nanotube concentric graphene layers.
-- Dispersion of sub-2 nm platinum/palladium catalyst nanoparticles anchored on mesoporous alumina supports.
-- High-k metal gate stack thicknesses and source/drain epitaxial strain layers in advanced FinFET and GAA transistors.
-
----
-
-## 6.7 Generating and Detecting X-rays & Elemental Analysis (pp. 73–80)
-
-### 6.7.1 Mechanism of Characteristic X-ray Emission (p. 73)
-
-![p.73 – Characteristic X-ray Generation](../Hitachi_Images/hitachi_photo_24.jpg)
-*p.73 — 6.7.1 Inner-Shell Ionization, Electron Transitions, and Characteristic X-ray Emission (Photo 24)*
-
-When a primary electron knocks out an inner-shell electron (e.g., K-shell vacancy), the atom is left in an excited ionized state. An outer-shell electron (L-shell or M-shell) drops down to fill the inner vacancy within $10^{-14} \text{ s}$. The energy difference is released as a photon of **characteristic X-ray**:
-
-$$E_X = E_{initial} - E_{final}$$
-
----
-
-### 6.7.2 Moseley's Law & Core Shell Transitions (K, L, M Series) (p. 74)
-
-![p.74 – Moseley's Law](../Hitachi_Images/hitachi_photo_22.jpg)
-*p.74 — 6.7.2 Moseley's Law and Atomic Number Relationship with Characteristic X-ray Line Energies (Photo 22)*
-
-Moseley's Law establishes that characteristic X-ray frequency $\nu$ is proportional to $(Z - \sigma)^2$:
-
-$$\sqrt{\nu} = C (Z - \sigma)$$
-
-- **K-Series**: Transitions to K-shell ($K\alpha: L \to K$, $K\beta: M \to K$).
-- **L-Series**: Transitions to L-shell ($L\alpha: M \to L$, $L\beta: N \to L$).
-- **M-Series**: Transitions to M-shell ($M\alpha: N \to M$).
-
----
-
-### 6.7.3 Continuum Bremsstrahlung Background X-rays (p. 75)
-
-![p.75 – Bremsstrahlung Continuum](../Hitachi_Images/hitachi_photo_23.jpg)
-*p.75 — 6.7.3 Bremsstrahlung (Braking Radiation) Continuous Background and Duane-Hunt Limit ($E_{max} = E_0$) (Photo 23)*
-
-Primary electrons decelerated in the nuclear Coulomb field emit continuous spectrum **Bremsstrahlung X-rays** extending from 0 keV up to the Duane-Hunt short-wavelength cutoff limit ($E_{max} = e V_{acc}$). This continuous background must be modeled and subtracted during quantitative EDX peak deconvolution.
-
----
-
-### 6.7.4 Comparison: EDX (Energy Dispersive) vs WDX (Wavelength Dispersive) (p. 76)
-
-![p.76 – EDX vs WDX Comparison](../Hitachi_Images/hitachi_photo_21.jpg)
-*p.76 — 6.7.4 Comparison: Energy Dispersive Spectrometry (EDX) vs Wavelength Dispersive Spectrometry (WDX) (Photo 21)*
-
-| Parameter | Energy Dispersive Spectrometry (EDX) | Wavelength Dispersive Spectrometry (WDX) |
-|-----------|:-----------------------------------:|:---------------------------------------:|
-| **Dispersing Mechanism** | Semiconductor Pulse Height Analysis (SDD) | Analyzing Crystal Bragg Diffraction ($\lambda = 2d \sin \theta$) |
-| **Spectral Resolution ($\Delta E$)** | 125 to 135 eV (Mn Kα) | **1 to 10 eV (10–50x higher resolution)** |
-| **Acquisition Speed** | Simultaneous full-spectrum (seconds to minutes) | Serial wavelength scan (minutes to hours) |
-| **Peak Overlap Separation** | Limited (severe overlap for $S \text{ K}\alpha / Mo \text{ L}\alpha$, $Pb \text{ M}\alpha / Bi \text{ M}\alpha$) | **Superior (resolves all overlapping peaks)** |
-| **Detection Limit (Sensitivity)** | ~0.1 wt% (1,000 ppm) | **~0.001 wt% (10–50 ppm, trace elements)** |
-| **Required Probe Current** | Low (0.1 to 1 nA) | High (10 to 100 nA) |
-
----
-
-### 6.7.5 Silicon Drift Detector (SDD) Operating Principles (p. 77)
-
-![p.77 – SDD Detector Architecture](../Hitachi_Images/hitachi_photo_20.jpg)
-*p.77 — 6.7.5 Silicon Drift Detector (SDD): Radial Concentric Drift Rings and High-Count-Rate Low-Noise Processing (Photo 77)*
-
-- High-purity silicon crystal with concentric ring electrodes creating a radial drift field guiding signal charge packets to a tiny central anode (< 0.1 pF capacitance).
-- Low capacitance enables ultra-high count rates (> 1,000,000 cps) with Peltier thermoelectric cooling (eliminating liquid nitrogen).
-
----
-
-### 6.7.6 EDX Spectrum Processing: Deconvolution & Background Subtraction (p. 78)
-
-![p.78 – Spectrum Processing](../Hitachi_Images/hitachi_photo_18.jpg)
-*p.78 — 6.7.6 Spectrum Processing: Kramers Continuum Background Modeling, Peak Fitting, and Escape Peak Correction (Photo 78)*
-
-- **Background Modeling**: Mathematical fitting of Kramers Bremsstrahlung background.
-- **Escape Peak Correction**: Accounts for internal silicon fluorescence escape ($E_{peak} - 1.74 \text{ keV}$).
-- **Gaussian Deconvolution**: Separates severely overlapping element peaks.
-
----
-
-### 6.7.7 Point Analysis, Line Scanning, and Multi-Element Mapping (p. 79)
-
-![p.79 – EDX Analytical Modes](../Hitachi_Images/hitachi_photo_19.jpg)
-*p.79 — 6.7.7 Analytical Modes: Spot Analysis, Multi-Point Grid, Line Profile, and Real-Time HyperMap Mapping (Photo 79)*
-
-1. **Point Analysis**: High-count-rate quantitative analysis of sub-micron phases.
-2. **Line Profile**: Measures diffusion gradients and interfacial reaction layers.
-3. **Spectral Imaging (HyperMap)**: Stores complete EDX spectra at every pixel ($1024 \times 768$), enabling retrospective element extraction.
-
----
-
-### 6.7.8 Qualitative Identification & Auto-Peak Labeling (p. 80)
-
-![p.80 – Qualitative Analysis](../Hitachi_Images/hitachi_photo_17.jpg)
-*p.80 — 6.7.8 Qualitative Identification: Peak Identification Confidence, Family Lines ($K, L, M$), and False Peak Rejection (Photo 80)*
-
-- Auto-ID algorithms cross-reference peak positions against atomic database emission energies, verifying expected relative intensity ratios ($K\alpha : K\beta \approx 10 : 1$).
-
----
-
-## 6.8 Improving the Precision of X-ray Analysis (pp. 81–85)
-
-### 6.8.1 Overvoltage Ratio ($U = E_0 / E_c$) Optimization (p. 81)
-
-![p.81 – Overvoltage Ratio](../Hitachi_Images/hitachi_photo_16.jpg)
-*p.81 — 6.8.1 Overvoltage Ratio $U = E_0 / E_c$: Balancing Ionization Cross-Section and Spatial Resolution (Photo 81)*
-
-The inner-shell ionization cross-section $Q$ depends on the overvoltage ratio:
-
-$$U = \frac{E_0}{E_c}$$
-
-- Where $E_0$ is primary electron energy and $E_c$ is critical excitation energy.
-- **Optimum Rule of Thumb**: Maintain **$U = 2 \text{ to } 3$**.
-- *Example*: To excite Fe Kα ($E_c = 7.11 \text{ keV}$), use accelerating voltage $V_{acc} = 15 \text{ to } 20 \text{ kV}$.
-
----
-
-### 6.8.2 X-ray Interaction Volume & Spatial Resolution (p. 82)
-
-![p.82 – X-ray Spatial Resolution](../Hitachi_Images/hitachi_photo_15.jpg)
-*p.82 — 6.8.2 X-ray Generation Depth: Kanaya-Okayama Range and Spatial Resolution vs Accelerating Voltage (Photo 82)*
-
-The X-ray generation range $R_{KO}$ is given by:
-
-$$R_{KO} = \frac{0.0276 \cdot A}{\rho \cdot Z^{0.89}} E_0^{1.67} \quad (\mu\text{m})$$
-
-- At 20 kV in aluminum ($\rho = 2.7 \text{ g/cm}^3$), X-rays originate from a volume ~3 μm deep.
-- Lowering accelerating voltage to 5 kV shrinks interaction diameter to < 200 nm, enabling sub-micron boundary analysis.
-
----
-
-### 6.8.3 Matrix Corrections: ZAF and $\phi(\rho z)$ Formulations (p. 83)
-
-![p.83 – ZAF Matrix Correction](../Hitachi_Images/hitachi_photo_13.jpg)
-*p.83 — 6.8.3 Matrix Correction: Atomic Number ($Z$), Absorption ($A$), and Characteristic Fluorescence ($F$) Factors (Photo 83)*
-
-Quantitative concentration $C_i$ is calculated from intensity ratio $k_i = I_{specimen} / I_{standard}$ via:
-
-$$C_i = k_i \times [Z \cdot A \cdot F]$$
-
-- **$Z$ (Atomic Number Factor)**: Corrects for electron stopping power and backscatter loss.
-- **$A$ (Absorption Factor)**: Corrects for X-ray absorption along the path toward the detector.
-- **$F$ (Fluorescence Factor)**: Corrects for secondary X-ray generation excited by higher-energy characteristic lines.
-
----
-
-### 6.8.4 Detector Dead Time, Pulse Pile-Up & Sum Peaks (p. 84)
-
-![p.84 – Dead Time & Pulse Pile-up](../Hitachi_Images/hitachi_photo_14.jpg)
-*p.84 — 6.8.4 Pulse Pile-Up, Sum Peaks ($2 \times K\alpha$), and Dead Time Optimization (20%–40%) (Photo 84)*
-
-- **Dead Time ($DT$)**: Maintain between **20% and 40%** to avoid pulse pile-up artifacts and false sum peaks ($E_{sum} = E_A + E_B$).
-
----
-
-### 6.8.5 Low-kV Ultra-Micro X-ray Analysis for Thin Films (p. 85)
-
-![p.85 – Low-kV Microanalysis](../Hitachi_Images/hitachi_photo_12.jpg)
-*p.85 — 6.8.5 Low-kV Microanalysis: Confining X-ray Excitation within Sub-50 nm Thin Films and Nanoparticles (Photo 85)*
-
-- By operating at $V_{acc} = 3 \text{ to } 5 \text{ kV}$, electrons are confined within thin surface coatings, preventing substrate excitation.
-
----
-
-## 6.9 Other Analytical Equipment: EBSD & Cathodoluminescence (pp. 86–94)
-
-### 6.9.1 What is EBSD (Electron Backscatter Diffraction)? (p. 86)
-
-![p.86 – What is EBSD?](../Hitachi_Images/hitachi_photo_11.jpg)
-*p.86 — 6.9.1 Fundamentals of Electron Backscatter Diffraction (EBSD): Micro-Crystallographic Analysis in SEM (Photo 11)*
-
-EBSD analyzes backscattered Kikuchi patterns generated when the electron beam strikes a crystalline specimen, determining crystal orientation, phase identity, and grain boundaries at sub-micron resolution.
-
----
-
-### 6.9.2 EBSD Geometry: 70° Pre-Tilt & Phosphor Screen (p. 87)
-
-![p.87 – EBSD Geometry](../Hitachi_Images/hitachi_photo_09.jpg)
-*p.87 — 6.9.2 EBSD Experimental Geometry: 70° Specimen Pre-Tilt, Phosphor Screen, and Low-Light CCD/CMOS Camera (Photo 09)*
-
-- Specimen is tilted at **$70^\circ$ toward the horizontal EBSD phosphor screen**, maximizing forward backscattering yield.
-
----
-
-### 6.9.3 Formation of Kikuchi Bands & Bragg Diffraction (p. 88)
-
-![p.88 – Kikuchi Band Formation](../Hitachi_Images/hitachi_photo_10.jpg)
-*p.88 — 6.9.3 Formation of Kikuchi Bands: Inelastically Scattered Source Electrons and Lattice Plane Bragg Cones (Photo 10)*
-
-Inelastically scattered electrons undergo Bragg diffraction ($n\lambda = 2d \sin \theta_B$) on lattice planes, forming paired Kossel cones projected onto the screen as parallel **Kikuchi bands**. Band widths correspond to interplanar lattice spacings ($d_{hkl}$).
-
----
-
-### 6.9.4 Automated Indexing, Hough Transform & Euler Angles (p. 89)
-
-![p.89 – EBSD Automated Indexing](../Hitachi_Images/hitachi_photo_08.jpg)
-*p.89 — 6.9.4 EBSD Indexing Algorithm: Hough Transform Line Detection, Inter-Planar Angle Matching, and Euler Angles ($\phi_1, \Phi, \phi_2$) (Photo 08)*
-
-- The **Hough Transform** converts Kikuchi lines into intensity peaks in $(\rho, \theta)$ space. Cross-referencing inter-band angles against crystallographic databases calculates full 3D crystal orientation Euler angles $(\phi_1, \Phi, \phi_2)$.
-
----
-
-### 6.9.5 Inverse Pole Figure (IPF) Maps, Grain Boundary & Phase Mapping (p. 90)
-
-![p.90 – IPF & Phase Mapping](../Hitachi_Images/hitachi_photo_07.jpg)
-*p.90 — 6.9.5 EBSD Mapping Output: Inverse Pole Figure (IPF) Color Maps, Misorientation Grain Boundaries, and Phase Identification (Photo 07)*
-
-```
-[ EBSD Crystallographic Output Types ]
-  ├── Inverse Pole Figure (IPF) Orientation Maps (Colors map crystal directions: [001] Red, [101] Green, [111] Blue)
-  ├── Grain Boundary Misorientation Maps (High-angle > 15° vs Low-angle 2-15° boundaries)
-  ├── Local Misorientation / KAM (Kernel Average Misorientation: Plastic strain mapping)
-  └── Multi-Phase Identification Maps (Austenite FCC vs Martensite/Ferrite BCC in steels)
-```
-
----
-
-### 6.9.6 Specimen Preparation for EBSD (Vibration Polish, BIB Flat Milling) (p. 91)
-
-![p.91 – EBSD Sample Prep](../Hitachi_Images/hitachi_photo_05.jpg)
-*p.91 — 6.9.6 Specimen Preparation for EBSD: Colloidal Silica Vibratory Polishing and Broad Ion Beam (BIB) Flat Milling (Photo 05)*
-
-- Because EBSD patterns originate from the top **10 to 50 nm**, all mechanical deformation must be removed via:
-  1. **Vibratory Polishing**: 0.02 μm colloidal silica suspension for 2–4 hours.
-  2. **Broad Ion Beam (BIB) Flat Milling**: IM4000 low-angle argon ion etching.
-
----
-
-### 6.9.7 Principles of Cathodoluminescence (CL) Spectroscopy (p. 92)
-
-![p.92 – Cathodoluminescence Principle](../Hitachi_Images/hitachi_photo_06.jpg)
-*p.92 — 6.9.7 Cathodoluminescence (CL) Emission Mechanism: Band-to-Band Recombination and Defect State Radiative Transitions (Photo 06)*
-
-Primary electron excitation generates electron-hole pairs. Radiative recombination emits photons:
-- **Band-Edge Emission ($h\nu \approx E_g$)**: Direct bandgap recombination.
-- **Sub-Bandgap Defect Emission ($h\nu < E_g$)**: Radiative transitions via vacancies, threading dislocations, and dopant impurity states.
-
----
-
-### 6.9.8 Optical Collection Mirrors & Spectrometry Detection (p. 93)
-
-![p.93 – CL Collection Optics](../Hitachi_Images/hitachi_photo_04.jpg)
-*p.93 — 6.9.8 Retractable Parabolic Collection Mirror, Optical Fiber Guide, Spectrograph Grating, and PMT/CCD Array (Photo 04)*
-
-- A retractable ellipsoidal/parabolic diamond-turned mirror is inserted directly over the sample, collecting emitted photons into a monochromator spectrograph and cooled PMT / CCD array.
-
----
-
-### 6.9.9 CL Spatial Resolution & GaN Bandgap/Defect Wavelength Maps (p. 93)
-
-![p.93 – CL Spatial Resolution & GaN Emissions](../Hitachi_Images/hitachi_photo_02.jpg)
-*p.93 — Figure 6.9.9: CL Spatial Resolution Control and GaN Wavelength-Resolved Emission Maps (Photo 02)*
-
-- **Accelerating Voltage Control (2 kV vs 5 kV)**: Controls carrier generation volume and diffusion length.
-- **Gallium Nitride (GaN) Spectral Decomposition**:
-  - **357 nm**: Near-band-edge free exciton emission.
-  - **376 nm**: Structural dislocation / stacking fault emission.
-  - **386 nm**: Point defect / yellow luminescence band.
-
----
-
-### 6.9.10 CL Spectroscope System & Cryogenic Defect Analysis (p. 94)
-
-![p.94 – CL Spectroscope System](../Hitachi_Images/hitachi_photo_01.jpg)
-*p.94 — Figure 6.9.10: High-Resolution CL Spectroscope Architecture, Diffraction Gratings, and Cryogenic Stage (Photo 01)*
-
-- **Liquid Helium/Nitrogen Cold Stage (< 10 K to 77 K)**: Suppresses thermal phonon broadening, sharpening luminescence line widths for semiconductor quantum well and superlattice defect analysis.
-
----
-
-### EBSD Kikuchi Pattern Crystallography (pp. 95–110 Overview)
-
-![p.95 – EBSD Pattern Formation](../Hitachi_Images/hitachi_photo_03.jpg)
-*EBSD Kikuchi Pattern Generation & Crystallographic Orientation Analysis (Photo 03)*
-
-- High-precision orientation analysis, recrystallization fraction, and Schmid factor slip system evaluation in aerospace alloys and semiconductor thin films.
-
----
-
-### FIB Semiconductor Lamella Lift-Out Preparation (pp. 111–145 Overview)
-
-![p.111 – FIB Sample Preparation](../Hitachi_Images/hitachi_photo_40.jpg)
-*FIB Cross-Sectioning & TEM Thin-Film Lamella Lift-out Preparation (Photo 40)*
-
-- Focused $Ga^+$ ion beam micro-machining, protective platinum/carbon deposition, micromanipulator needle lift-out, and low-kV cleaning (< 2 kV) for sub-20 nm atom probe and TEM/STEM lamellae.
-
----
-
-*End of Hitachi SEM Handbook Technical Notes*
-*All 96 source images (`hitachi_photo_01.jpg` to `hitachi_photo_96.jpg`) successfully transcribed and tagged.*
+*End of Complete Hitachi SEM Handbook Technical Master Guide.*
