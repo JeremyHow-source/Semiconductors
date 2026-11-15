@@ -42,18 +42,32 @@ body {
 }
 
 /* ===== LANDING PAGE ===== */
+:root, .landing {
+  --bg: #0b192e;
+  --bg2: #0f2442;
+  --card: #132c50;
+  --accent: #38bdf8;
+  --accent2: #7dd3fc;
+  --border: #254b7a;
+  --tag-bg: #12365e;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --btn-act: #38bdf8;
+  --btn-txt: #061325;
+}
 .landing{display:flex;flex-direction:column;min-height:100vh;background:linear-gradient(135deg,#061325 0%,#092342 50%,#0e3860 100%);}
 .landing-header{text-align:center;padding:3rem 1.5rem 1.5rem;}
 .landing-header h1{font-size:2.4rem;font-weight:700;background:linear-gradient(90deg,#38bdf8,#818cf8,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.6rem;}
 .landing-header p{color:#93c5fd;font-size:1rem;max-width:600px;margin:0 auto;}
-.book-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.8rem;padding:2rem 2rem 4rem;max-width:1200px;margin:0 auto;width:100%;}
+.landing-actions{margin-top:1.1rem;display:flex;justify-content:center;align-items:center;gap:0.75rem;flex-wrap:wrap;}
+.book-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:1.8rem;padding:2rem 2rem 3rem;max-width:1200px;margin:0 auto;width:100%;}
 
-/* ===== KO-FI FLOATING BUTTON ===== */
-.kofi-float{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;align-items:center;gap:0.5rem;padding:0.65rem 1.2rem;border-radius:50px;background:linear-gradient(135deg,#ff5e5b 0%,#ff2400 50%,#e8362a 100%);color:#fff;text-decoration:none;font-weight:700;font-size:0.88rem;box-shadow:0 6px 24px rgba(255,36,0,0.45),0 2px 8px rgba(0,0,0,0.3);transition:transform 0.25s,box-shadow 0.25s;animation:kofi-pulse 2.5s ease-in-out infinite;}
-.kofi-float:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 10px 36px rgba(255,36,0,0.55),0 4px 12px rgba(0,0,0,0.35);}
-.kofi-float .kofi-icon{font-size:1.2rem;line-height:1;}
-.kofi-float .kofi-text{white-space:nowrap;}
-@keyframes kofi-pulse{0%,100%{box-shadow:0 6px 24px rgba(255,36,0,0.45),0 2px 8px rgba(0,0,0,0.3);}50%{box-shadow:0 6px 32px rgba(255,36,0,0.65),0 2px 12px rgba(0,0,0,0.35);}}
+/* ===== DOCKED FOOTER UTILITY STRIP ===== */
+.landing-footer{margin-top:auto;padding:1.5rem 2rem;border-top:1px solid rgba(56,189,248,0.18);background:rgba(6,19,37,0.72);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0.9rem;color:#93c5fd;font-size:0.86rem;}
+.dock-kofi-btn{display:inline-flex;align-items:center;gap:0.45rem;padding:0.5rem 1.1rem;border-radius:999px;background:linear-gradient(135deg,#ff5e5b 0%,#e8362a 100%);color:#fff !important;text-decoration:none !important;font-weight:700;font-size:0.84rem;box-shadow:0 4px 14px rgba(255,36,0,0.3);transition:transform 0.2s,box-shadow 0.2s;}
+.dock-kofi-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,36,0,0.45);}
+.dock-fb-btn{display:inline-flex;align-items:center;gap:0.45rem;padding:0.5rem 1.1rem;border-radius:999px;background:linear-gradient(135deg,#0284c7 0%,#1d4ed8 100%);color:#fff;font-weight:700;font-size:0.84rem;border:1px solid rgba(255,255,255,0.25);cursor:pointer;box-shadow:0 4px 14px rgba(2,132,199,0.3);transition:transform 0.2s,box-shadow 0.2s;}
+.dock-fb-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(2,132,199,0.45);}
 
 /* ===== KO-FI LANDING BANNER ===== */
 .kofi-banner{display:flex;align-items:center;justify-content:center;gap:1rem;padding:0.9rem 1.5rem;margin:1.2rem auto 0;max-width:540px;border-radius:14px;background:linear-gradient(135deg,rgba(255,94,91,0.12) 0%,rgba(255,36,0,0.08) 100%);border:1px solid rgba(255,94,91,0.25);backdrop-filter:blur(8px);width:90%;}
@@ -298,40 +312,6 @@ rt {
 .stat{font-size:0.78rem;color:var(--text2);}
 .stat strong{color:var(--accent);}
 
-/* ===== FLOATING FEEDBACK BUTTON (Bottom-Left, completely separated from Ko-fi Support on Bottom-Right) ===== */
-.feedback-float-btn {
-  position: fixed;
-  bottom: 24px;
-  left: 24px;
-  z-index: 9998;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.65rem 1.15rem;
-  border-radius: 50px;
-  background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #1d4ed8 100%);
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 0.88rem;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 6px 24px rgba(2, 132, 199, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
-  outline: none;
-}
-.feedback-float-btn:hover {
-  transform: translateY(-3px) scale(1.04);
-  box-shadow: 0 10px 32px rgba(2, 132, 199, 0.6), 0 4px 12px rgba(0, 0, 0, 0.35);
-  background: linear-gradient(135deg, #0369a1 0%, #1d4ed8 100%);
-}
-.feedback-float-btn .fb-icon {
-  font-size: 1.15rem;
-  line-height: 1;
-}
-.feedback-float-btn .fb-text {
-  white-space: nowrap;
-}
-
 /* Modal styling improvements */
 .modal-header-row {
   display: flex;
@@ -362,12 +342,6 @@ rt {
 @media (max-width: 600px) {
   .form-row-2 {
     grid-template-columns: 1fr;
-  }
-  .feedback-float-btn {
-    bottom: 16px;
-    left: 16px;
-    padding: 0.55rem 0.9rem;
-    font-size: 0.82rem;
   }
 }
 
@@ -1064,8 +1038,9 @@ rt {
   <div class="landing-header">
     <h1 id="landing-title">Semiconductor Reading Notes</h1>
     <p id="landing-subtitle">Select a literature below to explore reading notes, excerpts, figures, and key concepts.</p>
-    <div style="margin-top:1rem;display:flex;justify-content:center;">
-      <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
+    <div class="landing-actions">
+      <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()"><span class="lang-text">🌐 中文翻译 (Translate to Chinese)</span></button>
+      <button class="dock-fb-btn" onclick="openModal(activeBook || 'fa-ic')" title="Provide Feedback, Corrections or Reader Notes">💬 <span id="fb-float-text">Feedback &amp; Notes</span></button>
     </div>
   </div>
 
@@ -1085,7 +1060,7 @@ rt {
         <span class="badge">Teal / Cyan</span>
         <span class="badge">STEM·EDX·CL·EBSD·FIB</span>
       </div>
-      <button class="open-btn card-open-btn" onclick="openViewer('hitachi')">Open Notes →</button>
+      <button class="open-btn card-open-btn" onclick="event.stopPropagation(); openViewer('hitachi')">Open Notes →</button>
     </div>
 
 
@@ -1098,10 +1073,8 @@ rt {
         <span class="badge">Deep Blue</span>
         <span class="badge">FA·SEM·FIB·TEM</span>
       </div>
-      <button class="open-btn card-open-btn" onclick="openViewer('bruker-eds')">Open Notes →</button>
+      <button class="open-btn card-open-btn" onclick="event.stopPropagation(); openViewer('fa-ic')">Open Notes →</button>
     </div>
-  </div>
-</div>
 
     <div class="book-card card-bazu" onclick="openViewer('bazu')">
       <div class="book-icon">📖</div>
@@ -1112,7 +1085,7 @@ rt {
         <span class="badge">Dark Amethyst</span>
         <span class="badge">FMEA·FTA·HCI·EM</span>
       </div>
-      <button class="open-btn card-open-btn" onclick="openViewer(this.closest('.book-card').getAttribute('onclick').match(/'([^']+)'/)[1])">Open Notes →</button>
+      <button class="open-btn card-open-btn" onclick="event.stopPropagation(); openViewer(this.closest('.book-card').getAttribute('onclick').match(/'([^']+)'/)[1])">Open Notes →</button>
     </div>
 
     <div class="book-card card-packaging" onclick="openViewer('packaging')">
@@ -1124,7 +1097,7 @@ rt {
         <span class="badge">Forest Dark</span>
         <span class="badge">Ceramic·Plastic·TSV</span>
       </div>
-      <button class="open-btn card-open-btn" onclick="openViewer(this.closest('.book-card').getAttribute('onclick').match(/'([^']+)'/)[1])">Open Notes →</button>
+      <button class="open-btn card-open-btn" onclick="event.stopPropagation(); openViewer(this.closest('.book-card').getAttribute('onclick').match(/'([^']+)'/)[1])">Open Notes →</button>
     </div>
 
     <div class="book-card card-3d" onclick="openViewer('3d')">
@@ -1136,7 +1109,7 @@ rt {
         <span class="badge">433 Figs · 52 Tables</span>
         <span class="badge">TSV·TCB·Hybrid·EM·Thermal·FA</span>
       </div>
-      <button class="open-btn card-open-btn" onclick="openViewer(this.closest('.book-card').getAttribute('onclick').match(/'([^']+)'/)[1])">Open Notes →</button>
+      <button class="open-btn card-open-btn" onclick="event.stopPropagation(); openViewer(this.closest('.book-card').getAttribute('onclick').match(/'([^']+)'/)[1])">Open Notes →</button>
     </div>
 
     <div class="book-card card-bruker-eds" onclick="openViewer('bruker-eds')">
@@ -1148,21 +1121,15 @@ rt {
         <span class="badge">Electric Cyan</span>
         <span class="badge">EDS·SDD·ZAF·SEM</span>
       </div>
-      <button class="open-btn card-open-btn" onclick="openViewer(this.closest('.book-card').getAttribute('onclick').match(/'([^']+)'/)[1])">Open Notes →</button>
+      <button class="open-btn card-open-btn" onclick="event.stopPropagation(); openViewer(this.closest('.book-card').getAttribute('onclick').match(/'([^']+)'/)[1])">Open Notes →</button>
     </div>
-
-
-<!-- ===== FLOATING FEEDBACK BUTTON (Always Visible, Bottom-Left) ===== -->
-<button class="feedback-float-btn" onclick="openModal(activeBook || 'fa-ic')" title="Provide Feedback, Corrections or Reader Notes">
-  <span class="fb-icon">💬</span>
-  <span class="fb-text" id="fb-float-text">Feedback & Notes</span>
-</button>
-
-<!-- ===== FLOATING KO-FI BUTTON (Always Visible) ===== -->
-<a class="kofi-float" href="https://ko-fi.com/jeremyhow" target="_blank" rel="noopener noreferrer">
-  <span class="kofi-icon">☕</span>
-  <span class="kofi-text" id="kofi-float-text">Support on Ko-fi</span>
-</a>
+  </div>
+  <footer class="landing-footer">
+    <span>Semiconductor Reading Notes · Technical Reference Library</span>
+    <button class="dock-fb-btn" onclick="openModal(activeBook || 'fa-ic')" title="Provide Feedback, Corrections or Reader Notes">💬 Feedback &amp; Notes</button>
+    <a class="dock-kofi-btn" href="https://ko-fi.com/jeremyhow" target="_blank" rel="noopener noreferrer">☕ <span id="kofi-float-text">Support on Ko-fi</span></a>
+  </footer>
+</div>
 
 <!-- ===== VIEWER: FA IC ===== -->
 <div class="viewer viewer-dracula" id="viewer-fa-ic">
@@ -1195,7 +1162,7 @@ rt {
     <div class="viewer-controls-bar">
       <div class="control-group">
         <button class="control-btn" onclick="openModal(activeBook || 'fa-ic')" title="Submit feedback or save reading notes">💬 <span class="fb-toolbar-text">Feedback (反馈)</span></button>
-      <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
+      <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()"><span class="lang-text">🌐 中文翻译 (Translate to Chinese)</span></button>
       </div>
       <div class="control-group">
         <button class="control-btn" onclick="startNarrator()" title="Read content aloud">▶ <span class="narrator-play-text">朗读 (Read Aloud)</span></button>
@@ -1249,7 +1216,7 @@ rt {
     <div class="viewer-controls-bar">
       <div class="control-group">
         <button class="control-btn" onclick="openModal(activeBook || 'fa-ic')" title="Submit feedback or save reading notes">💬 <span class="fb-toolbar-text">Feedback (反馈)</span></button>
-      <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
+      <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()"><span class="lang-text">🌐 中文翻译 (Translate to Chinese)</span></button>
       </div>
       <div class="control-group">
         <button class="control-btn" onclick="startNarrator()" title="Read content aloud">▶ <span class="narrator-play-text">朗读 (Read Aloud)</span></button>
@@ -1303,7 +1270,7 @@ rt {
     <div class="viewer-controls-bar">
       <div class="control-group">
         <button class="control-btn" onclick="openModal(activeBook || 'fa-ic')" title="Submit feedback or save reading notes">💬 <span class="fb-toolbar-text">Feedback (反馈)</span></button>
-      <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
+      <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()"><span class="lang-text">🌐 中文翻译 (Translate to Chinese)</span></button>
       </div>
       <div class="control-group">
         <button class="control-btn" onclick="startNarrator()" title="Read content aloud">▶ <span class="narrator-play-text">朗读 (Read Aloud)</span></button>
@@ -1357,7 +1324,7 @@ rt {
     <div class="viewer-controls-bar">
       <div class="control-group">
         <button class="control-btn" onclick="openModal(activeBook || 'fa-ic')" title="Submit feedback or save reading notes">💬 <span class="fb-toolbar-text">Feedback (反馈)</span></button>
-      <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
+      <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()"><span class="lang-text">🌐 中文翻译 (Translate to Chinese)</span></button>
       </div>
       <div class="control-group">
         <button class="control-btn" onclick="startNarrator()" title="Read content aloud">▶ <span class="narrator-play-text">朗读 (Read Aloud)</span></button>
@@ -1414,7 +1381,7 @@ rt {
     <div class="viewer-controls-bar">
       <div class="control-group">
         <button class="control-btn" onclick="openModal(activeBook || 'fa-ic')" title="Submit feedback or save reading notes">💬 <span class="fb-toolbar-text">Feedback (反馈)</span></button>
-      <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
+      <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()"><span class="lang-text">🌐 中文翻译 (Translate to Chinese)</span></button>
       </div>
       <div class="control-group">
         <button class="control-btn" onclick="startNarrator()" title="Read content aloud">▶ <span class="narrator-play-text">朗读 (Read Aloud)</span></button>
@@ -1469,7 +1436,7 @@ rt {
     <div class="viewer-controls-bar">
       <div class="control-group">
         <button class="control-btn" onclick="openModal(activeBook || 'hitachi')" title="Submit feedback or save reading notes">💬 <span class="fb-toolbar-text">Feedback (反馈)</span></button>
-        <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()">🌐 <span class="lang-text">中文翻译 (Translate to Chinese)</span></button>
+        <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()"><span class="lang-text">🌐 中文翻译 (Translate to Chinese)</span></button>
       </div>
       <div class="control-group">
         <button class="control-btn" onclick="startNarrator()" title="Read content aloud">▶ <span class="narrator-play-text">朗读 (Read Aloud)</span></button>
@@ -2559,6 +2526,8 @@ function applyLanguageUI() {
   const c3S = document.getElementById('card3-sub'); if(c3S) c3S.innerHTML = formatTextToRubyHtml(dict.card3Sub);
   const c4T = document.getElementById('card4-title'); if(c4T) c4T.innerHTML = formatTextToRubyHtml(dict.card4Title);
   const c4S = document.getElementById('card4-sub'); if(c4S) c4S.innerHTML = formatTextToRubyHtml(dict.card4Sub);
+  const c6T = document.getElementById('card6-title'); if(c6T && dict.card6Title) c6T.innerHTML = formatTextToRubyHtml(dict.card6Title);
+  const c6S = document.getElementById('card6-sub'); if(c6S && dict.card6Sub) c6S.innerHTML = formatTextToRubyHtml(dict.card6Sub);
   
   document.querySelectorAll('.card-open-btn').forEach(btn => btn.innerHTML = formatTextToRubyHtml(dict.openBtn));
 }
