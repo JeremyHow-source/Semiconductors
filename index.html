@@ -214,6 +214,14 @@ body {
 
 .viewer-hitachi{--bg:#022c22;--bg2:#064e3b;--card:#065f46;--accent:#2dd4bf;--accent2:#5eead4;--border:#0f766e;--tag-bg:#134e4a;--tag:#99f6e4;--text:#f0fdfa;--text2:#6ee7b7;--th:#134e4a;--tr-alt:#042f2e;--btn-act:#2dd4bf;--btn-txt:#022c22;background:var(--bg);color:var(--text);}
 
+/* CARD 7 — Oxford AZtec EDS TEM (Oxford Cobalt Blue) */
+.card-aztec-eds{background:linear-gradient(135deg,#071b3d 0%,#0f3b78 100%);border:1px solid #3b82f6;color:#dbeafe;box-shadow:0 8px 32px rgba(59,130,246,0.28);}
+.card-aztec-eds h2{color:#93c5fd;}
+.card-aztec-eds .badge{background:rgba(59,130,246,0.22);color:#93c5fd;border:1px solid #3b82f6;}
+.card-aztec-eds .open-btn{background:#3b82f6;color:#fff;}
+.viewer-aztec-eds{--bg:#07142b;--bg2:#0c2247;--card:#112e5e;--accent:#60a5fa;--accent2:#93c5fd;--border:#1d4ed8;--tag-bg:#172554;--tag:#bfdbfe;--text:#eff6ff;--text2:#93c5fd;--th:#172554;--tr-alt:#0a1c3b;--btn-act:#3b82f6;--btn-txt:#fff;background:var(--bg);color:var(--text);}
+.pdf-link-btn{text-decoration:none !important;}
+
 .viewer{display:none;flex-direction:column;min-height:100vh;width:100%;overflow-x:hidden;}
 .viewer.active{display:flex;}
 
@@ -1123,6 +1131,18 @@ rt {
       </div>
       <button class="open-btn card-open-btn" onclick="event.stopPropagation(); openViewer(this.closest('.book-card').getAttribute('onclick').match(/'([^']+)'/)[1])">Open Notes →</button>
     </div>
+
+    <div class="book-card card-aztec-eds" onclick="openViewer('aztec-eds-tem')">
+      <div class="book-icon">⚛️</div>
+      <h2 id="card7-title">Oxford AZtec EDS (TEM) Complete User Guide</h2>
+      <p id="card7-sub">Complete 130-page bilingual (English &amp; 中文) handbook covering TEM/EDS hardware &amp; detector setup, AZtecLive, AutoLock drift correction, Analyzer, Mass-Thickness, Point &amp; ID, Linescan, QuantMap/AutoPhaseMap, and Optimize with all 253 original screenshots &amp; diagrams.</p>
+      <div class="meta">
+        <span class="badge">Ch. 1–16 Complete</span>
+        <span class="badge">Bilingual EN / 中文</span>
+        <span class="badge">TEM·AZtecLive·QuantMap</span>
+      </div>
+      <button class="open-btn card-open-btn" onclick="event.stopPropagation(); openViewer('aztec-eds-tem')">Open Notes →</button>
+    </div>
   </div>
   <footer class="landing-footer">
     <span>Semiconductor Reading Notes · Technical Reference Library</span>
@@ -1458,6 +1478,63 @@ rt {
   <div class="markdown-container" id="hitachi-doc-container"></div>
 </div>
 
+<!-- ===== VIEWER: OXFORD AZTEC EDS (TEM) ===== -->
+<div class="viewer viewer-dracula" id="viewer-aztec-eds-tem">
+  <div class="viewer-header">
+    <div class="vh-top">
+      <button class="back-btn" onclick="goLanding()">← Back</button>
+      <div style="flex-grow:1">
+        <h2 id="aztec-viewer-title">Oxford AZtec EDS (TEM) Complete User Guide</h2>
+        <div class="subtitle" id="aztec-viewer-sub">Complete 130-Page Manual (EN &amp; 中文 Full Editions + All Original Figures &amp; PDFs)</div>
+      </div>
+      <div class="theme-selector-container">
+        <label class="theme-label" for="theme-aztec">🎨 Theme:</label>
+        <select id="theme-aztec" class="theme-select" onchange="changeTheme(this.value)">
+          <option value="dracula" selected>Dracula (Default)</option>
+          <option value="aztec-eds-tem">Oxford Cobalt</option>
+          <option value="fa-ic">Deep Blue Steel</option>
+          <option value="bruker-eds">Electric Cyan</option>
+          <option value="bazu">Dark Amethyst</option>
+          <option value="packaging">Forest Dark</option>
+          <option value="3d">Amber / Copper</option>
+        </select>
+      </div>
+    </div>
+    <div class="stats-bar">
+      <span class="stat" id="aztec-count">Notes: <strong>0</strong></span>
+      <span class="stat">Scope: <strong>Chapters 1–16 (130 Pages · 253 Visuals · EN &amp; 中文)</strong></span>
+    </div>
+    <div class="view-mode-toggle">
+      <button class="mode-btn" id="mode-card-aztec" onclick="switchViewMode('aztec-eds-tem', 'card')">📱 Snippet Cards</button>
+      <button class="mode-btn active" id="mode-doc-aztec" onclick="switchViewMode('aztec-eds-tem', 'doc')">📄 Full Waterfall Guide (EN / 中文)</button>
+    </div>
+    <div class="viewer-controls-bar">
+      <div class="control-group">
+        <button class="control-btn" onclick="openModal(activeBook || 'aztec-eds-tem')" title="Submit feedback or save reading notes">💬 <span class="fb-toolbar-text">Feedback (反馈)</span></button>
+        <button class="control-btn lang-toggle-btn" onclick="toggleLanguage()"><span class="lang-text">🌐 中文翻译 (Translate to Chinese)</span></button>
+        <a class="control-btn pdf-link-btn" href="AZtec_EDS_TEM/AZtec_EDS_TEM_User_Guide_EN.pdf" target="_blank" rel="noopener noreferrer">📄 English PDF (White BG)</a>
+        <a class="control-btn pdf-link-btn" href="AZtec_EDS_TEM/AZtec_EDS_TEM_User_Guide_ZH.pdf" target="_blank" rel="noopener noreferrer">📄 中文原版 PDF</a>
+      </div>
+      <div class="control-group">
+        <button class="control-btn" onclick="startNarrator()" title="Read content aloud">▶ <span class="narrator-play-text">朗读 (Read Aloud)</span></button>
+        <button class="control-btn" onclick="pauseNarrator()" title="Pause/Resume reading">⏸ <span class="narrator-pause-text">暂停 (Pause)</span></button>
+        <button class="control-btn" onclick="stopNarrator()" title="Stop reading">⏹ <span class="narrator-stop-text">停止 (Stop)</span></button>
+        <select class="speech-rate-select" onchange="updateSpeechRate(this.value)" title="Voice Speed">
+          <option value="0.8">0.8x</option>
+          <option value="1.0" selected>1.0x</option>
+          <option value="1.2">1.2x</option>
+          <option value="1.5">1.5x</option>
+          <option value="2.0">2.0x</option>
+        </select>
+        <span class="narrator-status-text">Ready</span>
+      </div>
+    </div>
+    <div class="nav-buttons" id="aztec-nav"></div>
+  </div>
+  <div class="notes-container" id="aztec-container"></div>
+  <div class="markdown-container" id="aztec-doc-container"></div>
+</div>
+
 <!-- ===== SHARED COMPREHENSIVE FEEDBACK & READER NOTES MODAL ===== -->
 <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
   <div class="modal" role="dialog" aria-labelledby="modalTitle">
@@ -1506,6 +1583,7 @@ rt {
       <div class="form-group">
         <label for="noteBook">Literature / 涉及书目与模块</label>
         <select id="noteBook" onchange="onModalBookChange(this.value)">
+          <option value="aztec-eds-tem">⚛️ Oxford AZtec EDS (TEM) User Guide</option>
           <option value="hitachi">🔬 Hitachi Semiconductor Analysis Handbook</option>
           <option value="bruker-eds">⚡ Bruker QUANTAX EDS Advanced Training</option>
           <option value="fa-ic">🔬 Failure Analysis of ICs</option>
@@ -1576,6 +1654,7 @@ rt {
       <div class="form-group">
         <label>Literature / 涉及书目与模块</label>
         <select id="noteBook" onchange="onModalBookChange(this.value)">
+          <option value="aztec-eds-tem">⚛️ Oxford AZtec EDS (TEM) User Guide</option>
           <option value="hitachi">🔬 Hitachi Semiconductor Analysis Handbook</option>
           <option value="fa-ic">🔬 Failure Analysis of ICs</option>
           <option value="bazu">📖 Failure Analysis (Bâzu 2011)</option>
@@ -1953,6 +2032,28 @@ const hitachiNotes = [
   {s:'ch6-9', ch:'Ch.6.9 p.86', d:'2026-09-28', t:['Cathodoluminescence','Bandgap','Defect-Spectroscopy'], c:'Cathodoluminescence (CL) detects UV-visible photons emitted during electron-hole recombination across semiconductor bandgaps and impurity/defect states. In GaN optoelectronic devices, CL spectroscopy differentiates band-edge emission (357 nm), dislocations (376 nm), and deep-level crystal defects (386 nm) with sub-micron spatial resolution. (pp. 86–94, Photos 10–01)'}
 ];
 
+// ============================================================
+// DATA: OXFORD AZTEC EDS (TEM) COMPLETE USER GUIDE
+// ============================================================
+const aztecSections = [
+  {id:'all', label:'All Chapters (Ch.1–16)'},
+  {id:'ch1-3', label:'Ch.1–3 — Hardware, Prep & Specimen'},
+  {id:'ch4-6', label:'Ch.4–6 — AZtecLive, Imaging & AutoLock'},
+  {id:'ch7-9', label:'Ch.7–9 — Analyzer & Mass-Thickness'},
+  {id:'ch10-13', label:'Ch.10–13 — Point & ID & Linescan'},
+  {id:'ch14-16', label:'Ch.14–16 — QuantMap, Phases & Optimize'}
+];
+
+const aztecNotes = [
+  {s:'ch1-3', ch:'Ch.1–2', d:'2026-11-22', t:['SDD','Ultim-Max-TEM','Xplore-TEM','Flux-Protection'], c:'Oxford AZtec TEM EDS Architecture (Ch.1–2): Covers Ultim Max TEM / TLE (80–100 mm² windowless) and Xplore TEM SDD detectors, X1/X4 pulse processors, ICC & ballistic deficit at high count rates, pulse pile-up inspection, specimen prep (FIB/electropolishing), holder tilting (20–30° toward detector) to avoid shadowing, and Low-Mag / Flux Protection interlocks.'},
+  {s:'ch1-3', ch:'Ch.3', d:'2026-11-22', t:['Describe-Specimen','Pre-defined-Elements','AutoID'], c:'Describing Specimens & Pre-defined Elements (Ch.3): Captures Project, Specimen, and Site Notes for reporting, sets pre-tilted holder geometry, and configures mandatory green-highlighted Pre-defined Elements and User Profiles alongside AutoID.'},
+  {s:'ch4-6', ch:'Ch.4–5', d:'2026-11-22', t:['AZtecLive','Scan-Image','BF-ADF'], c:'AZtecLive & Specimen Imaging (Ch.4–5): Real-time simultaneous STEM (BF/ADF) imaging and X-ray mapping even during stage motion (Improve Static Quality + Motion Detection Sensitivity), plus continuous reduced-area focusing, padlock image locking in the Data Tree, and calibrated TIFF/CSV/TSV exports.'},
+  {s:'ch4-6', ch:'Ch.6', d:'2026-11-22', t:['AutoLock','Drift-Correction','Predictive'], c:'AutoLock Drift Correction (Ch.6): Eliminates thermal/charging drift via Reactive tracking, Frame-by-Frame mapping correction, and Predictive Drift Correction using dual reference intervals; monitored in real time via AutoLock Progress, History histogram, and Drift Extent (%).'},
+  {s:'ch7-9', ch:'Ch.7–9', d:'2026-11-22', t:['Analyzer','MiniQuant','FLS','Mass-Thickness'], c:'Analyzer & Mass-Thickness Workflow (Ch.7–9): Guided & Custom spectrum acquisition (Process Time 1–6, Energy Range 10/20/40 keV, 1024–4096 channels, 300k Auto count limit), Confirm Elements with FLS Peak Shapes & Fitted Spectrum overlays, and beam-current-free Mass-Thickness quantification using the Si3N4 reference standard (PN 51-1606-058).'},
+  {s:'ch10-13', ch:'Ch.10–13', d:'2026-11-22', t:['Point-and-ID','Linescan','TruLine','QuantLine'], c:'Point & ID & Linescan (Ch.10–13): Image-centric Point/Area/Freehand acquisition and multi-spectrum comparison; Linescan modes (Line Window Integral, TruLine FLS overlap correction, QuantLine wt%/at%), wide linescans & grids extracted from SmartMaps, and 3-point/5-point smoothing + binning.'},
+  {s:'ch14-16', ch:'Ch.14–16', d:'2026-11-22', t:['QuantMap','AutoPhaseMap','k-factors','Sum-Peak'], c:'Mapping, AutoPhaseMap & Optimization (Ch.14–16): QuantMap pixel-by-pixel deconvolution with Discrete Color Code scaling; AutoPhaseMap automated statistical phase separation (Boundary Tolerance, Grouping Level, Normalize); and Optimize calibration (Co/Ni/Cu Energy Calibration, Si3N4 Beam Measurement, experimental/theoretical Cliff-Lorimer k-factors, and Sum Peak Correction).'}
+];
+
 // BOOK-LEVEL STATE
 // ============================================================
 const books = {
@@ -1961,7 +2062,8 @@ const books = {
   'packaging': {docContainerId:'pkg-doc-container',containerId:'pkg-container',cardBtnId:'mode-card-packaging',docBtnId:'mode-doc-packaging',sections:pkgSections,notes:pkgNotes,storageKey:'pkg_user_notes',navId:'pkg-nav',countId:'pkg-count',modalSections:pkgSections.filter(s=>s.id!=='all')},
   '3d': {docContainerId:'pkg3d-doc-container',containerId:'pkg3d-container',cardBtnId:'mode-card-3d',docBtnId:'mode-doc-3d',sections:pkg3dSections,notes:pkg3dNotes,storageKey:'pkg3d_user_notes',navId:'pkg3d-nav',countId:'pkg3d-count',modalSections:pkg3dSections.filter(s=>s.id!=='all')},
   'hitachi': {docContainerId:'hitachi-doc-container',containerId:'hitachi-container',cardBtnId:'mode-card-hitachi',docBtnId:'mode-doc-hitachi',sections:hitachiSections,notes:hitachiNotes,storageKey:'hitachi_user_notes',navId:'hitachi-nav',countId:'hitachi-count',modalSections:hitachiSections.filter(s=>s.id!=='all')},
-'bruker-eds': {docContainerId:'eds-doc-container',containerId:'eds-container',cardBtnId:'mode-card-eds',docBtnId:'mode-doc-eds',sections:edsSections,notes:edsNotes,storageKey:'eds_user_notes',navId:'eds-nav',countId:'eds-count',modalSections:edsSections.filter(s=>s.id!=='all')}
+  'bruker-eds': {docContainerId:'eds-doc-container',containerId:'eds-container',cardBtnId:'mode-card-eds',docBtnId:'mode-doc-eds',sections:edsSections,notes:edsNotes,storageKey:'eds_user_notes',navId:'eds-nav',countId:'eds-count',modalSections:edsSections.filter(s=>s.id!=='all')},
+  'aztec-eds-tem': {docContainerId:'aztec-doc-container',containerId:'aztec-container',cardBtnId:'mode-card-aztec',docBtnId:'mode-doc-aztec',sections:aztecSections,notes:aztecNotes,storageKey:'aztec_tem_user_notes',navId:'aztec-nav',countId:'aztec-count',modalSections:aztecSections.filter(s=>s.id!=='all')}
 };
 
 const mdFilePaths = {
@@ -1970,7 +2072,12 @@ const mdFilePaths = {
   'packaging': 'Failure/IC_Packaging_Reliability_Notes.md',
   '3d': 'Packaging/3D_Microelectronic_Packaging_Notes.md',
   'hitachi': 'Hitachi/Hitachi_Semiconductor_Analysis_Notes.md',
-  'bruker-eds': 'Failure/Bruker_EDS_Training_Notes.md'
+  'bruker-eds': 'Failure/Bruker_EDS_Training_Notes.md',
+  'aztec-eds-tem': 'AZtec_EDS_TEM/AZtec_EDS_TEM_User_Guide_EN.md'
+};
+
+const mdFilePathsZh = {
+  'aztec-eds-tem': 'AZtec_EDS_TEM/AZtec_EDS_TEM_User_Guide_ZH.md'
 };
 
 const EMBEDDED_MD_DATA = {
@@ -1985,7 +2092,8 @@ const activeSection = {
   'bazu': 'all',
   'packaging': 'all',
   '3d': 'all',
-  'bruker-eds': 'all'
+  'bruker-eds': 'all',
+  'aztec-eds-tem': 'all'
 };
 const viewModeState = {
   'hitachi': 'doc',
@@ -1993,7 +2101,8 @@ const viewModeState = {
   'bazu': 'doc',
   'packaging': 'doc',
   '3d': 'doc',
-  'bruker-eds': 'doc'
+  'bruker-eds': 'doc',
+  'aztec-eds-tem': 'doc'
 };
 
 // Initialize Mermaid.js
@@ -2008,7 +2117,7 @@ if (typeof mermaid !== 'undefined') {
 // ============================================================
 // THEME MANAGEMENT (Dracula Default for New Window Sessions)
 // ============================================================
-const VALID_THEMES = ['dracula', 'hitachi', 'fa-ic', 'bazu', 'packaging', '3d', 'bruker-eds'];
+const VALID_THEMES = ['dracula', 'aztec-eds-tem', 'hitachi', 'fa-ic', 'bazu', 'packaging', '3d', 'bruker-eds'];
 
 function getActiveTheme() {
   const saved = localStorage.getItem('reading_notes_theme');
@@ -2022,7 +2131,8 @@ const themeBgMap = {
   'packaging': '#021208',
   '3d': '#160900',
   'bruker-eds': '#022c22',
-  'hitachi': '#022c22'
+  'hitachi': '#022c22',
+  'aztec-eds-tem': '#07142b'
 };
 
 function applyTheme(themeName) {
@@ -2050,8 +2160,18 @@ function changeTheme(themeName) {
 // Initial theme & language application
 applyTheme(getActiveTheme());
 document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const qLang = params.get('lang');
+  if (qLang === 'zh' || qLang === 'en') {
+    currentLang = qLang;
+    localStorage.setItem('reading_notes_lang', currentLang);
+  }
   applyTheme(getActiveTheme());
   applyLanguageUI();
+  const qBook = params.get('book');
+  if (qBook && books[qBook]) {
+    openViewer(qBook);
+  }
   if ('speechSynthesis' in window) {
     window.speechSynthesis.onvoiceschanged = () => {};
   }
@@ -2082,6 +2202,8 @@ card5Title: "Bruker QUANTAX EDS Advanced Training",
     card5Sub: "Comprehensive SEM/EDS Microanalysis — covering SDD detector physics, pulse processors, beam-matter interactions, interaction volumes, specimen prep, ZAF/Phi-Rho-Z quantification, and carbon anomaly analysis.",
     card6Title: "Hitachi Semiconductor Analysis & Characterization Handbook",
     card6Sub: "Comprehensive technical knowledge source covering STEM Z-contrast imaging, EDX detector principles, low-vacuum SEM charge suppression, Cathodoluminescence (CL) defect spectroscopy, EBSD crystallography, and FIB specimen preparation with 96 tagged images.",
+    card7Title: "Oxford AZtec EDS (TEM) Complete User Guide",
+    card7Sub: "Complete 130-page bilingual (English & 中文) handbook covering TEM/EDS hardware & detector setup, AZtecLive, AutoLock drift correction, Analyzer, Mass-Thickness, Point & ID, Linescan, QuantMap/AutoPhaseMap, and Optimize with all 253 original screenshots & diagrams.",
     openBtn: "Open Notes →",
     readAloud: "▶ 朗读 (Read Aloud)",
     pause: "⏸ 暂停 (Pause)",
@@ -2107,6 +2229,8 @@ card5Title: "布鲁克 QUANTAX EDS 高级应用培训",
     card5Sub: "扫描电镜微区成分能谱分析全景——涵盖 SDD 硅漂移探测器、脉冲处理器、电子束-物质相互作用、激发体积、试样制备、ZAF/Phi-Rho-Z 定量计算及碳异常分析。",
     card6Title: "日立半导体分析与微观表征手册",
     card6Sub: "全面涵盖 STEM Z衬度成像、EDX 探测器原理、低真空 SEM 电荷抑制、阴极发光 (CL) 缺陷光谱、EBSD 晶体学与 FIB 样品制备（附 96 张标定图表）。",
+    card7Title: "牛津仪器 AZtec EDS (TEM) 完整用户指南",
+    card7Sub: "完整 130 页双语（英文/中文原版）用户手册——涵盖 TEM/EDS 探测器设置、AZtecLive 实时成像、AutoLock 漂移修正、Analyzer 分析器、质厚测量、点与ID、线扫描、QuantMap 定量分布图、自动相分析及系统优化（含全部 253 张原版截图与图表）。",
     openBtn: "打开笔记 →",
     readAloud: "▶ 朗读 (Read Aloud)",
     pause: "⏸ 暂停 (Pause)",
@@ -2528,6 +2652,9 @@ function applyLanguageUI() {
   const c4S = document.getElementById('card4-sub'); if(c4S) c4S.innerHTML = formatTextToRubyHtml(dict.card4Sub);
   const c6T = document.getElementById('card6-title'); if(c6T && dict.card6Title) c6T.innerHTML = formatTextToRubyHtml(dict.card6Title);
   const c6S = document.getElementById('card6-sub'); if(c6S && dict.card6Sub) c6S.innerHTML = formatTextToRubyHtml(dict.card6Sub);
+  const c7T = document.getElementById('card7-title'); if(c7T && dict.card7Title) c7T.innerHTML = formatTextToRubyHtml(dict.card7Title);
+  const c7S = document.getElementById('card7-sub'); if(c7S && dict.card7Sub) c7S.innerHTML = formatTextToRubyHtml(dict.card7Sub);
+  const azT = document.getElementById('aztec-viewer-title'); if(azT && dict.card7Title) azT.textContent = dict.card7Title;
   
   document.querySelectorAll('.card-open-btn').forEach(btn => btn.innerHTML = formatTextToRubyHtml(dict.openBtn));
 }
@@ -2729,7 +2856,7 @@ async function loadAndRenderMarkdown(bookId) {
   if (!container || container.dataset.loaded === 'true') return;
   
   // Always try fetching the live .md file first (most up-to-date)
-  const filePath = mdFilePaths[bookId];
+  const filePath = (currentLang === 'zh' && mdFilePathsZh[bookId]) ? mdFilePathsZh[bookId] : mdFilePaths[bookId];
   try {
     const response = await fetch(filePath);
     if (!response.ok) throw new Error('HTTP error ' + response.status);
@@ -2751,6 +2878,7 @@ async function loadAndRenderMarkdown(bookId) {
 
 function translateContentText(text) {
   if (currentLang !== 'zh' || !text || typeof text !== 'string') return text;
+  if (activeBook && mdFilePathsZh[activeBook] && viewModeState[activeBook] === 'doc') return text;
   
   // Protect markdown image tags and HTML tags from regex distortion
   const protectedItems = [];
@@ -2825,6 +2953,10 @@ function renderMarkdownContent(container, mdText) {
         resolvedSrc = 'Packaging/' + resolvedSrc.substring(2);
       } else if (resolvedSrc.includes('Packaging\\figures\\') || resolvedSrc.includes('Packaging/figures/')) {
         resolvedSrc = 'Packaging/figures/' + resolvedSrc.split(/[\\/]/).pop();
+      } else if (resolvedSrc.startsWith('images/tem_guide/')) {
+        resolvedSrc = 'AZtec_EDS_TEM/' + resolvedSrc;
+      } else if (resolvedSrc.startsWith('./images/tem_guide/')) {
+        resolvedSrc = 'AZtec_EDS_TEM/' + resolvedSrc.substring(2);
       }
       
       const altEscaped = escapeHtml(altText || 'Technical Figure');
@@ -2835,7 +2967,7 @@ function renderMarkdownContent(container, mdText) {
       return `
         <figure class="hd-figure-container">
           <div class="hd-img-frame">
-            <img src="${resolvedSrc}" alt="${altEscaped}"${titleAttr} loading="lazy" class="hd-sem-image" onerror="if(!this.dataset.retried){this.dataset.retried='true';var f=this.src.split('/').pop();this.src=(activeBook==='3d'?'Packaging/figures/':'Hitachi/sorted_by_page/')+f;}">
+            <img src="${resolvedSrc}" alt="${altEscaped}"${titleAttr} loading="lazy" class="hd-sem-image" onerror="if(!this.dataset.retried){this.dataset.retried='true';var f=this.src.split('/').pop();this.src=(activeBook==='3d'?'Packaging/figures/':(activeBook==='aztec-eds-tem'?'AZtec_EDS_TEM/images/tem_guide/':'Hitachi/sorted_by_page/'))+f;}">
             <button class="hd-zoom-btn" type="button" onclick="openHdImageLightbox('${srcJsSafe}', '${altJsSafe}')" title="Click to view Fullscreen High-Definition (高清全屏放大)">🔍 High-Definition</button>
           </div>
           <figcaption class="hd-figure-caption"><span class="hd-fig-tag">📷 Source Image</span> ${altEscaped}</figcaption>
